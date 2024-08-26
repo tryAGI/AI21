@@ -1,15 +1,14 @@
 namespace AI21.IntegrationTests;
 
 [TestClass]
-public class GeneralTests
+public partial class Tests
 {
-    [TestMethod]
-    public async Task Generate()
+    public static Ai21Api GetAuthorizedApi()
     {
         var apiKey =
             Environment.GetEnvironmentVariable("AI21_API_KEY") ??
             throw new AssertInconclusiveException("AI21_API_KEY environment variable is not found.");
 
-        using var api = new Ai21Api();
+        return new Ai21Api(apiKey);
     }
 }
