@@ -15,6 +15,12 @@ var openApiDocument = new OpenApiStringReader().Read(text, out var diagnostics);
 
 //openApiDocument.Components.Schemas["GenerateCompletionRequest"]!.Properties["stream"]!.Default = new OpenApiBoolean(true);
 
+// Set server
+openApiDocument.Servers.Add(new OpenApiServer
+{
+    Url = "https://api.ai21.com/",
+});
+
 openApiDocument.Components.SecuritySchemes.Add("Bearer", new OpenApiSecurityScheme
 {
     Type = SecuritySchemeType.Http,

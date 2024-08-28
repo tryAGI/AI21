@@ -12,7 +12,7 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        public const string BaseUrl = "";
+        public const string BaseUrl = "https://api.ai21.com/";
 
         private readonly global::System.Net.Http.HttpClient _httpClient;
 

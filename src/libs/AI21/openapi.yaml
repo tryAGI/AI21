@@ -3,6 +3,8 @@ info:
   title: AI21 Studio API
   description: Access our powerful language models using an API that makes you smile
   version: 1.0.0
+servers:
+  - url: https://api.ai21.com/
 paths:
   /studio/v1/chat/files/convert:
     post:
