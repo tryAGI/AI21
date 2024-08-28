@@ -33,6 +33,7 @@ namespace AI21
         /// An enumeration.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("summaryMethod")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.SummaryMethodJsonConverter))]
         public global::AI21.SummaryMethod? SummaryMethod { get; set; }
 
         /// <summary>

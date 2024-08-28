@@ -5,35 +5,39 @@ namespace AI21
 {
     public partial class CompletionClient
     {
-        partial void PrepareV1J2JumboCompleteArguments(
+        partial void PrepareV1J2JumboComplete2Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? model,
+            ref string customModelName,
+            ref string? customModelType,
             global::AI21.CompletionBody request);
-        partial void PrepareV1J2JumboCompleteRequest(
+        partial void PrepareV1J2JumboComplete2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? model,
+            string customModelName,
+            string? customModelType,
             global::AI21.CompletionBody request);
-        partial void ProcessV1J2JumboCompleteResponse(
+        partial void ProcessV1J2JumboComplete2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessV1J2JumboCompleteResponseContent(
+        partial void ProcessV1J2JumboComplete2ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// j2-jumbo complete
+        /// Custom j2-jumbo complete
         /// </summary>
-        /// <param name="model">
+        /// <param name="customModelName"></param>
+        /// <param name="customModelType">
         /// Default Value: j2-jumbo
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.V1J2JumboCompleteResponse> V1J2JumboCompleteAsync(
-            string? model,
+        public async global::System.Threading.Tasks.Task<global::AI21.V1J2JumboCompleteResponse2> V1J2JumboComplete2Async(
+            string customModelName,
+            string? customModelType,
             global::AI21.CompletionBody request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -41,14 +45,15 @@ namespace AI21
 
             PrepareArguments(
                 client: _httpClient);
-            PrepareV1J2JumboCompleteArguments(
+            PrepareV1J2JumboComplete2Arguments(
                 httpClient: _httpClient,
-                model: ref model,
+                customModelName: ref customModelName,
+                customModelType: ref customModelType,
                 request: request);
 
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/studio/v1/j2-jumbo/complete?model={model}", global::System.UriKind.RelativeOrAbsolute));
+                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/studio/v1/j2-jumbo/{customModelName}/complete?custom_model_type={customModelType}", global::System.UriKind.RelativeOrAbsolute));
             var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::AI21.SourceGenerationContext.Default.CompletionBody);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -59,10 +64,11 @@ namespace AI21
             PrepareRequest(
                 client: _httpClient,
                 request: httpRequest);
-            PrepareV1J2JumboCompleteRequest(
+            PrepareV1J2JumboComplete2Request(
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
-                model: model,
+                customModelName: customModelName,
+                customModelType: customModelType,
                 request: request);
 
             using var response = await _httpClient.SendAsync(
@@ -73,7 +79,7 @@ namespace AI21
             ProcessResponse(
                 client: _httpClient,
                 response: response);
-            ProcessV1J2JumboCompleteResponse(
+            ProcessV1J2JumboComplete2Response(
                 httpClient: _httpClient,
                 httpResponseMessage: response);
 
@@ -83,7 +89,7 @@ namespace AI21
                 client: _httpClient,
                 response: response,
                 content: ref __content);
-            ProcessV1J2JumboCompleteResponseContent(
+            ProcessV1J2JumboComplete2ResponseContent(
                 httpClient: _httpClient,
                 httpResponseMessage: response,
                 content: ref __content);
@@ -98,14 +104,15 @@ namespace AI21
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::AI21.SourceGenerationContext.Default.V1J2JumboCompleteResponse) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::AI21.SourceGenerationContext.Default.V1J2JumboCompleteResponse2) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
         /// <summary>
-        /// j2-jumbo complete
+        /// Custom j2-jumbo complete
         /// </summary>
-        /// <param name="model">
+        /// <param name="customModelName"></param>
+        /// <param name="customModelType">
         /// Default Value: j2-jumbo
         /// </param>
         /// <param name="prompt"></param>
@@ -138,9 +145,10 @@ namespace AI21
         /// <param name="epoch"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.V1J2JumboCompleteResponse> V1J2JumboCompleteAsync(
+        public async global::System.Threading.Tasks.Task<global::AI21.V1J2JumboCompleteResponse2> V1J2JumboComplete2Async(
+            string customModelName,
             string prompt,
-            string? model = "j2-jumbo",
+            string? customModelType = "j2-jumbo",
             int numResults = 1,
             int maxTokens = 16,
             int minTokens = 0,
@@ -174,8 +182,9 @@ namespace AI21
                 Epoch = epoch,
             };
 
-            return await V1J2JumboCompleteAsync(
-                model: model,
+            return await V1J2JumboComplete2Async(
+                customModelName: customModelName,
+                customModelType: customModelType,
                 request: request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

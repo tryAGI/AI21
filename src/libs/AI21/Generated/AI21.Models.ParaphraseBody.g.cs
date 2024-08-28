@@ -22,7 +22,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("style")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::AI21.StyleType>? Style { get; set; } = global::AI21.StyleType.General;
+        public global::System.AllOf<global::AI21.StyleType?>? Style { get; set; } = global::AI21.StyleType.General;
 
         /// <summary>
         /// Default Value: 0

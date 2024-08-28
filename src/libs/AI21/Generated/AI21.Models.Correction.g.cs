@@ -40,6 +40,7 @@ namespace AI21
         /// An enumeration.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("correctionType")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.CorrectionTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::AI21.CorrectionType CorrectionType { get; set; }
 

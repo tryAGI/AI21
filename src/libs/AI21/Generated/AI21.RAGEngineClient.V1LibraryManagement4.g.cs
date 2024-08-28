@@ -5,18 +5,18 @@ namespace AI21
 {
     public partial class RAGEngineClient
     {
-        partial void PrepareV1LibraryManagementArguments(
+        partial void PrepareV1LibraryManagement4Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string fileId);
-        partial void PrepareV1LibraryManagementRequest(
+        partial void PrepareV1LibraryManagement4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string fileId);
-        partial void ProcessV1LibraryManagementResponse(
+        partial void ProcessV1LibraryManagement4Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessV1LibraryManagementResponseContent(
+        partial void ProcessV1LibraryManagement4ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
@@ -27,13 +27,13 @@ namespace AI21
         /// <param name="fileId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<string> V1LibraryManagementAsync(
+        public async global::System.Threading.Tasks.Task<string> V1LibraryManagement4Async(
             string fileId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: _httpClient);
-            PrepareV1LibraryManagementArguments(
+            PrepareV1LibraryManagement4Arguments(
                 httpClient: _httpClient,
                 fileId: ref fileId);
 
@@ -44,7 +44,7 @@ namespace AI21
             PrepareRequest(
                 client: _httpClient,
                 request: httpRequest);
-            PrepareV1LibraryManagementRequest(
+            PrepareV1LibraryManagement4Request(
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
                 fileId: fileId);
@@ -57,7 +57,7 @@ namespace AI21
             ProcessResponse(
                 client: _httpClient,
                 response: response);
-            ProcessV1LibraryManagementResponse(
+            ProcessV1LibraryManagement4Response(
                 httpClient: _httpClient,
                 httpResponseMessage: response);
 
@@ -67,7 +67,7 @@ namespace AI21
                 client: _httpClient,
                 response: response,
                 content: ref __content);
-            ProcessV1LibraryManagementResponseContent(
+            ProcessV1LibraryManagement4ResponseContent(
                 httpClient: _httpClient,
                 httpResponseMessage: response,
                 content: ref __content);
