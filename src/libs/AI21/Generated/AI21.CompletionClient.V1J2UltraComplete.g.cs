@@ -7,14 +7,12 @@ namespace AI21
     {
         partial void PrepareV1J2UltraCompleteArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string customModelName,
-            ref string? customModelType,
+            ref string? model,
             global::AI21.CompletionBody request);
         partial void PrepareV1J2UltraCompleteRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string customModelName,
-            string? customModelType,
+            string? model,
             global::AI21.CompletionBody request);
         partial void ProcessV1J2UltraCompleteResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -26,18 +24,16 @@ namespace AI21
             ref string content);
 
         /// <summary>
-        /// Custom j2-ultra complete
+        /// j2-ultra complete
         /// </summary>
-        /// <param name="customModelName"></param>
-        /// <param name="customModelType">
+        /// <param name="model">
         /// Default Value: j2-ultra
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.V1J2UltraCompleteResponse2> V1J2UltraCompleteAsync(
-            string customModelName,
-            string? customModelType,
+        public async global::System.Threading.Tasks.Task<global::AI21.V1J2UltraCompleteResponse> V1J2UltraCompleteAsync(
+            string? model,
             global::AI21.CompletionBody request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -47,13 +43,12 @@ namespace AI21
                 client: _httpClient);
             PrepareV1J2UltraCompleteArguments(
                 httpClient: _httpClient,
-                customModelName: ref customModelName,
-                customModelType: ref customModelType,
+                model: ref model,
                 request: request);
 
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/studio/v1/j2-ultra/{customModelName}/complete?custom_model_type={customModelType}", global::System.UriKind.RelativeOrAbsolute));
+                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/studio/v1/j2-ultra/complete?model={model}", global::System.UriKind.RelativeOrAbsolute));
             var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::AI21.SourceGenerationContext.Default.CompletionBody);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -67,8 +62,7 @@ namespace AI21
             PrepareV1J2UltraCompleteRequest(
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
-                customModelName: customModelName,
-                customModelType: customModelType,
+                model: model,
                 request: request);
 
             using var response = await _httpClient.SendAsync(
@@ -104,15 +98,14 @@ namespace AI21
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::AI21.SourceGenerationContext.Default.V1J2UltraCompleteResponse2) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::AI21.SourceGenerationContext.Default.V1J2UltraCompleteResponse) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
         /// <summary>
-        /// Custom j2-ultra complete
+        /// j2-ultra complete
         /// </summary>
-        /// <param name="customModelName"></param>
-        /// <param name="customModelType">
+        /// <param name="model">
         /// Default Value: j2-ultra
         /// </param>
         /// <param name="prompt"></param>
@@ -145,10 +138,9 @@ namespace AI21
         /// <param name="epoch"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.V1J2UltraCompleteResponse2> V1J2UltraCompleteAsync(
-            string customModelName,
+        public async global::System.Threading.Tasks.Task<global::AI21.V1J2UltraCompleteResponse> V1J2UltraCompleteAsync(
             string prompt,
-            string? customModelType = "j2-ultra",
+            string? model = "j2-ultra",
             int numResults = 1,
             int maxTokens = 16,
             int minTokens = 0,
@@ -183,8 +175,7 @@ namespace AI21
             };
 
             return await V1J2UltraCompleteAsync(
-                customModelName: customModelName,
-                customModelType: customModelType,
+                model: model,
                 request: request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

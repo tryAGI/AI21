@@ -405,7 +405,7 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AllOf<global::AI21.StyleType>? Type98 { get; set; }
+        public global::System.AllOf<global::AI21.StyleType?>? Type98 { get; set; }
         /// <summary>
         /// 
         /// </summary>
