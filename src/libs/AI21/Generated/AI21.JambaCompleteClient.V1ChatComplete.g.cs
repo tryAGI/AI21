@@ -154,7 +154,7 @@ namespace AI21
             int maxTokens = 4096,
             double temperature = default,
             double topP = 1,
-            global::System.AnyOf<string?, global::System.Collections.Generic.IList<string>>? stop = default,
+            global::System.AnyOf<string, global::System.Collections.Generic.IList<string>>? stop = default,
             bool stream = false,
             global::AI21.MockResponseConfig? mockResponse = default,
             global::System.Collections.Generic.IList<global::AI21.DocumentSchema>? documents = default,
