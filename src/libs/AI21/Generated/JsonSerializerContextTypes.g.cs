@@ -341,11 +341,11 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::System.AnyOf<string?, int?>>? Type82 { get; set; }
+        public global::System.Collections.Generic.IList<global::System.AnyOf<string, int?>>? Type82 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AnyOf<string?, int?>? Type83 { get; set; }
+        public global::System.AnyOf<string, int?>? Type83 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -521,7 +521,7 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AnyOf<string?, global::System.Collections.Generic.IList<string>>? Type127 { get; set; }
+        public global::System.AnyOf<string, global::System.Collections.Generic.IList<string>>? Type127 { get; set; }
         /// <summary>
         /// 
         /// </summary>
