@@ -37,8 +37,8 @@ namespace AI21
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.V1J2UltraCompleteResponse2> V1J2UltraComplete2Async(
             string customModelName,
-            string? customModelType,
             global::AI21.CompletionBody request,
+            string? customModelType = "j2-ultra",
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));

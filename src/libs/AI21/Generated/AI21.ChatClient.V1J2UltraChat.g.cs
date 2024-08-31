@@ -33,8 +33,8 @@ namespace AI21
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.ChatResponse> V1J2UltraChatAsync(
-            string? model,
             global::AI21.LanguageStudioApiServerDataTypesJ2ChatChatRequest request,
+            string? model = "j2-ultra",
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
