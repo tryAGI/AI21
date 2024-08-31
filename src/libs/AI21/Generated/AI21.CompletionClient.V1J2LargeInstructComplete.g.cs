@@ -33,8 +33,8 @@ namespace AI21
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.V1J2LargeInstructCompleteResponse> V1J2LargeInstructCompleteAsync(
-            string? model,
             global::AI21.CompletionBody request,
+            string? model = "j2-large-instruct",
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
