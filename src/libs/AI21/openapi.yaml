@@ -32,7 +32,7 @@ paths:
     post:
       tags:
         - Jamba Complete
-      summary: Chat Complete
+      summary: Studio Chat Complete
       description: "This is the endpoint for the [Jamba Instruct model](https://docs.ai21.com/docs/jamba-models).\nThis is a foundation model that supports both single-turn (question answering,\ntext completion) and multi-turn (chat style) interactions.\n\nYou can optionally stream results if you want to get the response as each\ntoken is generated, rather than waiting for the entire response."
       operationId: v1_chat_complete
       parameters:
