@@ -24,7 +24,7 @@ namespace AI21
             ref string content);
 
         /// <summary>
-        /// Chat Complete<br/>
+        /// Studio Chat Complete<br/>
         /// This is the endpoint for the [Jamba Instruct model](https://docs.ai21.com/docs/jamba-models).<br/>
         /// This is a foundation model that supports both single-turn (question answering,<br/>
         /// text completion) and multi-turn (chat style) interactions.<br/>
@@ -106,7 +106,7 @@ namespace AI21
         }
 
         /// <summary>
-        /// Chat Complete<br/>
+        /// Studio Chat Complete<br/>
         /// This is the endpoint for the [Jamba Instruct model](https://docs.ai21.com/docs/jamba-models).<br/>
         /// This is a foundation model that supports both single-turn (question answering,<br/>
         /// text completion) and multi-turn (chat style) interactions.<br/>
