@@ -2292,9 +2292,6 @@ components:
       enum:
         - jamba-instruct
         - jamba-instruct-preview
-        - jamba-next
-        - jamba-large-next
-        - jamba-large-next-2
         - jamba-1.5-mini
         - jamba-1.5-large
       type: string
