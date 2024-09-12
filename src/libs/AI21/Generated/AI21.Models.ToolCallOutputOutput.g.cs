@@ -6,14 +6,8 @@ namespace AI21
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class SubmitToolOutputsRequest
+    public sealed partial class ToolCallOutputOutput
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("tool_outputs")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::AI21.ToolCallOutput> ToolOutputs { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
