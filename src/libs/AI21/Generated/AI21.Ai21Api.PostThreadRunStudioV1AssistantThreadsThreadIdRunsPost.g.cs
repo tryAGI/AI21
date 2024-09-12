@@ -3,46 +3,51 @@
 
 namespace AI21
 {
-    public partial class RAGEngineClient
+    public partial class Ai21Api
     {
-        partial void PrepareV1LibrarySearchArguments(
+        partial void PreparePostThreadRunStudioV1AssistantThreadsThreadIdRunsPostArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::AI21.LibrarySearchRequest request);
-        partial void PrepareV1LibrarySearchRequest(
+            ref string threadId,
+            global::AI21.PostThreadRunRequest request);
+        partial void PreparePostThreadRunStudioV1AssistantThreadsThreadIdRunsPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::AI21.LibrarySearchRequest request);
-        partial void ProcessV1LibrarySearchResponse(
+            string threadId,
+            global::AI21.PostThreadRunRequest request);
+        partial void ProcessPostThreadRunStudioV1AssistantThreadsThreadIdRunsPostResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessV1LibrarySearchResponseContent(
+        partial void ProcessPostThreadRunStudioV1AssistantThreadsThreadIdRunsPostResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Search
+        /// Post Thread Run
         /// </summary>
+        /// <param name="threadId"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.LibrarySearchResponse> V1LibrarySearchAsync(
-            global::AI21.LibrarySearchRequest request,
+        public async global::System.Threading.Tasks.Task<global::AI21.PostThreadRunResponse> PostThreadRunStudioV1AssistantThreadsThreadIdRunsPostAsync(
+            string threadId,
+            global::AI21.PostThreadRunRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
                 client: _httpClient);
-            PrepareV1LibrarySearchArguments(
+            PreparePostThreadRunStudioV1AssistantThreadsThreadIdRunsPostArguments(
                 httpClient: _httpClient,
+                threadId: ref threadId,
                 request: request);
 
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + "/studio/v1/library/search", global::System.UriKind.RelativeOrAbsolute));
-            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::AI21.SourceGenerationContext.Default.LibrarySearchRequest);
+                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/studio/v1/assistant/threads/{threadId}/runs", global::System.UriKind.RelativeOrAbsolute));
+            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::AI21.SourceGenerationContext.Default.PostThreadRunRequest);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
                 encoding: global::System.Text.Encoding.UTF8,
@@ -52,9 +57,10 @@ namespace AI21
             PrepareRequest(
                 client: _httpClient,
                 request: httpRequest);
-            PrepareV1LibrarySearchRequest(
+            PreparePostThreadRunStudioV1AssistantThreadsThreadIdRunsPostRequest(
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
+                threadId: threadId,
                 request: request);
 
             using var response = await _httpClient.SendAsync(
@@ -65,7 +71,7 @@ namespace AI21
             ProcessResponse(
                 client: _httpClient,
                 response: response);
-            ProcessV1LibrarySearchResponse(
+            ProcessPostThreadRunStudioV1AssistantThreadsThreadIdRunsPostResponse(
                 httpClient: _httpClient,
                 httpResponseMessage: response);
 
@@ -75,7 +81,7 @@ namespace AI21
                 client: _httpClient,
                 response: response,
                 content: ref __content);
-            ProcessV1LibrarySearchResponseContent(
+            ProcessPostThreadRunStudioV1AssistantThreadsThreadIdRunsPostResponseContent(
                 httpClient: _httpClient,
                 httpResponseMessage: response,
                 content: ref __content);
@@ -90,59 +96,37 @@ namespace AI21
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::AI21.SourceGenerationContext.Default.LibrarySearchResponse) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::AI21.SourceGenerationContext.Default.PostThreadRunResponse) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
         /// <summary>
-        /// Search
+        /// Post Thread Run
         /// </summary>
-        /// <param name="query"></param>
-        /// <param name="maxSegments"></param>
-        /// <param name="path"></param>
-        /// <param name="labels"></param>
-        /// <param name="labelsFilterMode">
-        /// Default Value: AND
+        /// <param name="threadId"></param>
+        /// <param name="assistantId"></param>
+        /// <param name="description"></param>
+        /// <param name="optimization">
+        /// An enumeration.
         /// </param>
-        /// <param name="fileIds"></param>
-        /// <param name="retrievalStrategy">
-        /// Default Value: default
-        /// </param>
-        /// <param name="maxNeighbors">
-        /// Default Value: 1
-        /// </param>
-        /// <param name="retrievalSimilarityThreshold"></param>
-        /// <param name="hybridSearchAlpha"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.LibrarySearchResponse> V1LibrarySearchAsync(
-            string query,
-            int maxSegments = default,
-            string? path = default,
-            global::System.Collections.Generic.IList<string>? labels = default,
-            global::AI21.LibrarySearchRequestLabelsFilterMode? labelsFilterMode = global::AI21.LibrarySearchRequestLabelsFilterMode.AND,
-            global::System.Collections.Generic.IList<string>? fileIds = default,
-            global::System.AllOf<global::AI21.RetrievalStrategy3?>? retrievalStrategy = default,
-            int maxNeighbors = 1,
-            double retrievalSimilarityThreshold = default,
-            double hybridSearchAlpha = default,
+        public async global::System.Threading.Tasks.Task<global::AI21.PostThreadRunResponse> PostThreadRunStudioV1AssistantThreadsThreadIdRunsPostAsync(
+            string threadId,
+            string assistantId,
+            string description,
+            global::AI21.RunOptimization optimization,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var request = new global::AI21.LibrarySearchRequest
+            var request = new global::AI21.PostThreadRunRequest
             {
-                Query = query,
-                MaxSegments = maxSegments,
-                Path = path,
-                Labels = labels,
-                LabelsFilterMode = labelsFilterMode,
-                FileIds = fileIds,
-                RetrievalStrategy = retrievalStrategy,
-                MaxNeighbors = maxNeighbors,
-                RetrievalSimilarityThreshold = retrievalSimilarityThreshold,
-                HybridSearchAlpha = hybridSearchAlpha,
+                AssistantId = assistantId,
+                Description = description,
+                Optimization = optimization,
             };
 
-            return await V1LibrarySearchAsync(
+            return await PostThreadRunStudioV1AssistantThreadsThreadIdRunsPostAsync(
+                threadId: threadId,
                 request: request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

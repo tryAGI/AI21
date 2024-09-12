@@ -101,6 +101,9 @@ namespace AI21
         /// <param name="maxSegments"></param>
         /// <param name="path"></param>
         /// <param name="labels"></param>
+        /// <param name="labelsFilterMode">
+        /// Default Value: AND
+        /// </param>
         /// <param name="fileIds"></param>
         /// <param name="answerLength">
         /// An enumeration.
@@ -120,6 +123,7 @@ namespace AI21
             int maxSegments = default,
             string? path = default,
             global::System.Collections.Generic.IList<string>? labels = default,
+            global::AI21.LibraryAnswerRequestLabelsFilterMode? labelsFilterMode = global::AI21.LibraryAnswerRequestLabelsFilterMode.AND,
             global::System.Collections.Generic.IList<string>? fileIds = default,
             global::AI21.AnswerLength? answerLength = default,
             global::AI21.Mode? mode = default,
@@ -134,6 +138,7 @@ namespace AI21
                 MaxSegments = maxSegments,
                 Path = path,
                 Labels = labels,
+                LabelsFilterMode = labelsFilterMode,
                 FileIds = fileIds,
                 AnswerLength = answerLength,
                 Mode = mode,
