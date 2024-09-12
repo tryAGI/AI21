@@ -1254,6 +1254,54 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/connectors/connected-users/{user_id}/tokens':
+    post:
+      summary: Get User Token
+      operationId: get_user_token_studio_v1_connectors_connected_users__user_id__tokens_post
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            title: User Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConnectorsToken'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/connectors/connected-users/{user_id}/data-sources':
+    get:
+      summary: Get User Data Sources Info
+      operationId: get_user_data_sources_info_studio_v1_connectors_connected_users__user_id__data_sources_get
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            title: User Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConnectorsDataSources'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /studio/v1/tokenize:
     post:
       tags:
@@ -1272,6 +1320,123 @@ paths:
           content:
             application/json:
               schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/assistant/threads:
+    post:
+      summary: Create Thread
+      operationId: create_thread_studio_v1_assistant_threads_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateThreadRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateThreadResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/assistant/threads/{thread_id}/messages':
+    post:
+      summary: Create Message
+      operationId: create_message_studio_v1_assistant_threads__thread_id__messages_post
+      parameters:
+        - name: thread_id
+          in: path
+          required: true
+          schema:
+            title: Thread Id
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMessageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateMessageResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/assistant/threads/{thread_id}/runs':
+    post:
+      summary: Post Thread Run
+      operationId: post_thread_run_studio_v1_assistant_threads__thread_id__runs_post
+      parameters:
+        - name: thread_id
+          in: path
+          required: true
+          schema:
+            title: Thread Id
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostThreadRunRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostThreadRunResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/assistant/threads/{thread_id}/runs/{run_id}':
+    get:
+      summary: Get Thread Run Result
+      operationId: get_thread_run_result_studio_v1_assistant_threads__thread_id__runs__run_id__get
+      parameters:
+        - name: thread_id
+          in: path
+          required: true
+          schema:
+            title: Thread Id
+            type: string
+            format: uuid
+        - name: run_id
+          in: path
+          required: true
+          schema:
+            title: Run Id
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetThreadRunResponse'
         '422':
           description: Validation Error
           content:
@@ -1625,6 +1790,26 @@ components:
         epoch:
           title: Epoch
           type: integer
+    ConnectorsDataSources:
+      title: ConnectorsDataSources
+      required:
+        - data_sources
+      type: object
+      properties:
+        data_sources:
+          title: Data Sources
+          type: array
+          items:
+            $ref: '#/components/schemas/DataSourceMetadata'
+    ConnectorsToken:
+      title: ConnectorsToken
+      required:
+        - token
+      type: object
+      properties:
+        token:
+          title: Token
+          type: string
     ConversationalRagFlowPublicFields:
       title: ConversationalRagFlowPublicFields
       required:
@@ -1802,6 +1987,89 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Correction'
+    CreateMessageRequest:
+      title: CreateMessageRequest
+      required:
+        - role
+        - content
+      type: object
+      properties:
+        role:
+          title: Role
+          type: string
+          description: "The role of an individual message.\n- `user`:  Input provided by the user. Any instructions given here that conflict\n  with instructions given in the `system` prompt take precedence over the `system`\n  prompt instructions.\n- `assistant`:  Response generated by the model.\n- `system`:  Initial instructions provided to the system to provide general guidance\n  on the tone and voice of the generated message. An initial system message is\n  optional but recommended to provide guidance on the tone of the chat. For\n  example, \"You are a helpful chatbot with a background in earth sciences and a\n  charming French accent.\"\n"
+        content:
+          title: Content
+          type: string
+    CreateMessageResponse:
+      title: CreateMessageResponse
+      required:
+        - role
+        - content
+        - id
+        - created_at
+        - updated_at
+        - object
+      type: object
+      properties:
+        role:
+          title: Role
+          type: string
+          description: "The role of an individual message.\n- `user`:  Input provided by the user. Any instructions given here that conflict\n  with instructions given in the `system` prompt take precedence over the `system`\n  prompt instructions.\n- `assistant`:  Response generated by the model.\n- `system`:  Initial instructions provided to the system to provide general guidance\n  on the tone and voice of the generated message. An initial system message is\n  optional but recommended to provide guidance on the tone of the chat. For\n  example, \"You are a helpful chatbot with a background in earth sciences and a\n  charming French accent.\"\n"
+        content:
+          title: Content
+          type: string
+        id:
+          title: Id
+          type: string
+          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
+          format: uuid
+        created_at:
+          title: Created At
+          type: string
+          format: date-time
+        updated_at:
+          title: Updated At
+          type: string
+          format: date-time
+        object:
+          title: Object
+          type: string
+    CreateThreadRequest:
+      title: CreateThreadRequest
+      type: object
+      properties:
+        messages:
+          title: Messages
+          type: array
+          items:
+            $ref: '#/components/schemas/ThreadMessage'
+          description: messages
+    CreateThreadResponse:
+      title: CreateThreadResponse
+      required:
+        - id
+        - created_at
+        - updated_at
+        - object
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
+          format: uuid
+        created_at:
+          title: Created At
+          type: string
+          format: date-time
+        updated_at:
+          title: Updated At
+          type: string
+          format: date-time
+        object:
+          title: Object
+          type: string
     CustomModelInput:
       title: CustomModelInput
       required:
@@ -1841,6 +2109,31 @@ components:
         defaultEpoch:
           title: Defaultepoch
           type: integer
+    DataSourceMetadata:
+      title: DataSourceMetadata
+      required:
+        - name
+        - type
+        - description
+        - icon
+        - connected
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        type:
+          title: Type
+          type: string
+        description:
+          title: Description
+          type: string
+        icon:
+          title: Icon
+          type: string
+        connected:
+          title: Connected
+          type: boolean
     DocumentSchema:
       title: DocumentSchema
       required:
@@ -2035,6 +2328,51 @@ components:
           type: string
         parameters:
           $ref: '#/components/schemas/ToolParameters'
+    GetThreadRunResponse:
+      title: GetThreadRunResponse
+      required:
+        - thread_id
+        - assistant_id
+        - description
+        - status
+        - optimization
+        - id
+        - created_at
+        - updated_at
+        - object
+      type: object
+      properties:
+        thread_id:
+          title: Thread Id
+          type: string
+          format: uuid
+        assistant_id:
+          title: Assistant Id
+          type: string
+          format: uuid
+        description:
+          title: Description
+          type: string
+        status:
+          $ref: '#/components/schemas/RunStatus'
+        optimization:
+          $ref: '#/components/schemas/RunOptimization'
+        id:
+          title: Id
+          type: string
+          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
+          format: uuid
+        created_at:
+          title: Created At
+          type: string
+          format: date-time
+        updated_at:
+          title: Updated At
+          type: string
+          format: date-time
+        object:
+          title: Object
+          type: string
     HTTPValidationError:
       title: HTTPValidationError
       type: object
@@ -2081,6 +2419,13 @@ components:
           type: array
           items:
             type: string
+        labels_filter_mode:
+          title: Labels Filter Mode
+          enum:
+            - AND
+            - OR
+          type: string
+          default: AND
         fileIds:
           title: Fileids
           type: array
@@ -2148,6 +2493,13 @@ components:
           type: array
           items:
             type: string
+        labels_filter_mode:
+          title: Labels Filter Mode
+          enum:
+            - AND
+            - OR
+          type: string
+          default: AND
         fileIds:
           title: Fileids
           type: array
@@ -2346,6 +2698,67 @@ components:
           title: Applytoemojis
           type: boolean
           default: true
+    PostThreadRunRequest:
+      title: PostThreadRunRequest
+      required:
+        - assistant_id
+        - description
+        - optimization
+      type: object
+      properties:
+        assistant_id:
+          title: Assistant Id
+          type: string
+        description:
+          title: Description
+          type: string
+        optimization:
+          $ref: '#/components/schemas/RunOptimization'
+    PostThreadRunResponse:
+      title: PostThreadRunResponse
+      required:
+        - thread_id
+        - assistant_id
+        - description
+        - status
+        - optimization
+        - id
+        - created_at
+        - updated_at
+        - object
+      type: object
+      properties:
+        thread_id:
+          title: Thread Id
+          type: string
+          format: uuid
+        assistant_id:
+          title: Assistant Id
+          type: string
+          format: uuid
+        description:
+          title: Description
+          type: string
+        status:
+          $ref: '#/components/schemas/RunStatus'
+        optimization:
+          $ref: '#/components/schemas/RunOptimization'
+        id:
+          title: Id
+          type: string
+          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
+          format: uuid
+        created_at:
+          title: Created At
+          type: string
+          format: date-time
+        updated_at:
+          title: Updated At
+          type: string
+          format: date-time
+        object:
+          title: Object
+          type: string
     ResponseFormat:
       title: ResponseFormat
       required:
@@ -2372,6 +2785,25 @@ components:
         - user
         - assistant
       type: string
+      description: An enumeration.
+    RunOptimization:
+      title: RunOptimization
+      enum:
+        - cost
+        - latency
+      description: An enumeration.
+    RunStatus:
+      title: RunStatus
+      enum:
+        - cancelled
+        - cancelling
+        - completed
+        - expired
+        - failed
+        - incomplete
+        - in_progress
+        - queued
+        - requires_action
       description: An enumeration.
     Segment:
       title: Segment
@@ -2564,6 +2996,20 @@ components:
           type: string
           description: "The role of an individual message.\n- `user`:  Input provided by the user. Any instructions given here that conflict\n  with instructions given in the `system` prompt take precedence over the `system`\n  prompt instructions.\n- `assistant`:  Response generated by the model.\n- `system`:  Initial instructions provided to the system to provide general guidance\n  on the tone and voice of the generated message. An initial system message is\n  optional but recommended to provide guidance on the tone of the chat. For\n  example, \"You are a helpful chatbot with a background in earth sciences and a\n  charming French accent.\"\n"
           default: system
+        content:
+          title: Content
+          type: string
+    ThreadMessage:
+      title: ThreadMessage
+      required:
+        - role
+        - content
+      type: object
+      properties:
+        role:
+          title: Role
+          type: string
+          description: "The role of an individual message.\n- `user`:  Input provided by the user. Any instructions given here that conflict\n  with instructions given in the `system` prompt take precedence over the `system`\n  prompt instructions.\n- `assistant`:  Response generated by the model.\n- `system`:  Initial instructions provided to the system to provide general guidance\n  on the tone and voice of the generated message. An initial system message is\n  optional but recommended to provide guidance on the tone of the chat. For\n  example, \"You are a helpful chatbot with a background in earth sciences and a\n  charming French accent.\"\n"
         content:
           title: Content
           type: string

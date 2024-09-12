@@ -3,46 +3,46 @@
 
 namespace AI21
 {
-    public partial class RAGEngineClient
+    public partial class Ai21Api
     {
-        partial void PrepareV1LibrarySearchArguments(
+        partial void PrepareCreateThreadStudioV1AssistantThreadsPostArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::AI21.LibrarySearchRequest request);
-        partial void PrepareV1LibrarySearchRequest(
+            global::AI21.CreateThreadRequest request);
+        partial void PrepareCreateThreadStudioV1AssistantThreadsPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::AI21.LibrarySearchRequest request);
-        partial void ProcessV1LibrarySearchResponse(
+            global::AI21.CreateThreadRequest request);
+        partial void ProcessCreateThreadStudioV1AssistantThreadsPostResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessV1LibrarySearchResponseContent(
+        partial void ProcessCreateThreadStudioV1AssistantThreadsPostResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Search
+        /// Create Thread
         /// </summary>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.LibrarySearchResponse> V1LibrarySearchAsync(
-            global::AI21.LibrarySearchRequest request,
+        public async global::System.Threading.Tasks.Task<global::AI21.CreateThreadResponse> CreateThreadStudioV1AssistantThreadsPostAsync(
+            global::AI21.CreateThreadRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
                 client: _httpClient);
-            PrepareV1LibrarySearchArguments(
+            PrepareCreateThreadStudioV1AssistantThreadsPostArguments(
                 httpClient: _httpClient,
                 request: request);
 
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + "/studio/v1/library/search", global::System.UriKind.RelativeOrAbsolute));
-            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::AI21.SourceGenerationContext.Default.LibrarySearchRequest);
+                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + "/studio/v1/assistant/threads", global::System.UriKind.RelativeOrAbsolute));
+            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::AI21.SourceGenerationContext.Default.CreateThreadRequest);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
                 encoding: global::System.Text.Encoding.UTF8,
@@ -52,7 +52,7 @@ namespace AI21
             PrepareRequest(
                 client: _httpClient,
                 request: httpRequest);
-            PrepareV1LibrarySearchRequest(
+            PrepareCreateThreadStudioV1AssistantThreadsPostRequest(
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
                 request: request);
@@ -65,7 +65,7 @@ namespace AI21
             ProcessResponse(
                 client: _httpClient,
                 response: response);
-            ProcessV1LibrarySearchResponse(
+            ProcessCreateThreadStudioV1AssistantThreadsPostResponse(
                 httpClient: _httpClient,
                 httpResponseMessage: response);
 
@@ -75,7 +75,7 @@ namespace AI21
                 client: _httpClient,
                 response: response,
                 content: ref __content);
-            ProcessV1LibrarySearchResponseContent(
+            ProcessCreateThreadStudioV1AssistantThreadsPostResponseContent(
                 httpClient: _httpClient,
                 httpResponseMessage: response,
                 content: ref __content);
@@ -90,59 +90,28 @@ namespace AI21
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::AI21.SourceGenerationContext.Default.LibrarySearchResponse) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::AI21.SourceGenerationContext.Default.CreateThreadResponse) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
         /// <summary>
-        /// Search
+        /// Create Thread
         /// </summary>
-        /// <param name="query"></param>
-        /// <param name="maxSegments"></param>
-        /// <param name="path"></param>
-        /// <param name="labels"></param>
-        /// <param name="labelsFilterMode">
-        /// Default Value: AND
+        /// <param name="messages">
+        /// messages
         /// </param>
-        /// <param name="fileIds"></param>
-        /// <param name="retrievalStrategy">
-        /// Default Value: default
-        /// </param>
-        /// <param name="maxNeighbors">
-        /// Default Value: 1
-        /// </param>
-        /// <param name="retrievalSimilarityThreshold"></param>
-        /// <param name="hybridSearchAlpha"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.LibrarySearchResponse> V1LibrarySearchAsync(
-            string query,
-            int maxSegments = default,
-            string? path = default,
-            global::System.Collections.Generic.IList<string>? labels = default,
-            global::AI21.LibrarySearchRequestLabelsFilterMode? labelsFilterMode = global::AI21.LibrarySearchRequestLabelsFilterMode.AND,
-            global::System.Collections.Generic.IList<string>? fileIds = default,
-            global::System.AllOf<global::AI21.RetrievalStrategy3?>? retrievalStrategy = default,
-            int maxNeighbors = 1,
-            double retrievalSimilarityThreshold = default,
-            double hybridSearchAlpha = default,
+        public async global::System.Threading.Tasks.Task<global::AI21.CreateThreadResponse> CreateThreadStudioV1AssistantThreadsPostAsync(
+            global::System.Collections.Generic.IList<global::AI21.ThreadMessage>? messages = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var request = new global::AI21.LibrarySearchRequest
+            var request = new global::AI21.CreateThreadRequest
             {
-                Query = query,
-                MaxSegments = maxSegments,
-                Path = path,
-                Labels = labels,
-                LabelsFilterMode = labelsFilterMode,
-                FileIds = fileIds,
-                RetrievalStrategy = retrievalStrategy,
-                MaxNeighbors = maxNeighbors,
-                RetrievalSimilarityThreshold = retrievalSimilarityThreshold,
-                HybridSearchAlpha = hybridSearchAlpha,
+                Messages = messages,
             };
 
-            return await V1LibrarySearchAsync(
+            return await CreateThreadStudioV1AssistantThreadsPostAsync(
                 request: request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

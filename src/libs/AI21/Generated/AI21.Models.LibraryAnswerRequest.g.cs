@@ -36,6 +36,13 @@ namespace AI21
         public global::System.Collections.Generic.IList<string>? Labels { get; set; }
 
         /// <summary>
+        /// Default Value: AND
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("labels_filter_mode")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.LibraryAnswerRequestLabelsFilterModeJsonConverter))]
+        public global::AI21.LibraryAnswerRequestLabelsFilterMode? LabelsFilterMode { get; set; } = global::AI21.LibraryAnswerRequestLabelsFilterMode.AND;
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fileIds")]

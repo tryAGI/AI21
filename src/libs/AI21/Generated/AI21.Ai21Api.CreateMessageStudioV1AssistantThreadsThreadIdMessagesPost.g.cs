@@ -3,46 +3,51 @@
 
 namespace AI21
 {
-    public partial class RAGEngineClient
+    public partial class Ai21Api
     {
-        partial void PrepareV1LibrarySearchArguments(
+        partial void PrepareCreateMessageStudioV1AssistantThreadsThreadIdMessagesPostArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::AI21.LibrarySearchRequest request);
-        partial void PrepareV1LibrarySearchRequest(
+            ref string threadId,
+            global::AI21.CreateMessageRequest request);
+        partial void PrepareCreateMessageStudioV1AssistantThreadsThreadIdMessagesPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::AI21.LibrarySearchRequest request);
-        partial void ProcessV1LibrarySearchResponse(
+            string threadId,
+            global::AI21.CreateMessageRequest request);
+        partial void ProcessCreateMessageStudioV1AssistantThreadsThreadIdMessagesPostResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessV1LibrarySearchResponseContent(
+        partial void ProcessCreateMessageStudioV1AssistantThreadsThreadIdMessagesPostResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Search
+        /// Create Message
         /// </summary>
+        /// <param name="threadId"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.LibrarySearchResponse> V1LibrarySearchAsync(
-            global::AI21.LibrarySearchRequest request,
+        public async global::System.Threading.Tasks.Task<global::AI21.CreateMessageResponse> CreateMessageStudioV1AssistantThreadsThreadIdMessagesPostAsync(
+            string threadId,
+            global::AI21.CreateMessageRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
                 client: _httpClient);
-            PrepareV1LibrarySearchArguments(
+            PrepareCreateMessageStudioV1AssistantThreadsThreadIdMessagesPostArguments(
                 httpClient: _httpClient,
+                threadId: ref threadId,
                 request: request);
 
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + "/studio/v1/library/search", global::System.UriKind.RelativeOrAbsolute));
-            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::AI21.SourceGenerationContext.Default.LibrarySearchRequest);
+                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/studio/v1/assistant/threads/{threadId}/messages", global::System.UriKind.RelativeOrAbsolute));
+            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::AI21.SourceGenerationContext.Default.CreateMessageRequest);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
                 encoding: global::System.Text.Encoding.UTF8,
@@ -52,9 +57,10 @@ namespace AI21
             PrepareRequest(
                 client: _httpClient,
                 request: httpRequest);
-            PrepareV1LibrarySearchRequest(
+            PrepareCreateMessageStudioV1AssistantThreadsThreadIdMessagesPostRequest(
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
+                threadId: threadId,
                 request: request);
 
             using var response = await _httpClient.SendAsync(
@@ -65,7 +71,7 @@ namespace AI21
             ProcessResponse(
                 client: _httpClient,
                 response: response);
-            ProcessV1LibrarySearchResponse(
+            ProcessCreateMessageStudioV1AssistantThreadsThreadIdMessagesPostResponse(
                 httpClient: _httpClient,
                 httpResponseMessage: response);
 
@@ -75,7 +81,7 @@ namespace AI21
                 client: _httpClient,
                 response: response,
                 content: ref __content);
-            ProcessV1LibrarySearchResponseContent(
+            ProcessCreateMessageStudioV1AssistantThreadsThreadIdMessagesPostResponseContent(
                 httpClient: _httpClient,
                 httpResponseMessage: response,
                 content: ref __content);
@@ -90,59 +96,43 @@ namespace AI21
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::AI21.SourceGenerationContext.Default.LibrarySearchResponse) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::AI21.SourceGenerationContext.Default.CreateMessageResponse) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
         /// <summary>
-        /// Search
+        /// Create Message
         /// </summary>
-        /// <param name="query"></param>
-        /// <param name="maxSegments"></param>
-        /// <param name="path"></param>
-        /// <param name="labels"></param>
-        /// <param name="labelsFilterMode">
-        /// Default Value: AND
+        /// <param name="threadId"></param>
+        /// <param name="role">
+        /// The role of an individual message.<br/>
+        /// - `user`:  Input provided by the user. Any instructions given here that conflict<br/>
+        ///   with instructions given in the `system` prompt take precedence over the `system`<br/>
+        ///   prompt instructions.<br/>
+        /// - `assistant`:  Response generated by the model.<br/>
+        /// - `system`:  Initial instructions provided to the system to provide general guidance<br/>
+        ///   on the tone and voice of the generated message. An initial system message is<br/>
+        ///   optional but recommended to provide guidance on the tone of the chat. For<br/>
+        ///   example, "You are a helpful chatbot with a background in earth sciences and a<br/>
+        ///   charming French accent."
         /// </param>
-        /// <param name="fileIds"></param>
-        /// <param name="retrievalStrategy">
-        /// Default Value: default
-        /// </param>
-        /// <param name="maxNeighbors">
-        /// Default Value: 1
-        /// </param>
-        /// <param name="retrievalSimilarityThreshold"></param>
-        /// <param name="hybridSearchAlpha"></param>
+        /// <param name="content"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.LibrarySearchResponse> V1LibrarySearchAsync(
-            string query,
-            int maxSegments = default,
-            string? path = default,
-            global::System.Collections.Generic.IList<string>? labels = default,
-            global::AI21.LibrarySearchRequestLabelsFilterMode? labelsFilterMode = global::AI21.LibrarySearchRequestLabelsFilterMode.AND,
-            global::System.Collections.Generic.IList<string>? fileIds = default,
-            global::System.AllOf<global::AI21.RetrievalStrategy3?>? retrievalStrategy = default,
-            int maxNeighbors = 1,
-            double retrievalSimilarityThreshold = default,
-            double hybridSearchAlpha = default,
+        public async global::System.Threading.Tasks.Task<global::AI21.CreateMessageResponse> CreateMessageStudioV1AssistantThreadsThreadIdMessagesPostAsync(
+            string threadId,
+            string role,
+            string content,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var request = new global::AI21.LibrarySearchRequest
+            var request = new global::AI21.CreateMessageRequest
             {
-                Query = query,
-                MaxSegments = maxSegments,
-                Path = path,
-                Labels = labels,
-                LabelsFilterMode = labelsFilterMode,
-                FileIds = fileIds,
-                RetrievalStrategy = retrievalStrategy,
-                MaxNeighbors = maxNeighbors,
-                RetrievalSimilarityThreshold = retrievalSimilarityThreshold,
-                HybridSearchAlpha = hybridSearchAlpha,
+                Role = role,
+                Content = content,
             };
 
-            return await V1LibrarySearchAsync(
+            return await CreateMessageStudioV1AssistantThreadsThreadIdMessagesPostAsync(
+                threadId: threadId,
                 request: request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }
