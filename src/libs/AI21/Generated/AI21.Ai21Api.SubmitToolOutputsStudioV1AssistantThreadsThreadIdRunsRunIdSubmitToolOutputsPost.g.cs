@@ -111,15 +111,18 @@ namespace AI21
         /// </summary>
         /// <param name="threadId"></param>
         /// <param name="runId"></param>
+        /// <param name="toolOutputs"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.SubmitToolOutputsResponse> SubmitToolOutputsStudioV1AssistantThreadsThreadIdRunsRunIdSubmitToolOutputsPostAsync(
             string threadId,
             string runId,
+            global::System.Collections.Generic.IList<global::AI21.ToolCallOutput> toolOutputs,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var request = new global::AI21.SubmitToolOutputsRequest
             {
+                ToolOutputs = toolOutputs,
             };
 
             return await SubmitToolOutputsStudioV1AssistantThreadsThreadIdRunsRunIdSubmitToolOutputsPostAsync(
