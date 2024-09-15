@@ -914,7 +914,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ConversationalRagFlowPublicFields'
+              $ref: '#/components/schemas/ConversationalRagConfig'
         required: true
       responses:
         '200':
@@ -1407,7 +1407,7 @@ paths:
   '/studio/v1/assistant/threads/{thread_id}/runs':
     post:
       summary: Post Thread Run
-      operationId: post_thread_run_studio_v1_assistant_threads__thread_id__runs_post
+      operationId: v1_assistant_thread_run
       parameters:
         - name: thread_id
           in: path
@@ -1470,7 +1470,7 @@ paths:
   '/studio/v1/assistant/threads/{thread_id}/runs/{run_id}/submit_tool_outputs':
     post:
       summary: Submit Tool Outputs
-      operationId: submit_tool_outputs_studio_v1_assistant_threads__thread_id__runs__run_id__submit_tool_outputs_post
+      operationId: v1_assistant_thread_run
       parameters:
         - name: thread_id
           in: path
@@ -1872,8 +1872,8 @@ components:
         token:
           title: Token
           type: string
-    ConversationalRagFlowPublicFields:
-      title: ConversationalRagFlowPublicFields
+    ConversationalRagConfig:
+      title: ConversationalRagConfig
       required:
         - messages
       type: object

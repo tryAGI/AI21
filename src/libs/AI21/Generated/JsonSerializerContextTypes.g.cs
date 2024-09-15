@@ -217,7 +217,7 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.ConversationalRagFlowPublicFields? Type51 { get; set; }
+        public global::AI21.ConversationalRagConfig? Type51 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -233,7 +233,7 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.ConversationalRagFlowPublicFieldsRetrievalStrategy? Type55 { get; set; }
+        public global::AI21.ConversationalRagConfigRetrievalStrategy? Type55 { get; set; }
         /// <summary>
         /// 
         /// </summary>
