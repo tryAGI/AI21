@@ -7,11 +7,11 @@ namespace AI21
     {
         partial void PrepareV1ConversationalRagArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::AI21.ConversationalRagFlowPublicFields request);
+            global::AI21.ConversationalRagConfig request);
         partial void PrepareV1ConversationalRagRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::AI21.ConversationalRagFlowPublicFields request);
+            global::AI21.ConversationalRagConfig request);
         partial void ProcessV1ConversationalRagResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -28,7 +28,7 @@ namespace AI21
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.ConversationalRagResult> V1ConversationalRagAsync(
-            global::AI21.ConversationalRagFlowPublicFields request,
+            global::AI21.ConversationalRagConfig request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -42,7 +42,7 @@ namespace AI21
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
                 requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + "/studio/v1/conversational-rag", global::System.UriKind.RelativeOrAbsolute));
-            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::AI21.SourceGenerationContext.Default.ConversationalRagFlowPublicFields);
+            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::AI21.SourceGenerationContext.Default.ConversationalRagConfig);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
                 encoding: global::System.Text.Encoding.UTF8,
@@ -124,13 +124,13 @@ namespace AI21
             global::System.Collections.Generic.IList<string>? labels = default,
             global::System.Collections.Generic.IList<string>? fileIds = default,
             int maxSegments = 15,
-            global::AI21.ConversationalRagFlowPublicFieldsRetrievalStrategy? retrievalStrategy = global::AI21.ConversationalRagFlowPublicFieldsRetrievalStrategy.Default,
+            global::AI21.ConversationalRagConfigRetrievalStrategy? retrievalStrategy = global::AI21.ConversationalRagConfigRetrievalStrategy.Default,
             double retrievalSimilarityThreshold = 0.8,
             int maxNeighbors = default,
             double hybridSearchAlpha = 0.98,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var request = new global::AI21.ConversationalRagFlowPublicFields
+            var request = new global::AI21.ConversationalRagConfig
             {
                 Messages = messages,
                 Path = path,

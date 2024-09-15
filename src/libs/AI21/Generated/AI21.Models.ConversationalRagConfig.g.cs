@@ -6,7 +6,7 @@ namespace AI21
     /// <summary>
     /// This class is to be used as a common class to all Studio API requests payloads
     /// </summary>
-    public sealed partial class ConversationalRagFlowPublicFields
+    public sealed partial class ConversationalRagConfig
     {
         /// <summary>
         /// messages
@@ -43,8 +43,8 @@ namespace AI21
         /// Default Value: default
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("retrieval_strategy")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.ConversationalRagFlowPublicFieldsRetrievalStrategyJsonConverter))]
-        public global::AI21.ConversationalRagFlowPublicFieldsRetrievalStrategy? RetrievalStrategy { get; set; } = global::AI21.ConversationalRagFlowPublicFieldsRetrievalStrategy.Default;
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.ConversationalRagConfigRetrievalStrategyJsonConverter))]
+        public global::AI21.ConversationalRagConfigRetrievalStrategy? RetrievalStrategy { get; set; } = global::AI21.ConversationalRagConfigRetrievalStrategy.Default;
 
         /// <summary>
         /// Default Value: 0.8

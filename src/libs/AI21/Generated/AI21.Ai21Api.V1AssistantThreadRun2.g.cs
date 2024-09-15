@@ -5,22 +5,22 @@ namespace AI21
 {
     public partial class Ai21Api
     {
-        partial void PrepareSubmitToolOutputsStudioV1AssistantThreadsThreadIdRunsRunIdSubmitToolOutputsPostArguments(
+        partial void PrepareV1AssistantThreadRun2Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string threadId,
             ref string runId,
             global::AI21.SubmitToolOutputsRequest request);
-        partial void PrepareSubmitToolOutputsStudioV1AssistantThreadsThreadIdRunsRunIdSubmitToolOutputsPostRequest(
+        partial void PrepareV1AssistantThreadRun2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string threadId,
             string runId,
             global::AI21.SubmitToolOutputsRequest request);
-        partial void ProcessSubmitToolOutputsStudioV1AssistantThreadsThreadIdRunsRunIdSubmitToolOutputsPostResponse(
+        partial void ProcessV1AssistantThreadRun2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessSubmitToolOutputsStudioV1AssistantThreadsThreadIdRunsRunIdSubmitToolOutputsPostResponseContent(
+        partial void ProcessV1AssistantThreadRun2ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
@@ -33,7 +33,7 @@ namespace AI21
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.SubmitToolOutputsResponse> SubmitToolOutputsStudioV1AssistantThreadsThreadIdRunsRunIdSubmitToolOutputsPostAsync(
+        public async global::System.Threading.Tasks.Task<global::AI21.SubmitToolOutputsResponse> V1AssistantThreadRun2Async(
             string threadId,
             string runId,
             global::AI21.SubmitToolOutputsRequest request,
@@ -43,7 +43,7 @@ namespace AI21
 
             PrepareArguments(
                 client: _httpClient);
-            PrepareSubmitToolOutputsStudioV1AssistantThreadsThreadIdRunsRunIdSubmitToolOutputsPostArguments(
+            PrepareV1AssistantThreadRun2Arguments(
                 httpClient: _httpClient,
                 threadId: ref threadId,
                 runId: ref runId,
@@ -62,7 +62,7 @@ namespace AI21
             PrepareRequest(
                 client: _httpClient,
                 request: httpRequest);
-            PrepareSubmitToolOutputsStudioV1AssistantThreadsThreadIdRunsRunIdSubmitToolOutputsPostRequest(
+            PrepareV1AssistantThreadRun2Request(
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
                 threadId: threadId,
@@ -77,7 +77,7 @@ namespace AI21
             ProcessResponse(
                 client: _httpClient,
                 response: response);
-            ProcessSubmitToolOutputsStudioV1AssistantThreadsThreadIdRunsRunIdSubmitToolOutputsPostResponse(
+            ProcessV1AssistantThreadRun2Response(
                 httpClient: _httpClient,
                 httpResponseMessage: response);
 
@@ -87,7 +87,7 @@ namespace AI21
                 client: _httpClient,
                 response: response,
                 content: ref __content);
-            ProcessSubmitToolOutputsStudioV1AssistantThreadsThreadIdRunsRunIdSubmitToolOutputsPostResponseContent(
+            ProcessV1AssistantThreadRun2ResponseContent(
                 httpClient: _httpClient,
                 httpResponseMessage: response,
                 content: ref __content);
@@ -114,7 +114,7 @@ namespace AI21
         /// <param name="toolOutputs"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.SubmitToolOutputsResponse> SubmitToolOutputsStudioV1AssistantThreadsThreadIdRunsRunIdSubmitToolOutputsPostAsync(
+        public async global::System.Threading.Tasks.Task<global::AI21.SubmitToolOutputsResponse> V1AssistantThreadRun2Async(
             string threadId,
             string runId,
             global::System.Collections.Generic.IList<global::AI21.ToolCallOutput> toolOutputs,
@@ -125,7 +125,7 @@ namespace AI21
                 ToolOutputs = toolOutputs,
             };
 
-            return await SubmitToolOutputsStudioV1AssistantThreadsThreadIdRunsRunIdSubmitToolOutputsPostAsync(
+            return await V1AssistantThreadRun2Async(
                 threadId: threadId,
                 runId: runId,
                 request: request,

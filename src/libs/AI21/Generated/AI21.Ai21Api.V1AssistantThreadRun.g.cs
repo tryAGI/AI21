@@ -5,20 +5,20 @@ namespace AI21
 {
     public partial class Ai21Api
     {
-        partial void PreparePostThreadRunStudioV1AssistantThreadsThreadIdRunsPostArguments(
+        partial void PrepareV1AssistantThreadRunArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string threadId,
             global::AI21.PostThreadRunRequest request);
-        partial void PreparePostThreadRunStudioV1AssistantThreadsThreadIdRunsPostRequest(
+        partial void PrepareV1AssistantThreadRunRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string threadId,
             global::AI21.PostThreadRunRequest request);
-        partial void ProcessPostThreadRunStudioV1AssistantThreadsThreadIdRunsPostResponse(
+        partial void ProcessV1AssistantThreadRunResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessPostThreadRunStudioV1AssistantThreadsThreadIdRunsPostResponseContent(
+        partial void ProcessV1AssistantThreadRunResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
@@ -30,7 +30,7 @@ namespace AI21
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.PostThreadRunResponse> PostThreadRunStudioV1AssistantThreadsThreadIdRunsPostAsync(
+        public async global::System.Threading.Tasks.Task<global::AI21.PostThreadRunResponse> V1AssistantThreadRunAsync(
             string threadId,
             global::AI21.PostThreadRunRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -39,7 +39,7 @@ namespace AI21
 
             PrepareArguments(
                 client: _httpClient);
-            PreparePostThreadRunStudioV1AssistantThreadsThreadIdRunsPostArguments(
+            PrepareV1AssistantThreadRunArguments(
                 httpClient: _httpClient,
                 threadId: ref threadId,
                 request: request);
@@ -57,7 +57,7 @@ namespace AI21
             PrepareRequest(
                 client: _httpClient,
                 request: httpRequest);
-            PreparePostThreadRunStudioV1AssistantThreadsThreadIdRunsPostRequest(
+            PrepareV1AssistantThreadRunRequest(
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
                 threadId: threadId,
@@ -71,7 +71,7 @@ namespace AI21
             ProcessResponse(
                 client: _httpClient,
                 response: response);
-            ProcessPostThreadRunStudioV1AssistantThreadsThreadIdRunsPostResponse(
+            ProcessV1AssistantThreadRunResponse(
                 httpClient: _httpClient,
                 httpResponseMessage: response);
 
@@ -81,7 +81,7 @@ namespace AI21
                 client: _httpClient,
                 response: response,
                 content: ref __content);
-            ProcessPostThreadRunStudioV1AssistantThreadsThreadIdRunsPostResponseContent(
+            ProcessV1AssistantThreadRunResponseContent(
                 httpClient: _httpClient,
                 httpResponseMessage: response,
                 content: ref __content);
@@ -111,7 +111,7 @@ namespace AI21
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.PostThreadRunResponse> PostThreadRunStudioV1AssistantThreadsThreadIdRunsPostAsync(
+        public async global::System.Threading.Tasks.Task<global::AI21.PostThreadRunResponse> V1AssistantThreadRunAsync(
             string threadId,
             string assistantId,
             string description,
@@ -125,7 +125,7 @@ namespace AI21
                 Optimization = optimization,
             };
 
-            return await PostThreadRunStudioV1AssistantThreadsThreadIdRunsPostAsync(
+            return await V1AssistantThreadRunAsync(
                 threadId: threadId,
                 request: request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
