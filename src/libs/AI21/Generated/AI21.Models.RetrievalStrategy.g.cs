@@ -6,7 +6,7 @@ namespace AI21
     /// <summary>
     /// An enumeration.
     /// </summary>
-    public enum RetrievalStrategy3
+    public enum RetrievalStrategy
     {
         /// <summary>
         /// 
@@ -25,31 +25,31 @@ namespace AI21
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class RetrievalStrategy3Extensions
+    public static class RetrievalStrategyExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this RetrievalStrategy3 value)
+        public static string ToValueString(this RetrievalStrategy value)
         {
             return value switch
             {
-                RetrievalStrategy3.Default => "default",
-                RetrievalStrategy3.AddNeighbors => "add_neighbors",
-                RetrievalStrategy3.FullDoc => "full_doc",
+                RetrievalStrategy.Default => "default",
+                RetrievalStrategy.AddNeighbors => "add_neighbors",
+                RetrievalStrategy.FullDoc => "full_doc",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static RetrievalStrategy3? ToEnum(string value)
+        public static RetrievalStrategy? ToEnum(string value)
         {
             return value switch
             {
-                "default" => RetrievalStrategy3.Default,
-                "add_neighbors" => RetrievalStrategy3.AddNeighbors,
-                "full_doc" => RetrievalStrategy3.FullDoc,
+                "default" => RetrievalStrategy.Default,
+                "add_neighbors" => RetrievalStrategy.AddNeighbors,
+                "full_doc" => RetrievalStrategy.FullDoc,
                 _ => null,
             };
         }

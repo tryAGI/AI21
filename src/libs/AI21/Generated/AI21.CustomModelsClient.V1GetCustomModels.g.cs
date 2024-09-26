@@ -7,11 +7,11 @@ namespace AI21
     {
         partial void PrepareV1GetCustomModelsArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref bool includeMetadata);
+            ref bool? includeMetadata);
         partial void PrepareV1GetCustomModelsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            bool includeMetadata);
+            bool? includeMetadata);
         partial void ProcessV1GetCustomModelsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -30,7 +30,7 @@ namespace AI21
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.V1GetCustomModelsResponse> V1GetCustomModelsAsync(
-            bool includeMetadata = false,
+            bool? includeMetadata = false,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -39,9 +39,16 @@ namespace AI21
                 httpClient: _httpClient,
                 includeMetadata: ref includeMetadata);
 
+            var __pathBuilder = new PathBuilder(
+                path: "/studio/v1/custom-model",
+                baseUri: _httpClient.BaseAddress); 
+            __pathBuilder 
+                .AddOptionalParameter("includeMetadata", includeMetadata?.ToString()) 
+                ; 
+            var __path = __pathBuilder.ToString();
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/studio/v1/custom-model?includeMetadata={includeMetadata}", global::System.UriKind.RelativeOrAbsolute));
+                requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 
             PrepareRequest(
                 client: _httpClient,
@@ -84,7 +91,7 @@ namespace AI21
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::AI21.SourceGenerationContext.Default.V1GetCustomModelsResponse) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::AI21.V1GetCustomModelsResponse), JsonSerializerContext) as global::AI21.V1GetCustomModelsResponse ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }

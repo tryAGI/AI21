@@ -19,7 +19,7 @@ namespace AI21
         /// An enumeration.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.RoleTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.RoleTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::AI21.RoleType Role { get; set; }
 

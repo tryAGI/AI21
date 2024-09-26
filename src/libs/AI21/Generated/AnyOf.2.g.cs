@@ -2,7 +2,7 @@ using System.Linq;
 
 #nullable enable
 
-namespace System
+namespace AI21
 {
     /// <summary>
     /// 

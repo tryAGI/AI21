@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace AI21
@@ -21,7 +19,7 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("maxSegments")]
-        public int MaxSegments { get; set; }
+        public int? MaxSegments { get; set; }
 
         /// <summary>
         /// 
@@ -39,47 +37,47 @@ namespace AI21
         /// Default Value: AND
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("labels_filter_mode")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.LibraryAnswerRequestLabelsFilterModeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.LibraryAnswerRequestLabelsFilterModeJsonConverter))]
         public global::AI21.LibraryAnswerRequestLabelsFilterMode? LabelsFilterMode { get; set; } = global::AI21.LibraryAnswerRequestLabelsFilterMode.AND;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fileIds")]
-        public global::System.Collections.Generic.IList<string>? FileIds { get; set; }
+        public global::System.Collections.Generic.IList<global::System.Guid>? FileIds { get; set; }
 
         /// <summary>
         /// An enumeration.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("answerLength")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AnswerLengthJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.AnswerLengthJsonConverter))]
         public global::AI21.AnswerLength? AnswerLength { get; set; }
 
         /// <summary>
         /// An enumeration.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mode")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.ModeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.ModeJsonConverter))]
         public global::AI21.Mode? Mode { get; set; }
 
         /// <summary>
         /// Default Value: default
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("retrievalStrategy")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::AI21.RetrievalStrategy3?>? RetrievalStrategy { get; set; } = global::AI21.RetrievalStrategy3.Default;
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.RetrievalStrategyJsonConverter))]
+        public global::AI21.RetrievalStrategy? RetrievalStrategy { get; set; } = global::AI21.RetrievalStrategy.Default;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("retrievalSimilarityThreshold")]
-        public double RetrievalSimilarityThreshold { get; set; }
+        public double? RetrievalSimilarityThreshold { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hybridSearchAlpha")]
-        public double HybridSearchAlpha { get; set; }
+        public double? HybridSearchAlpha { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

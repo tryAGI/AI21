@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace AI21
@@ -21,8 +19,8 @@ namespace AI21
         /// Default Value: segment
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::AI21.EmbedType?>? Type { get; set; } = global::AI21.EmbedType.Segment;
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.EmbedTypeJsonConverter))]
+        public global::AI21.EmbedType? Type { get; set; } = global::AI21.EmbedType.Segment;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

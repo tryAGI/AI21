@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace AI21
@@ -21,20 +19,20 @@ namespace AI21
         /// Default Value: general
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("style")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::AI21.StyleType?>? Style { get; set; } = global::AI21.StyleType.General;
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.StyleTypeJsonConverter))]
+        public global::AI21.StyleType? Style { get; set; } = global::AI21.StyleType.General;
 
         /// <summary>
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("startIndex")]
-        public int StartIndex { get; set; } = 0;
+        public int? StartIndex { get; set; } = 0;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("endIndex")]
-        public int EndIndex { get; set; }
+        public int? EndIndex { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

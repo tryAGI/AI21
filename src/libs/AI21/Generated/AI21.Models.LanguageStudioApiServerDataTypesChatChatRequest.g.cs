@@ -14,7 +14,7 @@ namespace AI21
         /// An enumeration.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.ModelNameJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.ModelNameJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::AI21.ModelName Model { get; set; }
 
@@ -23,7 +23,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("messages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::System.OneOf<global::AI21.UserMessage, global::AI21.AssistantMessage, global::AI21.ToolMessage, global::AI21.SystemMessage>> Messages { get; set; }
+        public required global::System.Collections.Generic.IList<global::AI21.OneOf<global::AI21.UserMessage, global::AI21.AssistantMessage, global::AI21.ToolMessage, global::AI21.SystemMessage>> Messages { get; set; }
 
         /// <summary>
         /// 
@@ -35,32 +35,32 @@ namespace AI21
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("n")]
-        public int N { get; set; } = 1;
+        public int? N { get; set; } = 1;
 
         /// <summary>
         /// Default Value: 4096
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_tokens")]
-        public int MaxTokens { get; set; } = 4096;
+        public int? MaxTokens { get; set; } = 4096;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("temperature")]
-        public double Temperature { get; set; }
+        public double? Temperature { get; set; }
 
         /// <summary>
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("top_p")]
-        public double TopP { get; set; } = 1;
+        public double? TopP { get; set; } = 1;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stop")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AnyOfJsonConverterFactory2))]
-        public global::System.AnyOf<string, global::System.Collections.Generic.IList<string>>? Stop { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.AnyOfJsonConverterFactory2))]
+        public global::AI21.AnyOf<string, global::System.Collections.Generic.IList<string>>? Stop { get; set; }
 
         /// <summary>
         /// Whether or not to stream the result one token at a time using<br/>
@@ -71,7 +71,7 @@ namespace AI21
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stream")]
-        public bool Stream { get; set; } = false;
+        public bool? Stream { get; set; } = false;
 
         /// <summary>
         /// 
@@ -89,8 +89,7 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::AI21.ResponseFormat>? ResponseFormat { get; set; }
+        public global::AI21.ResponseFormat? ResponseFormat { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

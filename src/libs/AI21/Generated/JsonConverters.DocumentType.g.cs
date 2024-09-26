@@ -1,6 +1,6 @@
 #nullable enable
 
-namespace OpenApiGenerator.JsonConverters
+namespace AI21.JsonConverters
 {
     /// <inheritdoc />
     public sealed class DocumentTypeJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::AI21.DocumentType>

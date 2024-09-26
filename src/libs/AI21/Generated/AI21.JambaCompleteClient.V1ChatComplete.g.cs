@@ -35,7 +35,7 @@ namespace AI21
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::System.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>> V1ChatCompleteAsync(
+        public async global::System.Threading.Tasks.Task<global::AI21.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>> V1ChatCompleteAsync(
             string authorization,
             global::AI21.LanguageStudioApiServerDataTypesChatChatRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -49,10 +49,16 @@ namespace AI21
                 authorization: ref authorization,
                 request: request);
 
+            _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", authorization);
+
+            var __pathBuilder = new PathBuilder(
+                path: "/studio/v1/chat/completions",
+                baseUri: _httpClient.BaseAddress); 
+            var __path = __pathBuilder.ToString();
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + "/studio/v1/chat/completions", global::System.UriKind.RelativeOrAbsolute));
-            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::AI21.SourceGenerationContext.Default.LanguageStudioApiServerDataTypesChatChatRequest);
+                requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
+            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, request.GetType(), JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
                 encoding: global::System.Text.Encoding.UTF8,
@@ -101,7 +107,7 @@ namespace AI21
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::AI21.SourceGenerationContext.Default.NullableAnyOfChatCompletionIListChatCompletionVllmStreamingMessage) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::AI21.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>?), JsonSerializerContext) as global::AI21.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>? ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
@@ -145,20 +151,20 @@ namespace AI21
         /// <param name="responseFormat"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::System.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>> V1ChatCompleteAsync(
+        public async global::System.Threading.Tasks.Task<global::AI21.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>> V1ChatCompleteAsync(
             string authorization,
             global::AI21.ModelName model,
-            global::System.Collections.Generic.IList<global::System.OneOf<global::AI21.UserMessage, global::AI21.AssistantMessage, global::AI21.ToolMessage, global::AI21.SystemMessage>> messages,
+            global::System.Collections.Generic.IList<global::AI21.OneOf<global::AI21.UserMessage, global::AI21.AssistantMessage, global::AI21.ToolMessage, global::AI21.SystemMessage>> messages,
             global::System.Collections.Generic.IList<global::AI21.ToolDefinition>? tools = default,
-            int n = 1,
-            int maxTokens = 4096,
-            double temperature = default,
-            double topP = 1,
-            global::System.AnyOf<string, global::System.Collections.Generic.IList<string>>? stop = default,
-            bool stream = false,
+            int? n = 1,
+            int? maxTokens = 4096,
+            double? temperature = default,
+            double? topP = 1,
+            global::AI21.AnyOf<string, global::System.Collections.Generic.IList<string>>? stop = default,
+            bool? stream = false,
             global::AI21.MockResponseConfig? mockResponse = default,
             global::System.Collections.Generic.IList<global::AI21.DocumentSchema>? documents = default,
-            global::System.AllOf<global::AI21.ResponseFormat>? responseFormat = default,
+            global::AI21.ResponseFormat? responseFormat = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var request = new global::AI21.LanguageStudioApiServerDataTypesChatChatRequest

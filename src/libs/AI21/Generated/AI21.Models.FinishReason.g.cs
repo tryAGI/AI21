@@ -19,7 +19,7 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("length")]
-        public int Length { get; set; }
+        public int? Length { get; set; }
 
         /// <summary>
         /// 

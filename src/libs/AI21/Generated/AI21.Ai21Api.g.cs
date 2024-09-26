@@ -8,7 +8,7 @@ namespace AI21
     /// If no httpClient is provided, a new one will be created.<br/>
     /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
     /// </summary>
-    public sealed partial class Ai21Api : global::System.IDisposable
+    public sealed partial class Ai21Api : global::AI21.IAi21Api, global::System.IDisposable
     {
         /// <summary>
         /// 
@@ -17,66 +17,107 @@ namespace AI21
 
         private readonly global::System.Net.Http.HttpClient _httpClient;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; } = global::AI21.SourceGenerationContext.Default;
+
 
         /// <summary>
         /// 
         /// </summary>
-        public JambaCompleteClient JambaComplete => new JambaCompleteClient(_httpClient);
+        public JambaCompleteClient JambaComplete => new JambaCompleteClient(_httpClient)
+        {
+            JsonSerializerContext = JsonSerializerContext,
+        };
 
         /// <summary>
         /// 
         /// </summary>
-        public CompletionClient Completion => new CompletionClient(_httpClient);
+        public CompletionClient Completion => new CompletionClient(_httpClient)
+        {
+            JsonSerializerContext = JsonSerializerContext,
+        };
 
         /// <summary>
         /// 
         /// </summary>
-        public CustomModelsClient CustomModels => new CustomModelsClient(_httpClient);
+        public CustomModelsClient CustomModels => new CustomModelsClient(_httpClient)
+        {
+            JsonSerializerContext = JsonSerializerContext,
+        };
 
         /// <summary>
         /// 
         /// </summary>
-        public DatasetsClient Datasets => new DatasetsClient(_httpClient);
+        public DatasetsClient Datasets => new DatasetsClient(_httpClient)
+        {
+            JsonSerializerContext = JsonSerializerContext,
+        };
 
         /// <summary>
         /// 
         /// </summary>
-        public ParaphraseClient Paraphrase => new ParaphraseClient(_httpClient);
+        public ParaphraseClient Paraphrase => new ParaphraseClient(_httpClient)
+        {
+            JsonSerializerContext = JsonSerializerContext,
+        };
 
         /// <summary>
         /// 
         /// </summary>
-        public SummarizeClient Summarize => new SummarizeClient(_httpClient);
+        public SummarizeClient Summarize => new SummarizeClient(_httpClient)
+        {
+            JsonSerializerContext = JsonSerializerContext,
+        };
 
         /// <summary>
         /// 
         /// </summary>
-        public SegmentationClient Segmentation => new SegmentationClient(_httpClient);
+        public SegmentationClient Segmentation => new SegmentationClient(_httpClient)
+        {
+            JsonSerializerContext = JsonSerializerContext,
+        };
 
         /// <summary>
         /// 
         /// </summary>
-        public GrammaticalErrorCorrectionsClient GrammaticalErrorCorrections => new GrammaticalErrorCorrectionsClient(_httpClient);
+        public GrammaticalErrorCorrectionsClient GrammaticalErrorCorrections => new GrammaticalErrorCorrectionsClient(_httpClient)
+        {
+            JsonSerializerContext = JsonSerializerContext,
+        };
 
         /// <summary>
         /// 
         /// </summary>
-        public LibraryManagementClient LibraryManagement => new LibraryManagementClient(_httpClient);
+        public LibraryManagementClient LibraryManagement => new LibraryManagementClient(_httpClient)
+        {
+            JsonSerializerContext = JsonSerializerContext,
+        };
 
         /// <summary>
         /// 
         /// </summary>
-        public RAGEngineClient RAGEngine => new RAGEngineClient(_httpClient);
+        public RAGEngineClient RAGEngine => new RAGEngineClient(_httpClient)
+        {
+            JsonSerializerContext = JsonSerializerContext,
+        };
 
         /// <summary>
         /// 
         /// </summary>
-        public ChatClient Chat => new ChatClient(_httpClient);
+        public ChatClient Chat => new ChatClient(_httpClient)
+        {
+            JsonSerializerContext = JsonSerializerContext,
+        };
 
         /// <summary>
         /// 
         /// </summary>
-        public TokenizeClient Tokenize => new TokenizeClient(_httpClient);
+        public TokenizeClient Tokenize => new TokenizeClient(_httpClient)
+        {
+            JsonSerializerContext = JsonSerializerContext,
+        };
 
         /// <summary>
         /// Creates a new instance of the Ai21Api.
@@ -87,8 +128,7 @@ namespace AI21
         /// <param name="baseUri"></param> 
         public Ai21Api(
             global::System.Net.Http.HttpClient? httpClient = null,
-            global::System.Uri? baseUri = null 
-            )
+            global::System.Uri? baseUri = null)
         {
             _httpClient = httpClient ?? new global::System.Net.Http.HttpClient();
             _httpClient.BaseAddress ??= baseUri ?? new global::System.Uri(BaseUrl);

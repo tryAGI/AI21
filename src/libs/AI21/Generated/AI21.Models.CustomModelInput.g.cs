@@ -12,7 +12,7 @@ namespace AI21
         /// An enumeration.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.CustomModelTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.CustomModelTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::AI21.CustomModelType ModelType { get; set; }
 
@@ -20,13 +20,13 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("learning_rate")]
-        public double LearningRate { get; set; }
+        public double? LearningRate { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("num_epochs")]
-        public int NumEpochs { get; set; }
+        public int? NumEpochs { get; set; }
 
         /// <summary>
         /// 

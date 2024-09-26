@@ -21,7 +21,7 @@ namespace AI21
         /// Default Value: function
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.ToolCallTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.ToolCallTypeJsonConverter))]
         public global::AI21.ToolCallType? Type { get; set; } = global::AI21.ToolCallType.Function;
 
         /// <summary>

@@ -39,10 +39,14 @@ namespace AI21
                 httpClient: _httpClient,
                 request: request);
 
+            var __pathBuilder = new PathBuilder(
+                path: "/studio/v1/library/answer",
+                baseUri: _httpClient.BaseAddress); 
+            var __path = __pathBuilder.ToString();
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + "/studio/v1/library/answer", global::System.UriKind.RelativeOrAbsolute));
-            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::AI21.SourceGenerationContext.Default.LibraryAnswerRequest);
+                requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
+            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, request.GetType(), JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
                 encoding: global::System.Text.Encoding.UTF8,
@@ -90,7 +94,7 @@ namespace AI21
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::AI21.SourceGenerationContext.Default.LibraryAnswerResponse) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::AI21.LibraryAnswerResponse), JsonSerializerContext) as global::AI21.LibraryAnswerResponse ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
@@ -120,16 +124,16 @@ namespace AI21
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.LibraryAnswerResponse> V1LibraryAnswerAsync(
             string question,
-            int maxSegments = default,
+            int? maxSegments = default,
             string? path = default,
             global::System.Collections.Generic.IList<string>? labels = default,
             global::AI21.LibraryAnswerRequestLabelsFilterMode? labelsFilterMode = global::AI21.LibraryAnswerRequestLabelsFilterMode.AND,
-            global::System.Collections.Generic.IList<string>? fileIds = default,
+            global::System.Collections.Generic.IList<global::System.Guid>? fileIds = default,
             global::AI21.AnswerLength? answerLength = default,
             global::AI21.Mode? mode = default,
-            global::System.AllOf<global::AI21.RetrievalStrategy3?>? retrievalStrategy = default,
-            double retrievalSimilarityThreshold = default,
-            double hybridSearchAlpha = default,
+            global::AI21.RetrievalStrategy? retrievalStrategy = global::AI21.RetrievalStrategy.Default,
+            double? retrievalSimilarityThreshold = default,
+            double? hybridSearchAlpha = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var request = new global::AI21.LibraryAnswerRequest

@@ -37,9 +37,13 @@ namespace AI21
                 httpClient: _httpClient,
                 userId: ref userId);
 
+            var __pathBuilder = new PathBuilder(
+                path: $"/studio/v1/connectors/connected-users/{userId}/tokens",
+                baseUri: _httpClient.BaseAddress); 
+            var __path = __pathBuilder.ToString();
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/studio/v1/connectors/connected-users/{userId}/tokens", global::System.UriKind.RelativeOrAbsolute));
+                requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 
             PrepareRequest(
                 client: _httpClient,
@@ -82,7 +86,7 @@ namespace AI21
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::AI21.SourceGenerationContext.Default.ConnectorsToken) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::AI21.ConnectorsToken), JsonSerializerContext) as global::AI21.ConnectorsToken ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }

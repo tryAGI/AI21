@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace AI21
@@ -21,7 +19,7 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("maxSegments")]
-        public int MaxSegments { get; set; }
+        public int? MaxSegments { get; set; }
 
         /// <summary>
         /// 
@@ -39,39 +37,39 @@ namespace AI21
         /// Default Value: AND
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("labels_filter_mode")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.LibrarySearchRequestLabelsFilterModeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.LibrarySearchRequestLabelsFilterModeJsonConverter))]
         public global::AI21.LibrarySearchRequestLabelsFilterMode? LabelsFilterMode { get; set; } = global::AI21.LibrarySearchRequestLabelsFilterMode.AND;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fileIds")]
-        public global::System.Collections.Generic.IList<string>? FileIds { get; set; }
+        public global::System.Collections.Generic.IList<global::System.Guid>? FileIds { get; set; }
 
         /// <summary>
         /// Default Value: default
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("retrievalStrategy")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::AI21.RetrievalStrategy3?>? RetrievalStrategy { get; set; } = global::AI21.RetrievalStrategy3.Default;
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.RetrievalStrategyJsonConverter))]
+        public global::AI21.RetrievalStrategy? RetrievalStrategy { get; set; } = global::AI21.RetrievalStrategy.Default;
 
         /// <summary>
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("maxNeighbors")]
-        public int MaxNeighbors { get; set; } = 1;
+        public int? MaxNeighbors { get; set; } = 1;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("retrievalSimilarityThreshold")]
-        public double RetrievalSimilarityThreshold { get; set; }
+        public double? RetrievalSimilarityThreshold { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hybridSearchAlpha")]
-        public double HybridSearchAlpha { get; set; }
+        public double? HybridSearchAlpha { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

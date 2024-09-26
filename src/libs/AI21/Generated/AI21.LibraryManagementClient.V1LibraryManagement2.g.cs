@@ -7,11 +7,11 @@ namespace AI21
     {
         partial void PrepareV1LibraryManagement2Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string fileId);
+            ref global::System.Guid fileId);
         partial void PrepareV1LibraryManagement2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string fileId);
+            global::System.Guid fileId);
         partial void ProcessV1LibraryManagement2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -36,7 +36,7 @@ namespace AI21
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.FileResponse> V1LibraryManagement2Async(
-            string fileId,
+            global::System.Guid fileId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -45,9 +45,13 @@ namespace AI21
                 httpClient: _httpClient,
                 fileId: ref fileId);
 
+            var __pathBuilder = new PathBuilder(
+                path: $"/studio/v1/library/files/{fileId}",
+                baseUri: _httpClient.BaseAddress); 
+            var __path = __pathBuilder.ToString();
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/studio/v1/library/files/{fileId}", global::System.UriKind.RelativeOrAbsolute));
+                requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 
             PrepareRequest(
                 client: _httpClient,
@@ -90,7 +94,7 @@ namespace AI21
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::AI21.SourceGenerationContext.Default.FileResponse) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::AI21.FileResponse), JsonSerializerContext) as global::AI21.FileResponse ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }

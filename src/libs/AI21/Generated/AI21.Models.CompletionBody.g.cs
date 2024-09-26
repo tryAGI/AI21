@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace AI21
@@ -21,37 +19,37 @@ namespace AI21
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("numResults")]
-        public int NumResults { get; set; } = 1;
+        public int? NumResults { get; set; } = 1;
 
         /// <summary>
         /// Default Value: 16
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("maxTokens")]
-        public int MaxTokens { get; set; } = 16;
+        public int? MaxTokens { get; set; } = 16;
 
         /// <summary>
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("minTokens")]
-        public int MinTokens { get; set; } = 0;
+        public int? MinTokens { get; set; } = 0;
 
         /// <summary>
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("temperature")]
-        public double Temperature { get; set; } = 1;
+        public double? Temperature { get; set; } = 1;
 
         /// <summary>
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("topP")]
-        public double TopP { get; set; } = 1;
+        public double? TopP { get; set; } = 1;
 
         /// <summary>
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("minP")]
-        public double MinP { get; set; } = 0;
+        public double? MinP { get; set; } = 0;
 
         /// <summary>
         /// 
@@ -63,7 +61,7 @@ namespace AI21
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("topKReturn")]
-        public int TopKReturn { get; set; } = 0;
+        public int? TopKReturn { get; set; } = 0;
 
         /// <summary>
         /// 
@@ -75,28 +73,25 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("frequencyPenalty")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::AI21.Penalty>? FrequencyPenalty { get; set; }
+        public global::AI21.Penalty? FrequencyPenalty { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("presencePenalty")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::AI21.Penalty>? PresencePenalty { get; set; }
+        public global::AI21.Penalty? PresencePenalty { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("countPenalty")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory1))]
-        public global::System.AllOf<global::AI21.Penalty>? CountPenalty { get; set; }
+        public global::AI21.Penalty? CountPenalty { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("epoch")]
-        public int Epoch { get; set; }
+        public int? Epoch { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

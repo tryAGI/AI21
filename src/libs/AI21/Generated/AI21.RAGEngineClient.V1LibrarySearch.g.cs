@@ -39,10 +39,14 @@ namespace AI21
                 httpClient: _httpClient,
                 request: request);
 
+            var __pathBuilder = new PathBuilder(
+                path: "/studio/v1/library/search",
+                baseUri: _httpClient.BaseAddress); 
+            var __path = __pathBuilder.ToString();
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + "/studio/v1/library/search", global::System.UriKind.RelativeOrAbsolute));
-            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::AI21.SourceGenerationContext.Default.LibrarySearchRequest);
+                requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
+            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, request.GetType(), JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
                 encoding: global::System.Text.Encoding.UTF8,
@@ -90,7 +94,7 @@ namespace AI21
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::AI21.SourceGenerationContext.Default.LibrarySearchResponse) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::AI21.LibrarySearchResponse), JsonSerializerContext) as global::AI21.LibrarySearchResponse ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
@@ -117,15 +121,15 @@ namespace AI21
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.LibrarySearchResponse> V1LibrarySearchAsync(
             string query,
-            int maxSegments = default,
+            int? maxSegments = default,
             string? path = default,
             global::System.Collections.Generic.IList<string>? labels = default,
             global::AI21.LibrarySearchRequestLabelsFilterMode? labelsFilterMode = global::AI21.LibrarySearchRequestLabelsFilterMode.AND,
-            global::System.Collections.Generic.IList<string>? fileIds = default,
-            global::System.AllOf<global::AI21.RetrievalStrategy3?>? retrievalStrategy = default,
-            int maxNeighbors = 1,
-            double retrievalSimilarityThreshold = default,
-            double hybridSearchAlpha = default,
+            global::System.Collections.Generic.IList<global::System.Guid>? fileIds = default,
+            global::AI21.RetrievalStrategy? retrievalStrategy = global::AI21.RetrievalStrategy.Default,
+            int? maxNeighbors = 1,
+            double? retrievalSimilarityThreshold = default,
+            double? hybridSearchAlpha = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var request = new global::AI21.LibrarySearchRequest

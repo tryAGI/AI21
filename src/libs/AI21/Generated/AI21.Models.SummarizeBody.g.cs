@@ -19,7 +19,7 @@ namespace AI21
         /// An enumeration.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sourceType")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.DocumentTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.DocumentTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::AI21.DocumentType SourceType { get; set; }
 
@@ -33,7 +33,7 @@ namespace AI21
         /// An enumeration.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("summaryMethod")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.SummaryMethodJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.SummaryMethodJsonConverter))]
         public global::AI21.SummaryMethod? SummaryMethod { get; set; }
 
         /// <summary>

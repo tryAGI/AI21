@@ -40,7 +40,7 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("order")]
-        public int Order { get; set; }
+        public int? Order { get; set; }
 
         /// <summary>
         /// 

@@ -51,10 +51,17 @@ namespace AI21
                 customModelType: ref customModelType,
                 request: request);
 
+            var __pathBuilder = new PathBuilder(
+                path: $"/studio/v1/j2-ultra/{customModelName}/complete",
+                baseUri: _httpClient.BaseAddress); 
+            __pathBuilder 
+                .AddOptionalParameter("custom_model_type", customModelType) 
+                ; 
+            var __path = __pathBuilder.ToString();
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/studio/v1/j2-ultra/{customModelName}/complete?custom_model_type={customModelType}", global::System.UriKind.RelativeOrAbsolute));
-            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::AI21.SourceGenerationContext.Default.CompletionBody);
+                requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
+            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, request.GetType(), JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
                 encoding: global::System.Text.Encoding.UTF8,
@@ -104,7 +111,7 @@ namespace AI21
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::AI21.SourceGenerationContext.Default.V1J2UltraCompleteResponse2) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::AI21.V1J2UltraCompleteResponse2), JsonSerializerContext) as global::AI21.V1J2UltraCompleteResponse2 ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
@@ -149,19 +156,19 @@ namespace AI21
             string customModelName,
             string prompt,
             string? customModelType = "j2-ultra",
-            int numResults = 1,
-            int maxTokens = 16,
-            int minTokens = 0,
-            double temperature = 1,
-            double topP = 1,
-            double minP = 0,
+            int? numResults = 1,
+            int? maxTokens = 16,
+            int? minTokens = 0,
+            double? temperature = 1,
+            double? topP = 1,
+            double? minP = 0,
             global::System.Collections.Generic.IList<string>? stopSequences = default,
-            int topKReturn = 0,
+            int? topKReturn = 0,
             global::AI21.CompletionBodyLogitBias? logitBias = default,
-            global::System.AllOf<global::AI21.Penalty>? frequencyPenalty = default,
-            global::System.AllOf<global::AI21.Penalty>? presencePenalty = default,
-            global::System.AllOf<global::AI21.Penalty>? countPenalty = default,
-            int epoch = default,
+            global::AI21.Penalty? frequencyPenalty = default,
+            global::AI21.Penalty? presencePenalty = default,
+            global::AI21.Penalty? countPenalty = default,
+            int? epoch = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var request = new global::AI21.CompletionBody

@@ -7,7 +7,7 @@ namespace AI21
     /// If no httpClient is provided, a new one will be created.<br/>
     /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
     /// </summary>
-    public sealed partial class SummarizeClient : global::System.IDisposable
+    public sealed partial class SummarizeClient : global::AI21.ISummarizeClient, global::System.IDisposable
     {
         /// <summary>
         /// 
@@ -15,6 +15,11 @@ namespace AI21
         public const string BaseUrl = "https://api.ai21.com/";
 
         private readonly global::System.Net.Http.HttpClient _httpClient;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; } = global::AI21.SourceGenerationContext.Default;
 
 
         /// <summary>
@@ -26,8 +31,7 @@ namespace AI21
         /// <param name="baseUri"></param> 
         public SummarizeClient(
             global::System.Net.Http.HttpClient? httpClient = null,
-            global::System.Uri? baseUri = null 
-            )
+            global::System.Uri? baseUri = null)
         {
             _httpClient = httpClient ?? new global::System.Net.Http.HttpClient();
             _httpClient.BaseAddress ??= baseUri ?? new global::System.Uri(BaseUrl);

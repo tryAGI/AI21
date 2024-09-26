@@ -7,12 +7,12 @@ namespace AI21
     {
         partial void PrepareV1LibraryManagement3Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string fileId,
+            ref global::System.Guid fileId,
             global::AI21.FilesUpdateRequest request);
         partial void PrepareV1LibraryManagement3Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string fileId,
+            global::System.Guid fileId,
             global::AI21.FilesUpdateRequest request);
         partial void ProcessV1LibraryManagement3Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -39,7 +39,7 @@ namespace AI21
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.V1LibraryManagementResponse> V1LibraryManagement3Async(
-            string fileId,
+            global::System.Guid fileId,
             global::AI21.FilesUpdateRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -52,10 +52,14 @@ namespace AI21
                 fileId: ref fileId,
                 request: request);
 
+            var __pathBuilder = new PathBuilder(
+                path: $"/studio/v1/library/files/{fileId}",
+                baseUri: _httpClient.BaseAddress); 
+            var __path = __pathBuilder.ToString();
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Put,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/studio/v1/library/files/{fileId}", global::System.UriKind.RelativeOrAbsolute));
-            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::AI21.SourceGenerationContext.Default.FilesUpdateRequest);
+                requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
+            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, request.GetType(), JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
                 encoding: global::System.Text.Encoding.UTF8,
@@ -104,7 +108,7 @@ namespace AI21
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::AI21.SourceGenerationContext.Default.V1LibraryManagementResponse) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::AI21.V1LibraryManagementResponse), JsonSerializerContext) as global::AI21.V1LibraryManagementResponse ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
@@ -132,7 +136,7 @@ namespace AI21
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.V1LibraryManagementResponse> V1LibraryManagement3Async(
-            string fileId,
+            global::System.Guid fileId,
             string? publicUrl = default,
             global::System.Collections.Generic.IList<string>? labels = default,
             global::System.Threading.CancellationToken cancellationToken = default)

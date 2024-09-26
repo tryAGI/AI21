@@ -1,4 +1,3 @@
-using System.Linq;
 
 #nullable enable
 
@@ -12,8 +11,8 @@ namespace AI21
             ref string? path,
             ref global::AI21.FileStatus? status,
             global::System.Collections.Generic.IList<string>? label,
-            ref int limit,
-            ref int offset);
+            ref int? limit,
+            ref int? offset);
         partial void PrepareV1LibraryManagementRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -21,8 +20,8 @@ namespace AI21
             string? path,
             global::AI21.FileStatus? status,
             global::System.Collections.Generic.IList<string>? label,
-            int limit,
-            int offset);
+            int? limit,
+            int? offset);
         partial void ProcessV1LibraryManagementResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -54,8 +53,8 @@ namespace AI21
             string? path = default,
             global::AI21.FileStatus? status = default,
             global::System.Collections.Generic.IList<string>? label = default,
-            int limit = 1000,
-            int offset = default,
+            int? limit = 1000,
+            int? offset = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -69,9 +68,21 @@ namespace AI21
                 limit: ref limit,
                 offset: ref offset);
 
+            var __pathBuilder = new PathBuilder(
+                path: "/studio/v1/library/files",
+                baseUri: _httpClient.BaseAddress); 
+            __pathBuilder 
+                .AddOptionalParameter("name", name) 
+                .AddOptionalParameter("path", path) 
+                .AddOptionalParameter("status", status?.ToValueString()) 
+                .AddOptionalParameter("label", label, delimiter: ",", explode: true) 
+                .AddOptionalParameter("limit", limit?.ToString()) 
+                .AddOptionalParameter("offset", offset?.ToString()) 
+                ; 
+            var __path = __pathBuilder.ToString();
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/studio/v1/library/files?name={name}&path={path}&status={(global::System.Uri.EscapeDataString(status?.ToValueString() ?? string.Empty))}&{string.Join("&", label?.Select(static x => $"label={x}") ?? global::System.Array.Empty<string>())}&limit={limit}&offset={offset}", global::System.UriKind.RelativeOrAbsolute));
+                requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 
             PrepareRequest(
                 client: _httpClient,
@@ -119,7 +130,7 @@ namespace AI21
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::AI21.SourceGenerationContext.Default.IListFileResponse) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::System.Collections.Generic.IList<global::AI21.FileResponse>), JsonSerializerContext) as global::System.Collections.Generic.IList<global::AI21.FileResponse> ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }

@@ -12,7 +12,7 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.ToolDefinitionTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.ToolDefinitionTypeJsonConverter))]
         public global::AI21.ToolDefinitionType Type { get; set; }
 
         /// <summary>

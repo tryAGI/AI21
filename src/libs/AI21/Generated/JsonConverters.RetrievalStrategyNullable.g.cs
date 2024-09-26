@@ -1,12 +1,12 @@
 #nullable enable
 
-namespace OpenApiGenerator.JsonConverters
+namespace AI21.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class RetrievalStrategy3JsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::AI21.RetrievalStrategy3>
+    public sealed class RetrievalStrategyNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::AI21.RetrievalStrategy?>
     {
         /// <inheritdoc />
-        public override global::AI21.RetrievalStrategy3 Read(
+        public override global::AI21.RetrievalStrategy? Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace OpenApiGenerator.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::AI21.RetrievalStrategy3Extensions.ToEnum(stringValue) ?? default;
+                        return global::AI21.RetrievalStrategyExtensions.ToEnum(stringValue);
                     }
                     
                     break;
@@ -26,7 +26,7 @@ namespace OpenApiGenerator.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::AI21.RetrievalStrategy3)numValue;
+                    return (global::AI21.RetrievalStrategy)numValue;
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -38,12 +38,19 @@ namespace OpenApiGenerator.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::AI21.RetrievalStrategy3 value,
+            global::AI21.RetrievalStrategy? value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            writer.WriteStringValue(global::AI21.RetrievalStrategy3Extensions.ToValueString(value));
+            if (value == null)
+            {
+                writer.WriteNullValue();
+            }
+            else
+            {
+                writer.WriteStringValue(global::AI21.RetrievalStrategyExtensions.ToValueString(value.Value));
+            }
         }
     }
 }

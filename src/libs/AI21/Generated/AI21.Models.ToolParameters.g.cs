@@ -13,7 +13,7 @@ namespace AI21
         /// Default Value: object
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.ToolParametersTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.ToolParametersTypeJsonConverter))]
         public global::AI21.ToolParametersType? Type { get; set; } = global::AI21.ToolParametersType.Object;
 
         /// <summary>

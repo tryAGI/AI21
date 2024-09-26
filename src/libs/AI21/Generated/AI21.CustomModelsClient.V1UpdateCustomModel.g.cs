@@ -44,10 +44,14 @@ namespace AI21
                 customModelPid: ref customModelPid,
                 request: request);
 
+            var __pathBuilder = new PathBuilder(
+                path: $"/studio/v1/custom-model/{customModelPid}",
+                baseUri: _httpClient.BaseAddress); 
+            var __path = __pathBuilder.ToString();
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Put,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/studio/v1/custom-model/{customModelPid}", global::System.UriKind.RelativeOrAbsolute));
-            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::AI21.SourceGenerationContext.Default.CustomModelUpdateBody);
+                requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
+            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, request.GetType(), JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
                 encoding: global::System.Text.Encoding.UTF8,
@@ -96,7 +100,7 @@ namespace AI21
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::AI21.SourceGenerationContext.Default.V1UpdateCustomModelResponse) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::AI21.V1UpdateCustomModelResponse), JsonSerializerContext) as global::AI21.V1UpdateCustomModelResponse ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
@@ -109,7 +113,7 @@ namespace AI21
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.V1UpdateCustomModelResponse> V1UpdateCustomModelAsync(
             string customModelPid,
-            int defaultEpoch = default,
+            int? defaultEpoch = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var request = new global::AI21.CustomModelUpdateBody

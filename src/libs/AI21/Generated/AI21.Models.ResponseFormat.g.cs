@@ -12,7 +12,7 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.ResponseFormatTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.ResponseFormatTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::AI21.ResponseFormatType Type { get; set; }
 

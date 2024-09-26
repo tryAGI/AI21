@@ -1,6 +1,6 @@
 #nullable enable
 
-namespace OpenApiGenerator.JsonConverters
+namespace AI21.JsonConverters
 {
     /// <inheritdoc />
     public class UnixTimestampJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::System.DateTimeOffset>
