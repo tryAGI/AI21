@@ -15,7 +15,7 @@ namespace AI21
         public const string BaseUrl = "https://api.ai21.com/";
 
         private readonly global::System.Net.Http.HttpClient _httpClient;
-        private global::AI21.EndPointAuthorization? _authorization;
+        private global::System.Collections.Generic.List<global::AI21.EndPointAuthorization> _authorizations;
 
         /// <summary>
         /// 
@@ -30,15 +30,15 @@ namespace AI21
         /// </summary>
         /// <param name="httpClient"></param>
         /// <param name="baseUri"></param>
-        /// <param name="authorization"></param>
+        /// <param name="authorizations"></param>
         public SummarizeClient(
             global::System.Net.Http.HttpClient? httpClient = null,
             global::System.Uri? baseUri = null,
-            global::AI21.EndPointAuthorization? authorization = null)
+            global::System.Collections.Generic.List<global::AI21.EndPointAuthorization>? authorizations = null)
         {
             _httpClient = httpClient ?? new global::System.Net.Http.HttpClient();
             _httpClient.BaseAddress ??= baseUri ?? new global::System.Uri(BaseUrl);
-            _authorization = authorization;
+            _authorizations = authorizations ?? new global::System.Collections.Generic.List<global::AI21.EndPointAuthorization>();
 
             Initialized(_httpClient);
         }

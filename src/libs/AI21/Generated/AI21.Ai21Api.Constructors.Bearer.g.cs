@@ -5,12 +5,12 @@ namespace AI21
 {
     public sealed partial class Ai21Api
     {
-        /// <inheritdoc cref="Ai21Api(global::System.Net.Http.HttpClient?, global::System.Uri?, global::AI21.EndPointAuthorization?)"/>
+        /// <inheritdoc cref="Ai21Api(global::System.Net.Http.HttpClient?, global::System.Uri?, global::System.Collections.Generic.List{global::AI21.EndPointAuthorization}?)"/>
         public Ai21Api(
             string apiKey,
             global::System.Net.Http.HttpClient? httpClient = null,
             global::System.Uri? baseUri = null,
-            global::AI21.EndPointAuthorization? authorization = null) : this(httpClient, baseUri, authorization)
+            global::System.Collections.Generic.List<global::AI21.EndPointAuthorization>? authorizations = null) : this(httpClient, baseUri, authorizations)
         {
             Authorizing(_httpClient, ref apiKey);
 
