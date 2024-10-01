@@ -13,6 +13,11 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
+        public global::System.Collections.Generic.Dictionary<string, string>? StringStringDictionary { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public global::AI21.AnswerBody? Type0 { get; set; }
         /// <summary>
         /// 
