@@ -180,7 +180,7 @@ namespace AI21
             double? minP = 0,
             global::System.Collections.Generic.IList<string>? stopSequences = default,
             int? topKReturn = 0,
-            global::AI21.CompletionBodyLogitBias? logitBias = default,
+            object? logitBias = default,
             global::AI21.Penalty? frequencyPenalty = default,
             global::AI21.Penalty? presencePenalty = default,
             global::AI21.Penalty? countPenalty = default,
