@@ -38,7 +38,7 @@ namespace AI21
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.V1LibraryManagementResponse> V1LibraryManagement3Async(
+        public async global::System.Threading.Tasks.Task<string> V1LibraryManagement3Async(
             global::System.Guid fileId,
             global::AI21.FilesUpdateRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -123,9 +123,7 @@ namespace AI21
                 throw new global::System.InvalidOperationException(__content, ex);
             }
 
-            return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::AI21.V1LibraryManagementResponse), JsonSerializerContext) as global::AI21.V1LibraryManagementResponse ??
-                throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+            return __content;
         }
 
         /// <summary>
@@ -151,7 +149,7 @@ namespace AI21
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.V1LibraryManagementResponse> V1LibraryManagement3Async(
+        public async global::System.Threading.Tasks.Task<string> V1LibraryManagement3Async(
             global::System.Guid fileId,
             string? publicUrl = default,
             global::System.Collections.Generic.IList<string>? labels = default,

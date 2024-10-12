@@ -13,7 +13,7 @@ namespace AI21
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::AI21.V1J2GrandeInstructCompleteResponse> V1J2GrandeInstructCompleteAsync(
+        global::System.Threading.Tasks.Task<string> V1J2GrandeInstructCompleteAsync(
             global::AI21.CompletionBody request,
             string? model = "j2-grande-instruct",
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -54,7 +54,7 @@ namespace AI21
         /// <param name="epoch"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::AI21.V1J2GrandeInstructCompleteResponse> V1J2GrandeInstructCompleteAsync(
+        global::System.Threading.Tasks.Task<string> V1J2GrandeInstructCompleteAsync(
             string prompt,
             string? model = "j2-grande-instruct",
             int? numResults = 1,

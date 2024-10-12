@@ -19,7 +19,7 @@ namespace AI21
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::AI21.V1LibraryManagementResponse> V1LibraryManagement3Async(
+        global::System.Threading.Tasks.Task<string> V1LibraryManagement3Async(
             global::System.Guid fileId,
             global::AI21.FilesUpdateRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -47,7 +47,7 @@ namespace AI21
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::AI21.V1LibraryManagementResponse> V1LibraryManagement3Async(
+        global::System.Threading.Tasks.Task<string> V1LibraryManagement3Async(
             global::System.Guid fileId,
             string? publicUrl = default,
             global::System.Collections.Generic.IList<string>? labels = default,

@@ -30,7 +30,7 @@ namespace AI21
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.V1UpdateCustomModelResponse> V1UpdateCustomModelAsync(
+        public async global::System.Threading.Tasks.Task<string> V1UpdateCustomModelAsync(
             string customModelPid,
             global::AI21.CustomModelUpdateBody request,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -115,9 +115,7 @@ namespace AI21
                 throw new global::System.InvalidOperationException(__content, ex);
             }
 
-            return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::AI21.V1UpdateCustomModelResponse), JsonSerializerContext) as global::AI21.V1UpdateCustomModelResponse ??
-                throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+            return __content;
         }
 
         /// <summary>
@@ -127,7 +125,7 @@ namespace AI21
         /// <param name="defaultEpoch"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.V1UpdateCustomModelResponse> V1UpdateCustomModelAsync(
+        public async global::System.Threading.Tasks.Task<string> V1UpdateCustomModelAsync(
             string customModelPid,
             int? defaultEpoch = default,
             global::System.Threading.CancellationToken cancellationToken = default)

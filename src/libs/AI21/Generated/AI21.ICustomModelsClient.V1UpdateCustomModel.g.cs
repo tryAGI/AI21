@@ -11,7 +11,7 @@ namespace AI21
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::AI21.V1UpdateCustomModelResponse> V1UpdateCustomModelAsync(
+        global::System.Threading.Tasks.Task<string> V1UpdateCustomModelAsync(
             string customModelPid,
             global::AI21.CustomModelUpdateBody request,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -23,7 +23,7 @@ namespace AI21
         /// <param name="defaultEpoch"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::AI21.V1UpdateCustomModelResponse> V1UpdateCustomModelAsync(
+        global::System.Threading.Tasks.Task<string> V1UpdateCustomModelAsync(
             string customModelPid,
             int? defaultEpoch = default,
             global::System.Threading.CancellationToken cancellationToken = default);

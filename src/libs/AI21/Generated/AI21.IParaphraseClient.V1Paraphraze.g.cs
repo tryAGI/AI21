@@ -10,7 +10,7 @@ namespace AI21
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::AI21.V1ParaphrazeResponse> V1ParaphrazeAsync(
+        global::System.Threading.Tasks.Task<string> V1ParaphrazeAsync(
             global::AI21.ParaphraseBody request,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -27,7 +27,7 @@ namespace AI21
         /// <param name="endIndex"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::AI21.V1ParaphrazeResponse> V1ParaphrazeAsync(
+        global::System.Threading.Tasks.Task<string> V1ParaphrazeAsync(
             string text,
             global::AI21.StyleType? style = global::AI21.StyleType.General,
             int? startIndex = 0,
