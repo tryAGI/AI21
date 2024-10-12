@@ -35,7 +35,7 @@ namespace AI21
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.V1J2MidCustomModelCompleteResponse> V1J2MidCustomModelCompleteAsync(
+        public async global::System.Threading.Tasks.Task<string> V1J2MidCustomModelCompleteAsync(
             string customModelName,
             global::AI21.CompletionBody request,
             string? customModelType = "j2-mid",
@@ -126,9 +126,7 @@ namespace AI21
                 throw new global::System.InvalidOperationException(__content, ex);
             }
 
-            return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::AI21.V1J2MidCustomModelCompleteResponse), JsonSerializerContext) as global::AI21.V1J2MidCustomModelCompleteResponse ??
-                throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+            return __content;
         }
 
         /// <summary>
@@ -168,7 +166,7 @@ namespace AI21
         /// <param name="epoch"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.V1J2MidCustomModelCompleteResponse> V1J2MidCustomModelCompleteAsync(
+        public async global::System.Threading.Tasks.Task<string> V1J2MidCustomModelCompleteAsync(
             string customModelName,
             string prompt,
             string? customModelType = "j2-mid",

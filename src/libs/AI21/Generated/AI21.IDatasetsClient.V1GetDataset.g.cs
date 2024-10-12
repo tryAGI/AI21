@@ -10,7 +10,7 @@ namespace AI21
         /// <param name="datasetPid"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::AI21.V1GetDatasetResponse> V1GetDatasetAsync(
+        global::System.Threading.Tasks.Task<string> V1GetDatasetAsync(
             string datasetPid,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

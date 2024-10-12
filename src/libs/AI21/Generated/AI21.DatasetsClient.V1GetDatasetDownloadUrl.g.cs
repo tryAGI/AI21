@@ -30,7 +30,7 @@ namespace AI21
         /// <param name="datasetName"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.V1GetDatasetDownloadUrlResponse> V1GetDatasetDownloadUrlAsync(
+        public async global::System.Threading.Tasks.Task<string> V1GetDatasetDownloadUrlAsync(
             string datasetPid,
             string datasetName,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -110,9 +110,7 @@ namespace AI21
                 throw new global::System.InvalidOperationException(__content, ex);
             }
 
-            return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::AI21.V1GetDatasetDownloadUrlResponse), JsonSerializerContext) as global::AI21.V1GetDatasetDownloadUrlResponse ??
-                throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+            return __content;
         }
     }
 }

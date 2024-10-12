@@ -32,7 +32,7 @@ namespace AI21
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.V1J2LargeInstructCompleteResponse> V1J2LargeInstructCompleteAsync(
+        public async global::System.Threading.Tasks.Task<string> V1J2LargeInstructCompleteAsync(
             global::AI21.CompletionBody request,
             string? model = "j2-large-instruct",
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -120,9 +120,7 @@ namespace AI21
                 throw new global::System.InvalidOperationException(__content, ex);
             }
 
-            return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::AI21.V1J2LargeInstructCompleteResponse), JsonSerializerContext) as global::AI21.V1J2LargeInstructCompleteResponse ??
-                throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+            return __content;
         }
 
         /// <summary>
@@ -161,7 +159,7 @@ namespace AI21
         /// <param name="epoch"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.V1J2LargeInstructCompleteResponse> V1J2LargeInstructCompleteAsync(
+        public async global::System.Threading.Tasks.Task<string> V1J2LargeInstructCompleteAsync(
             string prompt,
             string? model = "j2-large-instruct",
             int? numResults = 1,

@@ -10,7 +10,7 @@ namespace AI21
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::AI21.V1AnswerResponse> V1AnswerAsync(
+        global::System.Threading.Tasks.Task<string> V1AnswerAsync(
             global::AI21.AnswerBody request,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -27,7 +27,7 @@ namespace AI21
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::AI21.V1AnswerResponse> V1AnswerAsync(
+        global::System.Threading.Tasks.Task<string> V1AnswerAsync(
             string context,
             string question,
             global::AI21.AnswerLength? answerLength = default,
