@@ -102,7 +102,7 @@ namespace AI21
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::AI21.ConnectorsDataSources), JsonSerializerContext) as global::AI21.ConnectorsDataSources ??
+                global::AI21.ConnectorsDataSources.FromJson(__content, JsonSerializerContext) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }

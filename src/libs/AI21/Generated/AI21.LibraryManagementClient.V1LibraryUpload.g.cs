@@ -146,7 +146,7 @@ namespace AI21
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::AI21.FileUploadResponse), JsonSerializerContext) as global::AI21.FileUploadResponse ??
+                global::AI21.FileUploadResponse.FromJson(__content, JsonSerializerContext) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
