@@ -518,42 +518,50 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::AI21.OneOf<global::AI21.UserMessage, global::AI21.AssistantMessage, global::AI21.ToolMessage, global::AI21.SystemMessage>>? Type125 { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.MessagesItem>? Type125 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.OneOf<global::AI21.UserMessage, global::AI21.AssistantMessage, global::AI21.ToolMessage, global::AI21.SystemMessage>? Type126 { get; set; }
+        public global::AI21.MessagesItem? Type126 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::AI21.ToolDefinition>? Type127 { get; set; }
+        public global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminator? Type127 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.AnyOf<string, global::System.Collections.Generic.IList<string>>? Type128 { get; set; }
+        public global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRole? Type128 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::AI21.DocumentSchema>? Type129 { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.ToolDefinition>? Type129 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.LanguageStudioApiServerDataTypesJ2ChatChatRequest? Type130 { get; set; }
+        public global::AI21.AnyOf<string, global::System.Collections.Generic.IList<string>>? Type130 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::AI21.ChatMessage>? Type131 { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.DocumentSchema>? Type131 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>? Type132 { get; set; }
+        public global::AI21.LanguageStudioApiServerDataTypesJ2ChatChatRequest? Type132 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>? Type133 { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.ChatMessage>? Type133 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::AI21.FileResponse>? Type134 { get; set; }
+        public global::AI21.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>? Type134 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>? Type135 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::AI21.FileResponse>? Type136 { get; set; }
     }
 }
