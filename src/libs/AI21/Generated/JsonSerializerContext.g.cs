@@ -63,8 +63,10 @@ namespace AI21
             typeof(global::AI21.JsonConverters.ToolMessageRoleNullableJsonConverter),
             typeof(global::AI21.JsonConverters.UserMessageRoleJsonConverter),
             typeof(global::AI21.JsonConverters.UserMessageRoleNullableJsonConverter),
+            typeof(global::AI21.JsonConverters.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRoleJsonConverter),
+            typeof(global::AI21.JsonConverters.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRoleNullableJsonConverter),
             typeof(global::AI21.JsonConverters.AnyOfJsonConverterFactory2),
-            typeof(global::AI21.JsonConverters.OneOfJsonConverterFactory4),
+            typeof(global::AI21.JsonConverters.MessagesItemJsonConverter),
         })]
 
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.JsonSerializerContextTypes))]

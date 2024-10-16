@@ -23,7 +23,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("messages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::AI21.OneOf<global::AI21.UserMessage, global::AI21.AssistantMessage, global::AI21.ToolMessage, global::AI21.SystemMessage>> Messages { get; set; }
+        public required global::System.Collections.Generic.IList<global::AI21.MessagesItem> Messages { get; set; }
 
         /// <summary>
         /// 
