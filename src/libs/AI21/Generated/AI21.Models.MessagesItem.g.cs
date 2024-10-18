@@ -13,6 +13,11 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
+        public global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRole? Role { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::AI21.UserMessage? UserMessage { get; init; }
 #else
@@ -154,12 +159,15 @@ namespace AI21
         /// 
         /// </summary>
         public MessagesItem(
+            global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRole? role,
             global::AI21.UserMessage? userMessage,
             global::AI21.AssistantMessage? assistantMessage,
             global::AI21.ToolMessage? toolMessage,
             global::AI21.SystemMessage? systemMessage
             )
         {
+            Role = role;
+
             UserMessage = userMessage;
             AssistantMessage = assistantMessage;
             ToolMessage = toolMessage;
