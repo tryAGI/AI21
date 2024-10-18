@@ -16,11 +16,10 @@ namespace AI21.JsonConverters
             var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
 
-            global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminator? discriminator = default;
             var readerCopy = reader;
             var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminator> ??
                             throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminator)}");
-            discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
+            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
 
             global::AI21.UserMessage? userMessage = default;
             if (discriminator?.Role == global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRole.User)
@@ -52,6 +51,7 @@ namespace AI21.JsonConverters
             }
 
             var result = new global::AI21.MessagesItem(
+                discriminator?.Role,
                 userMessage,
                 assistantMessage,
                 toolMessage,
