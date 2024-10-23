@@ -14,8 +14,8 @@ namespace AI21
         {
             apiKey = apiKey ?? throw new global::System.ArgumentNullException(nameof(apiKey));
 
-            _authorizations.Clear();
-            _authorizations.Add(new global::AI21.EndPointAuthorization
+            Authorizations.Clear();
+            Authorizations.Add(new global::AI21.EndPointAuthorization
             {
                 Type = "Http",
                 Location = "Header",
