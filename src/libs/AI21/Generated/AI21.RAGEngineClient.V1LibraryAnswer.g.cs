@@ -143,11 +143,11 @@ namespace AI21
             int? maxSegments = default,
             string? path = default,
             global::System.Collections.Generic.IList<string>? labels = default,
-            global::AI21.LibraryAnswerRequestLabelsFilterMode? labelsFilterMode = global::AI21.LibraryAnswerRequestLabelsFilterMode.AND,
+            global::AI21.LibraryAnswerRequestLabelsFilterMode? labelsFilterMode = default,
             global::System.Collections.Generic.IList<global::System.Guid>? fileIds = default,
             global::AI21.AnswerLength? answerLength = default,
             global::AI21.Mode? mode = default,
-            global::AI21.RetrievalStrategy? retrievalStrategy = global::AI21.RetrievalStrategy.Default,
+            global::AI21.RetrievalStrategy? retrievalStrategy = default,
             double? retrievalSimilarityThreshold = default,
             double? hybridSearchAlpha = default,
             global::System.Threading.CancellationToken cancellationToken = default)

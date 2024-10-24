@@ -53,7 +53,7 @@ namespace AI21
             string? path = default,
             global::AI21.FileStatus? status = default,
             global::System.Collections.Generic.IList<string>? label = default,
-            int? limit = 1000,
+            int? limit = default,
             int? offset = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

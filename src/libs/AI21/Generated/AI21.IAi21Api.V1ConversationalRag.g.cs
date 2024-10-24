@@ -43,11 +43,11 @@ namespace AI21
             string? path = default,
             global::System.Collections.Generic.IList<string>? labels = default,
             global::System.Collections.Generic.IList<string>? fileIds = default,
-            int? maxSegments = 15,
-            global::AI21.ConversationalRagConfigRetrievalStrategy? retrievalStrategy = global::AI21.ConversationalRagConfigRetrievalStrategy.Default,
-            double? retrievalSimilarityThreshold = 0.8,
+            int? maxSegments = default,
+            global::AI21.ConversationalRagConfigRetrievalStrategy? retrievalStrategy = default,
+            double? retrievalSimilarityThreshold = default,
             int? maxNeighbors = default,
-            double? hybridSearchAlpha = 0.98,
+            double? hybridSearchAlpha = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

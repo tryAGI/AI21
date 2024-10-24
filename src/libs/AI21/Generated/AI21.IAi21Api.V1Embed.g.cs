@@ -25,7 +25,7 @@ namespace AI21
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> V1EmbedAsync(
             global::System.Collections.Generic.IList<string> texts,
-            global::AI21.EmbedType? type = global::AI21.EmbedType.Segment,
+            global::AI21.EmbedType? type = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

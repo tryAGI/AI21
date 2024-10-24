@@ -35,13 +35,13 @@ namespace AI21
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("n")]
-        public int? N { get; set; } = 1;
+        public int? N { get; set; }
 
         /// <summary>
         /// Default Value: 4096
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_tokens")]
-        public int? MaxTokens { get; set; } = 4096;
+        public int? MaxTokens { get; set; }
 
         /// <summary>
         /// 
@@ -53,7 +53,7 @@ namespace AI21
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("top_p")]
-        public double? TopP { get; set; } = 1;
+        public double? TopP { get; set; }
 
         /// <summary>
         /// 
@@ -71,7 +71,7 @@ namespace AI21
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stream")]
-        public bool? Stream { get; set; } = false;
+        public bool? Stream { get; set; }
 
         /// <summary>
         /// 

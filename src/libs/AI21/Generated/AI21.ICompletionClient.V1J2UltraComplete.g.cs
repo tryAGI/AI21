@@ -15,7 +15,7 @@ namespace AI21
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> V1J2UltraCompleteAsync(
             global::AI21.CompletionBody request,
-            string? model = "j2-ultra",
+            string? model = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -56,15 +56,15 @@ namespace AI21
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> V1J2UltraCompleteAsync(
             string prompt,
-            string? model = "j2-ultra",
-            int? numResults = 1,
-            int? maxTokens = 16,
-            int? minTokens = 0,
-            double? temperature = 1,
-            double? topP = 1,
-            double? minP = 0,
+            string? model = default,
+            int? numResults = default,
+            int? maxTokens = default,
+            int? minTokens = default,
+            double? temperature = default,
+            double? topP = default,
+            double? minP = default,
             global::System.Collections.Generic.IList<string>? stopSequences = default,
-            int? topKReturn = 0,
+            int? topKReturn = default,
             object? logitBias = default,
             global::AI21.Penalty? frequencyPenalty = default,
             global::AI21.Penalty? presencePenalty = default,
