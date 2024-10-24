@@ -20,13 +20,13 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("style")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.StyleTypeJsonConverter))]
-        public global::AI21.StyleType? Style { get; set; } = global::AI21.StyleType.General;
+        public global::AI21.StyleType? Style { get; set; }
 
         /// <summary>
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("startIndex")]
-        public int? StartIndex { get; set; } = 0;
+        public int? StartIndex { get; set; }
 
         /// <summary>
         /// 

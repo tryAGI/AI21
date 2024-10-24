@@ -34,7 +34,7 @@ namespace AI21
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.ChatResponse> V1J2UltraChatAsync(
             global::AI21.LanguageStudioApiServerDataTypesJ2ChatChatRequest request,
-            string? model = "j2-ultra",
+            string? model = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -162,16 +162,16 @@ namespace AI21
         public async global::System.Threading.Tasks.Task<global::AI21.ChatResponse> V1J2UltraChatAsync(
             global::System.Collections.Generic.IList<global::AI21.ChatMessage> messages,
             string system,
-            string? model = "j2-ultra",
+            string? model = default,
             global::AI21.Penalty? frequencyPenalty = default,
             global::AI21.Penalty? presencePenalty = default,
             global::AI21.Penalty? countPenalty = default,
-            int? numResults = 1,
-            double? temperature = 0.7,
-            int? maxTokens = 300,
-            int? minTokens = 0,
-            double? topP = 1,
-            int? topKReturn = 0,
+            int? numResults = default,
+            double? temperature = default,
+            int? maxTokens = default,
+            int? minTokens = default,
+            double? topP = default,
+            int? topKReturn = default,
             global::System.Collections.Generic.IList<string>? stopSequences = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

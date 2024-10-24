@@ -51,7 +51,7 @@ namespace AI21
         /// Default Value: 0.1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("split_ratio")]
-        public double? SplitRatio { get; set; } = 0.1;
+        public double? SplitRatio { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

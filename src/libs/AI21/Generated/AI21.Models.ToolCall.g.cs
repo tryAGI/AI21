@@ -22,7 +22,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.ToolCallTypeJsonConverter))]
-        public global::AI21.ToolCallType? Type { get; set; } = global::AI21.ToolCallType.Function;
+        public global::AI21.ToolCallType? Type { get; set; }
 
         /// <summary>
         /// 

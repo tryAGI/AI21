@@ -34,7 +34,7 @@ namespace AI21
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> V1J2LargeCompleteAsync(
             global::AI21.CompletionBody request,
-            string? model = "j2-large",
+            string? model = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -161,15 +161,15 @@ namespace AI21
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> V1J2LargeCompleteAsync(
             string prompt,
-            string? model = "j2-large",
-            int? numResults = 1,
-            int? maxTokens = 16,
-            int? minTokens = 0,
-            double? temperature = 1,
-            double? topP = 1,
-            double? minP = 0,
+            string? model = default,
+            int? numResults = default,
+            int? maxTokens = default,
+            int? minTokens = default,
+            double? temperature = default,
+            double? topP = default,
+            double? minP = default,
             global::System.Collections.Generic.IList<string>? stopSequences = default,
-            int? topKReturn = 0,
+            int? topKReturn = default,
             object? logitBias = default,
             global::AI21.Penalty? frequencyPenalty = default,
             global::AI21.Penalty? presencePenalty = default,

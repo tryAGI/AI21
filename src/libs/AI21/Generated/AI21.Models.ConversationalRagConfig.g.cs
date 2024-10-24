@@ -37,20 +37,20 @@ namespace AI21
         /// Default Value: 15
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_segments")]
-        public int? MaxSegments { get; set; } = 15;
+        public int? MaxSegments { get; set; }
 
         /// <summary>
         /// Default Value: default
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("retrieval_strategy")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.ConversationalRagConfigRetrievalStrategyJsonConverter))]
-        public global::AI21.ConversationalRagConfigRetrievalStrategy? RetrievalStrategy { get; set; } = global::AI21.ConversationalRagConfigRetrievalStrategy.Default;
+        public global::AI21.ConversationalRagConfigRetrievalStrategy? RetrievalStrategy { get; set; }
 
         /// <summary>
         /// Default Value: 0.8
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("retrieval_similarity_threshold")]
-        public double? RetrievalSimilarityThreshold { get; set; } = 0.8;
+        public double? RetrievalSimilarityThreshold { get; set; }
 
         /// <summary>
         /// 
@@ -62,7 +62,7 @@ namespace AI21
         /// Default Value: 0.98
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hybrid_search_alpha")]
-        public double? HybridSearchAlpha { get; set; } = 0.98;
+        public double? HybridSearchAlpha { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

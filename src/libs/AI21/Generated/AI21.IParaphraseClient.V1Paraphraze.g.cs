@@ -29,8 +29,8 @@ namespace AI21
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> V1ParaphrazeAsync(
             string text,
-            global::AI21.StyleType? style = global::AI21.StyleType.General,
-            int? startIndex = 0,
+            global::AI21.StyleType? style = default,
+            int? startIndex = default,
             int? endIndex = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

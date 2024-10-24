@@ -38,7 +38,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("labels_filter_mode")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.LibrarySearchRequestLabelsFilterModeJsonConverter))]
-        public global::AI21.LibrarySearchRequestLabelsFilterMode? LabelsFilterMode { get; set; } = global::AI21.LibrarySearchRequestLabelsFilterMode.AND;
+        public global::AI21.LibrarySearchRequestLabelsFilterMode? LabelsFilterMode { get; set; }
 
         /// <summary>
         /// 
@@ -51,13 +51,13 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("retrievalStrategy")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.RetrievalStrategyJsonConverter))]
-        public global::AI21.RetrievalStrategy? RetrievalStrategy { get; set; } = global::AI21.RetrievalStrategy.Default;
+        public global::AI21.RetrievalStrategy? RetrievalStrategy { get; set; }
 
         /// <summary>
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("maxNeighbors")]
-        public int? MaxNeighbors { get; set; } = 1;
+        public int? MaxNeighbors { get; set; }
 
         /// <summary>
         /// 

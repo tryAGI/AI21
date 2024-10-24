@@ -14,7 +14,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.ToolParametersTypeJsonConverter))]
-        public global::AI21.ToolParametersType? Type { get; set; } = global::AI21.ToolParametersType.Object;
+        public global::AI21.ToolParametersType? Type { get; set; }
 
         /// <summary>
         /// 

@@ -20,7 +20,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.EmbedTypeJsonConverter))]
-        public global::AI21.EmbedType? Type { get; set; } = global::AI21.EmbedType.Segment;
+        public global::AI21.EmbedType? Type { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

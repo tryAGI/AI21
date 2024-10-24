@@ -38,7 +38,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("labels_filter_mode")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.LibraryAnswerRequestLabelsFilterModeJsonConverter))]
-        public global::AI21.LibraryAnswerRequestLabelsFilterMode? LabelsFilterMode { get; set; } = global::AI21.LibraryAnswerRequestLabelsFilterMode.AND;
+        public global::AI21.LibraryAnswerRequestLabelsFilterMode? LabelsFilterMode { get; set; }
 
         /// <summary>
         /// 
@@ -65,7 +65,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("retrievalStrategy")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.RetrievalStrategyJsonConverter))]
-        public global::AI21.RetrievalStrategy? RetrievalStrategy { get; set; } = global::AI21.RetrievalStrategy.Default;
+        public global::AI21.RetrievalStrategy? RetrievalStrategy { get; set; }
 
         /// <summary>
         /// 

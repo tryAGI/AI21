@@ -30,7 +30,7 @@ namespace AI21
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> V1GetCustomModelsAsync(
-            bool? includeMetadata = false,
+            bool? includeMetadata = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(

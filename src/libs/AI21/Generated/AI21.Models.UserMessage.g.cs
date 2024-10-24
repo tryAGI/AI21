@@ -23,7 +23,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.UserMessageRoleJsonConverter))]
-        public global::AI21.UserMessageRole? Role { get; set; } = global::AI21.UserMessageRole.User;
+        public global::AI21.UserMessageRole? Role { get; set; }
 
         /// <summary>
         /// 

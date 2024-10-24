@@ -23,7 +23,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.ToolMessageRoleJsonConverter))]
-        public global::AI21.ToolMessageRole? Role { get; set; } = global::AI21.ToolMessageRole.Tool;
+        public global::AI21.ToolMessageRole? Role { get; set; }
 
         /// <summary>
         /// 
