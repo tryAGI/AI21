@@ -26,28 +26,28 @@ namespace AI21.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::AI21.UserMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::AI21.UserMessage> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::AI21.UserMessage)}");
-                _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                userMessage = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::AI21.AssistantMessage? assistantMessage = default;
             if (discriminator?.Role == global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRole.Assistant)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::AI21.AssistantMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::AI21.AssistantMessage> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::AI21.AssistantMessage)}");
-                _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                assistantMessage = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::AI21.ToolMessage? toolMessage = default;
             if (discriminator?.Role == global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRole.Tool)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::AI21.ToolMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::AI21.ToolMessage> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::AI21.ToolMessage)}");
-                _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                toolMessage = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::AI21.SystemMessage? systemMessage = default;
             if (discriminator?.Role == global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRole.System)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::AI21.SystemMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::AI21.SystemMessage> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::AI21.SystemMessage)}");
-                _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                systemMessage = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
             var result = new global::AI21.MessagesItem(
