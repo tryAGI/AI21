@@ -19,18 +19,18 @@ namespace AI21
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::AI21.UserMessage? UserMessage { get; init; }
+        public global::AI21.UserMessage? User { get; init; }
 #else
-        public global::AI21.UserMessage? UserMessage { get; }
+        public global::AI21.UserMessage? User { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UserMessage))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(User))]
 #endif
-        public bool IsUserMessage => UserMessage != null;
+        public bool IsUser => User != null;
 
         /// <summary>
         /// 
@@ -40,32 +40,32 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::AI21.UserMessage?(MessagesItem @this) => @this.UserMessage;
+        public static implicit operator global::AI21.UserMessage?(MessagesItem @this) => @this.User;
 
         /// <summary>
         /// 
         /// </summary>
         public MessagesItem(global::AI21.UserMessage? value)
         {
-            UserMessage = value;
+            User = value;
         }
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::AI21.AssistantMessage? AssistantMessage { get; init; }
+        public global::AI21.AssistantMessage? Assistant { get; init; }
 #else
-        public global::AI21.AssistantMessage? AssistantMessage { get; }
+        public global::AI21.AssistantMessage? Assistant { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(AssistantMessage))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Assistant))]
 #endif
-        public bool IsAssistantMessage => AssistantMessage != null;
+        public bool IsAssistant => Assistant != null;
 
         /// <summary>
         /// 
@@ -75,32 +75,32 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::AI21.AssistantMessage?(MessagesItem @this) => @this.AssistantMessage;
+        public static implicit operator global::AI21.AssistantMessage?(MessagesItem @this) => @this.Assistant;
 
         /// <summary>
         /// 
         /// </summary>
         public MessagesItem(global::AI21.AssistantMessage? value)
         {
-            AssistantMessage = value;
+            Assistant = value;
         }
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::AI21.ToolMessage? ToolMessage { get; init; }
+        public global::AI21.ToolMessage? Tool { get; init; }
 #else
-        public global::AI21.ToolMessage? ToolMessage { get; }
+        public global::AI21.ToolMessage? Tool { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ToolMessage))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Tool))]
 #endif
-        public bool IsToolMessage => ToolMessage != null;
+        public bool IsTool => Tool != null;
 
         /// <summary>
         /// 
@@ -110,32 +110,32 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::AI21.ToolMessage?(MessagesItem @this) => @this.ToolMessage;
+        public static implicit operator global::AI21.ToolMessage?(MessagesItem @this) => @this.Tool;
 
         /// <summary>
         /// 
         /// </summary>
         public MessagesItem(global::AI21.ToolMessage? value)
         {
-            ToolMessage = value;
+            Tool = value;
         }
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::AI21.SystemMessage? SystemMessage { get; init; }
+        public global::AI21.SystemMessage? System { get; init; }
 #else
-        public global::AI21.SystemMessage? SystemMessage { get; }
+        public global::AI21.SystemMessage? System { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SystemMessage))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(System))]
 #endif
-        public bool IsSystemMessage => SystemMessage != null;
+        public bool IsSystem => System != null;
 
         /// <summary>
         /// 
@@ -145,14 +145,14 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::AI21.SystemMessage?(MessagesItem @this) => @this.SystemMessage;
+        public static implicit operator global::AI21.SystemMessage?(MessagesItem @this) => @this.System;
 
         /// <summary>
         /// 
         /// </summary>
         public MessagesItem(global::AI21.SystemMessage? value)
         {
-            SystemMessage = value;
+            System = value;
         }
 
         /// <summary>
@@ -160,28 +160,28 @@ namespace AI21
         /// </summary>
         public MessagesItem(
             global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRole? role,
-            global::AI21.UserMessage? userMessage,
-            global::AI21.AssistantMessage? assistantMessage,
-            global::AI21.ToolMessage? toolMessage,
-            global::AI21.SystemMessage? systemMessage
+            global::AI21.UserMessage? user,
+            global::AI21.AssistantMessage? assistant,
+            global::AI21.ToolMessage? tool,
+            global::AI21.SystemMessage? system
             )
         {
             Role = role;
 
-            UserMessage = userMessage;
-            AssistantMessage = assistantMessage;
-            ToolMessage = toolMessage;
-            SystemMessage = systemMessage;
+            User = user;
+            Assistant = assistant;
+            Tool = tool;
+            System = system;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
-            SystemMessage as object ??
-            ToolMessage as object ??
-            AssistantMessage as object ??
-            UserMessage as object 
+            System as object ??
+            Tool as object ??
+            Assistant as object ??
+            User as object 
             ;
 
         /// <summary>
@@ -189,17 +189,17 @@ namespace AI21
         /// </summary>
         public bool Validate()
         {
-            return IsUserMessage && !IsAssistantMessage && !IsToolMessage && !IsSystemMessage || !IsUserMessage && IsAssistantMessage && !IsToolMessage && !IsSystemMessage || !IsUserMessage && !IsAssistantMessage && IsToolMessage && !IsSystemMessage || !IsUserMessage && !IsAssistantMessage && !IsToolMessage && IsSystemMessage;
+            return IsUser && !IsAssistant && !IsTool && !IsSystem || !IsUser && IsAssistant && !IsTool && !IsSystem || !IsUser && !IsAssistant && IsTool && !IsSystem || !IsUser && !IsAssistant && !IsTool && IsSystem;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::AI21.UserMessage?, TResult>? userMessage = null,
-            global::System.Func<global::AI21.AssistantMessage?, TResult>? assistantMessage = null,
-            global::System.Func<global::AI21.ToolMessage?, TResult>? toolMessage = null,
-            global::System.Func<global::AI21.SystemMessage?, TResult>? systemMessage = null,
+            global::System.Func<global::AI21.UserMessage?, TResult>? user = null,
+            global::System.Func<global::AI21.AssistantMessage?, TResult>? assistant = null,
+            global::System.Func<global::AI21.ToolMessage?, TResult>? tool = null,
+            global::System.Func<global::AI21.SystemMessage?, TResult>? system = null,
             bool validate = true)
         {
             if (validate)
@@ -207,21 +207,21 @@ namespace AI21
                 Validate();
             }
 
-            if (IsUserMessage && userMessage != null)
+            if (IsUser && user != null)
             {
-                return userMessage(UserMessage!);
+                return user(User!);
             }
-            else if (IsAssistantMessage && assistantMessage != null)
+            else if (IsAssistant && assistant != null)
             {
-                return assistantMessage(AssistantMessage!);
+                return assistant(Assistant!);
             }
-            else if (IsToolMessage && toolMessage != null)
+            else if (IsTool && tool != null)
             {
-                return toolMessage(ToolMessage!);
+                return tool(Tool!);
             }
-            else if (IsSystemMessage && systemMessage != null)
+            else if (IsSystem && system != null)
             {
-                return systemMessage(SystemMessage!);
+                return system(System!);
             }
 
             return default(TResult);
@@ -231,10 +231,10 @@ namespace AI21
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::AI21.UserMessage?>? userMessage = null,
-            global::System.Action<global::AI21.AssistantMessage?>? assistantMessage = null,
-            global::System.Action<global::AI21.ToolMessage?>? toolMessage = null,
-            global::System.Action<global::AI21.SystemMessage?>? systemMessage = null,
+            global::System.Action<global::AI21.UserMessage?>? user = null,
+            global::System.Action<global::AI21.AssistantMessage?>? assistant = null,
+            global::System.Action<global::AI21.ToolMessage?>? tool = null,
+            global::System.Action<global::AI21.SystemMessage?>? system = null,
             bool validate = true)
         {
             if (validate)
@@ -242,21 +242,21 @@ namespace AI21
                 Validate();
             }
 
-            if (IsUserMessage)
+            if (IsUser)
             {
-                userMessage?.Invoke(UserMessage!);
+                user?.Invoke(User!);
             }
-            else if (IsAssistantMessage)
+            else if (IsAssistant)
             {
-                assistantMessage?.Invoke(AssistantMessage!);
+                assistant?.Invoke(Assistant!);
             }
-            else if (IsToolMessage)
+            else if (IsTool)
             {
-                toolMessage?.Invoke(ToolMessage!);
+                tool?.Invoke(Tool!);
             }
-            else if (IsSystemMessage)
+            else if (IsSystem)
             {
-                systemMessage?.Invoke(SystemMessage!);
+                system?.Invoke(System!);
             }
         }
 
@@ -267,13 +267,13 @@ namespace AI21
         {
             var fields = new object?[]
             {
-                UserMessage,
+                User,
                 typeof(global::AI21.UserMessage),
-                AssistantMessage,
+                Assistant,
                 typeof(global::AI21.AssistantMessage),
-                ToolMessage,
+                Tool,
                 typeof(global::AI21.ToolMessage),
-                SystemMessage,
+                System,
                 typeof(global::AI21.SystemMessage),
             };
             const int offset = unchecked((int)2166136261);
@@ -290,10 +290,10 @@ namespace AI21
         public bool Equals(MessagesItem other)
         {
             return
-                global::System.Collections.Generic.EqualityComparer<global::AI21.UserMessage?>.Default.Equals(UserMessage, other.UserMessage) &&
-                global::System.Collections.Generic.EqualityComparer<global::AI21.AssistantMessage?>.Default.Equals(AssistantMessage, other.AssistantMessage) &&
-                global::System.Collections.Generic.EqualityComparer<global::AI21.ToolMessage?>.Default.Equals(ToolMessage, other.ToolMessage) &&
-                global::System.Collections.Generic.EqualityComparer<global::AI21.SystemMessage?>.Default.Equals(SystemMessage, other.SystemMessage) 
+                global::System.Collections.Generic.EqualityComparer<global::AI21.UserMessage?>.Default.Equals(User, other.User) &&
+                global::System.Collections.Generic.EqualityComparer<global::AI21.AssistantMessage?>.Default.Equals(Assistant, other.Assistant) &&
+                global::System.Collections.Generic.EqualityComparer<global::AI21.ToolMessage?>.Default.Equals(Tool, other.Tool) &&
+                global::System.Collections.Generic.EqualityComparer<global::AI21.SystemMessage?>.Default.Equals(System, other.System) 
                 ;
         }
 
