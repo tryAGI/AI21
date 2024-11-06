@@ -16,10 +16,14 @@ namespace AI21
         /// "financial" AND status UPLOADED will be returned.
         /// </summary>
         /// <param name="fileId"></param>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.FileResponse> V1LibraryManagement2Async(
             global::System.Guid fileId,
+            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

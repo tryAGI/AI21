@@ -7,10 +7,12 @@ namespace AI21
     {
         partial void PrepareV1SummarizeBySegmentArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref int? requestStartTime,
             global::AI21.SegmentedSummaryBody request);
         partial void PrepareV1SummarizeBySegmentRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            int? requestStartTime,
             global::AI21.SegmentedSummaryBody request);
         partial void ProcessV1SummarizeBySegmentResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -24,11 +26,15 @@ namespace AI21
         /// <summary>
         /// Segmented Summarize
         /// </summary>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.SummarizeBySegmentResponse> V1SummarizeBySegmentAsync(
             global::AI21.SegmentedSummaryBody request,
+            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -37,11 +43,15 @@ namespace AI21
                 client: HttpClient);
             PrepareV1SummarizeBySegmentArguments(
                 httpClient: HttpClient,
+                requestStartTime: ref requestStartTime,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
                 path: "/studio/v1/summarize-by-segment",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder 
+                .AddOptionalParameter("request_start_time", requestStartTime?.ToString()) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -75,6 +85,7 @@ namespace AI21
             PrepareV1SummarizeBySegmentRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
+                requestStartTime: requestStartTime,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -117,6 +128,9 @@ namespace AI21
         /// <summary>
         /// Segmented Summarize
         /// </summary>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="source"></param>
         /// <param name="sourceType">
         /// An enumeration.
@@ -127,6 +141,7 @@ namespace AI21
         public async global::System.Threading.Tasks.Task<global::AI21.SummarizeBySegmentResponse> V1SummarizeBySegmentAsync(
             string source,
             global::AI21.DocumentType sourceType,
+            int? requestStartTime = default,
             string? focus = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -138,6 +153,7 @@ namespace AI21
             };
 
             return await V1SummarizeBySegmentAsync(
+                requestStartTime: requestStartTime,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

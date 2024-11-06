@@ -12,6 +12,9 @@ namespace AI21
         /// You can optionally stream results if you want to get the response as each<br/>
         /// token is generated, rather than waiting for the entire response.
         /// </summary>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="authorization"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -19,6 +22,7 @@ namespace AI21
         global::System.Threading.Tasks.Task<global::AI21.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>> V1ChatCompleteAsync(
             string authorization,
             global::AI21.LanguageStudioApiServerDataTypesChatChatRequest request,
+            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -29,6 +33,9 @@ namespace AI21
         /// You can optionally stream results if you want to get the response as each<br/>
         /// token is generated, rather than waiting for the entire response.
         /// </summary>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="authorization"></param>
         /// <param name="model">
         /// An enumeration.
@@ -65,6 +72,7 @@ namespace AI21
             string authorization,
             global::AI21.ModelName model,
             global::System.Collections.Generic.IList<global::AI21.MessagesItem> messages,
+            int? requestStartTime = default,
             global::System.Collections.Generic.IList<global::AI21.ToolDefinition>? tools = default,
             int? n = default,
             int? maxTokens = default,

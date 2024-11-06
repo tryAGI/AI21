@@ -8,11 +8,13 @@ namespace AI21
         partial void PrepareV1J2JumboCompleteArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? model,
+            ref int? requestStartTime,
             global::AI21.CompletionBody request);
         partial void PrepareV1J2JumboCompleteRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? model,
+            int? requestStartTime,
             global::AI21.CompletionBody request);
         partial void ProcessV1J2JumboCompleteResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -29,12 +31,16 @@ namespace AI21
         /// <param name="model">
         /// Default Value: j2-jumbo
         /// </param>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> V1J2JumboCompleteAsync(
             global::AI21.CompletionBody request,
             string? model = default,
+            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -44,6 +50,7 @@ namespace AI21
             PrepareV1J2JumboCompleteArguments(
                 httpClient: HttpClient,
                 model: ref model,
+                requestStartTime: ref requestStartTime,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
@@ -51,6 +58,7 @@ namespace AI21
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 
                 .AddOptionalParameter("model", model) 
+                .AddOptionalParameter("request_start_time", requestStartTime?.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -86,6 +94,7 @@ namespace AI21
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 model: model,
+                requestStartTime: requestStartTime,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -129,6 +138,9 @@ namespace AI21
         /// <param name="model">
         /// Default Value: j2-jumbo
         /// </param>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="prompt"></param>
         /// <param name="numResults">
         /// Default Value: 1
@@ -162,6 +174,7 @@ namespace AI21
         public async global::System.Threading.Tasks.Task<string> V1J2JumboCompleteAsync(
             string prompt,
             string? model = default,
+            int? requestStartTime = default,
             int? numResults = default,
             int? maxTokens = default,
             int? minTokens = default,
@@ -197,6 +210,7 @@ namespace AI21
 
             return await V1J2JumboCompleteAsync(
                 model: model,
+                requestStartTime: requestStartTime,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

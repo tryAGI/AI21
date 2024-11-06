@@ -5,44 +5,59 @@ namespace AI21
 {
     public partial class Ai21Api
     {
-        partial void PrepareGetUserTokenStudioV1ConnectorsConnectedUsersUserIdTokensPostArguments(
+        partial void PrepareGetDataSourceStatusStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceStatusGetArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string userId);
-        partial void PrepareGetUserTokenStudioV1ConnectorsConnectedUsersUserIdTokensPostRequest(
+            ref string organizationId,
+            ref string dataSource,
+            ref int? requestStartTime);
+        partial void PrepareGetDataSourceStatusStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceStatusGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string userId);
-        partial void ProcessGetUserTokenStudioV1ConnectorsConnectedUsersUserIdTokensPostResponse(
+            string organizationId,
+            string dataSource,
+            int? requestStartTime);
+        partial void ProcessGetDataSourceStatusStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceStatusGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGetUserTokenStudioV1ConnectorsConnectedUsersUserIdTokensPostResponseContent(
+        partial void ProcessGetDataSourceStatusStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceStatusGetResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get User Token
+        /// Get Data Source Status
         /// </summary>
-        /// <param name="userId"></param>
+        /// <param name="organizationId"></param>
+        /// <param name="dataSource"></param>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.ConnectorsToken> GetUserTokenStudioV1ConnectorsConnectedUsersUserIdTokensPostAsync(
-            string userId,
+        public async global::System.Threading.Tasks.Task<global::AI21.ConnectorsStatus> GetDataSourceStatusStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceStatusGetAsync(
+            string organizationId,
+            string dataSource,
+            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGetUserTokenStudioV1ConnectorsConnectedUsersUserIdTokensPostArguments(
+            PrepareGetDataSourceStatusStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceStatusGetArguments(
                 httpClient: HttpClient,
-                userId: ref userId);
+                organizationId: ref organizationId,
+                dataSource: ref dataSource,
+                requestStartTime: ref requestStartTime);
 
             var __pathBuilder = new PathBuilder(
-                path: $"/studio/v1/connectors/connected-users/{userId}/tokens",
+                path: $"/studio/v1/connectors/connected-users/{organizationId}/data-sources/{dataSource}/status",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder 
+                .AddOptionalParameter("request_start_time", requestStartTime?.ToString()) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: global::System.Net.Http.HttpMethod.Post,
+                method: global::System.Net.Http.HttpMethod.Get,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 
             foreach (var __authorization in Authorizations)
@@ -64,10 +79,12 @@ namespace AI21
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareGetUserTokenStudioV1ConnectorsConnectedUsersUserIdTokensPostRequest(
+            PrepareGetDataSourceStatusStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceStatusGetRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                userId: userId);
+                organizationId: organizationId,
+                dataSource: dataSource,
+                requestStartTime: requestStartTime);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -77,7 +94,7 @@ namespace AI21
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessGetUserTokenStudioV1ConnectorsConnectedUsersUserIdTokensPostResponse(
+            ProcessGetDataSourceStatusStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceStatusGetResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
 
@@ -87,7 +104,7 @@ namespace AI21
                 client: HttpClient,
                 response: __response,
                 content: ref __content);
-            ProcessGetUserTokenStudioV1ConnectorsConnectedUsersUserIdTokensPostResponseContent(
+            ProcessGetDataSourceStatusStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceStatusGetResponseContent(
                 httpClient: HttpClient,
                 httpResponseMessage: __response,
                 content: ref __content);
@@ -102,7 +119,7 @@ namespace AI21
             }
 
             return
-                global::AI21.ConnectorsToken.FromJson(__content, JsonSerializerContext) ??
+                global::AI21.ConnectorsStatus.FromJson(__content, JsonSerializerContext) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }

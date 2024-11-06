@@ -7,16 +7,23 @@ namespace AI21
         /// <summary>
         /// Paraphrase
         /// </summary>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> V1ParaphrazeAsync(
             global::AI21.ParaphraseBody request,
+            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Paraphrase
         /// </summary>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="text"></param>
         /// <param name="style">
         /// Default Value: general
@@ -29,6 +36,7 @@ namespace AI21
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> V1ParaphrazeAsync(
             string text,
+            int? requestStartTime = default,
             global::AI21.StyleType? style = default,
             int? startIndex = default,
             int? endIndex = default,

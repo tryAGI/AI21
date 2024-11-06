@@ -3,10 +3,10 @@
 namespace AI21.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class EmbedTypeNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::AI21.EmbedType?>
+    public sealed class ConnectorsWorkflowStatusJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::AI21.ConnectorsWorkflowStatus>
     {
         /// <inheritdoc />
-        public override global::AI21.EmbedType? Read(
+        public override global::AI21.ConnectorsWorkflowStatus Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace AI21.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::AI21.EmbedTypeExtensions.ToEnum(stringValue);
+                        return global::AI21.ConnectorsWorkflowStatusExtensions.ToEnum(stringValue) ?? default;
                     }
                     
                     break;
@@ -26,7 +26,7 @@ namespace AI21.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::AI21.EmbedType)numValue;
+                    return (global::AI21.ConnectorsWorkflowStatus)numValue;
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -38,19 +38,12 @@ namespace AI21.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::AI21.EmbedType? value,
+            global::AI21.ConnectorsWorkflowStatus value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            if (value == null)
-            {
-                writer.WriteNullValue();
-            }
-            else
-            {
-                writer.WriteStringValue(global::AI21.EmbedTypeExtensions.ToValueString(value.Value));
-            }
+            writer.WriteStringValue(global::AI21.ConnectorsWorkflowStatusExtensions.ToValueString(value));
         }
     }
 }

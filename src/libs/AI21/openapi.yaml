@@ -10,6 +10,13 @@ paths:
     post:
       summary: Convert Document File
       operationId: convert_document_file_studio_v1_chat_files_convert_post
+      parameters:
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           multipart/form-data:
@@ -36,6 +43,12 @@ paths:
       description: "This is the endpoint for the [Jamba Instruct model](https://docs.ai21.com/docs/jamba-models).\nThis is a foundation model that supports both single-turn (question answering,\ntext completion) and multi-turn (chat style) interactions.\n\nYou can optionally stream results if you want to get the response as each\ntoken is generated, rather than waiting for the entire response."
       operationId: v1_chat_complete
       parameters:
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
         - name: Authorization
           in: header
           required: true
@@ -79,6 +92,12 @@ paths:
             title: Model
             type: string
             default: j2-light
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -116,6 +135,12 @@ paths:
             title: Custom Model Type
             type: string
             default: j2-light
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -147,6 +172,12 @@ paths:
             title: Model
             type: string
             default: j2-mid
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -184,6 +215,12 @@ paths:
             title: Custom Model Type
             type: string
             default: j2-mid
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -215,6 +252,12 @@ paths:
             title: Model
             type: string
             default: j2-ultra
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -252,6 +295,12 @@ paths:
             title: Custom Model Type
             type: string
             default: j2-ultra
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -283,6 +332,12 @@ paths:
             title: Model
             type: string
             default: j2-large
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -314,6 +369,12 @@ paths:
             title: Model
             type: string
             default: j2-large-instruct
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -345,6 +406,12 @@ paths:
             title: Model
             type: string
             default: j2-grande
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -376,6 +443,12 @@ paths:
             title: Model
             type: string
             default: j2-grande-instruct
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -407,6 +480,12 @@ paths:
             title: Model
             type: string
             default: j2-jumbo
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -438,6 +517,12 @@ paths:
             title: Model
             type: string
             default: j2-jumbo-instruct
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -475,6 +560,12 @@ paths:
             title: Custom Model Type
             type: string
             default: j2-large
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -512,6 +603,12 @@ paths:
             title: Custom Model Type
             type: string
             default: j2-grande
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -549,6 +646,12 @@ paths:
             title: Custom Model Type
             type: string
             default: j2-jumbo
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -580,6 +683,12 @@ paths:
             title: Includemetadata
             type: boolean
             default: false
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       responses:
         '200':
           description: Successful Response
@@ -597,6 +706,13 @@ paths:
         - custom-models
       summary: Create Custom Model
       operationId: v1_create_custom_model
+      parameters:
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -628,6 +744,12 @@ paths:
           schema:
             title: Custom Model Pid
             type: string
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       responses:
         '200':
           description: Successful Response
@@ -652,6 +774,12 @@ paths:
           schema:
             title: Custom Model Pid
             type: string
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -670,109 +798,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /studio/v1/dataset:
-    get:
-      tags:
-        - datasets
-      summary: Dataset List
-      operationId: v1_get_datasets
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-    post:
-      tags:
-        - datasets
-      summary: Add Dataset
-      operationId: v1_upload_dataset
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Body_v1_upload_dataset'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  '/studio/v1/dataset/{dataset_pid}':
-    get:
-      tags:
-        - datasets
-      summary: Dataset Get
-      operationId: v1_get_dataset
-      parameters:
-        - name: dataset_pid
-          in: path
-          required: true
-          schema:
-            title: Dataset Pid
-            type: string
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/custom-model/{model_pid}':
     delete:
       tags:
-        - datasets
-      summary: Delete Dataset
-      operationId: v1_delete_dataset
+        - custom-models
+      summary: Delete Model
+      operationId: v1_delete_custom_model
       parameters:
-        - name: dataset_pid
+        - name: model_pid
           in: path
           required: true
           schema:
-            title: Dataset Pid
+            title: Model Pid
             type: string
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  '/studio/v1/dataset/url/{dataset_pid}':
-    get:
-      tags:
-        - datasets
-      summary: Dataset Download Url
-      operationId: v1_get_dataset_download_url
-      parameters:
-        - name: dataset_pid
-          in: path
-          required: true
-          schema:
-            title: Dataset Pid
-            type: string
-        - name: dataset_name
+        - name: request_start_time
           in: query
-          required: true
           schema:
-            title: Dataset Name
-            type: string
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       responses:
         '200':
           description: Successful Response
@@ -791,6 +835,13 @@ paths:
         - paraphrase
       summary: Paraphrase
       operationId: v1_paraphraze
+      parameters:
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -815,6 +866,13 @@ paths:
         - summarize
       summary: Summarize
       operationId: v1_summarize
+      parameters:
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -840,6 +898,13 @@ paths:
         - summarize
       summary: Segmented Summarize
       operationId: v1_summarize_by_segment
+      parameters:
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -865,6 +930,13 @@ paths:
         - segmentation
       summary: Segmentation
       operationId: v1_segmentation
+      parameters:
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -884,32 +956,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /studio/v1/embed:
-    post:
-      summary: Embed
-      operationId: v1_embed
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/EmbeddingsBody'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
   /studio/v1/conversational-rag:
     post:
       summary: Conversational Rag
       operationId: v1_conversational_rag
+      parameters:
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -929,31 +986,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /studio/v1/gec:
-    post:
-      tags:
-        - grammatical error corrections
-      summary: Grammatical Error Corrections
-      operationId: v1_corrections
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CorrectionsBody'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CorrectionsResponse'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
   /studio/v1/library/files:
     get:
       tags:
@@ -962,6 +994,12 @@ paths:
       description: "Get metadata about a specific file by file ID. The file ID is generated by\nAI21 when you upload the file."
       operationId: v1_library_management
       parameters:
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
         - name: name
           in: query
           schema:
@@ -1016,6 +1054,13 @@ paths:
       summary: Upload Organization File
       description: "Upload files to use for [RAG Engine document searches](https://docs.ai21.com/docs/rag-engine-overview).\nYou can assign metadata to your files to limit searches to specific files by file metadata.\nThere is no bulk upload method; files must be loaded one at a time.\n\n- **Max number of files:** No limit. The playground limits bulk uploads to 50 files per request.\n- **Max library size:** 1 GB total size. No limit to individual file size.\n- **Supported file types:** PDF, DocX, HTML, TXT"
       operationId: v1_library_upload
+      parameters:
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           multipart/form-data:
@@ -1050,6 +1095,12 @@ paths:
             title: File Id
             type: string
             format: uuid
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       responses:
         '200':
           description: Successful Response
@@ -1077,6 +1128,12 @@ paths:
             title: File Id
             type: string
             format: uuid
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -1109,6 +1166,12 @@ paths:
             title: File Id
             type: string
             format: uuid
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       responses:
         '200':
           description: Successful Response
@@ -1128,6 +1191,13 @@ paths:
         - RAG Engine
       summary: Answer
       operationId: v1_library_answer
+      parameters:
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -1153,6 +1223,13 @@ paths:
         - RAG Engine
       summary: Search
       operationId: v1_library_search
+      parameters:
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -1186,6 +1263,12 @@ paths:
             title: File Id
             type: string
             format: uuid
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       responses:
         '200':
           description: Successful Response
@@ -1194,28 +1277,6 @@ paths:
               schema:
                 title: Response V1 Library Management
                 type: string
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /studio/v1/answer:
-    post:
-      summary: Answer
-      operationId: v1_answer
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AnswerBody'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
         '422':
           description: Validation Error
           content:
@@ -1235,6 +1296,12 @@ paths:
             title: Model
             type: string
             default: j2-ultra
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       requestBody:
         content:
           application/json:
@@ -1254,17 +1321,23 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/studio/v1/connectors/connected-users/{user_id}/tokens':
+  '/studio/v1/connectors/connected-users/{organization_id}/tokens':
     post:
-      summary: Get User Token
-      operationId: get_user_token_studio_v1_connectors_connected_users__user_id__tokens_post
+      summary: Generate Org Token
+      operationId: generate_org_token_studio_v1_connectors_connected_users__organization_id__tokens_post
       parameters:
-        - name: user_id
+        - name: organization_id
           in: path
           required: true
           schema:
-            title: User Id
+            title: Organization Id
             type: string
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       responses:
         '200':
           description: Successful Response
@@ -1278,17 +1351,23 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/studio/v1/connectors/connected-users/{user_id}/data-sources':
+  '/studio/v1/connectors/connected-users/{organization_id}/data-sources':
     get:
-      summary: Get User Data Sources Info
-      operationId: get_user_data_sources_info_studio_v1_connectors_connected_users__user_id__data_sources_get
+      summary: Get Org Data Sources Info
+      operationId: get_org_data_sources_info_studio_v1_connectors_connected_users__organization_id__data_sources_get
       parameters:
-        - name: user_id
+        - name: organization_id
           in: path
           required: true
           schema:
-            title: User Id
+            title: Organization Id
             type: string
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       responses:
         '200':
           description: Successful Response
@@ -1302,24 +1381,36 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /studio/v1/tokenize:
-    post:
-      tags:
-        - tokenize
-      summary: Tokenize
-      operationId: v1_tokenize
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/TokenizeBody'
-        required: true
+  '/studio/v1/connectors/connected-users/{organization_id}/data-sources/{data_source}/status':
+    get:
+      summary: Get Data Source Status
+      operationId: get_data_source_status_studio_v1_connectors_connected_users__organization_id__data_sources__data_source__status_get
+      parameters:
+        - name: organization_id
+          in: path
+          required: true
+          schema:
+            title: Organization Id
+            type: string
+        - name: data_source
+          in: path
+          required: true
+          schema:
+            title: Data Source
+            type: string
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730899065206'
       responses:
         '200':
           description: Successful Response
           content:
             application/json:
-              schema: { }
+              schema:
+                $ref: '#/components/schemas/ConnectorsStatus'
         '422':
           description: Validation Error
           content:
@@ -1328,24 +1419,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    AnswerBody:
-      title: AnswerBody
-      required:
-        - context
-        - question
-      type: object
-      properties:
-        context:
-          title: Context
-          type: string
-        question:
-          title: Question
-          type: string
-        answerLength:
-          $ref: '#/components/schemas/AnswerLength'
-        mode:
-          $ref: '#/components/schemas/Mode'
-      description: This class is to be used as a common class to all Studio API requests payloads
     AnswerLength:
       title: AnswerLength
       enum:
@@ -1408,33 +1481,6 @@ components:
         custom_configs:
           title: Custom Configs
           type: string
-    Body_v1_upload_dataset:
-      title: Body_v1_upload_dataset
-      required:
-        - dataset_file
-        - dataset_name
-      type: object
-      properties:
-        dataset_file:
-          title: Dataset File
-          type: string
-          format: binary
-        dataset_name:
-          title: Dataset Name
-          type: string
-        selected_columns:
-          title: Selected Columns
-          type: string
-        approve_whitespace_correction:
-          title: Approve Whitespace Correction
-          type: boolean
-        delete_long_rows:
-          title: Delete Long Rows
-          type: boolean
-        split_ratio:
-          title: Split Ratio
-          type: number
-          default: 0.1
     ChatCompletion:
       title: ChatCompletion
       required:
@@ -1592,6 +1638,9 @@ components:
             - tool
           type: string
           description: "The role of an individual message.\n- `user`:  Input provided by the user. Any instructions given here that conflict\n  with instructions given in the `system` prompt take precedence over the `system`\n  prompt instructions.\n- `assistant`:  Response generated by the model.\n- `system`:  Initial instructions provided to the system to provide general guidance\n  on the tone and voice of the generated message. An initial system message is\n  optional but recommended to provide guidance on the tone of the chat. For\n  example, \"You are a helpful chatbot with a background in earth sciences and a\n  charming French accent.\"\n"
+    ComparisonOperator:
+      title: ComparisonOperator
+      type: object
     CompletionBody:
       title: CompletionBody
       required:
@@ -1684,6 +1733,26 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DataSourceMetadata'
+    ConnectorsStatus:
+      title: ConnectorsStatus
+      required:
+        - created_at
+        - workflow_status
+        - files_successfully_uploaded
+        - failed_uploaded_files
+      type: object
+      properties:
+        created_at:
+          title: Created At
+          type: string
+        workflow_status:
+          $ref: '#/components/schemas/ConnectorsWorkflowStatus'
+        files_successfully_uploaded:
+          title: Files Successfully Uploaded
+          type: integer
+        failed_uploaded_files:
+          title: Failed Uploaded Files
+          type: integer
     ConnectorsToken:
       title: ConnectorsToken
       required:
@@ -1693,6 +1762,14 @@ components:
         token:
           title: Token
           type: string
+    ConnectorsWorkflowStatus:
+      title: ConnectorsWorkflowStatus
+      enum:
+        - IN_PROGRESS
+        - PARTIALLY_COMPLETED
+        - FAILED
+        - SUCCEEDED
+      description: An enumeration.
     ConversationalRagConfig:
       title: ConversationalRagConfig
       required:
@@ -1810,66 +1887,6 @@ components:
           type: array
           items:
             type: string
-    Correction:
-      title: Correction
-      required:
-        - suggestion
-        - startIndex
-        - endIndex
-        - originalText
-        - correctionType
-      type: object
-      properties:
-        suggestion:
-          title: Suggestion
-          type: string
-        startIndex:
-          title: Startindex
-          type: integer
-        endIndex:
-          title: Endindex
-          type: integer
-        originalText:
-          title: Originaltext
-          type: string
-        correctionType:
-          $ref: '#/components/schemas/CorrectionType'
-    CorrectionType:
-      title: CorrectionType
-      enum:
-        - Grammar
-        - Missing Word
-        - Punctuation
-        - Spelling
-        - Word Repetition
-        - Wrong Word
-      description: An enumeration.
-    CorrectionsBody:
-      title: CorrectionsBody
-      required:
-        - text
-      type: object
-      properties:
-        text:
-          title: Text
-          type: string
-      description: This class is to be used as a common class to all Studio API requests payloads
-    CorrectionsResponse:
-      title: CorrectionsResponse
-      required:
-        - id
-        - corrections
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
-          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
-        corrections:
-          title: Corrections
-          type: array
-          items:
-            $ref: '#/components/schemas/Correction'
     CustomModelInput:
       title: CustomModelInput
       required:
@@ -1959,29 +1976,6 @@ components:
         - TEXT
       type: string
       description: An enumeration.
-    EmbedType:
-      title: EmbedType
-      enum:
-        - query
-        - segment
-      type: string
-      description: An enumeration.
-    EmbeddingsBody:
-      title: EmbeddingsBody
-      required:
-        - texts
-      type: object
-      properties:
-        texts:
-          title: Texts
-          type: array
-          items:
-            type: string
-        type:
-          allOf:
-            - $ref: '#/components/schemas/EmbedType'
-          default: segment
-      description: This class is to be used as a common class to all Studio API requests payloads
     FileDeleteResponse:
       title: FileDeleteResponse
       required:
@@ -2174,6 +2168,8 @@ components:
           type: array
           items:
             type: string
+        labels_filter:
+          $ref: '#/components/schemas/QueryFilter'
         labels_filter_mode:
           title: Labels Filter Mode
           enum:
@@ -2248,6 +2244,8 @@ components:
           type: array
           items:
             type: string
+        labels_filter:
+          $ref: '#/components/schemas/QueryFilter'
         labels_filter_mode:
           title: Labels Filter Mode
           enum:
@@ -2328,6 +2326,13 @@ components:
           type: array
           items:
             type: string
+    LogicalOperator:
+      title: LogicalOperator
+      type: object
+      additionalProperties:
+        type: array
+        items:
+          type: object
     Logprobs:
       title: Logprobs
       required:
@@ -2453,6 +2458,14 @@ components:
           title: Applytoemojis
           type: boolean
           default: true
+    QueryFilter:
+      title: QueryFilter
+      anyOf:
+        - $ref: '#/components/schemas/ComparisonOperator'
+        - $ref: '#/components/schemas/LogicalOperator'
+        - type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ComparisonOperator'
     ResponseFormat:
       title: ResponseFormat
       required:
@@ -2674,15 +2687,6 @@ components:
         content:
           title: Content
           type: string
-    TokenizeBody:
-      title: TokenizeBody
-      required:
-        - text
-      type: object
-      properties:
-        text:
-          title: Text
-          type: string
     ToolCall:
       title: ToolCall
       required:
@@ -2885,6 +2889,9 @@ components:
           type: number
         top_p:
           title: Top P
+          maximum: 1.0
+          minimum: 0.0
+          exclusiveMinimum: true
           type: number
           default: 1
         stop:

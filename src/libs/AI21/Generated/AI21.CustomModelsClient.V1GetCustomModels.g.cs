@@ -7,11 +7,13 @@ namespace AI21
     {
         partial void PrepareV1GetCustomModelsArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref bool? includeMetadata);
+            ref bool? includeMetadata,
+            ref int? requestStartTime);
         partial void PrepareV1GetCustomModelsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            bool? includeMetadata);
+            bool? includeMetadata,
+            int? requestStartTime);
         partial void ProcessV1GetCustomModelsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -27,23 +29,29 @@ namespace AI21
         /// <param name="includeMetadata">
         /// Default Value: false
         /// </param>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> V1GetCustomModelsAsync(
             bool? includeMetadata = default,
+            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareV1GetCustomModelsArguments(
                 httpClient: HttpClient,
-                includeMetadata: ref includeMetadata);
+                includeMetadata: ref includeMetadata,
+                requestStartTime: ref requestStartTime);
 
             var __pathBuilder = new PathBuilder(
                 path: "/studio/v1/custom-model",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 
                 .AddOptionalParameter("includeMetadata", includeMetadata?.ToString()) 
+                .AddOptionalParameter("request_start_time", requestStartTime?.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -72,7 +80,8 @@ namespace AI21
             PrepareV1GetCustomModelsRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                includeMetadata: includeMetadata);
+                includeMetadata: includeMetadata,
+                requestStartTime: requestStartTime);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

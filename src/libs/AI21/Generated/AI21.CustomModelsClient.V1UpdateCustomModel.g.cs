@@ -8,11 +8,13 @@ namespace AI21
         partial void PrepareV1UpdateCustomModelArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string customModelPid,
+            ref int? requestStartTime,
             global::AI21.CustomModelUpdateBody request);
         partial void PrepareV1UpdateCustomModelRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string customModelPid,
+            int? requestStartTime,
             global::AI21.CustomModelUpdateBody request);
         partial void ProcessV1UpdateCustomModelResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -27,12 +29,16 @@ namespace AI21
         /// Update Model
         /// </summary>
         /// <param name="customModelPid"></param>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> V1UpdateCustomModelAsync(
             string customModelPid,
             global::AI21.CustomModelUpdateBody request,
+            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -42,11 +48,15 @@ namespace AI21
             PrepareV1UpdateCustomModelArguments(
                 httpClient: HttpClient,
                 customModelPid: ref customModelPid,
+                requestStartTime: ref requestStartTime,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
                 path: $"/studio/v1/custom-model/{customModelPid}",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder 
+                .AddOptionalParameter("request_start_time", requestStartTime?.ToString()) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Put,
@@ -81,6 +91,7 @@ namespace AI21
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 customModelPid: customModelPid,
+                requestStartTime: requestStartTime,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -122,11 +133,15 @@ namespace AI21
         /// Update Model
         /// </summary>
         /// <param name="customModelPid"></param>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="defaultEpoch"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> V1UpdateCustomModelAsync(
             string customModelPid,
+            int? requestStartTime = default,
             int? defaultEpoch = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -137,6 +152,7 @@ namespace AI21
 
             return await V1UpdateCustomModelAsync(
                 customModelPid: customModelPid,
+                requestStartTime: requestStartTime,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

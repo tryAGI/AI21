@@ -7,10 +7,12 @@ namespace AI21
     {
         partial void PrepareV1SegmentationArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref int? requestStartTime,
             global::AI21.SegmentationBody request);
         partial void PrepareV1SegmentationRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            int? requestStartTime,
             global::AI21.SegmentationBody request);
         partial void ProcessV1SegmentationResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -24,11 +26,15 @@ namespace AI21
         /// <summary>
         /// Segmentation
         /// </summary>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.SegmentationResponse> V1SegmentationAsync(
             global::AI21.SegmentationBody request,
+            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -37,11 +43,15 @@ namespace AI21
                 client: HttpClient);
             PrepareV1SegmentationArguments(
                 httpClient: HttpClient,
+                requestStartTime: ref requestStartTime,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
                 path: "/studio/v1/segmentation",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder 
+                .AddOptionalParameter("request_start_time", requestStartTime?.ToString()) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -75,6 +85,7 @@ namespace AI21
             PrepareV1SegmentationRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
+                requestStartTime: requestStartTime,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -117,6 +128,9 @@ namespace AI21
         /// <summary>
         /// Segmentation
         /// </summary>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="sourceType">
         /// An enumeration.
         /// </param>
@@ -126,6 +140,7 @@ namespace AI21
         public async global::System.Threading.Tasks.Task<global::AI21.SegmentationResponse> V1SegmentationAsync(
             global::AI21.DocumentType sourceType,
             string source,
+            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::AI21.SegmentationBody
@@ -135,6 +150,7 @@ namespace AI21
             };
 
             return await V1SegmentationAsync(
+                requestStartTime: requestStartTime,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

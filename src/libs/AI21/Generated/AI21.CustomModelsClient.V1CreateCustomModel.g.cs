@@ -7,10 +7,12 @@ namespace AI21
     {
         partial void PrepareV1CreateCustomModelArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref int? requestStartTime,
             global::AI21.CustomModelInput request);
         partial void PrepareV1CreateCustomModelRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            int? requestStartTime,
             global::AI21.CustomModelInput request);
         partial void ProcessV1CreateCustomModelResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -24,11 +26,15 @@ namespace AI21
         /// <summary>
         /// Create Custom Model
         /// </summary>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> V1CreateCustomModelAsync(
             global::AI21.CustomModelInput request,
+            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -37,11 +43,15 @@ namespace AI21
                 client: HttpClient);
             PrepareV1CreateCustomModelArguments(
                 httpClient: HttpClient,
+                requestStartTime: ref requestStartTime,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
                 path: "/studio/v1/custom-model",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder 
+                .AddOptionalParameter("request_start_time", requestStartTime?.ToString()) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -75,6 +85,7 @@ namespace AI21
             PrepareV1CreateCustomModelRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
+                requestStartTime: requestStartTime,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -115,6 +126,9 @@ namespace AI21
         /// <summary>
         /// Create Custom Model
         /// </summary>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="modelType">
         /// An enumeration.
         /// </param>
@@ -128,6 +142,7 @@ namespace AI21
             global::AI21.CustomModelType modelType,
             string datasetId,
             string modelName,
+            int? requestStartTime = default,
             double? learningRate = default,
             int? numEpochs = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -142,6 +157,7 @@ namespace AI21
             };
 
             return await V1CreateCustomModelAsync(
+                requestStartTime: requestStartTime,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

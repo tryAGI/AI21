@@ -10,12 +10,16 @@ namespace AI21
         /// <param name="model">
         /// Default Value: j2-ultra
         /// </param>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.ChatResponse> V1J2UltraChatAsync(
             global::AI21.LanguageStudioApiServerDataTypesJ2ChatChatRequest request,
             string? model = default,
+            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -23,6 +27,9 @@ namespace AI21
         /// </summary>
         /// <param name="model">
         /// Default Value: j2-ultra
+        /// </param>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
         /// </param>
         /// <param name="messages">
         /// messages
@@ -56,6 +63,7 @@ namespace AI21
             global::System.Collections.Generic.IList<global::AI21.ChatMessage> messages,
             string system,
             string? model = default,
+            int? requestStartTime = default,
             global::AI21.Penalty? frequencyPenalty = default,
             global::AI21.Penalty? presencePenalty = default,
             global::AI21.Penalty? countPenalty = default,

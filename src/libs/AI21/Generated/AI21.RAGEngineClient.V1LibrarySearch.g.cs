@@ -7,10 +7,12 @@ namespace AI21
     {
         partial void PrepareV1LibrarySearchArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref int? requestStartTime,
             global::AI21.LibrarySearchRequest request);
         partial void PrepareV1LibrarySearchRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            int? requestStartTime,
             global::AI21.LibrarySearchRequest request);
         partial void ProcessV1LibrarySearchResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -24,11 +26,15 @@ namespace AI21
         /// <summary>
         /// Search
         /// </summary>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.LibrarySearchResponse> V1LibrarySearchAsync(
             global::AI21.LibrarySearchRequest request,
+            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -37,11 +43,15 @@ namespace AI21
                 client: HttpClient);
             PrepareV1LibrarySearchArguments(
                 httpClient: HttpClient,
+                requestStartTime: ref requestStartTime,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
                 path: "/studio/v1/library/search",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder 
+                .AddOptionalParameter("request_start_time", requestStartTime?.ToString()) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -75,6 +85,7 @@ namespace AI21
             PrepareV1LibrarySearchRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
+                requestStartTime: requestStartTime,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -117,10 +128,14 @@ namespace AI21
         /// <summary>
         /// Search
         /// </summary>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="query"></param>
         /// <param name="maxSegments"></param>
         /// <param name="path"></param>
         /// <param name="labels"></param>
+        /// <param name="labelsFilter"></param>
         /// <param name="labelsFilterMode">
         /// Default Value: AND
         /// </param>
@@ -137,9 +152,11 @@ namespace AI21
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.LibrarySearchResponse> V1LibrarySearchAsync(
             string query,
+            int? requestStartTime = default,
             int? maxSegments = default,
             string? path = default,
             global::System.Collections.Generic.IList<string>? labels = default,
+            global::AI21.QueryFilter? labelsFilter = default,
             global::AI21.LibrarySearchRequestLabelsFilterMode? labelsFilterMode = default,
             global::System.Collections.Generic.IList<global::System.Guid>? fileIds = default,
             global::AI21.RetrievalStrategy? retrievalStrategy = default,
@@ -154,6 +171,7 @@ namespace AI21
                 MaxSegments = maxSegments,
                 Path = path,
                 Labels = labels,
+                LabelsFilter = labelsFilter,
                 LabelsFilterMode = labelsFilterMode,
                 FileIds = fileIds,
                 RetrievalStrategy = retrievalStrategy,
@@ -163,6 +181,7 @@ namespace AI21
             };
 
             return await V1LibrarySearchAsync(
+                requestStartTime: requestStartTime,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

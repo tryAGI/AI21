@@ -10,12 +10,16 @@ namespace AI21
         /// <param name="model">
         /// Default Value: j2-large-instruct
         /// </param>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> V1J2LargeInstructCompleteAsync(
             global::AI21.CompletionBody request,
             string? model = default,
+            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -23,6 +27,9 @@ namespace AI21
         /// </summary>
         /// <param name="model">
         /// Default Value: j2-large-instruct
+        /// </param>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
         /// </param>
         /// <param name="prompt"></param>
         /// <param name="numResults">
@@ -57,6 +64,7 @@ namespace AI21
         global::System.Threading.Tasks.Task<string> V1J2LargeInstructCompleteAsync(
             string prompt,
             string? model = default,
+            int? requestStartTime = default,
             int? numResults = default,
             int? maxTokens = default,
             int? minTokens = default,

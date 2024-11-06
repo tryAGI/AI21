@@ -6,43 +6,8 @@ namespace AI21
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class Correction
+    public sealed partial class ComparisonOperator
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("suggestion")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Suggestion { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("startIndex")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int StartIndex { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("endIndex")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int EndIndex { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("originalText")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string OriginalText { get; set; }
-
-        /// <summary>
-        /// An enumeration.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("correctionType")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.CorrectionTypeJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::AI21.CorrectionType CorrectionType { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -81,14 +46,14 @@ namespace AI21
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::AI21.Correction? FromJson(
+        public static global::AI21.ComparisonOperator? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::AI21.Correction),
-                jsonSerializerContext) as global::AI21.Correction;
+                typeof(global::AI21.ComparisonOperator),
+                jsonSerializerContext) as global::AI21.ComparisonOperator;
         }
 
         /// <summary>
@@ -98,12 +63,41 @@ namespace AI21
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::AI21.Correction? FromJson(
+        public static global::AI21.ComparisonOperator? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::AI21.Correction>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::AI21.ComparisonOperator>(
                 json,
+                jsonSerializerOptions);
+        }
+
+        /// <summary>
+        /// Deserializes a JSON stream using the provided JsonSerializerContext.
+        /// </summary>
+        public static async global::System.Threading.Tasks.ValueTask<global::AI21.ComparisonOperator?> FromJsonStream(
+            global::System.IO.Stream jsonStream,
+            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
+        {
+            return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
+                jsonStream,
+                typeof(global::AI21.ComparisonOperator),
+                jsonSerializerContext).ConfigureAwait(false)) as global::AI21.ComparisonOperator;
+        }
+
+        /// <summary>
+        /// Deserializes a JSON stream using the provided JsonSerializerOptions.
+        /// </summary>
+#if NET8_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
+        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
+#endif
+        public static global::System.Threading.Tasks.ValueTask<global::AI21.ComparisonOperator?> FromJsonStream(
+            global::System.IO.Stream jsonStream,
+            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
+        {
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::AI21.ComparisonOperator?>(
+                jsonStream,
                 jsonSerializerOptions);
         }
 

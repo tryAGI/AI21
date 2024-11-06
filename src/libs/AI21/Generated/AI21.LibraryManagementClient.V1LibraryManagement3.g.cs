@@ -8,11 +8,13 @@ namespace AI21
         partial void PrepareV1LibraryManagement3Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref global::System.Guid fileId,
+            ref int? requestStartTime,
             global::AI21.FilesUpdateRequest request);
         partial void PrepareV1LibraryManagement3Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             global::System.Guid fileId,
+            int? requestStartTime,
             global::AI21.FilesUpdateRequest request);
         partial void ProcessV1LibraryManagement3Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -35,12 +37,16 @@ namespace AI21
         /// &gt; add "New Label C" and "New Label D" to the list, you must specify `"labels": ["Label A", "Label B", "New Label C", "New Label D"]`.
         /// </summary>
         /// <param name="fileId"></param>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> V1LibraryManagement3Async(
             global::System.Guid fileId,
             global::AI21.FilesUpdateRequest request,
+            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -50,11 +56,15 @@ namespace AI21
             PrepareV1LibraryManagement3Arguments(
                 httpClient: HttpClient,
                 fileId: ref fileId,
+                requestStartTime: ref requestStartTime,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
                 path: $"/studio/v1/library/files/{fileId}",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder 
+                .AddOptionalParameter("request_start_time", requestStartTime?.ToString()) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Put,
@@ -89,6 +99,7 @@ namespace AI21
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 fileId: fileId,
+                requestStartTime: requestStartTime,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -138,6 +149,9 @@ namespace AI21
         /// &gt; add "New Label C" and "New Label D" to the list, you must specify `"labels": ["Label A", "Label B", "New Label C", "New Label D"]`.
         /// </summary>
         /// <param name="fileId"></param>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="publicUrl">
         /// The public URL of the file, if any. This URL is not validated by<br/>
         /// AI21 or used in any way. It is strictly a piece of metadata that you can<br/>
@@ -151,6 +165,7 @@ namespace AI21
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> V1LibraryManagement3Async(
             global::System.Guid fileId,
+            int? requestStartTime = default,
             string? publicUrl = default,
             global::System.Collections.Generic.IList<string>? labels = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -163,6 +178,7 @@ namespace AI21
 
             return await V1LibraryManagement3Async(
                 fileId: fileId,
+                requestStartTime: requestStartTime,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

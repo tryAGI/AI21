@@ -11,6 +11,9 @@ namespace AI21
         /// <param name="customModelType">
         /// Default Value: j2-grande
         /// </param>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -18,6 +21,7 @@ namespace AI21
             string customModelName,
             global::AI21.CompletionBody request,
             string? customModelType = default,
+            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -26,6 +30,9 @@ namespace AI21
         /// <param name="customModelName"></param>
         /// <param name="customModelType">
         /// Default Value: j2-grande
+        /// </param>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
         /// </param>
         /// <param name="prompt"></param>
         /// <param name="numResults">
@@ -61,6 +68,7 @@ namespace AI21
             string customModelName,
             string prompt,
             string? customModelType = default,
+            int? requestStartTime = default,
             int? numResults = default,
             int? maxTokens = default,
             int? minTokens = default,

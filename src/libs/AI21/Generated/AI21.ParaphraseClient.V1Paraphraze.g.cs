@@ -7,10 +7,12 @@ namespace AI21
     {
         partial void PrepareV1ParaphrazeArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref int? requestStartTime,
             global::AI21.ParaphraseBody request);
         partial void PrepareV1ParaphrazeRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            int? requestStartTime,
             global::AI21.ParaphraseBody request);
         partial void ProcessV1ParaphrazeResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -24,11 +26,15 @@ namespace AI21
         /// <summary>
         /// Paraphrase
         /// </summary>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> V1ParaphrazeAsync(
             global::AI21.ParaphraseBody request,
+            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -37,11 +43,15 @@ namespace AI21
                 client: HttpClient);
             PrepareV1ParaphrazeArguments(
                 httpClient: HttpClient,
+                requestStartTime: ref requestStartTime,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
                 path: "/studio/v1/paraphrase",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder 
+                .AddOptionalParameter("request_start_time", requestStartTime?.ToString()) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -75,6 +85,7 @@ namespace AI21
             PrepareV1ParaphrazeRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
+                requestStartTime: requestStartTime,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -115,6 +126,9 @@ namespace AI21
         /// <summary>
         /// Paraphrase
         /// </summary>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="text"></param>
         /// <param name="style">
         /// Default Value: general
@@ -127,6 +141,7 @@ namespace AI21
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> V1ParaphrazeAsync(
             string text,
+            int? requestStartTime = default,
             global::AI21.StyleType? style = default,
             int? startIndex = default,
             int? endIndex = default,
@@ -141,6 +156,7 @@ namespace AI21
             };
 
             return await V1ParaphrazeAsync(
+                requestStartTime: requestStartTime,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

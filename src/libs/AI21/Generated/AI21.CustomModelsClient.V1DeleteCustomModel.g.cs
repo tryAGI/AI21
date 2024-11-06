@@ -3,41 +3,56 @@
 
 namespace AI21
 {
-    public partial class DatasetsClient
+    public partial class CustomModelsClient
     {
-        partial void PrepareV1GetDatasetsArguments(
-            global::System.Net.Http.HttpClient httpClient);
-        partial void PrepareV1GetDatasetsRequest(
+        partial void PrepareV1DeleteCustomModelArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
-        partial void ProcessV1GetDatasetsResponse(
+            ref string modelPid,
+            ref int? requestStartTime);
+        partial void PrepareV1DeleteCustomModelRequest(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string modelPid,
+            int? requestStartTime);
+        partial void ProcessV1DeleteCustomModelResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessV1GetDatasetsResponseContent(
+        partial void ProcessV1DeleteCustomModelResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Dataset List
+        /// Delete Model
         /// </summary>
+        /// <param name="modelPid"></param>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<string> V1GetDatasetsAsync(
+        public async global::System.Threading.Tasks.Task<string> V1DeleteCustomModelAsync(
+            string modelPid,
+            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareV1GetDatasetsArguments(
-                httpClient: HttpClient);
+            PrepareV1DeleteCustomModelArguments(
+                httpClient: HttpClient,
+                modelPid: ref modelPid,
+                requestStartTime: ref requestStartTime);
 
             var __pathBuilder = new PathBuilder(
-                path: "/studio/v1/dataset",
+                path: $"/studio/v1/custom-model/{modelPid}",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder 
+                .AddOptionalParameter("request_start_time", requestStartTime?.ToString()) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: global::System.Net.Http.HttpMethod.Get,
+                method: global::System.Net.Http.HttpMethod.Delete,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 
             foreach (var __authorization in Authorizations)
@@ -59,9 +74,11 @@ namespace AI21
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareV1GetDatasetsRequest(
+            PrepareV1DeleteCustomModelRequest(
                 httpClient: HttpClient,
-                httpRequestMessage: __httpRequest);
+                httpRequestMessage: __httpRequest,
+                modelPid: modelPid,
+                requestStartTime: requestStartTime);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -71,7 +88,7 @@ namespace AI21
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessV1GetDatasetsResponse(
+            ProcessV1DeleteCustomModelResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
 
@@ -81,7 +98,7 @@ namespace AI21
                 client: HttpClient,
                 response: __response,
                 content: ref __content);
-            ProcessV1GetDatasetsResponseContent(
+            ProcessV1DeleteCustomModelResponseContent(
                 httpClient: HttpClient,
                 httpResponseMessage: __response,
                 content: ref __content);

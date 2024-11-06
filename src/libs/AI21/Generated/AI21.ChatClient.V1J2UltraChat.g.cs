@@ -8,11 +8,13 @@ namespace AI21
         partial void PrepareV1J2UltraChatArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? model,
+            ref int? requestStartTime,
             global::AI21.LanguageStudioApiServerDataTypesJ2ChatChatRequest request);
         partial void PrepareV1J2UltraChatRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? model,
+            int? requestStartTime,
             global::AI21.LanguageStudioApiServerDataTypesJ2ChatChatRequest request);
         partial void ProcessV1J2UltraChatResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -29,12 +31,16 @@ namespace AI21
         /// <param name="model">
         /// Default Value: j2-ultra
         /// </param>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.ChatResponse> V1J2UltraChatAsync(
             global::AI21.LanguageStudioApiServerDataTypesJ2ChatChatRequest request,
             string? model = default,
+            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -44,6 +50,7 @@ namespace AI21
             PrepareV1J2UltraChatArguments(
                 httpClient: HttpClient,
                 model: ref model,
+                requestStartTime: ref requestStartTime,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
@@ -51,6 +58,7 @@ namespace AI21
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 
                 .AddOptionalParameter("model", model) 
+                .AddOptionalParameter("request_start_time", requestStartTime?.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -86,6 +94,7 @@ namespace AI21
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 model: model,
+                requestStartTime: requestStartTime,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -131,6 +140,9 @@ namespace AI21
         /// <param name="model">
         /// Default Value: j2-ultra
         /// </param>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="messages">
         /// messages
         /// </param>
@@ -163,6 +175,7 @@ namespace AI21
             global::System.Collections.Generic.IList<global::AI21.ChatMessage> messages,
             string system,
             string? model = default,
+            int? requestStartTime = default,
             global::AI21.Penalty? frequencyPenalty = default,
             global::AI21.Penalty? presencePenalty = default,
             global::AI21.Penalty? countPenalty = default,
@@ -193,6 +206,7 @@ namespace AI21
 
             return await V1J2UltraChatAsync(
                 model: model,
+                requestStartTime: requestStartTime,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

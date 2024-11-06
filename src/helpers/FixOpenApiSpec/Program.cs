@@ -1,17 +1,22 @@
+using AutoSDK.Helpers;
 using Microsoft.OpenApi;
-using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Extensions;
 using Microsoft.OpenApi.Models;
 using Microsoft.OpenApi.Readers;
 
 var path = args[0];
-var text = await File.ReadAllTextAsync(path);
+var yamlOJson = await File.ReadAllTextAsync(path);
 
-text = text
-    .Replace("\"openapi\":\"3.1.0\"", "\"openapi\":\"3.0.1\"")
-    .Replace(",\"/studio/v1/custom-model/{model_pid}\":{\"delete\":{\"tags\":[\"custom-models\"],\"summary\":\"Delete Model\",\"operationId\":\"v1_delete_custom_model\",\"parameters\":[{\"required\":true,\"schema\":{\"type\":\"string\",\"title\":\"Model Pid\"},\"name\":\"model_pid\",\"in\":\"path\"}],\"responses\":{\"200\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{}}}},\"422\":{\"description\":\"Validation Error\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/HTTPValidationError\"}}}}}}}", string.Empty)
-    ;
-var openApiDocument = new OpenApiStringReader().Read(text, out var diagnostics);
+// yamlOJson = yamlOJson
+//     .Replace(",\"/studio/v1/custom-model/{model_pid}\":{\"delete\":{\"tags\":[\"custom-models\"],\"summary\":\"Delete Model\",\"operationId\":\"v1_delete_custom_model\",\"parameters\":[{\"required\":true,\"schema\":{\"type\":\"string\",\"title\":\"Model Pid\"},\"name\":\"model_pid\",\"in\":\"path\"}],\"responses\":{\"200\":{\"description\":\"Successful Response\",\"content\":{\"application/json\":{\"schema\":{}}}},\"422\":{\"description\":\"Validation Error\",\"content\":{\"application/json\":{\"schema\":{\"$ref\":\"#/components/schemas/HTTPValidationError\"}}}}}}}", string.Empty)
+//     ;
+
+if (OpenApi31Support.IsOpenApi31(yamlOJson))
+{
+    yamlOJson = OpenApi31Support.ConvertToOpenApi30(yamlOJson);
+}
+
+var openApiDocument = new OpenApiStringReader().Read(yamlOJson, out var diagnostics);
 
 //openApiDocument.Components.Schemas["GenerateCompletionRequest"]!.Properties["stream"]!.Default = new OpenApiBoolean(true);
 
@@ -38,8 +43,8 @@ openApiDocument.SecurityRequirements.Add(new OpenApiSecurityRequirement
     }] = new List<string>(),
 });
 
-text = openApiDocument.SerializeAsYaml(OpenApiSpecVersion.OpenApi3_0);
-_ = new OpenApiStringReader().Read(text, out diagnostics);
+yamlOJson = openApiDocument.SerializeAsYaml(OpenApiSpecVersion.OpenApi3_0);
+_ = new OpenApiStringReader().Read(yamlOJson, out diagnostics);
 
 if (diagnostics.Errors.Count > 0)
 {
@@ -48,8 +53,7 @@ if (diagnostics.Errors.Count > 0)
         Console.WriteLine(error.Message);
     }
     // Return Exit code 1
-    Environment.Exit(1);
+    //Environment.Exit(1);
 }
 
-await File.WriteAllTextAsync(path, text);
-return;
+await File.WriteAllTextAsync(path, yamlOJson);

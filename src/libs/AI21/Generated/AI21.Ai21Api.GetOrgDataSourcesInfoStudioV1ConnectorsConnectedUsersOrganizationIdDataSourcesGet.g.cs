@@ -3,46 +3,56 @@
 
 namespace AI21
 {
-    public partial class DatasetsClient
+    public partial class Ai21Api
     {
-        partial void PrepareV1DeleteDatasetArguments(
+        partial void PrepareGetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesGetArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string datasetPid);
-        partial void PrepareV1DeleteDatasetRequest(
+            ref string organizationId,
+            ref int? requestStartTime);
+        partial void PrepareGetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string datasetPid);
-        partial void ProcessV1DeleteDatasetResponse(
+            string organizationId,
+            int? requestStartTime);
+        partial void ProcessGetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessV1DeleteDatasetResponseContent(
+        partial void ProcessGetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesGetResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Delete Dataset
+        /// Get Org Data Sources Info
         /// </summary>
-        /// <param name="datasetPid"></param>
+        /// <param name="organizationId"></param>
+        /// <param name="requestStartTime">
+        /// Default Value: 1730899065206
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<string> V1DeleteDatasetAsync(
-            string datasetPid,
+        public async global::System.Threading.Tasks.Task<global::AI21.ConnectorsDataSources> GetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesGetAsync(
+            string organizationId,
+            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareV1DeleteDatasetArguments(
+            PrepareGetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesGetArguments(
                 httpClient: HttpClient,
-                datasetPid: ref datasetPid);
+                organizationId: ref organizationId,
+                requestStartTime: ref requestStartTime);
 
             var __pathBuilder = new PathBuilder(
-                path: $"/studio/v1/dataset/{datasetPid}",
+                path: $"/studio/v1/connectors/connected-users/{organizationId}/data-sources",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder 
+                .AddOptionalParameter("request_start_time", requestStartTime?.ToString()) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: global::System.Net.Http.HttpMethod.Delete,
+                method: global::System.Net.Http.HttpMethod.Get,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 
             foreach (var __authorization in Authorizations)
@@ -64,10 +74,11 @@ namespace AI21
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareV1DeleteDatasetRequest(
+            PrepareGetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesGetRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                datasetPid: datasetPid);
+                organizationId: organizationId,
+                requestStartTime: requestStartTime);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -77,7 +88,7 @@ namespace AI21
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessV1DeleteDatasetResponse(
+            ProcessGetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesGetResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
 
@@ -87,7 +98,7 @@ namespace AI21
                 client: HttpClient,
                 response: __response,
                 content: ref __content);
-            ProcessV1DeleteDatasetResponseContent(
+            ProcessGetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesGetResponseContent(
                 httpClient: HttpClient,
                 httpResponseMessage: __response,
                 content: ref __content);
@@ -101,7 +112,9 @@ namespace AI21
                 throw new global::System.InvalidOperationException(__content, __ex);
             }
 
-            return __content;
+            return
+                global::AI21.ConnectorsDataSources.FromJson(__content, JsonSerializerContext) ??
+                throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }
 }
