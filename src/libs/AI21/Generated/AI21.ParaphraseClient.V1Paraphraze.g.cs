@@ -27,7 +27,7 @@ namespace AI21
         /// Paraphrase
         /// </summary>
         /// <param name="requestStartTime">
-        /// Default Value: 1730899065206
+        /// Default Value: 1730898900643
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -127,7 +127,7 @@ namespace AI21
         /// Paraphrase
         /// </summary>
         /// <param name="requestStartTime">
-        /// Default Value: 1730899065206
+        /// Default Value: 1730898900643
         /// </param>
         /// <param name="text"></param>
         /// <param name="style">
