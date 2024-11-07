@@ -10,7 +10,7 @@ namespace AI21
         /// AI21 when you upload the file.
         /// </summary>
         /// <param name="requestStartTime">
-        /// Default Value: 1730898900643
+        /// Default Value: 1730898830008
         /// </param>
         /// <param name="name"></param>
         /// <param name="path"></param>

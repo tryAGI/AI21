@@ -28,7 +28,7 @@ namespace AI21
         /// </summary>
         /// <param name="organizationId"></param>
         /// <param name="requestStartTime">
-        /// Default Value: 1730898900643
+        /// Default Value: 1730898830008
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
