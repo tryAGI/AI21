@@ -14,7 +14,7 @@ namespace AI21
         /// - **Supported file types:** PDF, DocX, HTML, TXT
         /// </summary>
         /// <param name="requestStartTime">
-        /// Default Value: 1730990580663
+        /// Default Value: 1730898900642
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -34,7 +34,7 @@ namespace AI21
         /// - **Supported file types:** PDF, DocX, HTML, TXT
         /// </summary>
         /// <param name="requestStartTime">
-        /// Default Value: 1730990580663
+        /// Default Value: 1730898900642
         /// </param>
         /// <param name="file"></param>
         /// <param name="filename"></param>
