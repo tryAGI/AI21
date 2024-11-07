@@ -34,7 +34,7 @@ namespace AI21
         /// token is generated, rather than waiting for the entire response.
         /// </summary>
         /// <param name="requestStartTime">
-        /// Default Value: 1730898829897
+        /// Default Value: 1730898900642
         /// </param>
         /// <param name="authorization"></param>
         /// <param name="request"></param>
@@ -148,7 +148,7 @@ namespace AI21
         /// token is generated, rather than waiting for the entire response.
         /// </summary>
         /// <param name="requestStartTime">
-        /// Default Value: 1730898829897
+        /// Default Value: 1730898900642
         /// </param>
         /// <param name="authorization"></param>
         /// <param name="model">
