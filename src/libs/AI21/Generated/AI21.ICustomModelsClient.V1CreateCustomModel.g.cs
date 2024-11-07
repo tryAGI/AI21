@@ -8,7 +8,7 @@ namespace AI21
         /// Create Custom Model
         /// </summary>
         /// <param name="requestStartTime">
-        /// Default Value: 1730898830008
+        /// Default Value: 1730898829897
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -22,7 +22,7 @@ namespace AI21
         /// Create Custom Model
         /// </summary>
         /// <param name="requestStartTime">
-        /// Default Value: 1730898830008
+        /// Default Value: 1730898829897
         /// </param>
         /// <param name="modelType">
         /// An enumeration.
