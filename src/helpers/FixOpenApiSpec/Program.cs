@@ -1,5 +1,6 @@
 using AutoSDK.Helpers;
 using Microsoft.OpenApi;
+using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Extensions;
 using Microsoft.OpenApi.Models;
 using Microsoft.OpenApi.Readers;
@@ -19,6 +20,17 @@ if (OpenApi31Support.IsOpenApi31(yamlOJson))
 var openApiDocument = new OpenApiStringReader().Read(yamlOJson, out var diagnostics);
 
 //openApiDocument.Components.Schemas["GenerateCompletionRequest"]!.Properties["stream"]!.Default = new OpenApiBoolean(true);
+foreach (var pair in openApiDocument.Paths)
+{
+    foreach (var (_, operation) in pair.Value.Operations)
+    {
+        var startTime = operation.Parameters.FirstOrDefault(x => x.Name == "request_start_time");
+        if (startTime != null)
+        {
+            startTime.Schema.Default = new OpenApiString("1730898900272");
+        }
+    }
+}
 
 // Set server
 openApiDocument.Servers.Add(new OpenApiServer
