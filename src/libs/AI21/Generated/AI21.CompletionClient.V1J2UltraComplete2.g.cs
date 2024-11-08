@@ -35,7 +35,7 @@ namespace AI21
         /// Default Value: j2-ultra
         /// </param>
         /// <param name="requestStartTime">
-        /// Default Value: 1730898900642
+        /// Default Value: 1730899039705
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -146,7 +146,7 @@ namespace AI21
         /// Default Value: j2-ultra
         /// </param>
         /// <param name="requestStartTime">
-        /// Default Value: 1730898900642
+        /// Default Value: 1730899039705
         /// </param>
         /// <param name="prompt"></param>
         /// <param name="numResults">
