@@ -23,7 +23,7 @@ namespace AI21
         /// </param>
         /// <param name="offset"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
+        /// <exception cref="global::AI21.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::AI21.FileResponse>> V1LibraryManagementAsync(
             int? requestStartTime = default,
             string? name = default,
