@@ -97,91 +97,72 @@ namespace AI21
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
+        /// Initializes a new instance of the <see cref="LanguageStudioApiServerDataTypesChatChatRequest" /> class.
         /// </summary>
-        public string ToJson(
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
+        /// <param name="model">
+        /// An enumeration.
+        /// </param>
+        /// <param name="messages">
+        /// messages
+        /// </param>
+        /// <param name="tools"></param>
+        /// <param name="n">
+        /// Default Value: 1
+        /// </param>
+        /// <param name="maxTokens">
+        /// Default Value: 4096
+        /// </param>
+        /// <param name="temperature"></param>
+        /// <param name="topP">
+        /// Default Value: 1
+        /// </param>
+        /// <param name="stop"></param>
+        /// <param name="stream">
+        /// Whether or not to stream the result one token at a time using<br/>
+        /// [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events).<br/>
+        /// This can be useful when waiting for long results where a long wait time for an<br/>
+        /// answer can be problematic, such as a chatbot. If set to `True`, then `n` must<br/>
+        /// be 1. A streaming response is different than the non-streaming response.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="mockResponse"></param>
+        /// <param name="documents"></param>
+        /// <param name="responseFormat"></param>
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public LanguageStudioApiServerDataTypesChatChatRequest(
+            global::AI21.ModelName model,
+            global::System.Collections.Generic.IList<global::AI21.MessagesItem> messages,
+            global::System.Collections.Generic.IList<global::AI21.ToolDefinition>? tools,
+            int? n,
+            int? maxTokens,
+            double? temperature,
+            double? topP,
+            global::AI21.AnyOf<string, global::System.Collections.Generic.IList<string>>? stop,
+            bool? stream,
+            global::AI21.MockResponseConfig? mockResponse,
+            global::System.Collections.Generic.IList<global::AI21.DocumentSchema>? documents,
+            global::AI21.ResponseFormat? responseFormat)
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                this.GetType(),
-                jsonSerializerContext);
+            this.Model = model;
+            this.Messages = messages ?? throw new global::System.ArgumentNullException(nameof(messages));
+            this.Tools = tools;
+            this.N = n;
+            this.MaxTokens = maxTokens;
+            this.Temperature = temperature;
+            this.TopP = topP;
+            this.Stop = stop;
+            this.Stream = stream;
+            this.MockResponse = mockResponse;
+            this.Documents = documents;
+            this.ResponseFormat = responseFormat;
         }
 
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerOptions.
+        /// Initializes a new instance of the <see cref="LanguageStudioApiServerDataTypesChatChatRequest" /> class.
         /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public string ToJson(
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
+        public LanguageStudioApiServerDataTypesChatChatRequest()
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                jsonSerializerOptions);
         }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerContext.
-        /// </summary>
-        public static global::AI21.LanguageStudioApiServerDataTypesChatChatRequest? FromJson(
-            string json,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize(
-                json,
-                typeof(global::AI21.LanguageStudioApiServerDataTypesChatChatRequest),
-                jsonSerializerContext) as global::AI21.LanguageStudioApiServerDataTypesChatChatRequest;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::AI21.LanguageStudioApiServerDataTypesChatChatRequest? FromJson(
-            string json,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::AI21.LanguageStudioApiServerDataTypesChatChatRequest>(
-                json,
-                jsonSerializerOptions);
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerContext.
-        /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::AI21.LanguageStudioApiServerDataTypesChatChatRequest?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
-                jsonStream,
-                typeof(global::AI21.LanguageStudioApiServerDataTypesChatChatRequest),
-                jsonSerializerContext).ConfigureAwait(false)) as global::AI21.LanguageStudioApiServerDataTypesChatChatRequest;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::System.Threading.Tasks.ValueTask<global::AI21.LanguageStudioApiServerDataTypesChatChatRequest?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::AI21.LanguageStudioApiServerDataTypesChatChatRequest?>(
-                jsonStream,
-                jsonSerializerOptions);
-        }
-
     }
 }

@@ -88,91 +88,69 @@ namespace AI21
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
+        /// Initializes a new instance of the <see cref="LanguageStudioApiServerDataTypesJ2ChatChatRequest" /> class.
         /// </summary>
-        public string ToJson(
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
+        /// <param name="messages">
+        /// messages
+        /// </param>
+        /// <param name="system"></param>
+        /// <param name="frequencyPenalty"></param>
+        /// <param name="presencePenalty"></param>
+        /// <param name="countPenalty"></param>
+        /// <param name="numResults">
+        /// Default Value: 1
+        /// </param>
+        /// <param name="temperature">
+        /// Default Value: 0.7
+        /// </param>
+        /// <param name="maxTokens">
+        /// Default Value: 300
+        /// </param>
+        /// <param name="minTokens">
+        /// Default Value: 0
+        /// </param>
+        /// <param name="topP">
+        /// Default Value: 1
+        /// </param>
+        /// <param name="topKReturn">
+        /// Default Value: 0
+        /// </param>
+        /// <param name="stopSequences"></param>
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public LanguageStudioApiServerDataTypesJ2ChatChatRequest(
+            global::System.Collections.Generic.IList<global::AI21.ChatMessage> messages,
+            string system,
+            global::AI21.Penalty? frequencyPenalty,
+            global::AI21.Penalty? presencePenalty,
+            global::AI21.Penalty? countPenalty,
+            int? numResults,
+            double? temperature,
+            int? maxTokens,
+            int? minTokens,
+            double? topP,
+            int? topKReturn,
+            global::System.Collections.Generic.IList<string>? stopSequences)
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                this.GetType(),
-                jsonSerializerContext);
+            this.Messages = messages ?? throw new global::System.ArgumentNullException(nameof(messages));
+            this.System = system ?? throw new global::System.ArgumentNullException(nameof(system));
+            this.FrequencyPenalty = frequencyPenalty;
+            this.PresencePenalty = presencePenalty;
+            this.CountPenalty = countPenalty;
+            this.NumResults = numResults;
+            this.Temperature = temperature;
+            this.MaxTokens = maxTokens;
+            this.MinTokens = minTokens;
+            this.TopP = topP;
+            this.TopKReturn = topKReturn;
+            this.StopSequences = stopSequences;
         }
 
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerOptions.
+        /// Initializes a new instance of the <see cref="LanguageStudioApiServerDataTypesJ2ChatChatRequest" /> class.
         /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public string ToJson(
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
+        public LanguageStudioApiServerDataTypesJ2ChatChatRequest()
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                jsonSerializerOptions);
         }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerContext.
-        /// </summary>
-        public static global::AI21.LanguageStudioApiServerDataTypesJ2ChatChatRequest? FromJson(
-            string json,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize(
-                json,
-                typeof(global::AI21.LanguageStudioApiServerDataTypesJ2ChatChatRequest),
-                jsonSerializerContext) as global::AI21.LanguageStudioApiServerDataTypesJ2ChatChatRequest;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::AI21.LanguageStudioApiServerDataTypesJ2ChatChatRequest? FromJson(
-            string json,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::AI21.LanguageStudioApiServerDataTypesJ2ChatChatRequest>(
-                json,
-                jsonSerializerOptions);
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerContext.
-        /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::AI21.LanguageStudioApiServerDataTypesJ2ChatChatRequest?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
-                jsonStream,
-                typeof(global::AI21.LanguageStudioApiServerDataTypesJ2ChatChatRequest),
-                jsonSerializerContext).ConfigureAwait(false)) as global::AI21.LanguageStudioApiServerDataTypesJ2ChatChatRequest;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::System.Threading.Tasks.ValueTask<global::AI21.LanguageStudioApiServerDataTypesJ2ChatChatRequest?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::AI21.LanguageStudioApiServerDataTypesJ2ChatChatRequest?>(
-                jsonStream,
-                jsonSerializerOptions);
-        }
-
     }
 }

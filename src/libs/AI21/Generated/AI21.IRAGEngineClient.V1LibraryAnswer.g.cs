@@ -12,7 +12,7 @@ namespace AI21
         /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
+        /// <exception cref="global::AI21.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.LibraryAnswerResponse> V1LibraryAnswerAsync(
             global::AI21.LibraryAnswerRequest request,
             int? requestStartTime = default,

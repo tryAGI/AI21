@@ -99,91 +99,75 @@ namespace AI21
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
+        /// Initializes a new instance of the <see cref="CompletionBody" /> class.
         /// </summary>
-        public string ToJson(
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
+        /// <param name="prompt"></param>
+        /// <param name="numResults">
+        /// Default Value: 1
+        /// </param>
+        /// <param name="maxTokens">
+        /// Default Value: 16
+        /// </param>
+        /// <param name="minTokens">
+        /// Default Value: 0
+        /// </param>
+        /// <param name="temperature">
+        /// Default Value: 1
+        /// </param>
+        /// <param name="topP">
+        /// Default Value: 1
+        /// </param>
+        /// <param name="minP">
+        /// Default Value: 0
+        /// </param>
+        /// <param name="stopSequences"></param>
+        /// <param name="topKReturn">
+        /// Default Value: 0
+        /// </param>
+        /// <param name="logitBias"></param>
+        /// <param name="frequencyPenalty"></param>
+        /// <param name="presencePenalty"></param>
+        /// <param name="countPenalty"></param>
+        /// <param name="epoch"></param>
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public CompletionBody(
+            string prompt,
+            int? numResults,
+            int? maxTokens,
+            int? minTokens,
+            double? temperature,
+            double? topP,
+            double? minP,
+            global::System.Collections.Generic.IList<string>? stopSequences,
+            int? topKReturn,
+            object? logitBias,
+            global::AI21.Penalty? frequencyPenalty,
+            global::AI21.Penalty? presencePenalty,
+            global::AI21.Penalty? countPenalty,
+            int? epoch)
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                this.GetType(),
-                jsonSerializerContext);
+            this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
+            this.NumResults = numResults;
+            this.MaxTokens = maxTokens;
+            this.MinTokens = minTokens;
+            this.Temperature = temperature;
+            this.TopP = topP;
+            this.MinP = minP;
+            this.StopSequences = stopSequences;
+            this.TopKReturn = topKReturn;
+            this.LogitBias = logitBias;
+            this.FrequencyPenalty = frequencyPenalty;
+            this.PresencePenalty = presencePenalty;
+            this.CountPenalty = countPenalty;
+            this.Epoch = epoch;
         }
 
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerOptions.
+        /// Initializes a new instance of the <see cref="CompletionBody" /> class.
         /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public string ToJson(
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
+        public CompletionBody()
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                jsonSerializerOptions);
         }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerContext.
-        /// </summary>
-        public static global::AI21.CompletionBody? FromJson(
-            string json,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize(
-                json,
-                typeof(global::AI21.CompletionBody),
-                jsonSerializerContext) as global::AI21.CompletionBody;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::AI21.CompletionBody? FromJson(
-            string json,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::AI21.CompletionBody>(
-                json,
-                jsonSerializerOptions);
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerContext.
-        /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::AI21.CompletionBody?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
-                jsonStream,
-                typeof(global::AI21.CompletionBody),
-                jsonSerializerContext).ConfigureAwait(false)) as global::AI21.CompletionBody;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::System.Threading.Tasks.ValueTask<global::AI21.CompletionBody?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::AI21.CompletionBody?>(
-                jsonStream,
-                jsonSerializerOptions);
-        }
-
     }
 }
