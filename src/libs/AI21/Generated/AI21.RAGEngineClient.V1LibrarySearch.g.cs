@@ -32,7 +32,7 @@ namespace AI21
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.LibrarySearchResponse> V1LibrarySearchAsync(
+        public async global::System.Threading.Tasks.Task<string> V1LibrarySearchAsync(
             global::AI21.LibrarySearchRequest request,
             int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -160,9 +160,7 @@ namespace AI21
                     };
                 }
 
-                return
-                    global::AI21.LibrarySearchResponse.FromJson(__content, JsonSerializerContext) ??
-                    throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                    return __content;
             }
             else
             {
@@ -186,7 +184,7 @@ namespace AI21
 
                 using var __responseStream = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
 
-                var __responseValue = await global::AI21.LibrarySearchResponse.FromJsonStreamAsync(__responseStream, JsonSerializerContext).ConfigureAwait(false);
+                var __responseValue = await global::System.Text.Json.JsonSerializer.DeserializeAsync(__responseStream, typeof(string), JsonSerializerContext).ConfigureAwait(false) as string;
 
                 return
                     __responseValue ??
@@ -219,7 +217,7 @@ namespace AI21
         /// <param name="hybridSearchAlpha"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.LibrarySearchResponse> V1LibrarySearchAsync(
+        public async global::System.Threading.Tasks.Task<string> V1LibrarySearchAsync(
             string query,
             int? requestStartTime = default,
             int? maxSegments = default,
