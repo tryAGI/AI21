@@ -57,9 +57,12 @@ namespace AI21
             typeof(global::AI21.JsonConverters.UserMessageRoleNullableJsonConverter),
             typeof(global::AI21.JsonConverters.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRoleJsonConverter),
             typeof(global::AI21.JsonConverters.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRoleNullableJsonConverter),
-            typeof(global::AI21.JsonConverters.AnyOfJsonConverterFactory2),
             typeof(global::AI21.JsonConverters.QueryFilterJsonConverter),
             typeof(global::AI21.JsonConverters.MessagesItemJsonConverter),
+            typeof(global::AI21.JsonConverters.AnyOfJsonConverter<global::AI21.ChatStreamingFirstDelta, global::AI21.ChatStreamingContentDelta>),
+            typeof(global::AI21.JsonConverters.AnyOfJsonConverter<string, int?>),
+            typeof(global::AI21.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>),
+            typeof(global::AI21.JsonConverters.AnyOfJsonConverter<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>),
         })]
 
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.JsonSerializerContextTypes))]
