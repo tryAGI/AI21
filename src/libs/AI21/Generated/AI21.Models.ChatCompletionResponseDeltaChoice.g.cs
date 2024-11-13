@@ -22,7 +22,7 @@ namespace AI21
         /// - **Subsequent messages** will have an object `{"content": __token__}` with the generated token.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("delta")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.AnyOfJsonConverterFactory2))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.AnyOfJsonConverter<global::AI21.ChatStreamingFirstDelta, global::AI21.ChatStreamingContentDelta>))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::AI21.AnyOf<global::AI21.ChatStreamingFirstDelta, global::AI21.ChatStreamingContentDelta> Delta { get; set; }
 
