@@ -13,7 +13,7 @@ namespace AI21
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::AI21.LibrarySearchResponse> V1LibrarySearchAsync(
+        global::System.Threading.Tasks.Task<string> V1LibrarySearchAsync(
             global::AI21.LibrarySearchRequest request,
             int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -43,7 +43,7 @@ namespace AI21
         /// <param name="hybridSearchAlpha"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::AI21.LibrarySearchResponse> V1LibrarySearchAsync(
+        global::System.Threading.Tasks.Task<string> V1LibrarySearchAsync(
             string query,
             int? requestStartTime = default,
             int? maxSegments = default,

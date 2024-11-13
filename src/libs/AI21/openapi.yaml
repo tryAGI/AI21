@@ -1072,8 +1072,7 @@ paths:
           description: Successful Response
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/FileUploadResponse'
+              schema: { }
         '422':
           description: Validation Error
           content:
@@ -1177,40 +1176,7 @@ paths:
           description: Successful Response
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/FileDeleteResponse'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /studio/v1/library/answer:
-    post:
-      tags:
-        - RAG Engine
-      summary: Answer
-      operationId: v1_library_answer
-      parameters:
-        - name: request_start_time
-          in: query
-          schema:
-            title: Request Start Time
-            type: integer
-            default: '1730898900272'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/LibraryAnswerRequest'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LibraryAnswerResponse'
+              schema: { }
         '422':
           description: Validation Error
           content:
@@ -1241,8 +1207,7 @@ paths:
           description: Successful Response
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/LibrarySearchResponse'
+              schema: { }
         '422':
           description: Validation Error
           content:
@@ -1419,13 +1384,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    AnswerLength:
-      title: AnswerLength
-      enum:
-        - short
-        - medium
-        - long
-      description: An enumeration.
     AssistantMessage:
       title: AssistantMessage
       type: object
@@ -1976,21 +1934,6 @@ components:
         - TEXT
       type: string
       description: An enumeration.
-    FileDeleteResponse:
-      title: FileDeleteResponse
-      required:
-        - id
-        - fileId
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
-          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
-        fileId:
-          title: Fileid
-          type: string
-          description: The RAG library ID of the deleted file.
     FileResponse:
       title: FileResponse
       required:
@@ -2064,21 +2007,6 @@ components:
         - PROCESSING_FAILED
       type: string
       description: An enumeration.
-    FileUploadResponse:
-      title: FileUploadResponse
-      required:
-        - id
-        - fileId
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
-          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
-        fileId:
-          title: Fileid
-          type: string
-          description: "A unique identifier for the uploaded file. Use this later to request, modify metadata,\nor delete the file. You don't need to store the value though, as it is returned\nalong with all file information in any file GET request. Example: da13301a-14e4-4487-aa2f-cc6048e73cdc\n"
     FilesUpdateRequest:
       title: FilesUpdateRequest
       type: object
@@ -2148,82 +2076,6 @@ components:
         endIndex:
           title: Endindex
           type: integer
-    LibraryAnswerRequest:
-      title: LibraryAnswerRequest
-      required:
-        - question
-      type: object
-      properties:
-        question:
-          title: Question
-          type: string
-        maxSegments:
-          title: Maxsegments
-          type: integer
-        path:
-          title: Path
-          type: string
-        labels:
-          title: Labels
-          type: array
-          items:
-            type: string
-        labels_filter:
-          $ref: '#/components/schemas/QueryFilter'
-        labels_filter_mode:
-          title: Labels Filter Mode
-          enum:
-            - AND
-            - OR
-          type: string
-          default: AND
-        fileIds:
-          title: Fileids
-          type: array
-          items:
-            type: string
-            format: uuid
-        answerLength:
-          $ref: '#/components/schemas/AnswerLength'
-        mode:
-          $ref: '#/components/schemas/Mode'
-        retrievalStrategy:
-          allOf:
-            - $ref: '#/components/schemas/RetrievalStrategy'
-          default: default
-        retrievalSimilarityThreshold:
-          title: Retrievalsimilaritythreshold
-          maximum: 1.5
-          minimum: 0.5
-          type: number
-        hybridSearchAlpha:
-          title: Hybridsearchalpha
-          maximum: 1.0
-          minimum: 0.0
-          type: number
-      description: This class is to be used as a common class to all Studio API requests payloads
-    LibraryAnswerResponse:
-      title: LibraryAnswerResponse
-      required:
-        - id
-        - answerInContext
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
-          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
-        answerInContext:
-          title: Answerincontext
-          type: boolean
-        answer:
-          title: Answer
-          type: string
-        sources:
-          title: Sources
-          type: array
-          items:
-            $ref: '#/components/schemas/SourceDocument'
     LibrarySearchRequest:
       title: LibrarySearchRequest
       required:
@@ -2278,54 +2130,6 @@ components:
           minimum: 0.0
           type: number
       description: This class is to be used as a common class to all Studio API requests payloads
-    LibrarySearchResponse:
-      title: LibrarySearchResponse
-      required:
-        - id
-        - results
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
-          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
-        results:
-          title: Results
-          type: array
-          items:
-            $ref: '#/components/schemas/LibrarySearchResult'
-    LibrarySearchResult:
-      title: LibrarySearchResult
-      required:
-        - text
-        - fileId
-        - fileName
-        - score
-      type: object
-      properties:
-        text:
-          title: Text
-          type: string
-        fileId:
-          title: Fileid
-          type: string
-        fileName:
-          title: Filename
-          type: string
-        score:
-          title: Score
-          type: number
-        order:
-          title: Order
-          type: integer
-        publicUrl:
-          title: Publicurl
-          type: string
-        labels:
-          title: Labels
-          type: array
-          items:
-            type: string
     LogicalOperator:
       title: LogicalOperator
       type: object
@@ -2393,12 +2197,6 @@ components:
           minimum: 0.0
           type: number
           default: 0.1
-    Mode:
-      title: Mode
-      enum:
-        - flexible
-        - strict
-      description: An enumeration.
     ModelName:
       title: ModelName
       enum:
@@ -2580,33 +2378,6 @@ components:
           title: Focus
           type: string
       description: This class is to be used as a common class to all Studio API requests payloads
-    SourceDocument:
-      title: SourceDocument
-      required:
-        - fileId
-        - name
-        - highlights
-      type: object
-      properties:
-        fileId:
-          title: Fileid
-          type: string
-        name:
-          title: Name
-          type: string
-        highlights:
-          title: Highlights
-          type: array
-          items:
-            type: string
-        publicUrl:
-          title: Publicurl
-          type: string
-        labels:
-          title: Labels
-          type: array
-          items:
-            type: string
     StyleType:
       title: StyleType
       enum:

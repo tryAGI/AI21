@@ -19,7 +19,7 @@ namespace AI21
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::AI21.FileUploadResponse> V1LibraryUploadAsync(
+        global::System.Threading.Tasks.Task<string> V1LibraryUploadAsync(
             global::AI21.BodyV1LibraryUpload request,
             int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -44,7 +44,7 @@ namespace AI21
         /// <param name="customConfigs"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::AI21.FileUploadResponse> V1LibraryUploadAsync(
+        global::System.Threading.Tasks.Task<string> V1LibraryUploadAsync(
             byte[] file,
             string filename,
             int? requestStartTime = default,

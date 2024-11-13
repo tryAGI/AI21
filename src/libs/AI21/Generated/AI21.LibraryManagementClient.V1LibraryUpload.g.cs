@@ -38,7 +38,7 @@ namespace AI21
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.FileUploadResponse> V1LibraryUploadAsync(
+        public async global::System.Threading.Tasks.Task<string> V1LibraryUploadAsync(
             global::AI21.BodyV1LibraryUpload request,
             int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -196,9 +196,7 @@ namespace AI21
                     };
                 }
 
-                return
-                    global::AI21.FileUploadResponse.FromJson(__content, JsonSerializerContext) ??
-                    throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                    return __content;
             }
             else
             {
@@ -222,7 +220,7 @@ namespace AI21
 
                 using var __responseStream = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
 
-                var __responseValue = await global::AI21.FileUploadResponse.FromJsonStreamAsync(__responseStream, JsonSerializerContext).ConfigureAwait(false);
+                var __responseValue = await global::System.Text.Json.JsonSerializer.DeserializeAsync(__responseStream, typeof(string), JsonSerializerContext).ConfigureAwait(false) as string;
 
                 return
                     __responseValue ??
@@ -250,7 +248,7 @@ namespace AI21
         /// <param name="customConfigs"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.FileUploadResponse> V1LibraryUploadAsync(
+        public async global::System.Threading.Tasks.Task<string> V1LibraryUploadAsync(
             byte[] file,
             string filename,
             int? requestStartTime = default,
