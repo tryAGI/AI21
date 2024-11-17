@@ -12,7 +12,7 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRole? Role { get; }
+        public global::AI21.ChatRequestMessageDiscriminatorRole? Role { get; }
 
         /// <summary>
         /// 
@@ -158,7 +158,7 @@ namespace AI21
         /// 
         /// </summary>
         public MessagesItem(
-            global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRole? role,
+            global::AI21.ChatRequestMessageDiscriminatorRole? role,
             global::AI21.UserMessage? user,
             global::AI21.AssistantMessage? assistant,
             global::AI21.ToolMessage? tool,

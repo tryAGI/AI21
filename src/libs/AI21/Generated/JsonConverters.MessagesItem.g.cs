@@ -17,33 +17,33 @@ namespace AI21.JsonConverters
 
 
             var readerCopy = reader;
-            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminator> ??
-                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminator)}");
+            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::AI21.ChatRequestMessageDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::AI21.ChatRequestMessageDiscriminator> ??
+                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::AI21.ChatRequestMessageDiscriminator)}");
             var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
 
             global::AI21.UserMessage? user = default;
-            if (discriminator?.Role == global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRole.User)
+            if (discriminator?.Role == global::AI21.ChatRequestMessageDiscriminatorRole.User)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::AI21.UserMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::AI21.UserMessage> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::AI21.UserMessage)}");
                 user = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::AI21.AssistantMessage? assistant = default;
-            if (discriminator?.Role == global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRole.Assistant)
+            if (discriminator?.Role == global::AI21.ChatRequestMessageDiscriminatorRole.Assistant)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::AI21.AssistantMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::AI21.AssistantMessage> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::AI21.AssistantMessage)}");
                 assistant = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::AI21.ToolMessage? tool = default;
-            if (discriminator?.Role == global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRole.Tool)
+            if (discriminator?.Role == global::AI21.ChatRequestMessageDiscriminatorRole.Tool)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::AI21.ToolMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::AI21.ToolMessage> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::AI21.ToolMessage)}");
                 tool = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::AI21.SystemMessage? system = default;
-            if (discriminator?.Role == global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRole.System)
+            if (discriminator?.Role == global::AI21.ChatRequestMessageDiscriminatorRole.System)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::AI21.SystemMessage), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::AI21.SystemMessage> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::AI21.SystemMessage)}");

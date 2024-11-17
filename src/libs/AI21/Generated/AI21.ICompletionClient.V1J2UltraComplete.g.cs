@@ -5,9 +5,10 @@ namespace AI21
     public partial interface ICompletionClient
     {
         /// <summary>
-        /// j2-ultra complete
+        /// Custom j2-ultra complete
         /// </summary>
-        /// <param name="model">
+        /// <param name="customModelName"></param>
+        /// <param name="customModelType">
         /// Default Value: j2-ultra
         /// </param>
         /// <param name="requestStartTime">
@@ -17,15 +18,17 @@ namespace AI21
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         global::System.Threading.Tasks.Task<string> V1J2UltraCompleteAsync(
+            string customModelName,
             global::AI21.CompletionBody request,
-            string? model = default,
+            string? customModelType = default,
             int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// j2-ultra complete
+        /// Custom j2-ultra complete
         /// </summary>
-        /// <param name="model">
+        /// <param name="customModelName"></param>
+        /// <param name="customModelType">
         /// Default Value: j2-ultra
         /// </param>
         /// <param name="requestStartTime">
@@ -62,8 +65,9 @@ namespace AI21
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> V1J2UltraCompleteAsync(
+            string customModelName,
             string prompt,
-            string? model = default,
+            string? customModelType = default,
             int? requestStartTime = default,
             int? numResults = default,
             int? maxTokens = default,
