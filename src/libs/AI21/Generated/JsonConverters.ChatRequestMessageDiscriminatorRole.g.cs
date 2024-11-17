@@ -3,10 +3,10 @@
 namespace AI21.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRoleJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRole>
+    public sealed class ChatRequestMessageDiscriminatorRoleJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::AI21.ChatRequestMessageDiscriminatorRole>
     {
         /// <inheritdoc />
-        public override global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRole Read(
+        public override global::AI21.ChatRequestMessageDiscriminatorRole Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace AI21.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRoleExtensions.ToEnum(stringValue) ?? default;
+                        return global::AI21.ChatRequestMessageDiscriminatorRoleExtensions.ToEnum(stringValue) ?? default;
                     }
                     
                     break;
@@ -26,7 +26,7 @@ namespace AI21.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRole)numValue;
+                    return (global::AI21.ChatRequestMessageDiscriminatorRole)numValue;
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -38,12 +38,12 @@ namespace AI21.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRole value,
+            global::AI21.ChatRequestMessageDiscriminatorRole value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            writer.WriteStringValue(global::AI21.LanguageStudioApiServerDataTypesChatChatRequestMessageDiscriminatorRoleExtensions.ToValueString(value));
+            writer.WriteStringValue(global::AI21.ChatRequestMessageDiscriminatorRoleExtensions.ToValueString(value));
         }
     }
 }

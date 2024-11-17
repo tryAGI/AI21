@@ -59,7 +59,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/language_studio_api_server__data_types__chat__ChatRequest'
+              $ref: '#/components/schemas/ChatRequest'
         required: true
       responses:
         '200':
@@ -73,43 +73,6 @@ paths:
                   - type: array
                     items:
                       $ref: '#/components/schemas/ChatCompletionVllmStreamingMessage'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /studio/v1/j2-light/complete:
-    post:
-      tags:
-        - completion
-      summary: j2-light complete
-      operationId: v1_j2_light_complete
-      parameters:
-        - name: model
-          in: query
-          schema:
-            title: Model
-            type: string
-            default: j2-light
-        - name: request_start_time
-          in: query
-          schema:
-            title: Request Start Time
-            type: integer
-            default: '1730898900272'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CompletionBody'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
         '422':
           description: Validation Error
           content:
@@ -135,43 +98,6 @@ paths:
             title: Custom Model Type
             type: string
             default: j2-light
-        - name: request_start_time
-          in: query
-          schema:
-            title: Request Start Time
-            type: integer
-            default: '1730898900272'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CompletionBody'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /studio/v1/j2-mid/complete:
-    post:
-      tags:
-        - completion
-      summary: j2-mid complete
-      operationId: v1_j2_mid_complete
-      parameters:
-        - name: model
-          in: query
-          schema:
-            title: Model
-            type: string
-            default: j2-mid
         - name: request_start_time
           in: query
           schema:
@@ -239,43 +165,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /studio/v1/j2-ultra/complete:
-    post:
-      tags:
-        - completion
-      summary: j2-ultra complete
-      operationId: v1_j2_ultra_complete
-      parameters:
-        - name: model
-          in: query
-          schema:
-            title: Model
-            type: string
-            default: j2-ultra
-        - name: request_start_time
-          in: query
-          schema:
-            title: Request Start Time
-            type: integer
-            default: '1730898900272'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CompletionBody'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
   '/studio/v1/j2-ultra/{custom_model_name}/complete':
     post:
       tags:
@@ -295,228 +184,6 @@ paths:
             title: Custom Model Type
             type: string
             default: j2-ultra
-        - name: request_start_time
-          in: query
-          schema:
-            title: Request Start Time
-            type: integer
-            default: '1730898900272'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CompletionBody'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /studio/v1/j2-large/complete:
-    post:
-      tags:
-        - completion
-      summary: j2-large complete
-      operationId: v1_j2_large_complete
-      parameters:
-        - name: model
-          in: query
-          schema:
-            title: Model
-            type: string
-            default: j2-large
-        - name: request_start_time
-          in: query
-          schema:
-            title: Request Start Time
-            type: integer
-            default: '1730898900272'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CompletionBody'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /studio/v1/j2-large-instruct/complete:
-    post:
-      tags:
-        - completion
-      summary: j2-large-instruct complete
-      operationId: v1_j2_large_instruct_complete
-      parameters:
-        - name: model
-          in: query
-          schema:
-            title: Model
-            type: string
-            default: j2-large-instruct
-        - name: request_start_time
-          in: query
-          schema:
-            title: Request Start Time
-            type: integer
-            default: '1730898900272'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CompletionBody'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /studio/v1/j2-grande/complete:
-    post:
-      tags:
-        - completion
-      summary: j2-grande complete
-      operationId: v1_j2_grande_complete
-      parameters:
-        - name: model
-          in: query
-          schema:
-            title: Model
-            type: string
-            default: j2-grande
-        - name: request_start_time
-          in: query
-          schema:
-            title: Request Start Time
-            type: integer
-            default: '1730898900272'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CompletionBody'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /studio/v1/j2-grande-instruct/complete:
-    post:
-      tags:
-        - completion
-      summary: j2-grande-instruct complete
-      operationId: v1_j2_grande_instruct_complete
-      parameters:
-        - name: model
-          in: query
-          schema:
-            title: Model
-            type: string
-            default: j2-grande-instruct
-        - name: request_start_time
-          in: query
-          schema:
-            title: Request Start Time
-            type: integer
-            default: '1730898900272'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CompletionBody'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /studio/v1/j2-jumbo/complete:
-    post:
-      tags:
-        - completion
-      summary: j2-jumbo complete
-      operationId: v1_j2_jumbo_complete
-      parameters:
-        - name: model
-          in: query
-          schema:
-            title: Model
-            type: string
-            default: j2-jumbo
-        - name: request_start_time
-          in: query
-          schema:
-            title: Request Start Time
-            type: integer
-            default: '1730898900272'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CompletionBody'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /studio/v1/j2-jumbo-instruct/complete:
-    post:
-      tags:
-        - completion
-      summary: j2-jumbo-instruct complete
-      operationId: v1_j2_jumbo_instruct_complete
-      parameters:
-        - name: model
-          in: query
-          schema:
-            title: Model
-            type: string
-            default: j2-jumbo-instruct
         - name: request_start_time
           in: query
           schema:
@@ -829,133 +496,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /studio/v1/paraphrase:
-    post:
-      tags:
-        - paraphrase
-      summary: Paraphrase
-      operationId: v1_paraphraze
-      parameters:
-        - name: request_start_time
-          in: query
-          schema:
-            title: Request Start Time
-            type: integer
-            default: '1730898900272'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ParaphraseBody'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema: { }
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /studio/v1/summarize:
-    post:
-      tags:
-        - summarize
-      summary: Summarize
-      operationId: v1_summarize
-      parameters:
-        - name: request_start_time
-          in: query
-          schema:
-            title: Request Start Time
-            type: integer
-            default: '1730898900272'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SummarizeBody'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SummarizationResponse'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /studio/v1/summarize-by-segment:
-    post:
-      tags:
-        - summarize
-      summary: Segmented Summarize
-      operationId: v1_summarize_by_segment
-      parameters:
-        - name: request_start_time
-          in: query
-          schema:
-            title: Request Start Time
-            type: integer
-            default: '1730898900272'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SegmentedSummaryBody'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SummarizeBySegmentResponse'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /studio/v1/segmentation:
-    post:
-      tags:
-        - segmentation
-      summary: Segmentation
-      operationId: v1_segmentation
-      parameters:
-        - name: request_start_time
-          in: query
-          schema:
-            title: Request Start Time
-            type: integer
-            default: '1730898900272'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SegmentationBody'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SegmentationResponse'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
   /studio/v1/conversational-rag:
     post:
       summary: Conversational Rag
@@ -1248,44 +788,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /studio/v1/j2-ultra/chat:
-    post:
-      tags:
-        - chat
-      summary: j2-ultra chat
-      operationId: v1_j2_ultra_chat
-      parameters:
-        - name: model
-          in: query
-          schema:
-            title: Model
-            type: string
-            default: j2-ultra
-        - name: request_start_time
-          in: query
-          schema:
-            title: Request Start Time
-            type: integer
-            default: '1730898900272'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/language_studio_api_server__data_types__j2_chat__ChatRequest'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ChatResponse'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
   '/studio/v1/connectors/connected-users/{organization_id}/tokens':
     post:
       summary: Generate Org Token
@@ -1529,49 +1031,85 @@ components:
           title: Meta
           type: object
       description: Returned for streaming messages. Non-streaming responses return `ChatCompletion`.
-    ChatMessage:
-      title: ChatMessage
+    ChatRequest:
+      title: ChatRequest
       required:
-        - role
-        - text
+        - model
+        - messages
       type: object
       properties:
-        role:
-          $ref: '#/components/schemas/RoleType'
-        text:
-          title: Text
-          type: string
-    ChatOutput:
-      title: ChatOutput
-      required:
-        - text
-        - role
-        - finishReason
-      type: object
-      properties:
-        text:
-          title: Text
-          type: string
-        role:
-          $ref: '#/components/schemas/RoleType'
-        finishReason:
-          $ref: '#/components/schemas/FinishReason'
-    ChatResponse:
-      title: ChatResponse
-      required:
-        - id
-        - outputs
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
-          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
-        outputs:
-          title: Outputs
+        model:
+          $ref: '#/components/schemas/ModelName'
+        messages:
+          title: Messages
           type: array
           items:
-            $ref: '#/components/schemas/ChatOutput'
+            oneOf:
+              - $ref: '#/components/schemas/UserMessage'
+              - $ref: '#/components/schemas/AssistantMessage'
+              - $ref: '#/components/schemas/ToolMessage'
+              - $ref: '#/components/schemas/SystemMessage'
+            discriminator:
+              propertyName: role
+              mapping:
+                user: '#/components/schemas/UserMessage'
+                assistant: '#/components/schemas/AssistantMessage'
+                tool: '#/components/schemas/ToolMessage'
+                system: '#/components/schemas/SystemMessage'
+          description: "The previous messages in this chat, from oldest (index 0) to newest. Messages\nmust be alternating `user`/`assistant` messages, optionally starting with a `system`\nmessage. For single turn interactions, this should be an optional `system` message,\nand a single `user` message. Maximum total size for the list is about 256K tokens.\n"
+        tools:
+          title: Tools
+          type: array
+          items:
+            $ref: '#/components/schemas/ToolDefinition'
+        n:
+          title: N
+          type: integer
+          description: "How many chat responses to generate. _Range: 1 – 16_ **Notes:**\n- If `n > 1`, setting `temperature=0` will fail because all answers are guaranteed to be duplicates.\n- `n` must be 1 when `stream = True`\n"
+          default: 1
+        max_tokens:
+          title: Max Tokens
+          type: integer
+          description: "The maximum number of tokens to allow for each generated response message. Typically\nthe best way to limit output length is by providing a length limit in the system\nprompt (for example, \"limit your answers to three sentences\"). _Range: 0 – 4096_\n"
+          default: 4096
+        temperature:
+          title: Temperature
+          type: number
+          description: "How much variation to provide in each answer. Setting this value to 0 guarantees the\nsame response to the same question every time. Setting a higher value encourages more\nvariation. Modifies the distribution from which tokens are sampled.\n[More information](https://docs.ai21.com/docs/sampling-from-language-models#temperature)\n_Range: 0.0 – 2.0_\n"
+        top_p:
+          title: Top P
+          maximum: 1.0
+          minimum: 0.0
+          exclusiveMinimum: true
+          type: number
+          description: "Limit the pool of next tokens in each step to the top N percentile of possible\ntokens, where 1.0 means the pool of all possible tokens, and 0.01 means the\npool of only the most likely next tokens. [More information]\n(https://docs.ai21.com/docs/sampling-from-language-models#topp) _Range: 0 \\<= value \\<=1.0_\n"
+          default: 1
+        stop:
+          title: Stop
+          anyOf:
+            - type: string
+            - type: array
+              items:
+                type: string
+          description: "End the message when the model generates one of these strings. The stop sequence\nis not included in the generated message. Each sequence can be up to 64K long, and\ncan contain newlines as `\\n` characters. Examples:\n- Single stop string with a word and a period: \"monkeys.\"\n- Multiple stop strings and a newline: [\"cat\", \"dog\", \" .\", \"####\", \"\\n\"]\n"
+        stream:
+          title: Stream
+          type: boolean
+          description: "Whether or not to stream the result one token at a time using\n[server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events).\nThis can be useful when waiting for long results where a long wait time for an\nanswer can be problematic, such as a chatbot. If set to `True`, then `n` must\nbe 1. A streaming response is different than the non-streaming response.\n"
+          default: false
+        mock_response:
+          $ref: '#/components/schemas/MockResponseConfig'
+        documents:
+          title: Documents
+          type: array
+          items:
+            $ref: '#/components/schemas/DocumentSchema'
+        response_format:
+          title: Response Format
+          allOf:
+            - $ref: '#/components/schemas/ResponseFormat'
+          default:
+            type: text
     ChatStreamingContentDelta:
       title: ChatStreamingContentDelta
       required:
@@ -1927,13 +1465,6 @@ components:
           type: object
           additionalProperties:
             type: string
-    DocumentType:
-      title: DocumentType
-      enum:
-        - URL
-        - TEXT
-      type: string
-      description: An enumeration.
     FileResponse:
       title: FileResponse
       required:
@@ -2021,21 +1552,6 @@ components:
           items:
             type: string
           description: "Any labels to associate with this file. Separate multiple labels with commas. If\nprovided, will overwrite all existing labels.\n"
-    FinishReason:
-      title: FinishReason
-      required:
-        - reason
-      type: object
-      properties:
-        reason:
-          title: Reason
-          type: string
-        length:
-          title: Length
-          type: integer
-        sequence:
-          title: Sequence
-          type: string
     FunctionToolDefinition:
       title: FunctionToolDefinition
       required:
@@ -2059,23 +1575,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ValidationError'
-    Highlight:
-      title: Highlight
-      required:
-        - text
-        - startIndex
-        - endIndex
-      type: object
-      properties:
-        text:
-          title: Text
-          type: string
-        startIndex:
-          title: Startindex
-          type: integer
-        endIndex:
-          title: Endindex
-          type: integer
     LibrarySearchRequest:
       title: LibrarySearchRequest
       required:
@@ -2206,27 +1705,6 @@ components:
         - jamba-1.5-large
       type: string
       description: An enumeration.
-    ParaphraseBody:
-      title: ParaphraseBody
-      required:
-        - text
-      type: object
-      properties:
-        text:
-          title: Text
-          type: string
-        style:
-          allOf:
-            - $ref: '#/components/schemas/StyleType'
-          default: general
-        startIndex:
-          title: Startindex
-          type: integer
-          default: 0
-        endIndex:
-          title: Endindex
-          type: integer
-      description: This class is to be used as a common class to all Studio API requests payloads
     Penalty:
       title: Penalty
       required:
@@ -2283,164 +1761,6 @@ components:
         - add_neighbors
         - full_doc
       type: string
-      description: An enumeration.
-    RoleType:
-      title: RoleType
-      enum:
-        - user
-        - assistant
-      type: string
-      description: An enumeration.
-    Segment:
-      title: Segment
-      required:
-        - segmentText
-        - segmentType
-      type: object
-      properties:
-        segmentText:
-          title: Segmenttext
-          type: string
-        segmentType:
-          title: Segmenttype
-          type: string
-    SegmentSummary:
-      title: SegmentSummary
-      required:
-        - segmentText
-        - segmentType
-        - hasSummary
-        - highlights
-      type: object
-      properties:
-        summary:
-          title: Summary
-          type: string
-        segmentText:
-          title: Segmenttext
-          type: string
-        segmentHtml:
-          title: Segmenthtml
-          type: string
-        segmentType:
-          title: Segmenttype
-          type: string
-        hasSummary:
-          title: Hassummary
-          type: boolean
-        highlights:
-          title: Highlights
-          type: array
-          items:
-            $ref: '#/components/schemas/Highlight'
-    SegmentationBody:
-      title: SegmentationBody
-      required:
-        - sourceType
-        - source
-      type: object
-      properties:
-        sourceType:
-          $ref: '#/components/schemas/DocumentType'
-        source:
-          title: Source
-          type: string
-      description: This class is to be used as a common class to all Studio API requests payloads
-    SegmentationResponse:
-      title: SegmentationResponse
-      required:
-        - id
-        - segments
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
-          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
-        segments:
-          title: Segments
-          type: array
-          items:
-            $ref: '#/components/schemas/Segment'
-    SegmentedSummaryBody:
-      title: SegmentedSummaryBody
-      required:
-        - source
-        - sourceType
-      type: object
-      properties:
-        source:
-          title: Source
-          type: string
-        sourceType:
-          $ref: '#/components/schemas/DocumentType'
-        focus:
-          title: Focus
-          type: string
-      description: This class is to be used as a common class to all Studio API requests payloads
-    StyleType:
-      title: StyleType
-      enum:
-        - long
-        - short
-        - formal
-        - casual
-        - general
-      description: An enumeration.
-    SummarizationResponse:
-      title: SummarizationResponse
-      required:
-        - id
-        - summary
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
-          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
-        summary:
-          title: Summary
-          type: string
-    SummarizeBody:
-      title: SummarizeBody
-      required:
-        - source
-        - sourceType
-      type: object
-      properties:
-        source:
-          title: Source
-          type: string
-        sourceType:
-          $ref: '#/components/schemas/DocumentType'
-        focus:
-          title: Focus
-          type: string
-        summaryMethod:
-          $ref: '#/components/schemas/SummaryMethod'
-      description: This class is to be used as a common class to all Studio API requests payloads
-    SummarizeBySegmentResponse:
-      title: SummarizeBySegmentResponse
-      required:
-        - id
-        - segments
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
-          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
-        segments:
-          title: Segments
-          type: array
-          items:
-            $ref: '#/components/schemas/SegmentSummary'
-    SummaryMethod:
-      title: SummaryMethod
-      enum:
-        - segments
-        - guided
-        - fullDocument
       description: An enumeration.
     SystemMessage:
       title: SystemMessage
@@ -2616,159 +1936,6 @@ components:
         type:
           title: Error Type
           type: string
-    language_studio_api_server__data_types__chat__ChatRequest:
-      title: ChatRequest
-      required:
-        - model
-        - messages
-      type: object
-      properties:
-        model:
-          $ref: '#/components/schemas/ModelName'
-        messages:
-          title: Messages
-          type: array
-          items:
-            oneOf:
-              - $ref: '#/components/schemas/UserMessage'
-              - $ref: '#/components/schemas/AssistantMessage'
-              - $ref: '#/components/schemas/ToolMessage'
-              - $ref: '#/components/schemas/SystemMessage'
-            discriminator:
-              propertyName: role
-              mapping:
-                user: '#/components/schemas/UserMessage'
-                assistant: '#/components/schemas/AssistantMessage'
-                tool: '#/components/schemas/ToolMessage'
-                system: '#/components/schemas/SystemMessage'
-          description: messages
-        tools:
-          title: Tools
-          type: array
-          items:
-            $ref: '#/components/schemas/ToolDefinition'
-        n:
-          title: N
-          type: integer
-          default: 1
-        max_tokens:
-          title: Max Tokens
-          type: integer
-          default: 4096
-        temperature:
-          title: Temperature
-          type: number
-        top_p:
-          title: Top P
-          maximum: 1.0
-          minimum: 0.0
-          exclusiveMinimum: true
-          type: number
-          default: 1
-        stop:
-          title: Stop
-          anyOf:
-            - type: string
-            - type: array
-              items:
-                type: string
-        stream:
-          title: Stream
-          type: boolean
-          description: "Whether or not to stream the result one token at a time using\n[server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events).\nThis can be useful when waiting for long results where a long wait time for an\nanswer can be problematic, such as a chatbot. If set to `True`, then `n` must\nbe 1. A streaming response is different than the non-streaming response.\n"
-          default: false
-        mock_response:
-          $ref: '#/components/schemas/MockResponseConfig'
-        documents:
-          title: Documents
-          type: array
-          items:
-            $ref: '#/components/schemas/DocumentSchema'
-        response_format:
-          title: Response Format
-          allOf:
-            - $ref: '#/components/schemas/ResponseFormat'
-          default:
-            type: text
-    language_studio_api_server__data_types__j2_chat__ChatRequest:
-      title: ChatRequest
-      required:
-        - messages
-        - system
-      type: object
-      properties:
-        messages:
-          title: Messages
-          type: array
-          items:
-            $ref: '#/components/schemas/ChatMessage'
-          description: messages
-        system:
-          title: System
-          type: string
-        frequencyPenalty:
-          title: Frequencypenalty
-          allOf:
-            - $ref: '#/components/schemas/Penalty'
-          default:
-            scale: 0
-            applyToWhitespaces: true
-            applyToPunctuations: true
-            applyToNumbers: true
-            applyToStopwords: true
-            applyToEmojis: true
-        presencePenalty:
-          title: Presencepenalty
-          allOf:
-            - $ref: '#/components/schemas/Penalty'
-          default:
-            scale: 0
-            applyToWhitespaces: true
-            applyToPunctuations: true
-            applyToNumbers: true
-            applyToStopwords: true
-            applyToEmojis: true
-        countPenalty:
-          title: Countpenalty
-          allOf:
-            - $ref: '#/components/schemas/Penalty'
-          default:
-            scale: 0
-            applyToWhitespaces: true
-            applyToPunctuations: true
-            applyToNumbers: true
-            applyToStopwords: true
-            applyToEmojis: true
-        numResults:
-          title: Numresults
-          type: integer
-          default: 1
-        temperature:
-          title: Temperature
-          type: number
-          default: 0.7
-        maxTokens:
-          title: Maxtokens
-          type: integer
-          default: 300
-        minTokens:
-          title: Mintokens
-          type: integer
-          default: 0
-        topP:
-          title: Topp
-          type: number
-          default: 1
-        topKReturn:
-          title: Topkreturn
-          type: integer
-          default: 0
-        stopSequences:
-          title: Stopsequences
-          type: array
-          items:
-            type: string
-      description: This class is to be used as a common class to all Studio API requests payloads
   securitySchemes:
     Bearer:
       type: http
