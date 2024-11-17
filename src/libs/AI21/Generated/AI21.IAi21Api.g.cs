@@ -55,32 +55,12 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        public ParaphraseClient Paraphrase { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public SummarizeClient Summarize { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public SegmentationClient Segmentation { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public LibraryManagementClient LibraryManagement { get; }
 
         /// <summary>
         /// 
         /// </summary>
         public RAGEngineClient RAGEngine { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ChatClient Chat { get; }
 
     }
 }

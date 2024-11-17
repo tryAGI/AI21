@@ -7,13 +7,15 @@ namespace AI21
     {
         partial void PrepareV1J2UltraCompleteArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? model,
+            ref string customModelName,
+            ref string? customModelType,
             ref int? requestStartTime,
             global::AI21.CompletionBody request);
         partial void PrepareV1J2UltraCompleteRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? model,
+            string customModelName,
+            string? customModelType,
             int? requestStartTime,
             global::AI21.CompletionBody request);
         partial void ProcessV1J2UltraCompleteResponse(
@@ -26,9 +28,10 @@ namespace AI21
             ref string content);
 
         /// <summary>
-        /// j2-ultra complete
+        /// Custom j2-ultra complete
         /// </summary>
-        /// <param name="model">
+        /// <param name="customModelName"></param>
+        /// <param name="customModelType">
         /// Default Value: j2-ultra
         /// </param>
         /// <param name="requestStartTime">
@@ -38,8 +41,9 @@ namespace AI21
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> V1J2UltraCompleteAsync(
+            string customModelName,
             global::AI21.CompletionBody request,
-            string? model = default,
+            string? customModelType = default,
             int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -49,15 +53,16 @@ namespace AI21
                 client: HttpClient);
             PrepareV1J2UltraCompleteArguments(
                 httpClient: HttpClient,
-                model: ref model,
+                customModelName: ref customModelName,
+                customModelType: ref customModelType,
                 requestStartTime: ref requestStartTime,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
-                path: "/studio/v1/j2-ultra/complete",
+                path: $"/studio/v1/j2-ultra/{customModelName}/complete",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 
-                .AddOptionalParameter("model", model) 
+                .AddOptionalParameter("custom_model_type", customModelType) 
                 .AddOptionalParameter("request_start_time", requestStartTime?.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();
@@ -93,7 +98,8 @@ namespace AI21
             PrepareV1J2UltraCompleteRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                model: model,
+                customModelName: customModelName,
+                customModelType: customModelType,
                 requestStartTime: requestStartTime,
                 request: request);
 
@@ -198,9 +204,10 @@ namespace AI21
         }
 
         /// <summary>
-        /// j2-ultra complete
+        /// Custom j2-ultra complete
         /// </summary>
-        /// <param name="model">
+        /// <param name="customModelName"></param>
+        /// <param name="customModelType">
         /// Default Value: j2-ultra
         /// </param>
         /// <param name="requestStartTime">
@@ -237,8 +244,9 @@ namespace AI21
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> V1J2UltraCompleteAsync(
+            string customModelName,
             string prompt,
-            string? model = default,
+            string? customModelType = default,
             int? requestStartTime = default,
             int? numResults = default,
             int? maxTokens = default,
@@ -274,7 +282,8 @@ namespace AI21
             };
 
             return await V1J2UltraCompleteAsync(
-                model: model,
+                customModelName: customModelName,
+                customModelType: customModelType,
                 requestStartTime: requestStartTime,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
