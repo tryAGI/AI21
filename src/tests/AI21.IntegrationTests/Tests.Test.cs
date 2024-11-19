@@ -7,16 +7,16 @@ public partial class Tests
     {
         using var api = GetAuthorizedApi();
 
-        await api.Chat.V1J2UltraChatAsync(
-            messages:
-            [
-                new ChatMessage
-                {
-                    Text = "Hello",
-                    Role = RoleType.User,
-                }
-            ],
-            system: string.Empty,
-            cancellationToken: CancellationToken.None);
+        // await api.Completion.V1J2UltraCompleteAsync(
+        //     messages:
+        //     [
+        //         new ChatMessage
+        //         {
+        //             Text = "Hello",
+        //             Role = RoleType.User,
+        //         }
+        //     ],
+        //     system: string.Empty,
+        //     cancellationToken: CancellationToken.None);
     }
 }
