@@ -45,16 +45,6 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        public CompletionClient Completion { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public CustomModelsClient CustomModels { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public LibraryManagementClient LibraryManagement { get; }
 
         /// <summary>
