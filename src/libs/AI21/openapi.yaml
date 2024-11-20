@@ -49,12 +49,6 @@ paths:
             title: Request Start Time
             type: integer
             default: '1730898900272'
-        - name: Authorization
-          in: header
-          required: true
-          schema:
-            title: Authorization
-            type: string
       requestBody:
         content:
           application/json:
