@@ -15,12 +15,10 @@ namespace AI21
         /// <param name="requestStartTime">
         /// Default Value: 1730898900272
         /// </param>
-        /// <param name="authorization"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>> V1ChatCompleteAsync(
-            string authorization,
             global::AI21.ChatRequest request,
             int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -36,7 +34,6 @@ namespace AI21
         /// <param name="requestStartTime">
         /// Default Value: 1730898900272
         /// </param>
-        /// <param name="authorization"></param>
         /// <param name="model">
         /// An enumeration.
         /// </param>
@@ -94,7 +91,6 @@ namespace AI21
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>> V1ChatCompleteAsync(
-            string authorization,
             global::AI21.ModelName model,
             global::System.Collections.Generic.IList<global::AI21.MessagesItem> messages,
             int? requestStartTime = default,

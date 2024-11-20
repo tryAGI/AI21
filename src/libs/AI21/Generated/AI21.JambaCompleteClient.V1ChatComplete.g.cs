@@ -8,13 +8,11 @@ namespace AI21
         partial void PrepareV1ChatCompleteArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int? requestStartTime,
-            ref string authorization,
             global::AI21.ChatRequest request);
         partial void PrepareV1ChatCompleteRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int? requestStartTime,
-            string authorization,
             global::AI21.ChatRequest request);
         partial void ProcessV1ChatCompleteResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -36,12 +34,10 @@ namespace AI21
         /// <param name="requestStartTime">
         /// Default Value: 1730898900272
         /// </param>
-        /// <param name="authorization"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>> V1ChatCompleteAsync(
-            string authorization,
             global::AI21.ChatRequest request,
             int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -53,7 +49,6 @@ namespace AI21
             PrepareV1ChatCompleteArguments(
                 httpClient: HttpClient,
                 requestStartTime: ref requestStartTime,
-                authorization: ref authorization,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
@@ -82,9 +77,6 @@ namespace AI21
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-            __httpRequest.Headers.TryAddWithoutValidation("Authorization", authorization.ToString());
-
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -99,7 +91,6 @@ namespace AI21
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 requestStartTime: requestStartTime,
-                authorization: authorization,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -217,7 +208,6 @@ namespace AI21
         /// <param name="requestStartTime">
         /// Default Value: 1730898900272
         /// </param>
-        /// <param name="authorization"></param>
         /// <param name="model">
         /// An enumeration.
         /// </param>
@@ -275,7 +265,6 @@ namespace AI21
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>> V1ChatCompleteAsync(
-            string authorization,
             global::AI21.ModelName model,
             global::System.Collections.Generic.IList<global::AI21.MessagesItem> messages,
             int? requestStartTime = default,
@@ -309,7 +298,6 @@ namespace AI21
 
             return await V1ChatCompleteAsync(
                 requestStartTime: requestStartTime,
-                authorization: authorization,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }
