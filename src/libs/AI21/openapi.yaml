@@ -331,6 +331,97 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/secrets:
+    get:
+      tags:
+        - Secrets
+      summary: Get Secret List
+      operationId: v1_secret_storage
+      parameters:
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730898900272'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    post:
+      tags:
+        - Secrets
+      summary: Save Secret
+      operationId: v1_secret_storage
+      parameters:
+        - name: secret_name
+          in: query
+          required: true
+          schema:
+            title: Secret Name
+            type: string
+        - name: secret_value
+          in: query
+          required: true
+          schema:
+            title: Secret Value
+            type: string
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730898900272'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+        - Secrets
+      summary: Delete Secret
+      operationId: v1_secret_storage
+      parameters:
+        - name: secret_name
+          in: query
+          required: true
+          schema:
+            title: Secret Name
+            type: string
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730898900272'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   '/studio/v1/library/files/{file_id}/download':
     get:
       tags:
