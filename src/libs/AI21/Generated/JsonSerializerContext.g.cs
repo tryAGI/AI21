@@ -41,6 +41,8 @@ namespace AI21
             typeof(global::AI21.JsonConverters.MessageRoleNullableJsonConverter),
             typeof(global::AI21.JsonConverters.ConversationalRagConfigRetrievalStrategyJsonConverter),
             typeof(global::AI21.JsonConverters.ConversationalRagConfigRetrievalStrategyNullableJsonConverter),
+            typeof(global::AI21.JsonConverters.ConversationalRagConfigResponseLanguageJsonConverter),
+            typeof(global::AI21.JsonConverters.ConversationalRagConfigResponseLanguageNullableJsonConverter),
             typeof(global::AI21.JsonConverters.FileStatusJsonConverter),
             typeof(global::AI21.JsonConverters.FileStatusNullableJsonConverter),
             typeof(global::AI21.JsonConverters.LibrarySearchRequestLabelsFilterModeJsonConverter),
