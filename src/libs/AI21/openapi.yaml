@@ -143,7 +143,7 @@ paths:
           schema:
             title: Limit
             type: integer
-            default: 1000
+            default: 10000
         - name: offset
           in: query
           schema:
@@ -902,6 +902,19 @@ components:
           title: Hybrid Search Alpha
           type: number
           default: 0.98
+        response_language:
+          title: Response Language
+          enum:
+            - dutch
+            - english
+            - french
+            - german
+            - hebrew
+            - italian
+            - portuguese
+            - spanish
+          type: string
+          default: english
       description: This class is to be used as a common class to all Studio API requests payloads
     ConversationalRagResult:
       title: ConversationalRagResult

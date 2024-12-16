@@ -48,7 +48,7 @@ namespace AI21
         /// </param>
         /// <param name="label"></param>
         /// <param name="limit">
-        /// Default Value: 1000
+        /// Default Value: 10000
         /// </param>
         /// <param name="offset"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

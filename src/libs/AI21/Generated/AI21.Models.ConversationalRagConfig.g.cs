@@ -65,6 +65,13 @@ namespace AI21
         public double? HybridSearchAlpha { get; set; }
 
         /// <summary>
+        /// Default Value: english
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("response_language")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.ConversationalRagConfigResponseLanguageJsonConverter))]
+        public global::AI21.ConversationalRagConfigResponseLanguage? ResponseLanguage { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -92,6 +99,9 @@ namespace AI21
         /// <param name="hybridSearchAlpha">
         /// Default Value: 0.98
         /// </param>
+        /// <param name="responseLanguage">
+        /// Default Value: english
+        /// </param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public ConversationalRagConfig(
             global::System.Collections.Generic.IList<global::AI21.Message> messages,
@@ -102,7 +112,8 @@ namespace AI21
             global::AI21.ConversationalRagConfigRetrievalStrategy? retrievalStrategy,
             double? retrievalSimilarityThreshold,
             int? maxNeighbors,
-            double? hybridSearchAlpha)
+            double? hybridSearchAlpha,
+            global::AI21.ConversationalRagConfigResponseLanguage? responseLanguage)
         {
             this.Messages = messages ?? throw new global::System.ArgumentNullException(nameof(messages));
             this.Path = path;
@@ -113,6 +124,7 @@ namespace AI21
             this.RetrievalSimilarityThreshold = retrievalSimilarityThreshold;
             this.MaxNeighbors = maxNeighbors;
             this.HybridSearchAlpha = hybridSearchAlpha;
+            this.ResponseLanguage = responseLanguage;
         }
 
         /// <summary>
