@@ -552,6 +552,47 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/connectors/connected-users/{organization_id}/data-sources/{data_source}/workflows/{workflow_name}/run':
+    post:
+      summary: Run Workflow
+      operationId: run_workflow_studio_v1_connectors_connected_users__organization_id__data_sources__data_source__workflows__workflow_name__run_post
+      parameters:
+        - name: organization_id
+          in: path
+          required: true
+          schema:
+            title: Organization Id
+            type: string
+        - name: data_source
+          in: path
+          required: true
+          schema:
+            title: Data Source
+            type: string
+        - name: workflow_name
+          in: path
+          required: true
+          schema:
+            title: Workflow Name
+            type: string
+        - name: request_start_time
+          in: query
+          schema:
+            title: Request Start Time
+            type: integer
+            default: '1730898900272'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
     AssistantMessage:
