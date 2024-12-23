@@ -7,13 +7,11 @@ namespace AI21
     {
         partial void PrepareV1LibraryManagement2Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref global::System.Guid fileId,
-            ref int? requestStartTime);
+            ref global::System.Guid fileId);
         partial void PrepareV1LibraryManagement2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::System.Guid fileId,
-            int? requestStartTime);
+            global::System.Guid fileId);
         partial void ProcessV1LibraryManagement2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -35,29 +33,21 @@ namespace AI21
         /// "financial" AND status UPLOADED will be returned.
         /// </summary>
         /// <param name="fileId"></param>
-        /// <param name="requestStartTime">
-        /// Default Value: 1730898900272
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.FileResponse> V1LibraryManagement2Async(
             global::System.Guid fileId,
-            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareV1LibraryManagement2Arguments(
                 httpClient: HttpClient,
-                fileId: ref fileId,
-                requestStartTime: ref requestStartTime);
+                fileId: ref fileId);
 
             var __pathBuilder = new PathBuilder(
                 path: $"/studio/v1/library/files/{fileId}",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("request_start_time", requestStartTime?.ToString()) 
-                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -89,8 +79,7 @@ namespace AI21
             PrepareV1LibraryManagement2Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                fileId: fileId,
-                requestStartTime: requestStartTime);
+                fileId: fileId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

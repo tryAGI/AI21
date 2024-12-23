@@ -7,12 +7,10 @@ namespace AI21
     {
         partial void PrepareV1ChatCompleteArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref int? requestStartTime,
             global::AI21.ChatRequest request);
         partial void PrepareV1ChatCompleteRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int? requestStartTime,
             global::AI21.ChatRequest request);
         partial void ProcessV1ChatCompleteResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -31,15 +29,11 @@ namespace AI21
         /// You can optionally stream results if you want to get the response as each<br/>
         /// token is generated, rather than waiting for the entire response.
         /// </summary>
-        /// <param name="requestStartTime">
-        /// Default Value: 1730898900272
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>> V1ChatCompleteAsync(
             global::AI21.ChatRequest request,
-            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -48,15 +42,11 @@ namespace AI21
                 client: HttpClient);
             PrepareV1ChatCompleteArguments(
                 httpClient: HttpClient,
-                requestStartTime: ref requestStartTime,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
                 path: "/studio/v1/chat/completions",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("request_start_time", requestStartTime?.ToString()) 
-                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -94,7 +84,6 @@ namespace AI21
             PrepareV1ChatCompleteRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                requestStartTime: requestStartTime,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -209,9 +198,6 @@ namespace AI21
         /// You can optionally stream results if you want to get the response as each<br/>
         /// token is generated, rather than waiting for the entire response.
         /// </summary>
-        /// <param name="requestStartTime">
-        /// Default Value: 1730898900272
-        /// </param>
         /// <param name="model">
         /// An enumeration.
         /// </param>
@@ -271,7 +257,6 @@ namespace AI21
         public async global::System.Threading.Tasks.Task<global::AI21.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>> V1ChatCompleteAsync(
             global::AI21.ModelName model,
             global::System.Collections.Generic.IList<global::AI21.MessagesItem> messages,
-            int? requestStartTime = default,
             global::System.Collections.Generic.IList<global::AI21.ToolDefinition>? tools = default,
             int? n = default,
             int? maxTokens = default,
@@ -301,7 +286,6 @@ namespace AI21
             };
 
             return await V1ChatCompleteAsync(
-                requestStartTime: requestStartTime,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

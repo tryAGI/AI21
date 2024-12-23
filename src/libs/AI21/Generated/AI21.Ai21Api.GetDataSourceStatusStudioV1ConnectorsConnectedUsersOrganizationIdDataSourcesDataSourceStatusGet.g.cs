@@ -8,14 +8,12 @@ namespace AI21
         partial void PrepareGetDataSourceStatusStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceStatusGetArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string organizationId,
-            ref string dataSource,
-            ref int? requestStartTime);
+            ref string dataSource);
         partial void PrepareGetDataSourceStatusStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceStatusGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string organizationId,
-            string dataSource,
-            int? requestStartTime);
+            string dataSource);
         partial void ProcessGetDataSourceStatusStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceStatusGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -30,15 +28,11 @@ namespace AI21
         /// </summary>
         /// <param name="organizationId"></param>
         /// <param name="dataSource"></param>
-        /// <param name="requestStartTime">
-        /// Default Value: 1730898900272
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.ConnectorsStatus> GetDataSourceStatusStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceStatusGetAsync(
             string organizationId,
             string dataSource,
-            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -46,15 +40,11 @@ namespace AI21
             PrepareGetDataSourceStatusStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceStatusGetArguments(
                 httpClient: HttpClient,
                 organizationId: ref organizationId,
-                dataSource: ref dataSource,
-                requestStartTime: ref requestStartTime);
+                dataSource: ref dataSource);
 
             var __pathBuilder = new PathBuilder(
                 path: $"/studio/v1/connectors/connected-users/{organizationId}/data-sources/{dataSource}/status",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("request_start_time", requestStartTime?.ToString()) 
-                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -87,8 +77,7 @@ namespace AI21
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 organizationId: organizationId,
-                dataSource: dataSource,
-                requestStartTime: requestStartTime);
+                dataSource: dataSource);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

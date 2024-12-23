@@ -7,12 +7,10 @@ namespace AI21
     {
         partial void PrepareV1ConversationalRagArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref int? requestStartTime,
             global::AI21.ConversationalRagConfig request);
         partial void PrepareV1ConversationalRagRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int? requestStartTime,
             global::AI21.ConversationalRagConfig request);
         partial void ProcessV1ConversationalRagResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -26,15 +24,11 @@ namespace AI21
         /// <summary>
         /// Conversational Rag
         /// </summary>
-        /// <param name="requestStartTime">
-        /// Default Value: 1730898900272
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.ConversationalRagResult> V1ConversationalRagAsync(
             global::AI21.ConversationalRagConfig request,
-            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -43,15 +37,11 @@ namespace AI21
                 client: HttpClient);
             PrepareV1ConversationalRagArguments(
                 httpClient: HttpClient,
-                requestStartTime: ref requestStartTime,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
                 path: "/studio/v1/conversational-rag",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("request_start_time", requestStartTime?.ToString()) 
-                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -89,7 +79,6 @@ namespace AI21
             PrepareV1ConversationalRagRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                requestStartTime: requestStartTime,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -199,9 +188,6 @@ namespace AI21
         /// <summary>
         /// Conversational Rag
         /// </summary>
-        /// <param name="requestStartTime">
-        /// Default Value: 1730898900272
-        /// </param>
         /// <param name="messages">
         /// messages
         /// </param>
@@ -228,7 +214,6 @@ namespace AI21
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.ConversationalRagResult> V1ConversationalRagAsync(
             global::System.Collections.Generic.IList<global::AI21.Message> messages,
-            int? requestStartTime = default,
             string? path = default,
             global::System.Collections.Generic.IList<string>? labels = default,
             global::System.Collections.Generic.IList<string>? fileIds = default,
@@ -255,7 +240,6 @@ namespace AI21
             };
 
             return await V1ConversationalRagAsync(
-                requestStartTime: requestStartTime,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

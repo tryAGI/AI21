@@ -8,14 +8,12 @@ namespace AI21
         partial void PrepareV1SecretStorage2Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string secretName,
-            ref string secretValue,
-            ref int? requestStartTime);
+            ref string secretValue);
         partial void PrepareV1SecretStorage2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string secretName,
-            string secretValue,
-            int? requestStartTime);
+            string secretValue);
         partial void ProcessV1SecretStorage2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -30,15 +28,11 @@ namespace AI21
         /// </summary>
         /// <param name="secretName"></param>
         /// <param name="secretValue"></param>
-        /// <param name="requestStartTime">
-        /// Default Value: 1730898900272
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> V1SecretStorage2Async(
             string secretName,
             string secretValue,
-            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -46,8 +40,7 @@ namespace AI21
             PrepareV1SecretStorage2Arguments(
                 httpClient: HttpClient,
                 secretName: ref secretName,
-                secretValue: ref secretValue,
-                requestStartTime: ref requestStartTime);
+                secretValue: ref secretValue);
 
             var __pathBuilder = new PathBuilder(
                 path: "/studio/v1/secrets",
@@ -55,7 +48,6 @@ namespace AI21
             __pathBuilder 
                 .AddRequiredParameter("secret_name", secretName) 
                 .AddRequiredParameter("secret_value", secretValue) 
-                .AddOptionalParameter("request_start_time", requestStartTime?.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -89,8 +81,7 @@ namespace AI21
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 secretName: secretName,
-                secretValue: secretValue,
-                requestStartTime: requestStartTime);
+                secretValue: secretValue);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

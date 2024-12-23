@@ -6,12 +6,10 @@ namespace AI21
     public partial class SecretsClient
     {
         partial void PrepareV1SecretStorageArguments(
-            global::System.Net.Http.HttpClient httpClient,
-            ref int? requestStartTime);
+            global::System.Net.Http.HttpClient httpClient);
         partial void PrepareV1SecretStorageRequest(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int? requestStartTime);
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
         partial void ProcessV1SecretStorageResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -24,27 +22,19 @@ namespace AI21
         /// <summary>
         /// Get Secret List
         /// </summary>
-        /// <param name="requestStartTime">
-        /// Default Value: 1730898900272
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> V1SecretStorageAsync(
-            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareV1SecretStorageArguments(
-                httpClient: HttpClient,
-                requestStartTime: ref requestStartTime);
+                httpClient: HttpClient);
 
             var __pathBuilder = new PathBuilder(
                 path: "/studio/v1/secrets",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("request_start_time", requestStartTime?.ToString()) 
-                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -75,8 +65,7 @@ namespace AI21
                 request: __httpRequest);
             PrepareV1SecretStorageRequest(
                 httpClient: HttpClient,
-                httpRequestMessage: __httpRequest,
-                requestStartTime: requestStartTime);
+                httpRequestMessage: __httpRequest);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -89,34 +78,6 @@ namespace AI21
             ProcessV1SecretStorageResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
-            // Validation Error
-            if ((int)__response.StatusCode == 422)
-            {
-                string? __content_422 = null;
-                global::AI21.HTTPValidationError? __value_422 = null;
-                if (ReadResponseAsString)
-                {
-                    __content_422 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                    __value_422 = global::AI21.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
-                }
-                else
-                {
-                    var __contentStream_422 = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
-                    __value_422 = await global::AI21.HTTPValidationError.FromJsonStreamAsync(__contentStream_422, JsonSerializerContext).ConfigureAwait(false);
-                }
-
-                throw new global::AI21.ApiException<global::AI21.HTTPValidationError>(
-                    message: __response.ReasonPhrase ?? string.Empty,
-                    statusCode: __response.StatusCode)
-                {
-                    ResponseBody = __content_422,
-                    ResponseObject = __value_422,
-                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
-                        __response.Headers,
-                        h => h.Key,
-                        h => h.Value),
-                };
-            }
 
             if (ReadResponseAsString)
             {
