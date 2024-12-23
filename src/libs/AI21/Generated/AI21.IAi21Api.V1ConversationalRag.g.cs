@@ -7,23 +7,16 @@ namespace AI21
         /// <summary>
         /// Conversational Rag
         /// </summary>
-        /// <param name="requestStartTime">
-        /// Default Value: 1730898900272
-        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.ConversationalRagResult> V1ConversationalRagAsync(
             global::AI21.ConversationalRagConfig request,
-            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Conversational Rag
         /// </summary>
-        /// <param name="requestStartTime">
-        /// Default Value: 1730898900272
-        /// </param>
         /// <param name="messages">
         /// messages
         /// </param>
@@ -50,7 +43,6 @@ namespace AI21
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.ConversationalRagResult> V1ConversationalRagAsync(
             global::System.Collections.Generic.IList<global::AI21.Message> messages,
-            int? requestStartTime = default,
             string? path = default,
             global::System.Collections.Generic.IList<string>? labels = default,
             global::System.Collections.Generic.IList<string>? fileIds = default,

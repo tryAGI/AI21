@@ -9,15 +9,13 @@ namespace AI21
             global::System.Net.Http.HttpClient httpClient,
             ref string organizationId,
             ref string dataSource,
-            ref string workflowName,
-            ref int? requestStartTime);
+            ref string workflowName);
         partial void PrepareRunWorkflowStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceWorkflowsWorkflowNameRunPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string organizationId,
             string dataSource,
-            string workflowName,
-            int? requestStartTime);
+            string workflowName);
         partial void ProcessRunWorkflowStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceWorkflowsWorkflowNameRunPostResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -33,16 +31,12 @@ namespace AI21
         /// <param name="organizationId"></param>
         /// <param name="dataSource"></param>
         /// <param name="workflowName"></param>
-        /// <param name="requestStartTime">
-        /// Default Value: 1730898900272
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> RunWorkflowStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceWorkflowsWorkflowNameRunPostAsync(
             string organizationId,
             string dataSource,
             string workflowName,
-            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -51,15 +45,11 @@ namespace AI21
                 httpClient: HttpClient,
                 organizationId: ref organizationId,
                 dataSource: ref dataSource,
-                workflowName: ref workflowName,
-                requestStartTime: ref requestStartTime);
+                workflowName: ref workflowName);
 
             var __pathBuilder = new PathBuilder(
                 path: $"/studio/v1/connectors/connected-users/{organizationId}/data-sources/{dataSource}/workflows/{workflowName}/run",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("request_start_time", requestStartTime?.ToString()) 
-                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -93,8 +83,7 @@ namespace AI21
                 httpRequestMessage: __httpRequest,
                 organizationId: organizationId,
                 dataSource: dataSource,
-                workflowName: workflowName,
-                requestStartTime: requestStartTime);
+                workflowName: workflowName);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

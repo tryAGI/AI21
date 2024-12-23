@@ -7,13 +7,11 @@ namespace AI21
     {
         partial void PrepareGenerateOrgTokenStudioV1ConnectorsConnectedUsersOrganizationIdTokensPostArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string organizationId,
-            ref int? requestStartTime);
+            ref string organizationId);
         partial void PrepareGenerateOrgTokenStudioV1ConnectorsConnectedUsersOrganizationIdTokensPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string organizationId,
-            int? requestStartTime);
+            string organizationId);
         partial void ProcessGenerateOrgTokenStudioV1ConnectorsConnectedUsersOrganizationIdTokensPostResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -27,29 +25,21 @@ namespace AI21
         /// Generate Org Token
         /// </summary>
         /// <param name="organizationId"></param>
-        /// <param name="requestStartTime">
-        /// Default Value: 1730898900272
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.ConnectorsToken> GenerateOrgTokenStudioV1ConnectorsConnectedUsersOrganizationIdTokensPostAsync(
             string organizationId,
-            int? requestStartTime = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGenerateOrgTokenStudioV1ConnectorsConnectedUsersOrganizationIdTokensPostArguments(
                 httpClient: HttpClient,
-                organizationId: ref organizationId,
-                requestStartTime: ref requestStartTime);
+                organizationId: ref organizationId);
 
             var __pathBuilder = new PathBuilder(
                 path: $"/studio/v1/connectors/connected-users/{organizationId}/tokens",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("request_start_time", requestStartTime?.ToString()) 
-                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -81,8 +71,7 @@ namespace AI21
             PrepareGenerateOrgTokenStudioV1ConnectorsConnectedUsersOrganizationIdTokensPostRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                organizationId: organizationId,
-                requestStartTime: requestStartTime);
+                organizationId: organizationId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
