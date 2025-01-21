@@ -27,7 +27,7 @@ namespace AI21
         /// </param>
         /// <param name="fileIds"></param>
         /// <param name="retrievalStrategy">
-        /// Default Value: default
+        /// Default Value: segments
         /// </param>
         /// <param name="maxNeighbors">
         /// Default Value: 1

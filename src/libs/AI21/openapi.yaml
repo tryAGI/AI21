@@ -289,19 +289,12 @@ paths:
         - Secrets
       summary: Save Secret
       operationId: v1_secret_storage
-      parameters:
-        - name: secret_name
-          in: query
-          required: true
-          schema:
-            title: Secret Name
-            type: string
-        - name: secret_value
-          in: query
-          required: true
-          schema:
-            title: Secret Value
-            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSecretPayload'
+        required: true
       responses:
         '200':
           description: Successful Response
@@ -320,11 +313,11 @@ paths:
       summary: Delete Secret
       operationId: v1_secret_storage
       parameters:
-        - name: secret_name
+        - name: secret_id
           in: query
           required: true
           schema:
-            title: Secret Name
+            title: Secret Id
             type: string
       responses:
         '200':
@@ -479,8 +472,505 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/assistants:
+    get:
+      summary: Get Assistants
+      operationId: get_assistants_studio_v1_assistants_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAssistantsResponse'
+  '/studio/v1/assistants/{assistant_id}':
+    get:
+      summary: Get Assistant
+      operationId: get_assistant_studio_v1_assistants__assistant_id__get
+      parameters:
+        - name: assistant_id
+          in: path
+          required: true
+          schema:
+            title: Assistant Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assistant'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      summary: Delete Assistant
+      operationId: delete_assistant_studio_v1_assistants__assistant_id__delete
+      parameters:
+        - name: assistant_id
+          in: path
+          required: true
+          schema:
+            title: Assistant Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteAssistantResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    patch:
+      summary: Modify Assistant
+      operationId: modify_assistant_studio_v1_assistants__assistant_id__patch
+      parameters:
+        - name: assistant_id
+          in: path
+          required: true
+          schema:
+            title: Assistant Id
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModifyAssistantRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assistant'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/assistants/{assistant_id}/plans':
+    get:
+      summary: List Plans
+      operationId: list_plans_studio_v1_assistants__assistant_id__plans_get
+      parameters:
+        - name: assistant_id
+          in: path
+          required: true
+          schema:
+            title: Assistant Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPlansResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    post:
+      summary: Create Plan
+      operationId: create_plan_studio_v1_assistants__assistant_id__plans_post
+      parameters:
+        - name: assistant_id
+          in: path
+          required: true
+          schema:
+            title: Assistant Id
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePlanPayload'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Plan'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/assistants/{assistant_id}/plans/{plan_id}':
+    get:
+      summary: Get Plan
+      operationId: get_plan_studio_v1_assistants__assistant_id__plans__plan_id__get
+      parameters:
+        - name: assistant_id
+          in: path
+          required: true
+          schema:
+            title: Assistant Id
+            type: string
+        - name: plan_id
+          in: path
+          required: true
+          schema:
+            title: Plan Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Plan'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    patch:
+      summary: Modify Plan
+      operationId: modify_plan_studio_v1_assistants__assistant_id__plans__plan_id__patch
+      parameters:
+        - name: assistant_id
+          in: path
+          required: true
+          schema:
+            title: Assistant Id
+            type: string
+        - name: plan_id
+          in: path
+          required: true
+          schema:
+            title: Plan Id
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePlanPayload'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Plan'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/assistants/{assistant_id}/routes':
+    get:
+      summary: Get Routes
+      operationId: get_routes_studio_v1_assistants__assistant_id__routes_get
+      parameters:
+        - name: assistant_id
+          in: path
+          required: true
+          schema:
+            title: Assistant Id
+            type: string
+        - name: name
+          in: query
+          schema:
+            title: Name
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRoutesResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    post:
+      summary: Create Route
+      operationId: create_route_studio_v1_assistants__assistant_id__routes_post
+      parameters:
+        - name: assistant_id
+          in: path
+          required: true
+          schema:
+            title: Assistant Id
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateRoutePayload'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssistantRoute'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/assistants/{assistant_id}/routes/{route_id}':
+    get:
+      summary: Get Route
+      operationId: get_route_studio_v1_assistants__assistant_id__routes__route_id__get
+      parameters:
+        - name: assistant_id
+          in: path
+          required: true
+          schema:
+            title: Assistant Id
+            type: string
+        - name: route_id
+          in: path
+          required: true
+          schema:
+            title: Route Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssistantRoute'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      summary: Delete Route
+      operationId: delete_route_studio_v1_assistants__assistant_id__routes__route_id__delete
+      parameters:
+        - name: assistant_id
+          in: path
+          required: true
+          schema:
+            title: Assistant Id
+            type: string
+        - name: route_id
+          in: path
+          required: true
+          schema:
+            title: Route Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    patch:
+      summary: Modify Route
+      operationId: modify_route_studio_v1_assistants__assistant_id__routes__route_id__patch
+      parameters:
+        - name: assistant_id
+          in: path
+          required: true
+          schema:
+            title: Assistant Id
+            type: string
+        - name: route_id
+          in: path
+          required: true
+          schema:
+            title: Route Id
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRoutePayload'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssistantRoute'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/assistants/{assistant_id}/validate_plan':
+    post:
+      summary: Validate Plan
+      operationId: validate_plan_studio_v1_assistants__assistant_id__validate_plan_post
+      parameters:
+        - name: assistant_id
+          in: path
+          required: true
+          schema:
+            title: Assistant Id
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePlanPayload'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationResult'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/settings/models:
+    get:
+      summary: Get Organization Models By Organization Endpoint
+      operationId: get_organization_models_by_organization_endpoint_studio_v1_settings_models_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationModelsResponse'
+  /studio/v1/settings/models/available:
+    get:
+      summary: Get Available Models Endpoint
+      operationId: get_available_models_endpoint_studio_v1_settings_models_available_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  '/studio/v1/settings/models/{name}/secrets':
+    get:
+      summary: Get Organization Model Secret Endpoint
+      operationId: get_organization_model_secret_endpoint_studio_v1_settings_models__name__secrets_get
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            title: Name
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecretResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    Assistant:
+      title: Assistant
+      required:
+        - id
+        - created_at
+        - updated_at
+        - object
+        - name
+        - optimization
+        - organization_id
+        - user_id
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
+        created_at:
+          title: Created At
+          type: string
+          format: date-time
+        updated_at:
+          title: Updated At
+          type: string
+          format: date-time
+        object:
+          title: Object
+          type: string
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        optimization:
+          title: Optimization
+          type: string
+        organization_id:
+          title: Organization Id
+          type: string
+        user_id:
+          title: User Id
+          type: string
+        avatar:
+          title: Avatar
+          type: string
+        is_archived:
+          title: Is Archived
+          type: boolean
+          default: false
+        models:
+          title: Models
+          anyOf:
+            - type: array
+              items:
+                type: string
+                format: uuid
+            - type: array
+              items:
+                type: string
+        tools:
+          type: array
+          items:
+            $ref: '#/components/schemas/AssistantTool'
+        tool_resources:
+          $ref: '#/components/schemas/AssistantToolResource'
     AssistantMessage:
       title: AssistantMessage
       type: object
@@ -500,6 +990,68 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ToolCall'
+    AssistantRoute:
+      title: AssistantRoute
+      required:
+        - id
+        - created_at
+        - updated_at
+        - plan_id
+        - name
+        - description
+        - examples
+        - assistant_id
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
+        created_at:
+          title: Created At
+          type: string
+          format: date-time
+        updated_at:
+          title: Updated At
+          type: string
+          format: date-time
+        plan_id:
+          title: Plan Id
+          type: string
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        examples:
+          title: Examples
+          type: array
+          items:
+            type: string
+        assistant_id:
+          title: Assistant Id
+          type: string
+    AssistantTool:
+      title: AssistantTool
+      enum:
+        - file_search
+        - web_search
+        - plan_approval
+      description: An enumeration.
+    AssistantToolResource:
+      title: AssistantToolResource
+      type: object
+      properties:
+        file_search:
+          title: File Search
+          type: object
+        web_search:
+          title: Web Search
+          type: object
+        plan_approval:
+          title: Plan Approval
+          type: object
     Body_convert_document_file_studio_v1_chat_files_convert_post:
       title: Body_convert_document_file_studio_v1_chat_files_convert_post
       required:
@@ -817,14 +1369,15 @@ components:
             - add_neighbors
             - full_doc
           type: string
-          default: default
+          default: segments
         retrieval_similarity_threshold:
           title: Retrieval Similarity Threshold
           type: number
-          default: 0.8
+          default: 0
         max_neighbors:
           title: Max Neighbors
           type: integer
+          default: 1
         hybrid_search_alpha:
           title: Hybrid Search Alpha
           type: number
@@ -884,7 +1437,6 @@ components:
         - text
         - file_id
         - file_name
-        - score
       type: object
       properties:
         text:
@@ -910,6 +1462,60 @@ components:
           type: array
           items:
             type: string
+    CreatePlanPayload:
+      title: CreatePlanPayload
+      required:
+        - code
+      type: object
+      properties:
+        code:
+          title: Code
+          type: string
+        schemas:
+          title: Schemas
+          type: array
+          items:
+            type: object
+    CreateRoutePayload:
+      title: CreateRoutePayload
+      required:
+        - plan_id
+        - name
+        - description
+        - examples
+      type: object
+      properties:
+        plan_id:
+          title: Plan Id
+          type: string
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        examples:
+          title: Examples
+          type: array
+          items:
+            type: string
+    CreateSecretPayload:
+      title: CreateSecretPayload
+      required:
+        - secret_name
+        - secret_value
+        - created_by
+      type: object
+      properties:
+        secret_name:
+          title: Secret Name
+          type: string
+        secret_value:
+          title: Secret Value
+          type: string
+        created_by:
+          title: Created By
+          type: string
     DataSourceMetadata:
       title: DataSourceMetadata
       required:
@@ -935,6 +1541,24 @@ components:
         connected:
           title: Connected
           type: boolean
+    DeleteAssistantResponse:
+      title: DeleteAssistantResponse
+      required:
+        - id
+      type: object
+      properties:
+        object:
+          title: Object
+          type: string
+          default: assistant
+        deleted:
+          title: Deleted
+          type: boolean
+          default: true
+        id:
+          title: Id
+          type: string
+          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
     DocumentSchema:
       title: DocumentSchema
       required:
@@ -1016,6 +1640,9 @@ components:
           title: Status
           type: string
           description: "File status. One of the following values: \"DB_RECORD_CREATED\",\n\"UPLOADED\", \"UPLOAD_FAILED\", \"PROCESSED\", \"PROCESSING_FAILED\"\n"
+        dataSource:
+          title: Datasource
+          type: string
     FileStatus:
       title: FileStatus
       enum:
@@ -1101,15 +1728,15 @@ components:
         retrievalStrategy:
           allOf:
             - $ref: '#/components/schemas/RetrievalStrategy'
-          default: default
+          default: segments
         maxNeighbors:
           title: Maxneighbors
           type: integer
           default: 1
         retrievalSimilarityThreshold:
           title: Retrievalsimilaritythreshold
-          maximum: 1.5
-          minimum: 0.5
+          maximum: 1.0
+          minimum: 0.0
           type: number
         hybridSearchAlpha:
           title: Hybridsearchalpha
@@ -1117,6 +1744,39 @@ components:
           minimum: 0.0
           type: number
       description: This class is to be used as a common class to all Studio API requests payloads
+    ListAssistantsResponse:
+      title: ListAssistantsResponse
+      required:
+        - results
+      type: object
+      properties:
+        results:
+          title: Results
+          type: array
+          items:
+            $ref: '#/components/schemas/Assistant'
+    ListPlansResponse:
+      title: ListPlansResponse
+      required:
+        - results
+      type: object
+      properties:
+        results:
+          title: Results
+          type: array
+          items:
+            $ref: '#/components/schemas/Plan'
+    ListRoutesResponse:
+      title: ListRoutesResponse
+      required:
+        - results
+      type: object
+      properties:
+        results:
+          title: Results
+          type: array
+          items:
+            $ref: '#/components/schemas/AssistantRoute'
     LogicalOperator:
       title: LogicalOperator
       type: object
@@ -1193,6 +1853,97 @@ components:
         - jamba-1.5-large
       type: string
       description: An enumeration.
+    ModifyAssistantRequest:
+      title: ModifyAssistantRequest
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        optimization:
+          $ref: '#/components/schemas/RunOptimization'
+        avatar:
+          title: Avatar
+          type: string
+        is_archived:
+          title: Is Archived
+          type: boolean
+          default: false
+        models:
+          title: Models
+          type: array
+          items:
+            type: string
+        tools:
+          type: array
+          items:
+            $ref: '#/components/schemas/AssistantTool'
+        tool_resources:
+          $ref: '#/components/schemas/AssistantToolResource'
+    OrganizationModelResponse:
+      title: OrganizationModelResponse
+      required:
+        - name
+        - model_type
+        - secret_id
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        model_type:
+          title: Model Type
+          type: string
+        secret_id:
+          title: Secret Id
+          type: string
+    OrganizationModelsResponse:
+      title: OrganizationModelsResponse
+      required:
+        - models
+      type: object
+      properties:
+        models:
+          title: Models
+          type: array
+          items:
+            $ref: '#/components/schemas/OrganizationModelResponse'
+    Plan:
+      title: Plan
+      required:
+        - id
+        - created_at
+        - updated_at
+        - code
+        - assistant_id
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
+        created_at:
+          title: Created At
+          type: string
+          format: date-time
+        updated_at:
+          title: Updated At
+          type: string
+          format: date-time
+        code:
+          title: Code
+          type: string
+        schemas:
+          title: Schemas
+          type: array
+          items:
+            type: object
+        assistant_id:
+          title: Assistant Id
+          type: string
     QueryFilter:
       title: QueryFilter
       anyOf:
@@ -1216,11 +1967,31 @@ components:
     RetrievalStrategy:
       title: RetrievalStrategy
       enum:
+        - segments
         - default
         - add_neighbors
         - full_doc
       type: string
       description: An enumeration.
+    RunOptimization:
+      title: RunOptimization
+      enum:
+        - cost
+        - latency
+      description: An enumeration.
+    SecretResponse:
+      title: SecretResponse
+      required:
+        - secret_id
+        - secret_key
+      type: object
+      properties:
+        secret_id:
+          title: Secret Id
+          type: string
+        secret_key:
+          title: Secret Key
+          type: string
     SystemMessage:
       title: SystemMessage
       required:
@@ -1338,6 +2109,20 @@ components:
         logprob:
           title: Logprob
           type: number
+    UpdateRoutePayload:
+      title: UpdateRoutePayload
+      required:
+        - description
+      type: object
+      properties:
+        description:
+          title: Description
+          type: string
+        examples:
+          title: Examples
+          type: array
+          items:
+            type: string
     UsageInfo:
       title: UsageInfo
       required:
@@ -1394,6 +2179,21 @@ components:
           type: string
         type:
           title: Error Type
+          type: string
+    ValidationResult:
+      title: ValidationResult
+      required:
+        - is_valid
+      type: object
+      properties:
+        is_valid:
+          title: Is Valid
+          type: boolean
+        message:
+          title: Message
+          type: string
+        details:
+          title: Details
           type: string
   securitySchemes:
     Bearer:
