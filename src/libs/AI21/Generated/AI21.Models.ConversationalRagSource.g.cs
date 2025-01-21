@@ -33,8 +33,7 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("score")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Score { get; set; }
+        public double? Score { get; set; }
 
         /// <summary>
         /// 
@@ -75,7 +74,7 @@ namespace AI21
             string text,
             string fileId,
             string fileName,
-            double score,
+            double? score,
             int? order,
             string? publicUrl,
             global::System.Collections.Generic.IList<string>? labels)

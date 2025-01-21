@@ -11,6 +11,10 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
+        Segments,
+        /// <summary>
+        /// 
+        /// </summary>
         Default,
         /// <summary>
         /// 
@@ -34,6 +38,7 @@ namespace AI21
         {
             return value switch
             {
+                RetrievalStrategy.Segments => "segments",
                 RetrievalStrategy.Default => "default",
                 RetrievalStrategy.AddNeighbors => "add_neighbors",
                 RetrievalStrategy.FullDoc => "full_doc",
@@ -47,6 +52,7 @@ namespace AI21
         {
             return value switch
             {
+                "segments" => RetrievalStrategy.Segments,
                 "default" => RetrievalStrategy.Default,
                 "add_neighbors" => RetrievalStrategy.AddNeighbors,
                 "full_doc" => RetrievalStrategy.FullDoc,

@@ -198,12 +198,14 @@ namespace AI21
         /// Default Value: 15
         /// </param>
         /// <param name="retrievalStrategy">
-        /// Default Value: default
+        /// Default Value: segments
         /// </param>
         /// <param name="retrievalSimilarityThreshold">
-        /// Default Value: 0.8
+        /// Default Value: 0
         /// </param>
-        /// <param name="maxNeighbors"></param>
+        /// <param name="maxNeighbors">
+        /// Default Value: 1
+        /// </param>
         /// <param name="hybridSearchAlpha">
         /// Default Value: 0.98
         /// </param>

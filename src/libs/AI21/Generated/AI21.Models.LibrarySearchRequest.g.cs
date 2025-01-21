@@ -54,7 +54,7 @@ namespace AI21
         public global::System.Collections.Generic.IList<global::System.Guid>? FileIds { get; set; }
 
         /// <summary>
-        /// Default Value: default
+        /// Default Value: segments
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("retrievalStrategy")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.RetrievalStrategyJsonConverter))]
@@ -97,7 +97,7 @@ namespace AI21
         /// </param>
         /// <param name="fileIds"></param>
         /// <param name="retrievalStrategy">
-        /// Default Value: default
+        /// Default Value: segments
         /// </param>
         /// <param name="maxNeighbors">
         /// Default Value: 1

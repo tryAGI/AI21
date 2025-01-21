@@ -4,7 +4,7 @@
 namespace AI21
 {
     /// <summary>
-    /// Default Value: default
+    /// Default Value: segments
     /// </summary>
     public enum ConversationalRagConfigRetrievalStrategy
     {

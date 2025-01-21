@@ -100,6 +100,12 @@ namespace AI21
         public required string Status { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dataSource")]
+        public string? DataSource { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -158,6 +164,7 @@ namespace AI21
         /// File status. One of the following values: "DB_RECORD_CREATED",<br/>
         /// "UPLOADED", "UPLOAD_FAILED", "PROCESSED", "PROCESSING_FAILED"
         /// </param>
+        /// <param name="dataSource"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public FileResponse(
             global::System.Guid fileId,
@@ -170,7 +177,8 @@ namespace AI21
             string status,
             string? path,
             global::System.Collections.Generic.IList<string>? labels,
-            string? publicUrl)
+            string? publicUrl,
+            string? dataSource)
         {
             this.FileId = fileId;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -183,6 +191,7 @@ namespace AI21
             this.Path = path;
             this.Labels = labels;
             this.PublicUrl = publicUrl;
+            this.DataSource = dataSource;
         }
 
         /// <summary>
