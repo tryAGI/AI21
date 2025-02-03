@@ -5,51 +5,44 @@ namespace AI21
 {
     public partial class Ai21Api
     {
-        partial void PrepareModifyAssistantStudioV1AssistantsAssistantIdPatchArguments(
+        partial void PrepareDeleteOrganizationModelEndpointStudioV1SettingsModelsNameDeleteArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string assistantId,
-            global::AI21.ModifyAssistantRequest request);
-        partial void PrepareModifyAssistantStudioV1AssistantsAssistantIdPatchRequest(
+            ref string name);
+        partial void PrepareDeleteOrganizationModelEndpointStudioV1SettingsModelsNameDeleteRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string assistantId,
-            global::AI21.ModifyAssistantRequest request);
-        partial void ProcessModifyAssistantStudioV1AssistantsAssistantIdPatchResponse(
+            string name);
+        partial void ProcessDeleteOrganizationModelEndpointStudioV1SettingsModelsNameDeleteResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessModifyAssistantStudioV1AssistantsAssistantIdPatchResponseContent(
+        partial void ProcessDeleteOrganizationModelEndpointStudioV1SettingsModelsNameDeleteResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Modify Assistant
+        /// Delete Organization Model Endpoint
         /// </summary>
-        /// <param name="assistantId"></param>
-        /// <param name="request"></param>
+        /// <param name="name"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.Assistant> ModifyAssistantStudioV1AssistantsAssistantIdPatchAsync(
-            string assistantId,
-            global::AI21.ModifyAssistantRequest request,
+        public async global::System.Threading.Tasks.Task<string> DeleteOrganizationModelEndpointStudioV1SettingsModelsNameDeleteAsync(
+            string name,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
-            PrepareModifyAssistantStudioV1AssistantsAssistantIdPatchArguments(
+            PrepareDeleteOrganizationModelEndpointStudioV1SettingsModelsNameDeleteArguments(
                 httpClient: HttpClient,
-                assistantId: ref assistantId,
-                request: request);
+                name: ref name);
 
             var __pathBuilder = new PathBuilder(
-                path: $"/studio/v1/assistants/{assistantId}",
+                path: $"/studio/v1/settings/models/{name}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: new global::System.Net.Http.HttpMethod("PATCH"),
+                method: global::System.Net.Http.HttpMethod.Delete,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -71,21 +64,14 @@ namespace AI21
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
-            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                content: __httpRequestContentBody,
-                encoding: global::System.Text.Encoding.UTF8,
-                mediaType: "application/json");
-            __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareModifyAssistantStudioV1AssistantsAssistantIdPatchRequest(
+            PrepareDeleteOrganizationModelEndpointStudioV1SettingsModelsNameDeleteRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                assistantId: assistantId,
-                request: request);
+                name: name);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -95,7 +81,7 @@ namespace AI21
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessModifyAssistantStudioV1AssistantsAssistantIdPatchResponse(
+            ProcessDeleteOrganizationModelEndpointStudioV1SettingsModelsNameDeleteResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -135,7 +121,7 @@ namespace AI21
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessModifyAssistantStudioV1AssistantsAssistantIdPatchResponseContent(
+                ProcessDeleteOrganizationModelEndpointStudioV1SettingsModelsNameDeleteResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -159,9 +145,7 @@ namespace AI21
                     };
                 }
 
-                return
-                    global::AI21.Assistant.FromJson(__content, JsonSerializerContext) ??
-                    throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                return __content;
             }
             else
             {
@@ -183,60 +167,10 @@ namespace AI21
                     };
                 }
 
-                using var __content = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
+                var __content = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                return
-                    await global::AI21.Assistant.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                    throw new global::System.InvalidOperationException("Response deserialization failed.");
+                return __content;
             }
-        }
-
-        /// <summary>
-        /// Modify Assistant
-        /// </summary>
-        /// <param name="assistantId"></param>
-        /// <param name="name"></param>
-        /// <param name="description"></param>
-        /// <param name="optimization">
-        /// An enumeration.
-        /// </param>
-        /// <param name="avatar"></param>
-        /// <param name="isArchived">
-        /// Default Value: false
-        /// </param>
-        /// <param name="models"></param>
-        /// <param name="tools"></param>
-        /// <param name="toolResources"></param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.Assistant> ModifyAssistantStudioV1AssistantsAssistantIdPatchAsync(
-            string assistantId,
-            string? name = default,
-            string? description = default,
-            global::AI21.RunOptimization? optimization = default,
-            string? avatar = default,
-            bool? isArchived = default,
-            global::System.Collections.Generic.IList<string>? models = default,
-            global::System.Collections.Generic.IList<global::AI21.AssistantTool>? tools = default,
-            global::AI21.AssistantToolResource? toolResources = default,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var __request = new global::AI21.ModifyAssistantRequest
-            {
-                Name = name,
-                Description = description,
-                Optimization = optimization,
-                Avatar = avatar,
-                IsArchived = isArchived,
-                Models = models,
-                Tools = tools,
-                ToolResources = toolResources,
-            };
-
-            return await ModifyAssistantStudioV1AssistantsAssistantIdPatchAsync(
-                assistantId: assistantId,
-                request: __request,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

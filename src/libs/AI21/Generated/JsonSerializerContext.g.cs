@@ -13,8 +13,8 @@ namespace AI21
         DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
         Converters = new global::System.Type[] 
         { 
-            typeof(global::AI21.JsonConverters.AssistantToolJsonConverter),
-            typeof(global::AI21.JsonConverters.AssistantToolNullableJsonConverter),
+            typeof(global::AI21.JsonConverters.AssistantTool2JsonConverter),
+            typeof(global::AI21.JsonConverters.AssistantTool2NullableJsonConverter),
             typeof(global::AI21.JsonConverters.AssistantMessageRoleJsonConverter),
             typeof(global::AI21.JsonConverters.AssistantMessageRoleNullableJsonConverter),
             typeof(global::AI21.JsonConverters.ToolCallTypeJsonConverter),
@@ -51,8 +51,6 @@ namespace AI21
             typeof(global::AI21.JsonConverters.LibrarySearchRequestLabelsFilterModeNullableJsonConverter),
             typeof(global::AI21.JsonConverters.RetrievalStrategyJsonConverter),
             typeof(global::AI21.JsonConverters.RetrievalStrategyNullableJsonConverter),
-            typeof(global::AI21.JsonConverters.RunOptimizationJsonConverter),
-            typeof(global::AI21.JsonConverters.RunOptimizationNullableJsonConverter),
             typeof(global::AI21.JsonConverters.MessagesItemJsonConverter),
             typeof(global::AI21.JsonConverters.QueryFilterJsonConverter),
             typeof(global::AI21.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<global::System.Guid>, global::System.Collections.Generic.IList<string>>),

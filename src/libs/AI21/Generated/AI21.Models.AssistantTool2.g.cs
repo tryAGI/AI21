@@ -6,44 +6,50 @@ namespace AI21
     /// <summary>
     /// An enumeration.
     /// </summary>
-    public enum RunOptimization
+    public enum AssistantTool2
     {
         /// <summary>
         /// 
         /// </summary>
-        Cost,
+        FileSearch,
         /// <summary>
         /// 
         /// </summary>
-        Latency,
+        WebSearch,
+        /// <summary>
+        /// 
+        /// </summary>
+        PlanApproval,
     }
 
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class RunOptimizationExtensions
+    public static class AssistantTool2Extensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this RunOptimization value)
+        public static string ToValueString(this AssistantTool2 value)
         {
             return value switch
             {
-                RunOptimization.Cost => "cost",
-                RunOptimization.Latency => "latency",
+                AssistantTool2.FileSearch => "file_search",
+                AssistantTool2.WebSearch => "web_search",
+                AssistantTool2.PlanApproval => "plan_approval",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static RunOptimization? ToEnum(string value)
+        public static AssistantTool2? ToEnum(string value)
         {
             return value switch
             {
-                "cost" => RunOptimization.Cost,
-                "latency" => RunOptimization.Latency,
+                "file_search" => AssistantTool2.FileSearch,
+                "web_search" => AssistantTool2.WebSearch,
+                "plan_approval" => AssistantTool2.PlanApproval,
                 _ => null,
             };
         }

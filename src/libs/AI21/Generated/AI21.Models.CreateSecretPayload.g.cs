@@ -23,13 +23,6 @@ namespace AI21
         public required string SecretValue { get; set; }
 
         /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("created_by")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string CreatedBy { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -40,16 +33,13 @@ namespace AI21
         /// </summary>
         /// <param name="secretName"></param>
         /// <param name="secretValue"></param>
-        /// <param name="createdBy"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public CreateSecretPayload(
             string secretName,
-            string secretValue,
-            string createdBy)
+            string secretValue)
         {
             this.SecretName = secretName ?? throw new global::System.ArgumentNullException(nameof(secretName));
             this.SecretValue = secretValue ?? throw new global::System.ArgumentNullException(nameof(secretValue));
-            this.CreatedBy = createdBy ?? throw new global::System.ArgumentNullException(nameof(createdBy));
         }
 
         /// <summary>
