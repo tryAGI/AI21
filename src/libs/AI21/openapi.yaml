@@ -530,35 +530,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-    patch:
-      summary: Modify Assistant
-      operationId: modify_assistant_studio_v1_assistants__assistant_id__patch
-      parameters:
-        - name: assistant_id
-          in: path
-          required: true
-          schema:
-            title: Assistant Id
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ModifyAssistantRequest'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Assistant'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
   '/studio/v1/assistants/{assistant_id}/plans':
     get:
       summary: List Plans
@@ -903,6 +874,29 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/settings/models/{name}':
+    delete:
+      summary: Delete Organization Model Endpoint
+      operationId: delete_organization_model_endpoint_studio_v1_settings_models__name__delete
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            title: Name
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
     Assistant:
@@ -966,9 +960,12 @@ components:
               items:
                 type: string
         tools:
+          title: Tools
           type: array
           items:
-            $ref: '#/components/schemas/AssistantTool'
+            type: object
+            additionalProperties:
+              $ref: '#/components/schemas/AssistantTool'
         tool_resources:
           $ref: '#/components/schemas/AssistantToolResource'
     AssistantMessage:
@@ -1504,7 +1501,6 @@ components:
       required:
         - secret_name
         - secret_value
-        - created_by
       type: object
       properties:
         secret_name:
@@ -1512,9 +1508,6 @@ components:
           type: string
         secret_value:
           title: Secret Value
-          type: string
-        created_by:
-          title: Created By
           type: string
     DataSourceMetadata:
       title: DataSourceMetadata
@@ -1853,42 +1846,11 @@ components:
         - jamba-1.5-large
       type: string
       description: An enumeration.
-    ModifyAssistantRequest:
-      title: ModifyAssistantRequest
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-        description:
-          title: Description
-          type: string
-        optimization:
-          $ref: '#/components/schemas/RunOptimization'
-        avatar:
-          title: Avatar
-          type: string
-        is_archived:
-          title: Is Archived
-          type: boolean
-          default: false
-        models:
-          title: Models
-          type: array
-          items:
-            type: string
-        tools:
-          type: array
-          items:
-            $ref: '#/components/schemas/AssistantTool'
-        tool_resources:
-          $ref: '#/components/schemas/AssistantToolResource'
     OrganizationModelResponse:
       title: OrganizationModelResponse
       required:
         - name
         - model_type
-        - secret_id
       type: object
       properties:
         name:
@@ -1900,6 +1862,20 @@ components:
         secret_id:
           title: Secret Id
           type: string
+        created_by:
+          title: Created By
+          type: string
+        created_at:
+          title: Created At
+          type: string
+          format: date-time
+        provider:
+          title: Provider
+          type: string
+        internal:
+          title: Internal
+          type: boolean
+          default: false
     OrganizationModelsResponse:
       title: OrganizationModelsResponse
       required:
@@ -1972,12 +1948,6 @@ components:
         - add_neighbors
         - full_doc
       type: string
-      description: An enumeration.
-    RunOptimization:
-      title: RunOptimization
-      enum:
-        - cost
-        - latency
       description: An enumeration.
     SecretResponse:
       title: SecretResponse

@@ -186,20 +186,17 @@ namespace AI21
         /// </summary>
         /// <param name="secretName"></param>
         /// <param name="secretValue"></param>
-        /// <param name="createdBy"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> V1SecretStorage2Async(
             string secretName,
             string secretValue,
-            string createdBy,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::AI21.CreateSecretPayload
             {
                 SecretName = secretName,
                 SecretValue = secretValue,
-                CreatedBy = createdBy,
             };
 
             return await V1SecretStorage2Async(

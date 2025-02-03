@@ -6,7 +6,7 @@ namespace AI21
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class AssistantTool
+    public sealed partial class DeleteOrganizationModelEndpointStudioV1SettingsModelsNameDeleteResponse
     {
 
         /// <summary>

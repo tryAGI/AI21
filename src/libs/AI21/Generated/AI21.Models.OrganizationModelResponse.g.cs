@@ -26,8 +26,31 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("secret_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string SecretId { get; set; }
+        public string? SecretId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("created_by")]
+        public string? CreatedBy { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
+        public global::System.DateTime? CreatedAt { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
+        public string? Provider { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("internal")]
+        public bool? Internal { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -41,15 +64,29 @@ namespace AI21
         /// <param name="name"></param>
         /// <param name="modelType"></param>
         /// <param name="secretId"></param>
+        /// <param name="createdBy"></param>
+        /// <param name="createdAt"></param>
+        /// <param name="provider"></param>
+        /// <param name="internal">
+        /// Default Value: false
+        /// </param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public OrganizationModelResponse(
             string name,
             string modelType,
-            string secretId)
+            string? secretId,
+            string? createdBy,
+            global::System.DateTime? createdAt,
+            string? provider,
+            bool? @internal)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.ModelType = modelType ?? throw new global::System.ArgumentNullException(nameof(modelType));
-            this.SecretId = secretId ?? throw new global::System.ArgumentNullException(nameof(secretId));
+            this.SecretId = secretId;
+            this.CreatedBy = createdBy;
+            this.CreatedAt = createdAt;
+            this.Provider = provider;
+            this.Internal = @internal;
         }
 
         /// <summary>
