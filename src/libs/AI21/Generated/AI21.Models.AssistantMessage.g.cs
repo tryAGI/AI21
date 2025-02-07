@@ -61,7 +61,9 @@ namespace AI21
         /// </param>
         /// <param name="content"></param>
         /// <param name="toolCalls"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public AssistantMessage(
             global::AI21.AssistantMessageRole? role,
             string? content,

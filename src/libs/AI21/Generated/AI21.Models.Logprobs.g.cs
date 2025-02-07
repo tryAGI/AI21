@@ -25,7 +25,9 @@ namespace AI21
         /// Initializes a new instance of the <see cref="Logprobs" /> class.
         /// </summary>
         /// <param name="content"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public Logprobs(
             global::System.Collections.Generic.IList<global::AI21.LogprobsData> content)
         {

@@ -46,7 +46,9 @@ namespace AI21
         /// <param name="required">
         /// List of required properties
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ToolParameters(
             object properties,
             global::AI21.ToolParametersType? type,

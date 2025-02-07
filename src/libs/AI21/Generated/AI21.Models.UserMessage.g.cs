@@ -55,7 +55,9 @@ namespace AI21
         /// Default Value: user
         /// </param>
         /// <param name="content"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public UserMessage(
             string content,
             global::AI21.UserMessageRole? role)

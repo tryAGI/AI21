@@ -33,7 +33,9 @@ namespace AI21
         /// </summary>
         /// <param name="secretName"></param>
         /// <param name="secretValue"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public CreateSecretPayload(
             string secretName,
             string secretValue)

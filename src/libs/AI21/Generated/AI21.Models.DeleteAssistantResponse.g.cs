@@ -49,7 +49,9 @@ namespace AI21
         /// get different IDs. However, for a streaming response, the ID will be the same<br/>
         /// for all responses in the stream.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public DeleteAssistantResponse(
             string id,
             string? @object,

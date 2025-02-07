@@ -25,7 +25,9 @@ namespace AI21
         /// Initializes a new instance of the <see cref="ConnectorsDataSources" /> class.
         /// </summary>
         /// <param name="dataSources"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ConnectorsDataSources(
             global::System.Collections.Generic.IList<global::AI21.DataSourceMetadata> dataSources)
         {

@@ -32,7 +32,9 @@ namespace AI21
         /// </summary>
         /// <param name="code"></param>
         /// <param name="schemas"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public CreatePlanPayload(
             string code,
             global::System.Collections.Generic.IList<object>? schemas)

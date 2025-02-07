@@ -134,7 +134,9 @@ namespace AI21
         /// <param name="models"></param>
         /// <param name="tools"></param>
         /// <param name="toolResources"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public Assistant(
             string id,
             global::System.DateTime createdAt,

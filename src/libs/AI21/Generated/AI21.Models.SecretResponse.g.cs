@@ -33,7 +33,9 @@ namespace AI21
         /// </summary>
         /// <param name="secretId"></param>
         /// <param name="secretKey"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public SecretResponse(
             string secretId,
             string secretKey)

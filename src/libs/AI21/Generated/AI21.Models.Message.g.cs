@@ -54,7 +54,9 @@ namespace AI21
         ///   charming French accent."
         /// </param>
         /// <param name="content"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public Message(
             global::AI21.MessageRole role,
             string content)

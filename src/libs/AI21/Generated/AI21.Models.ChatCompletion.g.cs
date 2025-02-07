@@ -56,7 +56,9 @@ namespace AI21
         /// </param>
         /// <param name="usage"></param>
         /// <param name="meta"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ChatCompletion(
             string id,
             global::System.Collections.Generic.IList<global::AI21.ChatCompletionResponseChoice> choices,

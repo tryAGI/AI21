@@ -46,7 +46,9 @@ namespace AI21
         ///   example, "You are a helpful chatbot with a background in earth sciences and a<br/>
         ///   charming French accent."
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ChatStreamingFirstDelta(
             global::AI21.ChatStreamingFirstDeltaRole role)
         {

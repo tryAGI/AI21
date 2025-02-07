@@ -40,7 +40,9 @@ namespace AI21
         /// <param name="token"></param>
         /// <param name="logprob"></param>
         /// <param name="topLogprobs"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public LogprobsData(
             string token,
             double logprob,

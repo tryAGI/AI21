@@ -45,7 +45,9 @@ namespace AI21
         /// </param>
         /// <param name="content"></param>
         /// <param name="metadata"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public DocumentSchema(
             string content,
             string? id,
