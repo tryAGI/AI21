@@ -104,7 +104,9 @@ namespace AI21
         /// </param>
         /// <param name="retrievalSimilarityThreshold"></param>
         /// <param name="hybridSearchAlpha"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public LibrarySearchRequest(
             string query,
             int? maxSegments,

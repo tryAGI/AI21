@@ -69,7 +69,9 @@ namespace AI21
         /// <param name="order"></param>
         /// <param name="publicUrl"></param>
         /// <param name="labels"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ConversationalRagSource(
             string text,
             string fileId,

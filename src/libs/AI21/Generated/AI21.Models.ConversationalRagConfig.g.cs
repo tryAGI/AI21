@@ -104,7 +104,9 @@ namespace AI21
         /// <param name="responseLanguage">
         /// Default Value: english
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ConversationalRagConfig(
             global::System.Collections.Generic.IList<global::AI21.Message> messages,
             string? path,

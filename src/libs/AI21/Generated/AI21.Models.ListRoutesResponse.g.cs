@@ -25,7 +25,9 @@ namespace AI21
         /// Initializes a new instance of the <see cref="ListRoutesResponse" /> class.
         /// </summary>
         /// <param name="results"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ListRoutesResponse(
             global::System.Collections.Generic.IList<global::AI21.AssistantRoute> results)
         {

@@ -38,7 +38,9 @@ namespace AI21
         /// <param name="fileSearch"></param>
         /// <param name="webSearch"></param>
         /// <param name="planApproval"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public AssistantToolResource(
             object? fileSearch,
             object? webSearch,

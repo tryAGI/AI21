@@ -70,7 +70,9 @@ namespace AI21
         /// <param name="internal">
         /// Default Value: false
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public OrganizationModelResponse(
             string name,
             string modelType,

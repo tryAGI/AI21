@@ -70,7 +70,9 @@ namespace AI21
         /// <param name="code"></param>
         /// <param name="schemas"></param>
         /// <param name="assistantId"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public Plan(
             string id,
             global::System.DateTime createdAt,

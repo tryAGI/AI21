@@ -49,7 +49,9 @@ namespace AI21
         /// Default Value: function
         /// </param>
         /// <param name="function"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ToolCall(
             string id,
             global::AI21.ToolFunction function,

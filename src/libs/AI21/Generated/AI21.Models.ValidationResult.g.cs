@@ -39,7 +39,9 @@ namespace AI21
         /// <param name="isValid"></param>
         /// <param name="message"></param>
         /// <param name="details"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ValidationResult(
             bool isValid,
             string? message,

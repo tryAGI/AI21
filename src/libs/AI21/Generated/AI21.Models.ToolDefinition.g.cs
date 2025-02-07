@@ -33,7 +33,9 @@ namespace AI21
         /// </summary>
         /// <param name="type"></param>
         /// <param name="function"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ToolDefinition(
             global::AI21.FunctionToolDefinition function,
             global::AI21.ToolDefinitionType type)

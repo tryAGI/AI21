@@ -52,7 +52,9 @@ namespace AI21
         /// </param>
         /// <param name="filesSuccessfullyUploaded"></param>
         /// <param name="failedUploadedFiles"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ConnectorsStatus(
             string createdAt,
             global::AI21.ConnectorsWorkflowStatus workflowStatus,
