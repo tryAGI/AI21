@@ -41,6 +41,9 @@ namespace AI21
         /// <param name="responseLanguage">
         /// Default Value: english
         /// </param>
+        /// <param name="verbose">
+        /// Default Value: false
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.ConversationalRagResult> V1ConversationalRagAsync(
@@ -54,6 +57,7 @@ namespace AI21
             int? maxNeighbors = default,
             double? hybridSearchAlpha = default,
             global::AI21.ConversationalRagConfigResponseLanguage? responseLanguage = default,
+            bool? verbose = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

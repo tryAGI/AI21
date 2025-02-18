@@ -72,6 +72,12 @@ namespace AI21
         public global::AI21.ConversationalRagConfigResponseLanguage? ResponseLanguage { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("verbose")]
+        public bool? Verbose { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -104,6 +110,9 @@ namespace AI21
         /// <param name="responseLanguage">
         /// Default Value: english
         /// </param>
+        /// <param name="verbose">
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -117,7 +126,8 @@ namespace AI21
             double? retrievalSimilarityThreshold,
             int? maxNeighbors,
             double? hybridSearchAlpha,
-            global::AI21.ConversationalRagConfigResponseLanguage? responseLanguage)
+            global::AI21.ConversationalRagConfigResponseLanguage? responseLanguage,
+            bool? verbose)
         {
             this.Messages = messages ?? throw new global::System.ArgumentNullException(nameof(messages));
             this.Path = path;
@@ -129,6 +139,7 @@ namespace AI21
             this.MaxNeighbors = maxNeighbors;
             this.HybridSearchAlpha = hybridSearchAlpha;
             this.ResponseLanguage = responseLanguage;
+            this.Verbose = verbose;
         }
 
         /// <summary>
