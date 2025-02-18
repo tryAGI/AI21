@@ -5,42 +5,42 @@ namespace AI21
 {
     public partial class Ai21Api
     {
-        partial void PrepareV1ConversationalRagArguments(
+        partial void PrepareCreateStatelessRunStudioV1StatelessRunPostArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::AI21.ConversationalRagConfig request);
-        partial void PrepareV1ConversationalRagRequest(
+            global::AI21.CreateStatelessRunsPayload request);
+        partial void PrepareCreateStatelessRunStudioV1StatelessRunPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::AI21.ConversationalRagConfig request);
-        partial void ProcessV1ConversationalRagResponse(
+            global::AI21.CreateStatelessRunsPayload request);
+        partial void ProcessCreateStatelessRunStudioV1StatelessRunPostResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessV1ConversationalRagResponseContent(
+        partial void ProcessCreateStatelessRunStudioV1StatelessRunPostResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Conversational Rag
+        /// Create Stateless Run
         /// </summary>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.ConversationalRagResult> V1ConversationalRagAsync(
-            global::AI21.ConversationalRagConfig request,
+        public async global::System.Threading.Tasks.Task<global::AI21.StatelessRunResult> CreateStatelessRunStudioV1StatelessRunPostAsync(
+            global::AI21.CreateStatelessRunsPayload request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareV1ConversationalRagArguments(
+            PrepareCreateStatelessRunStudioV1StatelessRunPostArguments(
                 httpClient: HttpClient,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
-                path: "/studio/v1/conversational-rag",
+                path: "/studio/v1/stateless-run",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -76,7 +76,7 @@ namespace AI21
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareV1ConversationalRagRequest(
+            PrepareCreateStatelessRunStudioV1StatelessRunPostRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 request: request);
@@ -89,7 +89,7 @@ namespace AI21
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessV1ConversationalRagResponse(
+            ProcessCreateStatelessRunStudioV1StatelessRunPostResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -133,7 +133,7 @@ namespace AI21
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessV1ConversationalRagResponseContent(
+                ProcessCreateStatelessRunStudioV1StatelessRunPostResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -158,7 +158,7 @@ namespace AI21
                 }
 
                 return
-                    global::AI21.ConversationalRagResult.FromJson(__content, JsonSerializerContext) ??
+                    global::AI21.StatelessRunResult.FromJson(__content, JsonSerializerContext) ??
                     throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
@@ -188,73 +188,49 @@ namespace AI21
                 ).ConfigureAwait(false);
 
                 return
-                    await global::AI21.ConversationalRagResult.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    await global::AI21.StatelessRunResult.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                     throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }
 
         /// <summary>
-        /// Conversational Rag
+        /// Create Stateless Run
         /// </summary>
         /// <param name="messages">
         /// messages
         /// </param>
-        /// <param name="path"></param>
-        /// <param name="labels"></param>
-        /// <param name="fileIds"></param>
-        /// <param name="maxSegments">
-        /// Default Value: 15
-        /// </param>
-        /// <param name="retrievalStrategy">
-        /// Default Value: segments
-        /// </param>
-        /// <param name="retrievalSimilarityThreshold">
-        /// Default Value: 0
-        /// </param>
-        /// <param name="maxNeighbors">
-        /// Default Value: 1
-        /// </param>
-        /// <param name="hybridSearchAlpha">
-        /// Default Value: 0.98
-        /// </param>
-        /// <param name="responseLanguage">
-        /// Default Value: english
-        /// </param>
+        /// <param name="outputType"></param>
+        /// <param name="models"></param>
+        /// <param name="tools"></param>
+        /// <param name="toolResources"></param>
         /// <param name="verbose">
         /// Default Value: false
         /// </param>
+        /// <param name="context"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.ConversationalRagResult> V1ConversationalRagAsync(
-            global::System.Collections.Generic.IList<global::AI21.Message> messages,
-            string? path = default,
-            global::System.Collections.Generic.IList<string>? labels = default,
-            global::System.Collections.Generic.IList<string>? fileIds = default,
-            int? maxSegments = default,
-            global::AI21.ConversationalRagConfigRetrievalStrategy? retrievalStrategy = default,
-            double? retrievalSimilarityThreshold = default,
-            int? maxNeighbors = default,
-            double? hybridSearchAlpha = default,
-            global::AI21.ConversationalRagConfigResponseLanguage? responseLanguage = default,
+        public async global::System.Threading.Tasks.Task<global::AI21.StatelessRunResult> CreateStatelessRunStudioV1StatelessRunPostAsync(
+            global::System.Collections.Generic.IList<string> messages,
+            string? outputType = default,
+            global::System.Collections.Generic.IList<string>? models = default,
+            global::System.Collections.Generic.IList<object>? tools = default,
+            global::AI21.AssistantToolResource? toolResources = default,
             bool? verbose = default,
+            object? context = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::AI21.ConversationalRagConfig
+            var __request = new global::AI21.CreateStatelessRunsPayload
             {
                 Messages = messages,
-                Path = path,
-                Labels = labels,
-                FileIds = fileIds,
-                MaxSegments = maxSegments,
-                RetrievalStrategy = retrievalStrategy,
-                RetrievalSimilarityThreshold = retrievalSimilarityThreshold,
-                MaxNeighbors = maxNeighbors,
-                HybridSearchAlpha = hybridSearchAlpha,
-                ResponseLanguage = responseLanguage,
+                OutputType = outputType,
+                Models = models,
+                Tools = tools,
+                ToolResources = toolResources,
                 Verbose = verbose,
+                Context = context,
             };
 
-            return await V1ConversationalRagAsync(
+            return await CreateStatelessRunStudioV1StatelessRunPostAsync(
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

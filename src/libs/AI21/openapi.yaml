@@ -472,6 +472,53 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/stateless-run:
+    post:
+      summary: Create Stateless Run
+      operationId: create_stateless_run_studio_v1_stateless_run_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateStatelessRunsPayload'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatelessRunResult'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/stateless-run/{execution_id}':
+    get:
+      summary: Get Stateless Run
+      operationId: get_stateless_run_studio_v1_stateless_run__execution_id__get
+      parameters:
+        - name: execution_id
+          in: path
+          required: true
+          schema:
+            title: Execution Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatelessRunResult'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /studio/v1/assistants:
     get:
       summary: Get Assistants
@@ -1392,6 +1439,10 @@ components:
             - spanish
           type: string
           default: english
+        verbose:
+          title: Verbose
+          type: boolean
+          default: false
       description: This class is to be used as a common class to all Studio API requests payloads
     ConversationalRagResult:
       title: ConversationalRagResult
@@ -1509,6 +1560,42 @@ components:
         secret_value:
           title: Secret Value
           type: string
+    CreateStatelessRunsPayload:
+      title: CreateStatelessRunsPayload
+      required:
+        - messages
+      type: object
+      properties:
+        messages:
+          title: Messages
+          type: array
+          items:
+            type: string
+          description: messages
+        output_type:
+          title: Output Type
+          type: string
+        models:
+          title: Models
+          type: array
+          items:
+            type: string
+        tools:
+          title: Tools
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              $ref: '#/components/schemas/AssistantTool'
+        tool_resources:
+          $ref: '#/components/schemas/AssistantToolResource'
+        verbose:
+          title: Verbose
+          type: boolean
+          default: false
+        context:
+          title: Context
+          type: object
     DataSourceMetadata:
       title: DataSourceMetadata
       required:
@@ -1962,6 +2049,27 @@ components:
         secret_key:
           title: Secret Key
           type: string
+    StatelessRunResult:
+      title: StatelessRunResult
+      required:
+        - execution_id
+        - status
+      type: object
+      properties:
+        execution_id:
+          title: Execution Id
+          type: string
+          format: uuid
+        status:
+          title: Status
+          enum:
+            - completed
+            - failed
+            - in_progress
+            - requires_action
+          type: string
+        result:
+          title: Result
     SystemMessage:
       title: SystemMessage
       required:
