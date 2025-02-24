@@ -1931,6 +1931,10 @@ components:
         - jamba-instruct-preview
         - jamba-1.5-mini
         - jamba-1.5-large
+        - jamba-1.5-mini-2024-08
+        - jamba-1.5-large-2024-08
+        - jamba-1.5-mini-2025-02
+        - jamba-1.5-large-2025-02
       type: string
       description: An enumeration.
     OrganizationModelResponse:
@@ -2052,13 +2056,14 @@ components:
     StatelessRunResult:
       title: StatelessRunResult
       required:
-        - execution_id
+        - id
         - status
       type: object
       properties:
-        execution_id:
-          title: Execution Id
+        id:
+          title: Id
           type: string
+          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
           format: uuid
         status:
           title: Status

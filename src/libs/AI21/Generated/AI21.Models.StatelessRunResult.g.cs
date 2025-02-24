@@ -9,11 +9,13 @@ namespace AI21
     public sealed partial class StatelessRunResult
     {
         /// <summary>
-        /// 
+        /// A unique ID for the request (not the message). Repeated identical requests<br/>
+        /// get different IDs. However, for a streaming response, the ID will be the same<br/>
+        /// for all responses in the stream.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("execution_id")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Guid ExecutionId { get; set; }
+        public required global::System.Guid Id { get; set; }
 
         /// <summary>
         /// 
@@ -38,18 +40,22 @@ namespace AI21
         /// <summary>
         /// Initializes a new instance of the <see cref="StatelessRunResult" /> class.
         /// </summary>
-        /// <param name="executionId"></param>
+        /// <param name="id">
+        /// A unique ID for the request (not the message). Repeated identical requests<br/>
+        /// get different IDs. However, for a streaming response, the ID will be the same<br/>
+        /// for all responses in the stream.
+        /// </param>
         /// <param name="status"></param>
         /// <param name="result"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public StatelessRunResult(
-            global::System.Guid executionId,
+            global::System.Guid id,
             global::AI21.StatelessRunResultStatus status,
             object? result)
         {
-            this.ExecutionId = executionId;
+            this.Id = id;
             this.Status = status;
             this.Result = result;
         }
