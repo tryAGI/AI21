@@ -123,7 +123,7 @@ namespace AI21
                 }
 
                 throw new global::AI21.ApiException<global::AI21.HTTPValidationError>(
-                    message: __response.ReasonPhrase ?? string.Empty,
+                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
                     statusCode: __response.StatusCode)
                 {
                     ResponseBody = __content_422,
