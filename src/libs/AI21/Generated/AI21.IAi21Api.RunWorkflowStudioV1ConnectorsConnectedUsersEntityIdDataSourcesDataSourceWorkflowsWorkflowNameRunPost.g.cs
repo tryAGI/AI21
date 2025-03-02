@@ -7,13 +7,13 @@ namespace AI21
         /// <summary>
         /// Run Workflow
         /// </summary>
-        /// <param name="organizationId"></param>
+        /// <param name="entityId"></param>
         /// <param name="dataSource"></param>
         /// <param name="workflowName"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        global::System.Threading.Tasks.Task<string> RunWorkflowStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceWorkflowsWorkflowNameRunPostAsync(
-            string organizationId,
+        global::System.Threading.Tasks.Task<string> RunWorkflowStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceWorkflowsWorkflowNameRunPostAsync(
+            string entityId,
             string dataSource,
             string workflowName,
             global::System.Threading.CancellationToken cancellationToken = default);

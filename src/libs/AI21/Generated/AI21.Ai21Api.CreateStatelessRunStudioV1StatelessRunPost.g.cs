@@ -207,16 +207,18 @@ namespace AI21
         /// Default Value: false
         /// </param>
         /// <param name="context"></param>
+        /// <param name="constraints"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.StatelessRunResult> CreateStatelessRunStudioV1StatelessRunPostAsync(
-            global::System.Collections.Generic.IList<string> messages,
-            string? outputType = default,
+            global::System.Collections.Generic.IList<global::AI21.Message> messages,
+            object? outputType = default,
             global::System.Collections.Generic.IList<string>? models = default,
             global::System.Collections.Generic.IList<object>? tools = default,
             global::AI21.AssistantToolResource? toolResources = default,
             bool? verbose = default,
             object? context = default,
+            global::System.Collections.Generic.IList<global::AI21.Constraint>? constraints = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::AI21.CreateStatelessRunsPayload
@@ -228,6 +230,7 @@ namespace AI21
                 ToolResources = toolResources,
                 Verbose = verbose,
                 Context = context,
+                Constraints = constraints,
             };
 
             return await CreateStatelessRunStudioV1StatelessRunPostAsync(

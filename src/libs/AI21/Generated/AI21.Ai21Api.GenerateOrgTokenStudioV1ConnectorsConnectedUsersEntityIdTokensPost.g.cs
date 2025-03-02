@@ -5,50 +5,40 @@ namespace AI21
 {
     public partial class Ai21Api
     {
-        partial void PrepareRunWorkflowStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceWorkflowsWorkflowNameRunPostArguments(
+        partial void PrepareGenerateOrgTokenStudioV1ConnectorsConnectedUsersEntityIdTokensPostArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string organizationId,
-            ref string dataSource,
-            ref string workflowName);
-        partial void PrepareRunWorkflowStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceWorkflowsWorkflowNameRunPostRequest(
+            ref string entityId);
+        partial void PrepareGenerateOrgTokenStudioV1ConnectorsConnectedUsersEntityIdTokensPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string organizationId,
-            string dataSource,
-            string workflowName);
-        partial void ProcessRunWorkflowStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceWorkflowsWorkflowNameRunPostResponse(
+            string entityId);
+        partial void ProcessGenerateOrgTokenStudioV1ConnectorsConnectedUsersEntityIdTokensPostResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessRunWorkflowStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceWorkflowsWorkflowNameRunPostResponseContent(
+        partial void ProcessGenerateOrgTokenStudioV1ConnectorsConnectedUsersEntityIdTokensPostResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Run Workflow
+        /// Generate Org Token
         /// </summary>
-        /// <param name="organizationId"></param>
-        /// <param name="dataSource"></param>
-        /// <param name="workflowName"></param>
+        /// <param name="entityId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> RunWorkflowStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceWorkflowsWorkflowNameRunPostAsync(
-            string organizationId,
-            string dataSource,
-            string workflowName,
+        public async global::System.Threading.Tasks.Task<global::AI21.ConnectorsToken> GenerateOrgTokenStudioV1ConnectorsConnectedUsersEntityIdTokensPostAsync(
+            string entityId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareRunWorkflowStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceWorkflowsWorkflowNameRunPostArguments(
+            PrepareGenerateOrgTokenStudioV1ConnectorsConnectedUsersEntityIdTokensPostArguments(
                 httpClient: HttpClient,
-                organizationId: ref organizationId,
-                dataSource: ref dataSource,
-                workflowName: ref workflowName);
+                entityId: ref entityId);
 
             var __pathBuilder = new PathBuilder(
-                path: $"/studio/v1/connectors/connected-users/{organizationId}/data-sources/{dataSource}/workflows/{workflowName}/run",
+                path: $"/studio/v1/connectors/connected-users/{entityId}/tokens",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -78,12 +68,10 @@ namespace AI21
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareRunWorkflowStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceWorkflowsWorkflowNameRunPostRequest(
+            PrepareGenerateOrgTokenStudioV1ConnectorsConnectedUsersEntityIdTokensPostRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                organizationId: organizationId,
-                dataSource: dataSource,
-                workflowName: workflowName);
+                entityId: entityId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -93,7 +81,7 @@ namespace AI21
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessRunWorkflowStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceWorkflowsWorkflowNameRunPostResponse(
+            ProcessGenerateOrgTokenStudioV1ConnectorsConnectedUsersEntityIdTokensPostResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -137,7 +125,7 @@ namespace AI21
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessRunWorkflowStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceWorkflowsWorkflowNameRunPostResponseContent(
+                ProcessGenerateOrgTokenStudioV1ConnectorsConnectedUsersEntityIdTokensPostResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -161,7 +149,9 @@ namespace AI21
                     };
                 }
 
-                return __content;
+                return
+                    global::AI21.ConnectorsToken.FromJson(__content, JsonSerializerContext) ??
+                    throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
             {
@@ -183,13 +173,15 @@ namespace AI21
                     };
                 }
 
-                var __content = await __response.Content.ReadAsStringAsync(
+                using var __content = await __response.Content.ReadAsStreamAsync(
 #if NET5_0_OR_GREATER
                     cancellationToken
 #endif
                 ).ConfigureAwait(false);
 
-                return __content;
+                return
+                    await global::AI21.ConnectorsToken.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }
     }

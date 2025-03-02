@@ -5,35 +5,35 @@ namespace AI21
 {
     public partial class Ai21Api
     {
-        partial void PrepareDeleteOrganizationModelEndpointStudioV1SettingsModelsNameDeleteArguments(
+        partial void PrepareDeleteWorkspaceModelEndpointStudioV1SettingsModelsNameDeleteArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string name);
-        partial void PrepareDeleteOrganizationModelEndpointStudioV1SettingsModelsNameDeleteRequest(
+        partial void PrepareDeleteWorkspaceModelEndpointStudioV1SettingsModelsNameDeleteRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string name);
-        partial void ProcessDeleteOrganizationModelEndpointStudioV1SettingsModelsNameDeleteResponse(
+        partial void ProcessDeleteWorkspaceModelEndpointStudioV1SettingsModelsNameDeleteResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessDeleteOrganizationModelEndpointStudioV1SettingsModelsNameDeleteResponseContent(
+        partial void ProcessDeleteWorkspaceModelEndpointStudioV1SettingsModelsNameDeleteResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Delete Organization Model Endpoint
+        /// Delete Workspace Model Endpoint
         /// </summary>
         /// <param name="name"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> DeleteOrganizationModelEndpointStudioV1SettingsModelsNameDeleteAsync(
+        public async global::System.Threading.Tasks.Task<string> DeleteWorkspaceModelEndpointStudioV1SettingsModelsNameDeleteAsync(
             string name,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareDeleteOrganizationModelEndpointStudioV1SettingsModelsNameDeleteArguments(
+            PrepareDeleteWorkspaceModelEndpointStudioV1SettingsModelsNameDeleteArguments(
                 httpClient: HttpClient,
                 name: ref name);
 
@@ -68,7 +68,7 @@ namespace AI21
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareDeleteOrganizationModelEndpointStudioV1SettingsModelsNameDeleteRequest(
+            PrepareDeleteWorkspaceModelEndpointStudioV1SettingsModelsNameDeleteRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 name: name);
@@ -81,7 +81,7 @@ namespace AI21
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessDeleteOrganizationModelEndpointStudioV1SettingsModelsNameDeleteResponse(
+            ProcessDeleteWorkspaceModelEndpointStudioV1SettingsModelsNameDeleteResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -125,7 +125,7 @@ namespace AI21
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessDeleteOrganizationModelEndpointStudioV1SettingsModelsNameDeleteResponseContent(
+                ProcessDeleteWorkspaceModelEndpointStudioV1SettingsModelsNameDeleteResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);

@@ -5,7 +5,7 @@ namespace AI21
     public partial interface ILibraryManagementClient
     {
         /// <summary>
-        /// Upload Organization File<br/>
+        /// Upload Workspace File<br/>
         /// Upload files to use for [RAG Engine document searches](https://docs.ai21.com/docs/rag-engine-overview).<br/>
         /// You can assign metadata to your files to limit searches to specific files by file metadata.<br/>
         /// There is no bulk upload method; files must be loaded one at a time.<br/>
@@ -21,7 +21,7 @@ namespace AI21
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Upload Organization File<br/>
+        /// Upload Workspace File<br/>
         /// Upload files to use for [RAG Engine document searches](https://docs.ai21.com/docs/rag-engine-overview).<br/>
         /// You can assign metadata to your files to limit searches to specific files by file metadata.<br/>
         /// There is no bulk upload method; files must be loaded one at a time.<br/>

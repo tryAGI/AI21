@@ -13,13 +13,13 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("messages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> Messages { get; set; }
+        public required global::System.Collections.Generic.IList<global::AI21.Message> Messages { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_type")]
-        public string? OutputType { get; set; }
+        public object? OutputType { get; set; }
 
         /// <summary>
         /// 
@@ -52,6 +52,12 @@ namespace AI21
         public object? Context { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("constraints")]
+        public global::System.Collections.Generic.IList<global::AI21.Constraint>? Constraints { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -71,17 +77,19 @@ namespace AI21
         /// Default Value: false
         /// </param>
         /// <param name="context"></param>
+        /// <param name="constraints"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateStatelessRunsPayload(
-            global::System.Collections.Generic.IList<string> messages,
-            string? outputType,
+            global::System.Collections.Generic.IList<global::AI21.Message> messages,
+            object? outputType,
             global::System.Collections.Generic.IList<string>? models,
             global::System.Collections.Generic.IList<object>? tools,
             global::AI21.AssistantToolResource? toolResources,
             bool? verbose,
-            object? context)
+            object? context,
+            global::System.Collections.Generic.IList<global::AI21.Constraint>? constraints)
         {
             this.Messages = messages ?? throw new global::System.ArgumentNullException(nameof(messages));
             this.OutputType = outputType;
@@ -90,6 +98,7 @@ namespace AI21
             this.ToolResources = toolResources;
             this.Verbose = verbose;
             this.Context = context;
+            this.Constraints = constraints;
         }
 
         /// <summary>

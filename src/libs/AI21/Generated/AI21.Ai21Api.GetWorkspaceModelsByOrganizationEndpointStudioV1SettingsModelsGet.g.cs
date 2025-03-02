@@ -5,44 +5,39 @@ namespace AI21
 {
     public partial class Ai21Api
     {
-        partial void PrepareGenerateOrgTokenStudioV1ConnectorsConnectedUsersOrganizationIdTokensPostArguments(
+        partial void PrepareGetWorkspaceModelsByOrganizationEndpointStudioV1SettingsModelsGetArguments(
+            global::System.Net.Http.HttpClient httpClient);
+        partial void PrepareGetWorkspaceModelsByOrganizationEndpointStudioV1SettingsModelsGetRequest(
             global::System.Net.Http.HttpClient httpClient,
-            ref string organizationId);
-        partial void PrepareGenerateOrgTokenStudioV1ConnectorsConnectedUsersOrganizationIdTokensPostRequest(
-            global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string organizationId);
-        partial void ProcessGenerateOrgTokenStudioV1ConnectorsConnectedUsersOrganizationIdTokensPostResponse(
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
+        partial void ProcessGetWorkspaceModelsByOrganizationEndpointStudioV1SettingsModelsGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGenerateOrgTokenStudioV1ConnectorsConnectedUsersOrganizationIdTokensPostResponseContent(
+        partial void ProcessGetWorkspaceModelsByOrganizationEndpointStudioV1SettingsModelsGetResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Generate Org Token
+        /// Get Workspace Models By Organization Endpoint
         /// </summary>
-        /// <param name="organizationId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.ConnectorsToken> GenerateOrgTokenStudioV1ConnectorsConnectedUsersOrganizationIdTokensPostAsync(
-            string organizationId,
+        public async global::System.Threading.Tasks.Task<global::AI21.WorkspaceModelsResponse> GetWorkspaceModelsByOrganizationEndpointStudioV1SettingsModelsGetAsync(
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGenerateOrgTokenStudioV1ConnectorsConnectedUsersOrganizationIdTokensPostArguments(
-                httpClient: HttpClient,
-                organizationId: ref organizationId);
+            PrepareGetWorkspaceModelsByOrganizationEndpointStudioV1SettingsModelsGetArguments(
+                httpClient: HttpClient);
 
             var __pathBuilder = new PathBuilder(
-                path: $"/studio/v1/connectors/connected-users/{organizationId}/tokens",
+                path: "/studio/v1/settings/models",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: global::System.Net.Http.HttpMethod.Post,
+                method: global::System.Net.Http.HttpMethod.Get,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -68,10 +63,9 @@ namespace AI21
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareGenerateOrgTokenStudioV1ConnectorsConnectedUsersOrganizationIdTokensPostRequest(
+            PrepareGetWorkspaceModelsByOrganizationEndpointStudioV1SettingsModelsGetRequest(
                 httpClient: HttpClient,
-                httpRequestMessage: __httpRequest,
-                organizationId: organizationId);
+                httpRequestMessage: __httpRequest);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -81,37 +75,9 @@ namespace AI21
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessGenerateOrgTokenStudioV1ConnectorsConnectedUsersOrganizationIdTokensPostResponse(
+            ProcessGetWorkspaceModelsByOrganizationEndpointStudioV1SettingsModelsGetResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
-            // Validation Error
-            if ((int)__response.StatusCode == 422)
-            {
-                string? __content_422 = null;
-                global::AI21.HTTPValidationError? __value_422 = null;
-                if (ReadResponseAsString)
-                {
-                    __content_422 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                    __value_422 = global::AI21.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
-                }
-                else
-                {
-                    var __contentStream_422 = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
-                    __value_422 = await global::AI21.HTTPValidationError.FromJsonStreamAsync(__contentStream_422, JsonSerializerContext).ConfigureAwait(false);
-                }
-
-                throw new global::AI21.ApiException<global::AI21.HTTPValidationError>(
-                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
-                    statusCode: __response.StatusCode)
-                {
-                    ResponseBody = __content_422,
-                    ResponseObject = __value_422,
-                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
-                        __response.Headers,
-                        h => h.Key,
-                        h => h.Value),
-                };
-            }
 
             if (ReadResponseAsString)
             {
@@ -125,7 +91,7 @@ namespace AI21
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessGenerateOrgTokenStudioV1ConnectorsConnectedUsersOrganizationIdTokensPostResponseContent(
+                ProcessGetWorkspaceModelsByOrganizationEndpointStudioV1SettingsModelsGetResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -150,7 +116,7 @@ namespace AI21
                 }
 
                 return
-                    global::AI21.ConnectorsToken.FromJson(__content, JsonSerializerContext) ??
+                    global::AI21.WorkspaceModelsResponse.FromJson(__content, JsonSerializerContext) ??
                     throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
@@ -180,7 +146,7 @@ namespace AI21
                 ).ConfigureAwait(false);
 
                 return
-                    await global::AI21.ConnectorsToken.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    await global::AI21.WorkspaceModelsResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                     throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }
