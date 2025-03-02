@@ -5,40 +5,45 @@ namespace AI21
 {
     public partial class Ai21Api
     {
-        partial void PrepareGetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesGetArguments(
+        partial void PrepareGetDataSourceStatusStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceStatusGetArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string organizationId);
-        partial void PrepareGetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesGetRequest(
+            ref string entityId,
+            ref string dataSource);
+        partial void PrepareGetDataSourceStatusStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceStatusGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string organizationId);
-        partial void ProcessGetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesGetResponse(
+            string entityId,
+            string dataSource);
+        partial void ProcessGetDataSourceStatusStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceStatusGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesGetResponseContent(
+        partial void ProcessGetDataSourceStatusStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceStatusGetResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get Org Data Sources Info
+        /// Get Data Source Status
         /// </summary>
-        /// <param name="organizationId"></param>
+        /// <param name="entityId"></param>
+        /// <param name="dataSource"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.ConnectorsDataSources> GetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesGetAsync(
-            string organizationId,
+        public async global::System.Threading.Tasks.Task<global::AI21.ConnectorsStatus> GetDataSourceStatusStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceStatusGetAsync(
+            string entityId,
+            string dataSource,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesGetArguments(
+            PrepareGetDataSourceStatusStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceStatusGetArguments(
                 httpClient: HttpClient,
-                organizationId: ref organizationId);
+                entityId: ref entityId,
+                dataSource: ref dataSource);
 
             var __pathBuilder = new PathBuilder(
-                path: $"/studio/v1/connectors/connected-users/{organizationId}/data-sources",
+                path: $"/studio/v1/connectors/connected-users/{entityId}/data-sources/{dataSource}/status",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -68,10 +73,11 @@ namespace AI21
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareGetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesGetRequest(
+            PrepareGetDataSourceStatusStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceStatusGetRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                organizationId: organizationId);
+                entityId: entityId,
+                dataSource: dataSource);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -81,7 +87,7 @@ namespace AI21
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessGetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesGetResponse(
+            ProcessGetDataSourceStatusStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceStatusGetResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -125,7 +131,7 @@ namespace AI21
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessGetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesGetResponseContent(
+                ProcessGetDataSourceStatusStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceStatusGetResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -150,7 +156,7 @@ namespace AI21
                 }
 
                 return
-                    global::AI21.ConnectorsDataSources.FromJson(__content, JsonSerializerContext) ??
+                    global::AI21.ConnectorsStatus.FromJson(__content, JsonSerializerContext) ??
                     throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
@@ -180,7 +186,7 @@ namespace AI21
                 ).ConfigureAwait(false);
 
                 return
-                    await global::AI21.ConnectorsDataSources.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    await global::AI21.ConnectorsStatus.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                     throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }

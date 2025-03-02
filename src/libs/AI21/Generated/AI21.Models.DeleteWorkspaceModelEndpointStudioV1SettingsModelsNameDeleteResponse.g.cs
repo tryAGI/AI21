@@ -6,7 +6,7 @@ namespace AI21
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class RunWorkflowStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceWorkflowsWorkflowNameRunPostResponse
+    public sealed partial class DeleteWorkspaceModelEndpointStudioV1SettingsModelsNameDeleteResponse
     {
 
         /// <summary>

@@ -5,35 +5,40 @@ namespace AI21
 {
     public partial class Ai21Api
     {
-        partial void PrepareGetOrganizationModelsByOrganizationEndpointStudioV1SettingsModelsGetArguments(
-            global::System.Net.Http.HttpClient httpClient);
-        partial void PrepareGetOrganizationModelsByOrganizationEndpointStudioV1SettingsModelsGetRequest(
+        partial void PrepareGetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersEntityIdDataSourcesGetArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
-        partial void ProcessGetOrganizationModelsByOrganizationEndpointStudioV1SettingsModelsGetResponse(
+            ref string entityId);
+        partial void PrepareGetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersEntityIdDataSourcesGetRequest(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string entityId);
+        partial void ProcessGetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersEntityIdDataSourcesGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGetOrganizationModelsByOrganizationEndpointStudioV1SettingsModelsGetResponseContent(
+        partial void ProcessGetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersEntityIdDataSourcesGetResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get Organization Models By Organization Endpoint
+        /// Get Org Data Sources Info
         /// </summary>
+        /// <param name="entityId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.OrganizationModelsResponse> GetOrganizationModelsByOrganizationEndpointStudioV1SettingsModelsGetAsync(
+        public async global::System.Threading.Tasks.Task<global::AI21.ConnectorsDataSources> GetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersEntityIdDataSourcesGetAsync(
+            string entityId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGetOrganizationModelsByOrganizationEndpointStudioV1SettingsModelsGetArguments(
-                httpClient: HttpClient);
+            PrepareGetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersEntityIdDataSourcesGetArguments(
+                httpClient: HttpClient,
+                entityId: ref entityId);
 
             var __pathBuilder = new PathBuilder(
-                path: "/studio/v1/settings/models",
+                path: $"/studio/v1/connectors/connected-users/{entityId}/data-sources",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -63,9 +68,10 @@ namespace AI21
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareGetOrganizationModelsByOrganizationEndpointStudioV1SettingsModelsGetRequest(
+            PrepareGetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersEntityIdDataSourcesGetRequest(
                 httpClient: HttpClient,
-                httpRequestMessage: __httpRequest);
+                httpRequestMessage: __httpRequest,
+                entityId: entityId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -75,9 +81,37 @@ namespace AI21
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessGetOrganizationModelsByOrganizationEndpointStudioV1SettingsModelsGetResponse(
+            ProcessGetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersEntityIdDataSourcesGetResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
+            // Validation Error
+            if ((int)__response.StatusCode == 422)
+            {
+                string? __content_422 = null;
+                global::AI21.HTTPValidationError? __value_422 = null;
+                if (ReadResponseAsString)
+                {
+                    __content_422 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                    __value_422 = global::AI21.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                }
+                else
+                {
+                    var __contentStream_422 = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
+                    __value_422 = await global::AI21.HTTPValidationError.FromJsonStreamAsync(__contentStream_422, JsonSerializerContext).ConfigureAwait(false);
+                }
+
+                throw new global::AI21.ApiException<global::AI21.HTTPValidationError>(
+                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
+                    statusCode: __response.StatusCode)
+                {
+                    ResponseBody = __content_422,
+                    ResponseObject = __value_422,
+                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                        __response.Headers,
+                        h => h.Key,
+                        h => h.Value),
+                };
+            }
 
             if (ReadResponseAsString)
             {
@@ -91,7 +125,7 @@ namespace AI21
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessGetOrganizationModelsByOrganizationEndpointStudioV1SettingsModelsGetResponseContent(
+                ProcessGetOrgDataSourcesInfoStudioV1ConnectorsConnectedUsersEntityIdDataSourcesGetResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -116,7 +150,7 @@ namespace AI21
                 }
 
                 return
-                    global::AI21.OrganizationModelsResponse.FromJson(__content, JsonSerializerContext) ??
+                    global::AI21.ConnectorsDataSources.FromJson(__content, JsonSerializerContext) ??
                     throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
@@ -146,7 +180,7 @@ namespace AI21
                 ).ConfigureAwait(false);
 
                 return
-                    await global::AI21.OrganizationModelsResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    await global::AI21.ConnectorsDataSources.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                     throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }

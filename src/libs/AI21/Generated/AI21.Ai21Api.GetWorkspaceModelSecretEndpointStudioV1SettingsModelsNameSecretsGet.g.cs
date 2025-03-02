@@ -5,35 +5,35 @@ namespace AI21
 {
     public partial class Ai21Api
     {
-        partial void PrepareGetOrganizationModelSecretEndpointStudioV1SettingsModelsNameSecretsGetArguments(
+        partial void PrepareGetWorkspaceModelSecretEndpointStudioV1SettingsModelsNameSecretsGetArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string name);
-        partial void PrepareGetOrganizationModelSecretEndpointStudioV1SettingsModelsNameSecretsGetRequest(
+        partial void PrepareGetWorkspaceModelSecretEndpointStudioV1SettingsModelsNameSecretsGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string name);
-        partial void ProcessGetOrganizationModelSecretEndpointStudioV1SettingsModelsNameSecretsGetResponse(
+        partial void ProcessGetWorkspaceModelSecretEndpointStudioV1SettingsModelsNameSecretsGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGetOrganizationModelSecretEndpointStudioV1SettingsModelsNameSecretsGetResponseContent(
+        partial void ProcessGetWorkspaceModelSecretEndpointStudioV1SettingsModelsNameSecretsGetResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get Organization Model Secret Endpoint
+        /// Get Workspace Model Secret Endpoint
         /// </summary>
         /// <param name="name"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.SecretResponse> GetOrganizationModelSecretEndpointStudioV1SettingsModelsNameSecretsGetAsync(
+        public async global::System.Threading.Tasks.Task<global::AI21.SecretResponse> GetWorkspaceModelSecretEndpointStudioV1SettingsModelsNameSecretsGetAsync(
             string name,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGetOrganizationModelSecretEndpointStudioV1SettingsModelsNameSecretsGetArguments(
+            PrepareGetWorkspaceModelSecretEndpointStudioV1SettingsModelsNameSecretsGetArguments(
                 httpClient: HttpClient,
                 name: ref name);
 
@@ -68,7 +68,7 @@ namespace AI21
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareGetOrganizationModelSecretEndpointStudioV1SettingsModelsNameSecretsGetRequest(
+            PrepareGetWorkspaceModelSecretEndpointStudioV1SettingsModelsNameSecretsGetRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 name: name);
@@ -81,7 +81,7 @@ namespace AI21
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessGetOrganizationModelSecretEndpointStudioV1SettingsModelsNameSecretsGetResponse(
+            ProcessGetWorkspaceModelSecretEndpointStudioV1SettingsModelsNameSecretsGetResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -125,7 +125,7 @@ namespace AI21
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessGetOrganizationModelSecretEndpointStudioV1SettingsModelsNameSecretsGetResponseContent(
+                ProcessGetWorkspaceModelSecretEndpointStudioV1SettingsModelsNameSecretsGetResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);

@@ -2,7 +2,7 @@
 
 namespace AI21
 {
-    public sealed partial class OrganizationModelResponse
+    public sealed partial class WorkspaceModelsResponse
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -34,14 +34,14 @@ namespace AI21
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::AI21.OrganizationModelResponse? FromJson(
+        public static global::AI21.WorkspaceModelsResponse? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::AI21.OrganizationModelResponse),
-                jsonSerializerContext) as global::AI21.OrganizationModelResponse;
+                typeof(global::AI21.WorkspaceModelsResponse),
+                jsonSerializerContext) as global::AI21.WorkspaceModelsResponse;
         }
 
         /// <summary>
@@ -51,11 +51,11 @@ namespace AI21
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::AI21.OrganizationModelResponse? FromJson(
+        public static global::AI21.WorkspaceModelsResponse? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::AI21.OrganizationModelResponse>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::AI21.WorkspaceModelsResponse>(
                 json,
                 jsonSerializerOptions);
         }
@@ -63,14 +63,14 @@ namespace AI21
         /// <summary>
         /// Deserializes a JSON stream using the provided JsonSerializerContext.
         /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::AI21.OrganizationModelResponse?> FromJsonStreamAsync(
+        public static async global::System.Threading.Tasks.ValueTask<global::AI21.WorkspaceModelsResponse?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::AI21.OrganizationModelResponse),
-                jsonSerializerContext).ConfigureAwait(false)) as global::AI21.OrganizationModelResponse;
+                typeof(global::AI21.WorkspaceModelsResponse),
+                jsonSerializerContext).ConfigureAwait(false)) as global::AI21.WorkspaceModelsResponse;
         }
 
         /// <summary>
@@ -80,11 +80,11 @@ namespace AI21
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::System.Threading.Tasks.ValueTask<global::AI21.OrganizationModelResponse?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::AI21.WorkspaceModelsResponse?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::AI21.OrganizationModelResponse?>(
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::AI21.WorkspaceModelsResponse?>(
                 jsonStream,
                 jsonSerializerOptions);
         }

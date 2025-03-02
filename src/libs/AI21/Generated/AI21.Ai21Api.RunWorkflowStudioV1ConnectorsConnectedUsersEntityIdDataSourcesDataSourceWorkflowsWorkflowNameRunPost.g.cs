@@ -5,49 +5,54 @@ namespace AI21
 {
     public partial class Ai21Api
     {
-        partial void PrepareGetDataSourceStatusStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceStatusGetArguments(
+        partial void PrepareRunWorkflowStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceWorkflowsWorkflowNameRunPostArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string organizationId,
-            ref string dataSource);
-        partial void PrepareGetDataSourceStatusStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceStatusGetRequest(
+            ref string entityId,
+            ref string dataSource,
+            ref string workflowName);
+        partial void PrepareRunWorkflowStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceWorkflowsWorkflowNameRunPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string organizationId,
-            string dataSource);
-        partial void ProcessGetDataSourceStatusStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceStatusGetResponse(
+            string entityId,
+            string dataSource,
+            string workflowName);
+        partial void ProcessRunWorkflowStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceWorkflowsWorkflowNameRunPostResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGetDataSourceStatusStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceStatusGetResponseContent(
+        partial void ProcessRunWorkflowStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceWorkflowsWorkflowNameRunPostResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get Data Source Status
+        /// Run Workflow
         /// </summary>
-        /// <param name="organizationId"></param>
+        /// <param name="entityId"></param>
         /// <param name="dataSource"></param>
+        /// <param name="workflowName"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.ConnectorsStatus> GetDataSourceStatusStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceStatusGetAsync(
-            string organizationId,
+        public async global::System.Threading.Tasks.Task<string> RunWorkflowStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceWorkflowsWorkflowNameRunPostAsync(
+            string entityId,
             string dataSource,
+            string workflowName,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGetDataSourceStatusStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceStatusGetArguments(
+            PrepareRunWorkflowStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceWorkflowsWorkflowNameRunPostArguments(
                 httpClient: HttpClient,
-                organizationId: ref organizationId,
-                dataSource: ref dataSource);
+                entityId: ref entityId,
+                dataSource: ref dataSource,
+                workflowName: ref workflowName);
 
             var __pathBuilder = new PathBuilder(
-                path: $"/studio/v1/connectors/connected-users/{organizationId}/data-sources/{dataSource}/status",
+                path: $"/studio/v1/connectors/connected-users/{entityId}/data-sources/{dataSource}/workflows/{workflowName}/run",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: global::System.Net.Http.HttpMethod.Get,
+                method: global::System.Net.Http.HttpMethod.Post,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -73,11 +78,12 @@ namespace AI21
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareGetDataSourceStatusStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceStatusGetRequest(
+            PrepareRunWorkflowStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceWorkflowsWorkflowNameRunPostRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                organizationId: organizationId,
-                dataSource: dataSource);
+                entityId: entityId,
+                dataSource: dataSource,
+                workflowName: workflowName);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -87,7 +93,7 @@ namespace AI21
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessGetDataSourceStatusStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceStatusGetResponse(
+            ProcessRunWorkflowStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceWorkflowsWorkflowNameRunPostResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -131,7 +137,7 @@ namespace AI21
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessGetDataSourceStatusStudioV1ConnectorsConnectedUsersOrganizationIdDataSourcesDataSourceStatusGetResponseContent(
+                ProcessRunWorkflowStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceWorkflowsWorkflowNameRunPostResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -155,9 +161,7 @@ namespace AI21
                     };
                 }
 
-                return
-                    global::AI21.ConnectorsStatus.FromJson(__content, JsonSerializerContext) ??
-                    throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                return __content;
             }
             else
             {
@@ -179,15 +183,13 @@ namespace AI21
                     };
                 }
 
-                using var __content = await __response.Content.ReadAsStreamAsync(
+                var __content = await __response.Content.ReadAsStringAsync(
 #if NET5_0_OR_GREATER
                     cancellationToken
 #endif
                 ).ConfigureAwait(false);
 
-                return
-                    await global::AI21.ConnectorsStatus.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                    throw new global::System.InvalidOperationException("Response deserialization failed.");
+                return __content;
             }
         }
     }
