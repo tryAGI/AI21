@@ -1953,10 +1953,14 @@ components:
         - jamba-instruct-preview
         - jamba-1.5-mini
         - jamba-1.5-large
-        - jamba-1.5-mini-2024-08
-        - jamba-1.5-large-2024-08
-        - jamba-1.5-mini-2025-02
-        - jamba-1.5-large-2025-02
+        - jamba-mini-1.5
+        - jamba-large-1.5
+        - jamba-mini
+        - jamba-large
+        - jamba-mini-1.6
+        - jamba-large-1.6
+        - jamba-mini-1.6-2025-03
+        - jamba-large-1.6-2025-03
       type: string
       description: An enumeration.
     Plan:

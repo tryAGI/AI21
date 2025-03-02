@@ -27,19 +27,35 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        Jamba15Mini202408,
+        JambaMini15,
         /// <summary>
         /// 
         /// </summary>
-        Jamba15Large202408,
+        JambaLarge15,
         /// <summary>
         /// 
         /// </summary>
-        Jamba15Mini202502,
+        JambaMini,
         /// <summary>
         /// 
         /// </summary>
-        Jamba15Large202502,
+        JambaLarge,
+        /// <summary>
+        /// 
+        /// </summary>
+        JambaMini16,
+        /// <summary>
+        /// 
+        /// </summary>
+        JambaLarge16,
+        /// <summary>
+        /// 
+        /// </summary>
+        JambaMini16202503,
+        /// <summary>
+        /// 
+        /// </summary>
+        JambaLarge16202503,
     }
 
     /// <summary>
@@ -58,10 +74,14 @@ namespace AI21
                 ModelName.JambaInstructPreview => "jamba-instruct-preview",
                 ModelName.Jamba15Mini => "jamba-1.5-mini",
                 ModelName.Jamba15Large => "jamba-1.5-large",
-                ModelName.Jamba15Mini202408 => "jamba-1.5-mini-2024-08",
-                ModelName.Jamba15Large202408 => "jamba-1.5-large-2024-08",
-                ModelName.Jamba15Mini202502 => "jamba-1.5-mini-2025-02",
-                ModelName.Jamba15Large202502 => "jamba-1.5-large-2025-02",
+                ModelName.JambaMini15 => "jamba-mini-1.5",
+                ModelName.JambaLarge15 => "jamba-large-1.5",
+                ModelName.JambaMini => "jamba-mini",
+                ModelName.JambaLarge => "jamba-large",
+                ModelName.JambaMini16 => "jamba-mini-1.6",
+                ModelName.JambaLarge16 => "jamba-large-1.6",
+                ModelName.JambaMini16202503 => "jamba-mini-1.6-2025-03",
+                ModelName.JambaLarge16202503 => "jamba-large-1.6-2025-03",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -76,10 +96,14 @@ namespace AI21
                 "jamba-instruct-preview" => ModelName.JambaInstructPreview,
                 "jamba-1.5-mini" => ModelName.Jamba15Mini,
                 "jamba-1.5-large" => ModelName.Jamba15Large,
-                "jamba-1.5-mini-2024-08" => ModelName.Jamba15Mini202408,
-                "jamba-1.5-large-2024-08" => ModelName.Jamba15Large202408,
-                "jamba-1.5-mini-2025-02" => ModelName.Jamba15Mini202502,
-                "jamba-1.5-large-2025-02" => ModelName.Jamba15Large202502,
+                "jamba-mini-1.5" => ModelName.JambaMini15,
+                "jamba-large-1.5" => ModelName.JambaLarge15,
+                "jamba-mini" => ModelName.JambaMini,
+                "jamba-large" => ModelName.JambaLarge,
+                "jamba-mini-1.6" => ModelName.JambaMini16,
+                "jamba-large-1.6" => ModelName.JambaLarge16,
+                "jamba-mini-1.6-2025-03" => ModelName.JambaMini16202503,
+                "jamba-large-1.6-2025-03" => ModelName.JambaLarge16202503,
                 _ => null,
             };
         }
