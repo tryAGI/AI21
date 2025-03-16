@@ -57,8 +57,7 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("optimization")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Optimization { get; set; }
+        public string? Optimization { get; set; }
 
         /// <summary>
         /// 
@@ -143,10 +142,10 @@ namespace AI21
             global::System.DateTime updatedAt,
             string @object,
             string name,
-            string optimization,
             string organizationId,
             string userId,
             string? description,
+            string? optimization,
             string? avatar,
             bool? isArchived,
             global::AI21.AnyOf<global::System.Collections.Generic.IList<global::System.Guid>, global::System.Collections.Generic.IList<string>>? models,
@@ -158,10 +157,10 @@ namespace AI21
             this.UpdatedAt = updatedAt;
             this.Object = @object ?? throw new global::System.ArgumentNullException(nameof(@object));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.Optimization = optimization ?? throw new global::System.ArgumentNullException(nameof(optimization));
             this.OrganizationId = organizationId ?? throw new global::System.ArgumentNullException(nameof(organizationId));
             this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
             this.Description = description;
+            this.Optimization = optimization;
             this.Avatar = avatar;
             this.IsArchived = isArchived;
             this.Models = models;

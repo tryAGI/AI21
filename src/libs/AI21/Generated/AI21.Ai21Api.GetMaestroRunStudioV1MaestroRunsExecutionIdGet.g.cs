@@ -5,40 +5,40 @@ namespace AI21
 {
     public partial class Ai21Api
     {
-        partial void PrepareGetStatelessRunStudioV1StatelessRunExecutionIdGetArguments(
+        partial void PrepareGetMaestroRunStudioV1MaestroRunsExecutionIdGetArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string executionId);
-        partial void PrepareGetStatelessRunStudioV1StatelessRunExecutionIdGetRequest(
+        partial void PrepareGetMaestroRunStudioV1MaestroRunsExecutionIdGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string executionId);
-        partial void ProcessGetStatelessRunStudioV1StatelessRunExecutionIdGetResponse(
+        partial void ProcessGetMaestroRunStudioV1MaestroRunsExecutionIdGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGetStatelessRunStudioV1StatelessRunExecutionIdGetResponseContent(
+        partial void ProcessGetMaestroRunStudioV1MaestroRunsExecutionIdGetResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get Stateless Run
+        /// Get Maestro Run
         /// </summary>
         /// <param name="executionId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.StatelessRunResult> GetStatelessRunStudioV1StatelessRunExecutionIdGetAsync(
+        public async global::System.Threading.Tasks.Task<global::AI21.MaestroRunResult> GetMaestroRunStudioV1MaestroRunsExecutionIdGetAsync(
             string executionId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGetStatelessRunStudioV1StatelessRunExecutionIdGetArguments(
+            PrepareGetMaestroRunStudioV1MaestroRunsExecutionIdGetArguments(
                 httpClient: HttpClient,
                 executionId: ref executionId);
 
             var __pathBuilder = new PathBuilder(
-                path: $"/studio/v1/stateless-run/{executionId}",
+                path: $"/studio/v1/maestro/runs/{executionId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -68,7 +68,7 @@ namespace AI21
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareGetStatelessRunStudioV1StatelessRunExecutionIdGetRequest(
+            PrepareGetMaestroRunStudioV1MaestroRunsExecutionIdGetRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 executionId: executionId);
@@ -81,7 +81,7 @@ namespace AI21
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessGetStatelessRunStudioV1StatelessRunExecutionIdGetResponse(
+            ProcessGetMaestroRunStudioV1MaestroRunsExecutionIdGetResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -125,7 +125,7 @@ namespace AI21
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessGetStatelessRunStudioV1StatelessRunExecutionIdGetResponseContent(
+                ProcessGetMaestroRunStudioV1MaestroRunsExecutionIdGetResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -150,7 +150,7 @@ namespace AI21
                 }
 
                 return
-                    global::AI21.StatelessRunResult.FromJson(__content, JsonSerializerContext) ??
+                    global::AI21.MaestroRunResult.FromJson(__content, JsonSerializerContext) ??
                     throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
@@ -180,7 +180,7 @@ namespace AI21
                 ).ConfigureAwait(false);
 
                 return
-                    await global::AI21.StatelessRunResult.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    await global::AI21.MaestroRunResult.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                     throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }

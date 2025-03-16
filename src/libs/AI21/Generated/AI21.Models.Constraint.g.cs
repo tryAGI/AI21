@@ -26,8 +26,7 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_mandatory")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool IsMandatory { get; set; }
+        public bool? IsMandatory { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -47,7 +46,7 @@ namespace AI21
         public Constraint(
             string name,
             string description,
-            bool isMandatory)
+            bool? isMandatory)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));

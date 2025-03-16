@@ -3,10 +3,10 @@
 namespace AI21.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class StatelessRunResultStatusNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::AI21.StatelessRunResultStatus?>
+    public sealed class CreateMaestroRunsPayloadTool2NullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::AI21.CreateMaestroRunsPayloadTool2?>
     {
         /// <inheritdoc />
-        public override global::AI21.StatelessRunResultStatus? Read(
+        public override global::AI21.CreateMaestroRunsPayloadTool2? Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace AI21.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::AI21.StatelessRunResultStatusExtensions.ToEnum(stringValue);
+                        return global::AI21.CreateMaestroRunsPayloadTool2Extensions.ToEnum(stringValue);
                     }
                     
                     break;
@@ -26,7 +26,7 @@ namespace AI21.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::AI21.StatelessRunResultStatus)numValue;
+                    return (global::AI21.CreateMaestroRunsPayloadTool2)numValue;
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -38,7 +38,7 @@ namespace AI21.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::AI21.StatelessRunResultStatus? value,
+            global::AI21.CreateMaestroRunsPayloadTool2? value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
@@ -49,7 +49,7 @@ namespace AI21.JsonConverters
             }
             else
             {
-                writer.WriteStringValue(global::AI21.StatelessRunResultStatusExtensions.ToValueString(value.Value));
+                writer.WriteStringValue(global::AI21.CreateMaestroRunsPayloadTool2Extensions.ToValueString(value.Value));
             }
         }
     }

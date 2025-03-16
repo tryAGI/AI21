@@ -56,6 +56,10 @@ namespace AI21
         /// 
         /// </summary>
         JambaLarge16202503,
+        /// <summary>
+        /// 
+        /// </summary>
+        JambaMini16Booking,
     }
 
     /// <summary>
@@ -82,6 +86,7 @@ namespace AI21
                 ModelName.JambaLarge16 => "jamba-large-1.6",
                 ModelName.JambaMini16202503 => "jamba-mini-1.6-2025-03",
                 ModelName.JambaLarge16202503 => "jamba-large-1.6-2025-03",
+                ModelName.JambaMini16Booking => "jamba-mini-1.6-booking",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -104,6 +109,7 @@ namespace AI21
                 "jamba-large-1.6" => ModelName.JambaLarge16,
                 "jamba-mini-1.6-2025-03" => ModelName.JambaMini16202503,
                 "jamba-large-1.6-2025-03" => ModelName.JambaLarge16202503,
+                "jamba-mini-1.6-booking" => ModelName.JambaMini16Booking,
                 _ => null,
             };
         }
