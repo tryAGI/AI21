@@ -472,15 +472,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /studio/v1/stateless-run:
+  /studio/v1/maestro/runs:
     post:
-      summary: Create Stateless Run
-      operationId: create_stateless_run_studio_v1_stateless_run_post
+      summary: Create Maestro Run
+      operationId: create_maestro_run_studio_v1_maestro_runs_post
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateStatelessRunsPayload'
+              $ref: '#/components/schemas/CreateMaestroRunsPayload'
         required: true
       responses:
         '200':
@@ -488,17 +488,17 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/StatelessRunResult'
+                $ref: '#/components/schemas/MaestroRunResult'
         '422':
           description: Validation Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/studio/v1/stateless-run/{execution_id}':
+  '/studio/v1/maestro/runs/{execution_id}':
     get:
-      summary: Get Stateless Run
-      operationId: get_stateless_run_studio_v1_stateless_run__execution_id__get
+      summary: Get Maestro Run
+      operationId: get_maestro_run_studio_v1_maestro_runs__execution_id__get
       parameters:
         - name: execution_id
           in: path
@@ -512,7 +512,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/StatelessRunResult'
+                $ref: '#/components/schemas/MaestroRunResult'
         '422':
           description: Validation Error
           content:
@@ -954,7 +954,6 @@ components:
         - updated_at
         - object
         - name
-        - optimization
         - organization_id
         - user_id
       type: object
@@ -1381,7 +1380,6 @@ components:
       required:
         - name
         - description
-        - is_mandatory
       type: object
       properties:
         name:
@@ -1527,6 +1525,50 @@ components:
           type: array
           items:
             type: string
+    CreateMaestroRunsPayload:
+      title: CreateMaestroRunsPayload
+      required:
+        - messages
+      type: object
+      properties:
+        messages:
+          title: Messages
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+          description: messages
+        output_type:
+          title: Output Type
+          type: object
+        models:
+          title: Models
+          type: array
+          items:
+            type: string
+        tools:
+          title: Tools
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              enum:
+                - file_search
+                - web_search
+              type: string
+        tool_resources:
+          $ref: '#/components/schemas/ToolResources'
+        verbose:
+          title: Verbose
+          type: boolean
+          default: false
+        context:
+          title: Context
+          type: object
+        constraints:
+          title: Constraints
+          type: array
+          items:
+            $ref: '#/components/schemas/Constraint'
     CreatePlanPayload:
       title: CreatePlanPayload
       required:
@@ -1577,47 +1619,6 @@ components:
         secret_value:
           title: Secret Value
           type: string
-    CreateStatelessRunsPayload:
-      title: CreateStatelessRunsPayload
-      required:
-        - messages
-      type: object
-      properties:
-        messages:
-          title: Messages
-          type: array
-          items:
-            $ref: '#/components/schemas/Message'
-          description: messages
-        output_type:
-          title: Output Type
-          type: object
-        models:
-          title: Models
-          type: array
-          items:
-            type: string
-        tools:
-          title: Tools
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              $ref: '#/components/schemas/AssistantTool'
-        tool_resources:
-          $ref: '#/components/schemas/AssistantToolResource'
-        verbose:
-          title: Verbose
-          type: boolean
-          default: false
-        context:
-          title: Context
-          type: object
-        constraints:
-          title: Constraints
-          type: array
-          items:
-            $ref: '#/components/schemas/Constraint'
     DataSourceMetadata:
       title: DataSourceMetadata
       required:
@@ -1915,6 +1916,28 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TopLogprobsData'
+    MaestroRunResult:
+      title: MaestroRunResult
+      required:
+        - id
+        - status
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
+          format: uuid
+        status:
+          title: Status
+          enum:
+            - completed
+            - failed
+            - in_progress
+            - requires_action
+          type: string
+        result:
+          title: Result
     Message:
       title: Message
       required:
@@ -1961,6 +1984,7 @@ components:
         - jamba-large-1.6
         - jamba-mini-1.6-2025-03
         - jamba-large-1.6-2025-03
+        - jamba-mini-1.6-booking
       type: string
       description: An enumeration.
     Plan:
@@ -2038,28 +2062,6 @@ components:
         secret_key:
           title: Secret Key
           type: string
-    StatelessRunResult:
-      title: StatelessRunResult
-      required:
-        - id
-        - status
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
-          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
-          format: uuid
-        status:
-          title: Status
-          enum:
-            - completed
-            - failed
-            - in_progress
-            - requires_action
-          type: string
-        result:
-          title: Result
     SystemMessage:
       title: SystemMessage
       required:
@@ -2164,6 +2166,16 @@ components:
           items:
             type: string
           description: List of required properties
+    ToolResources:
+      title: ToolResources
+      type: object
+      properties:
+        file_search:
+          title: File Search
+          type: object
+        web_search:
+          title: Web Search
+          type: object
     TopLogprobsData:
       title: TopLogprobsData
       required:

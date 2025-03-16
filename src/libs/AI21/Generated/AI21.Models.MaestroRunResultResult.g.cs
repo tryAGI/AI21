@@ -6,7 +6,7 @@ namespace AI21
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class CreateStatelessRunsPayloadTool
+    public sealed partial class MaestroRunResultResult
     {
 
         /// <summary>

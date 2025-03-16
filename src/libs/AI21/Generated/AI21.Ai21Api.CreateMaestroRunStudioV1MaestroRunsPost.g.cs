@@ -5,42 +5,42 @@ namespace AI21
 {
     public partial class Ai21Api
     {
-        partial void PrepareCreateStatelessRunStudioV1StatelessRunPostArguments(
+        partial void PrepareCreateMaestroRunStudioV1MaestroRunsPostArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::AI21.CreateStatelessRunsPayload request);
-        partial void PrepareCreateStatelessRunStudioV1StatelessRunPostRequest(
+            global::AI21.CreateMaestroRunsPayload request);
+        partial void PrepareCreateMaestroRunStudioV1MaestroRunsPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::AI21.CreateStatelessRunsPayload request);
-        partial void ProcessCreateStatelessRunStudioV1StatelessRunPostResponse(
+            global::AI21.CreateMaestroRunsPayload request);
+        partial void ProcessCreateMaestroRunStudioV1MaestroRunsPostResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateStatelessRunStudioV1StatelessRunPostResponseContent(
+        partial void ProcessCreateMaestroRunStudioV1MaestroRunsPostResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Create Stateless Run
+        /// Create Maestro Run
         /// </summary>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.StatelessRunResult> CreateStatelessRunStudioV1StatelessRunPostAsync(
-            global::AI21.CreateStatelessRunsPayload request,
+        public async global::System.Threading.Tasks.Task<global::AI21.MaestroRunResult> CreateMaestroRunStudioV1MaestroRunsPostAsync(
+            global::AI21.CreateMaestroRunsPayload request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreateStatelessRunStudioV1StatelessRunPostArguments(
+            PrepareCreateMaestroRunStudioV1MaestroRunsPostArguments(
                 httpClient: HttpClient,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
-                path: "/studio/v1/stateless-run",
+                path: "/studio/v1/maestro/runs",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -76,7 +76,7 @@ namespace AI21
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareCreateStatelessRunStudioV1StatelessRunPostRequest(
+            PrepareCreateMaestroRunStudioV1MaestroRunsPostRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 request: request);
@@ -89,7 +89,7 @@ namespace AI21
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessCreateStatelessRunStudioV1StatelessRunPostResponse(
+            ProcessCreateMaestroRunStudioV1MaestroRunsPostResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -133,7 +133,7 @@ namespace AI21
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessCreateStatelessRunStudioV1StatelessRunPostResponseContent(
+                ProcessCreateMaestroRunStudioV1MaestroRunsPostResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -158,7 +158,7 @@ namespace AI21
                 }
 
                 return
-                    global::AI21.StatelessRunResult.FromJson(__content, JsonSerializerContext) ??
+                    global::AI21.MaestroRunResult.FromJson(__content, JsonSerializerContext) ??
                     throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
@@ -188,13 +188,13 @@ namespace AI21
                 ).ConfigureAwait(false);
 
                 return
-                    await global::AI21.StatelessRunResult.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    await global::AI21.MaestroRunResult.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                     throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }
 
         /// <summary>
-        /// Create Stateless Run
+        /// Create Maestro Run
         /// </summary>
         /// <param name="messages">
         /// messages
@@ -210,18 +210,18 @@ namespace AI21
         /// <param name="constraints"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.StatelessRunResult> CreateStatelessRunStudioV1StatelessRunPostAsync(
+        public async global::System.Threading.Tasks.Task<global::AI21.MaestroRunResult> CreateMaestroRunStudioV1MaestroRunsPostAsync(
             global::System.Collections.Generic.IList<global::AI21.Message> messages,
             object? outputType = default,
             global::System.Collections.Generic.IList<string>? models = default,
-            global::System.Collections.Generic.IList<object>? tools = default,
-            global::AI21.AssistantToolResource? toolResources = default,
+            global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, global::AI21.CreateMaestroRunsPayloadTool2>>? tools = default,
+            global::AI21.ToolResources? toolResources = default,
             bool? verbose = default,
             object? context = default,
             global::System.Collections.Generic.IList<global::AI21.Constraint>? constraints = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::AI21.CreateStatelessRunsPayload
+            var __request = new global::AI21.CreateMaestroRunsPayload
             {
                 Messages = messages,
                 OutputType = outputType,
@@ -233,7 +233,7 @@ namespace AI21
                 Constraints = constraints,
             };
 
-            return await CreateStatelessRunStudioV1StatelessRunPostAsync(
+            return await CreateMaestroRunStudioV1MaestroRunsPostAsync(
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

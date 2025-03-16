@@ -6,7 +6,7 @@ namespace AI21
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class StatelessRunResultResult
+    public sealed partial class CreateMaestroRunsPayloadOutputType
     {
 
         /// <summary>

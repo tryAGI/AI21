@@ -6,7 +6,7 @@ namespace AI21
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class StatelessRunResult
+    public sealed partial class MaestroRunResult
     {
         /// <summary>
         /// A unique ID for the request (not the message). Repeated identical requests<br/>
@@ -21,9 +21,9 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.StatelessRunResultStatusJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.MaestroRunResultStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::AI21.StatelessRunResultStatus Status { get; set; }
+        public required global::AI21.MaestroRunResultStatus Status { get; set; }
 
         /// <summary>
         /// 
@@ -38,7 +38,7 @@ namespace AI21
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatelessRunResult" /> class.
+        /// Initializes a new instance of the <see cref="MaestroRunResult" /> class.
         /// </summary>
         /// <param name="id">
         /// A unique ID for the request (not the message). Repeated identical requests<br/>
@@ -50,9 +50,9 @@ namespace AI21
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public StatelessRunResult(
+        public MaestroRunResult(
             global::System.Guid id,
-            global::AI21.StatelessRunResultStatus status,
+            global::AI21.MaestroRunResultStatus status,
             object? result)
         {
             this.Id = id;
@@ -61,9 +61,9 @@ namespace AI21
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatelessRunResult" /> class.
+        /// Initializes a new instance of the <see cref="MaestroRunResult" /> class.
         /// </summary>
-        public StatelessRunResult()
+        public MaestroRunResult()
         {
         }
     }

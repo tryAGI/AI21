@@ -6,7 +6,7 @@ namespace AI21
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class CreateStatelessRunsPayload
+    public sealed partial class CreateMaestroRunsPayload
     {
         /// <summary>
         /// messages
@@ -31,13 +31,13 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
-        public global::System.Collections.Generic.IList<object>? Tools { get; set; }
+        public global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, global::AI21.CreateMaestroRunsPayloadTool2>>? Tools { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_resources")]
-        public global::AI21.AssistantToolResource? ToolResources { get; set; }
+        public global::AI21.ToolResources? ToolResources { get; set; }
 
         /// <summary>
         /// Default Value: false
@@ -64,7 +64,7 @@ namespace AI21
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateStatelessRunsPayload" /> class.
+        /// Initializes a new instance of the <see cref="CreateMaestroRunsPayload" /> class.
         /// </summary>
         /// <param name="messages">
         /// messages
@@ -81,12 +81,12 @@ namespace AI21
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public CreateStatelessRunsPayload(
+        public CreateMaestroRunsPayload(
             global::System.Collections.Generic.IList<global::AI21.Message> messages,
             object? outputType,
             global::System.Collections.Generic.IList<string>? models,
-            global::System.Collections.Generic.IList<object>? tools,
-            global::AI21.AssistantToolResource? toolResources,
+            global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, global::AI21.CreateMaestroRunsPayloadTool2>>? tools,
+            global::AI21.ToolResources? toolResources,
             bool? verbose,
             object? context,
             global::System.Collections.Generic.IList<global::AI21.Constraint>? constraints)
@@ -102,9 +102,9 @@ namespace AI21
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateStatelessRunsPayload" /> class.
+        /// Initializes a new instance of the <see cref="CreateMaestroRunsPayload" /> class.
         /// </summary>
-        public CreateStatelessRunsPayload()
+        public CreateMaestroRunsPayload()
         {
         }
     }
