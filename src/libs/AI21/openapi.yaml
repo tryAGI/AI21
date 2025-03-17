@@ -1375,22 +1375,6 @@ components:
         - FAILED
         - SUCCEEDED
       description: An enumeration.
-    Constraint:
-      title: Constraint
-      required:
-        - name
-        - description
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-        description:
-          title: Description
-          type: string
-        is_mandatory:
-          title: Is Mandatory
-          type: boolean
     ConversationalRagConfig:
       title: ConversationalRagConfig
       required:
@@ -1528,15 +1512,16 @@ components:
     CreateMaestroRunsPayload:
       title: CreateMaestroRunsPayload
       required:
-        - messages
+        - input
       type: object
       properties:
-        messages:
-          title: Messages
-          type: array
-          items:
-            $ref: '#/components/schemas/Message'
-          description: messages
+        input:
+          title: Input
+          anyOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/Message'
+            - type: string
         output_type:
           title: Output Type
           type: object
@@ -1564,11 +1549,11 @@ components:
         context:
           title: Context
           type: object
-        constraints:
-          title: Constraints
+        requirements:
+          title: Requirements
           type: array
           items:
-            $ref: '#/components/schemas/Constraint'
+            $ref: '#/components/schemas/Requirement'
     CreatePlanPayload:
       title: CreatePlanPayload
       required:
@@ -2028,6 +2013,22 @@ components:
         - type: object
           additionalProperties:
             $ref: '#/components/schemas/ComparisonOperator'
+    Requirement:
+      title: Requirement
+      required:
+        - name
+        - description
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        is_mandatory:
+          title: Is Mandatory
+          type: boolean
     ResponseFormat:
       title: ResponseFormat
       required:

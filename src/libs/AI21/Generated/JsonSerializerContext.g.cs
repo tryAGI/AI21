@@ -60,6 +60,7 @@ namespace AI21
             typeof(global::AI21.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<global::System.Guid>, global::System.Collections.Generic.IList<string>>),
             typeof(global::AI21.JsonConverters.AnyOfJsonConverter<global::AI21.ChatStreamingFirstDelta, global::AI21.ChatStreamingContentDelta>),
             typeof(global::AI21.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>),
+            typeof(global::AI21.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<global::AI21.Message>, string>),
             typeof(global::AI21.JsonConverters.AnyOfJsonConverter<string, int?>),
             typeof(global::AI21.JsonConverters.AnyOfJsonConverter<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>),
             typeof(global::AI21.JsonConverters.UnixTimestampJsonConverter),

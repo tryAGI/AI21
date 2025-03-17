@@ -2,7 +2,7 @@
 
 namespace AI21
 {
-    public sealed partial class Constraint
+    public sealed partial class Requirement
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -34,14 +34,14 @@ namespace AI21
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::AI21.Constraint? FromJson(
+        public static global::AI21.Requirement? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::AI21.Constraint),
-                jsonSerializerContext) as global::AI21.Constraint;
+                typeof(global::AI21.Requirement),
+                jsonSerializerContext) as global::AI21.Requirement;
         }
 
         /// <summary>
@@ -51,11 +51,11 @@ namespace AI21
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::AI21.Constraint? FromJson(
+        public static global::AI21.Requirement? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::AI21.Constraint>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::AI21.Requirement>(
                 json,
                 jsonSerializerOptions);
         }
@@ -63,14 +63,14 @@ namespace AI21
         /// <summary>
         /// Deserializes a JSON stream using the provided JsonSerializerContext.
         /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::AI21.Constraint?> FromJsonStreamAsync(
+        public static async global::System.Threading.Tasks.ValueTask<global::AI21.Requirement?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::AI21.Constraint),
-                jsonSerializerContext).ConfigureAwait(false)) as global::AI21.Constraint;
+                typeof(global::AI21.Requirement),
+                jsonSerializerContext).ConfigureAwait(false)) as global::AI21.Requirement;
         }
 
         /// <summary>
@@ -80,11 +80,11 @@ namespace AI21
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::System.Threading.Tasks.ValueTask<global::AI21.Constraint?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::AI21.Requirement?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::AI21.Constraint?>(
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::AI21.Requirement?>(
                 jsonStream,
                 jsonSerializerOptions);
         }

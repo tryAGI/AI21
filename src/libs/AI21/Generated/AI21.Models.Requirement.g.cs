@@ -6,7 +6,7 @@ namespace AI21
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class Constraint
+    public sealed partial class Requirement
     {
         /// <summary>
         /// 
@@ -35,7 +35,7 @@ namespace AI21
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Constraint" /> class.
+        /// Initializes a new instance of the <see cref="Requirement" /> class.
         /// </summary>
         /// <param name="name"></param>
         /// <param name="description"></param>
@@ -43,7 +43,7 @@ namespace AI21
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public Constraint(
+        public Requirement(
             string name,
             string description,
             bool? isMandatory)
@@ -54,9 +54,9 @@ namespace AI21
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Constraint" /> class.
+        /// Initializes a new instance of the <see cref="Requirement" /> class.
         /// </summary>
-        public Constraint()
+        public Requirement()
         {
         }
     }
