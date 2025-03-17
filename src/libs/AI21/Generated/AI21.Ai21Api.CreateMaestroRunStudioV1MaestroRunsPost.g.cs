@@ -196,9 +196,7 @@ namespace AI21
         /// <summary>
         /// Create Maestro Run
         /// </summary>
-        /// <param name="messages">
-        /// messages
-        /// </param>
+        /// <param name="input"></param>
         /// <param name="outputType"></param>
         /// <param name="models"></param>
         /// <param name="tools"></param>
@@ -207,30 +205,30 @@ namespace AI21
         /// Default Value: false
         /// </param>
         /// <param name="context"></param>
-        /// <param name="constraints"></param>
+        /// <param name="requirements"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.MaestroRunResult> CreateMaestroRunStudioV1MaestroRunsPostAsync(
-            global::System.Collections.Generic.IList<global::AI21.Message> messages,
+            global::AI21.AnyOf<global::System.Collections.Generic.IList<global::AI21.Message>, string> input,
             object? outputType = default,
             global::System.Collections.Generic.IList<string>? models = default,
             global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, global::AI21.CreateMaestroRunsPayloadTool2>>? tools = default,
             global::AI21.ToolResources? toolResources = default,
             bool? verbose = default,
             object? context = default,
-            global::System.Collections.Generic.IList<global::AI21.Constraint>? constraints = default,
+            global::System.Collections.Generic.IList<global::AI21.Requirement>? requirements = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::AI21.CreateMaestroRunsPayload
             {
-                Messages = messages,
+                Input = input,
                 OutputType = outputType,
                 Models = models,
                 Tools = tools,
                 ToolResources = toolResources,
                 Verbose = verbose,
                 Context = context,
-                Constraints = constraints,
+                Requirements = requirements,
             };
 
             return await CreateMaestroRunStudioV1MaestroRunsPostAsync(

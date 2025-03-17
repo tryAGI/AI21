@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace AI21
@@ -9,11 +11,12 @@ namespace AI21
     public sealed partial class CreateMaestroRunsPayload
     {
         /// <summary>
-        /// messages
+        /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("messages")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("input")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<global::AI21.Message>, string>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::AI21.Message> Messages { get; set; }
+        public required global::AI21.AnyOf<global::System.Collections.Generic.IList<global::AI21.Message>, string> Input { get; set; }
 
         /// <summary>
         /// 
@@ -54,8 +57,8 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("constraints")]
-        public global::System.Collections.Generic.IList<global::AI21.Constraint>? Constraints { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("requirements")]
+        public global::System.Collections.Generic.IList<global::AI21.Requirement>? Requirements { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -66,9 +69,7 @@ namespace AI21
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateMaestroRunsPayload" /> class.
         /// </summary>
-        /// <param name="messages">
-        /// messages
-        /// </param>
+        /// <param name="input"></param>
         /// <param name="outputType"></param>
         /// <param name="models"></param>
         /// <param name="tools"></param>
@@ -77,28 +78,28 @@ namespace AI21
         /// Default Value: false
         /// </param>
         /// <param name="context"></param>
-        /// <param name="constraints"></param>
+        /// <param name="requirements"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateMaestroRunsPayload(
-            global::System.Collections.Generic.IList<global::AI21.Message> messages,
+            global::AI21.AnyOf<global::System.Collections.Generic.IList<global::AI21.Message>, string> input,
             object? outputType,
             global::System.Collections.Generic.IList<string>? models,
             global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, global::AI21.CreateMaestroRunsPayloadTool2>>? tools,
             global::AI21.ToolResources? toolResources,
             bool? verbose,
             object? context,
-            global::System.Collections.Generic.IList<global::AI21.Constraint>? constraints)
+            global::System.Collections.Generic.IList<global::AI21.Requirement>? requirements)
         {
-            this.Messages = messages ?? throw new global::System.ArgumentNullException(nameof(messages));
+            this.Input = input;
             this.OutputType = outputType;
             this.Models = models;
             this.Tools = tools;
             this.ToolResources = toolResources;
             this.Verbose = verbose;
             this.Context = context;
-            this.Constraints = constraints;
+            this.Requirements = requirements;
         }
 
         /// <summary>

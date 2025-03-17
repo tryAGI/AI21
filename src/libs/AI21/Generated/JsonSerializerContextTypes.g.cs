@@ -314,47 +314,47 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.Constraint? Type72 { get; set; }
+        public global::AI21.ConversationalRagConfig? Type72 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.ConversationalRagConfig? Type73 { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.Message>? Type73 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::AI21.Message>? Type74 { get; set; }
+        public global::AI21.Message? Type74 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.Message? Type75 { get; set; }
+        public global::AI21.MessageRole? Type75 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.MessageRole? Type76 { get; set; }
+        public global::AI21.ConversationalRagConfigRetrievalStrategy? Type76 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.ConversationalRagConfigRetrievalStrategy? Type77 { get; set; }
+        public global::AI21.ConversationalRagConfigResponseLanguage? Type77 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.ConversationalRagConfigResponseLanguage? Type78 { get; set; }
+        public global::AI21.ConversationalRagResult? Type78 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.ConversationalRagResult? Type79 { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.ConversationalRagSource>? Type79 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::AI21.ConversationalRagSource>? Type80 { get; set; }
+        public global::AI21.ConversationalRagSource? Type80 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.ConversationalRagSource? Type81 { get; set; }
+        public global::AI21.CreateMaestroRunsPayload? Type81 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.CreateMaestroRunsPayload? Type82 { get; set; }
+        public global::AI21.AnyOf<global::System.Collections.Generic.IList<global::AI21.Message>, string>? Type82 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -374,150 +374,154 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::AI21.Constraint>? Type87 { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.Requirement>? Type87 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.CreatePlanPayload? Type88 { get; set; }
+        public global::AI21.Requirement? Type88 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.CreateRoutePayload? Type89 { get; set; }
+        public global::AI21.CreatePlanPayload? Type89 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.CreateSecretPayload? Type90 { get; set; }
+        public global::AI21.CreateRoutePayload? Type90 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.DeleteAssistantResponse? Type91 { get; set; }
+        public global::AI21.CreateSecretPayload? Type91 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.FileResponse? Type92 { get; set; }
+        public global::AI21.DeleteAssistantResponse? Type92 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.FileStatus? Type93 { get; set; }
+        public global::AI21.FileResponse? Type93 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.FilesUpdateRequest? Type94 { get; set; }
+        public global::AI21.FileStatus? Type94 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.HTTPValidationError? Type95 { get; set; }
+        public global::AI21.FilesUpdateRequest? Type95 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::AI21.ValidationError>? Type96 { get; set; }
+        public global::AI21.HTTPValidationError? Type96 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.ValidationError? Type97 { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.ValidationError>? Type97 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::AI21.AnyOf<string, int?>>? Type98 { get; set; }
+        public global::AI21.ValidationError? Type98 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.AnyOf<string, int?>? Type99 { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.AnyOf<string, int?>>? Type99 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.LibrarySearchRequest? Type100 { get; set; }
+        public global::AI21.AnyOf<string, int?>? Type100 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.QueryFilter? Type101 { get; set; }
+        public global::AI21.LibrarySearchRequest? Type101 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<object>>? Type102 { get; set; }
+        public global::AI21.QueryFilter? Type102 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, object>? Type103 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<object>>? Type103 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.LibrarySearchRequestLabelsFilterMode? Type104 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, object>? Type104 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.RetrievalStrategy? Type105 { get; set; }
+        public global::AI21.LibrarySearchRequestLabelsFilterMode? Type105 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.ListAssistantsResponse? Type106 { get; set; }
+        public global::AI21.RetrievalStrategy? Type106 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::AI21.Assistant>? Type107 { get; set; }
+        public global::AI21.ListAssistantsResponse? Type107 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.ListPlansResponse? Type108 { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.Assistant>? Type108 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::AI21.Plan>? Type109 { get; set; }
+        public global::AI21.ListPlansResponse? Type109 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.Plan? Type110 { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.Plan>? Type110 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.ListRoutesResponse? Type111 { get; set; }
+        public global::AI21.Plan? Type111 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::AI21.AssistantRoute>? Type112 { get; set; }
+        public global::AI21.ListRoutesResponse? Type112 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.MaestroRunResult? Type113 { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.AssistantRoute>? Type113 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.MaestroRunResultStatus? Type114 { get; set; }
+        public global::AI21.MaestroRunResult? Type114 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.SecretResponse? Type115 { get; set; }
+        public global::AI21.MaestroRunResultStatus? Type115 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.UpdateRoutePayload? Type116 { get; set; }
+        public global::AI21.SecretResponse? Type116 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.ValidationResult? Type117 { get; set; }
+        public global::AI21.UpdateRoutePayload? Type117 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.WorkspaceModelResponse? Type118 { get; set; }
+        public global::AI21.ValidationResult? Type118 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.WorkspaceModelsResponse? Type119 { get; set; }
+        public global::AI21.WorkspaceModelResponse? Type119 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::AI21.WorkspaceModelResponse>? Type120 { get; set; }
+        public global::AI21.WorkspaceModelsResponse? Type120 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>? Type121 { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.WorkspaceModelResponse>? Type121 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>? Type122 { get; set; }
+        public global::AI21.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>? Type122 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::AI21.FileResponse>? Type123 { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>? Type123 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::AI21.FileResponse>? Type124 { get; set; }
     }
 }
