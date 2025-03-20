@@ -43,12 +43,6 @@ namespace AI21
         public global::AI21.ToolResources? ToolResources { get; set; }
 
         /// <summary>
-        /// Default Value: false
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("verbose")]
-        public bool? Verbose { get; set; }
-
-        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("context")]
@@ -59,6 +53,19 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("requirements")]
         public global::System.Collections.Generic.IList<global::AI21.Requirement>? Requirements { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("budget")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.CreateMaestroRunsPayloadBudgetJsonConverter))]
+        public global::AI21.CreateMaestroRunsPayloadBudget? Budget { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("verbose")]
+        public bool? Verbose { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -74,11 +81,12 @@ namespace AI21
         /// <param name="models"></param>
         /// <param name="tools"></param>
         /// <param name="toolResources"></param>
+        /// <param name="context"></param>
+        /// <param name="requirements"></param>
+        /// <param name="budget"></param>
         /// <param name="verbose">
         /// Default Value: false
         /// </param>
-        /// <param name="context"></param>
-        /// <param name="requirements"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -88,18 +96,20 @@ namespace AI21
             global::System.Collections.Generic.IList<string>? models,
             global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, global::AI21.CreateMaestroRunsPayloadTool2>>? tools,
             global::AI21.ToolResources? toolResources,
-            bool? verbose,
             object? context,
-            global::System.Collections.Generic.IList<global::AI21.Requirement>? requirements)
+            global::System.Collections.Generic.IList<global::AI21.Requirement>? requirements,
+            global::AI21.CreateMaestroRunsPayloadBudget? budget,
+            bool? verbose)
         {
             this.Input = input;
             this.OutputType = outputType;
             this.Models = models;
             this.Tools = tools;
             this.ToolResources = toolResources;
-            this.Verbose = verbose;
             this.Context = context;
             this.Requirements = requirements;
+            this.Budget = budget;
+            this.Verbose = verbose;
         }
 
         /// <summary>
