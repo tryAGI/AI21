@@ -1542,10 +1542,6 @@ components:
               type: string
         tool_resources:
           $ref: '#/components/schemas/ToolResources'
-        verbose:
-          title: Verbose
-          type: boolean
-          default: false
         context:
           title: Context
           type: object
@@ -1554,6 +1550,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Requirement'
+        budget:
+          title: Budget
+          enum:
+            - low
+            - medium
+            - high
+          type: string
+        verbose:
+          title: Verbose
+          type: boolean
+          default: false
     CreatePlanPayload:
       title: CreatePlanPayload
       required:

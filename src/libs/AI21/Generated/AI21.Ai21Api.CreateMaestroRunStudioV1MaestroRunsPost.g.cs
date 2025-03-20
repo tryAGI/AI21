@@ -201,11 +201,12 @@ namespace AI21
         /// <param name="models"></param>
         /// <param name="tools"></param>
         /// <param name="toolResources"></param>
+        /// <param name="context"></param>
+        /// <param name="requirements"></param>
+        /// <param name="budget"></param>
         /// <param name="verbose">
         /// Default Value: false
         /// </param>
-        /// <param name="context"></param>
-        /// <param name="requirements"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.MaestroRunResult> CreateMaestroRunStudioV1MaestroRunsPostAsync(
@@ -214,9 +215,10 @@ namespace AI21
             global::System.Collections.Generic.IList<string>? models = default,
             global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, global::AI21.CreateMaestroRunsPayloadTool2>>? tools = default,
             global::AI21.ToolResources? toolResources = default,
-            bool? verbose = default,
             object? context = default,
             global::System.Collections.Generic.IList<global::AI21.Requirement>? requirements = default,
+            global::AI21.CreateMaestroRunsPayloadBudget? budget = default,
+            bool? verbose = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::AI21.CreateMaestroRunsPayload
@@ -226,9 +228,10 @@ namespace AI21
                 Models = models,
                 Tools = tools,
                 ToolResources = toolResources,
-                Verbose = verbose,
                 Context = context,
                 Requirements = requirements,
+                Budget = budget,
+                Verbose = verbose,
             };
 
             return await CreateMaestroRunStudioV1MaestroRunsPostAsync(
