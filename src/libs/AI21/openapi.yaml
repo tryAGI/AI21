@@ -1976,7 +1976,6 @@ components:
         - jamba-large-1.6
         - jamba-mini-1.6-2025-03
         - jamba-large-1.6-2025-03
-        - jamba-mini-1.6-booking
       type: string
       description: An enumeration.
     Plan:
