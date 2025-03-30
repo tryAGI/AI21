@@ -186,6 +186,16 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
+        public override string? ToString() =>
+            User?.ToString() ??
+            Assistant?.ToString() ??
+            Tool?.ToString() ??
+            System?.ToString() 
+            ;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public bool Validate()
         {
             return IsUser && !IsAssistant && !IsTool && !IsSystem || !IsUser && IsAssistant && !IsTool && !IsSystem || !IsUser && !IsAssistant && IsTool && !IsSystem || !IsUser && !IsAssistant && !IsTool && IsSystem;
