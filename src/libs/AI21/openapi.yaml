@@ -475,7 +475,7 @@ paths:
   /studio/v1/maestro/runs:
     post:
       summary: Create Maestro Run
-      operationId: create_maestro_run_studio_v1_maestro_runs_post
+      operationId: v1_maestro_run
       requestBody:
         content:
           application/json:
@@ -498,7 +498,7 @@ paths:
   '/studio/v1/maestro/runs/{execution_id}':
     get:
       summary: Get Maestro Run
-      operationId: get_maestro_run_studio_v1_maestro_runs__execution_id__get
+      operationId: v1_get_maestro_run
       parameters:
         - name: execution_id
           in: path
@@ -522,7 +522,7 @@ paths:
   /studio/v1/assistants:
     get:
       summary: Get Assistants
-      operationId: get_assistants_studio_v1_assistants_get
+      operationId: v1_list_assistants
       responses:
         '200':
           description: Successful Response
@@ -533,7 +533,7 @@ paths:
   '/studio/v1/assistants/{assistant_id}':
     get:
       summary: Get Assistant
-      operationId: get_assistant_studio_v1_assistants__assistant_id__get
+      operationId: v1_get_assistant
       parameters:
         - name: assistant_id
           in: path
@@ -556,7 +556,7 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
     delete:
       summary: Delete Assistant
-      operationId: delete_assistant_studio_v1_assistants__assistant_id__delete
+      operationId: v1_delete_assistant
       parameters:
         - name: assistant_id
           in: path
@@ -580,7 +580,7 @@ paths:
   '/studio/v1/assistants/{assistant_id}/plans':
     get:
       summary: List Plans
-      operationId: list_plans_studio_v1_assistants__assistant_id__plans_get
+      operationId: v1_list_plans
       parameters:
         - name: assistant_id
           in: path
@@ -603,7 +603,7 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
     post:
       summary: Create Plan
-      operationId: create_plan_studio_v1_assistants__assistant_id__plans_post
+      operationId: v1_create_plan
       parameters:
         - name: assistant_id
           in: path
@@ -633,7 +633,7 @@ paths:
   '/studio/v1/assistants/{assistant_id}/plans/{plan_id}':
     get:
       summary: Get Plan
-      operationId: get_plan_studio_v1_assistants__assistant_id__plans__plan_id__get
+      operationId: v1_get_plan
       parameters:
         - name: assistant_id
           in: path
@@ -662,7 +662,7 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
     patch:
       summary: Modify Plan
-      operationId: modify_plan_studio_v1_assistants__assistant_id__plans__plan_id__patch
+      operationId: v1_modify_plan
       parameters:
         - name: assistant_id
           in: path
@@ -698,7 +698,7 @@ paths:
   '/studio/v1/assistants/{assistant_id}/routes':
     get:
       summary: Get Routes
-      operationId: get_routes_studio_v1_assistants__assistant_id__routes_get
+      operationId: v1_list_routes
       parameters:
         - name: assistant_id
           in: path
@@ -726,7 +726,7 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
     post:
       summary: Create Route
-      operationId: create_route_studio_v1_assistants__assistant_id__routes_post
+      operationId: v1_create_route
       parameters:
         - name: assistant_id
           in: path
@@ -756,7 +756,7 @@ paths:
   '/studio/v1/assistants/{assistant_id}/routes/{route_id}':
     get:
       summary: Get Route
-      operationId: get_route_studio_v1_assistants__assistant_id__routes__route_id__get
+      operationId: v1_get_route
       parameters:
         - name: assistant_id
           in: path
@@ -785,7 +785,7 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
     delete:
       summary: Delete Route
-      operationId: delete_route_studio_v1_assistants__assistant_id__routes__route_id__delete
+      operationId: v1_delete_route
       parameters:
         - name: assistant_id
           in: path
@@ -813,7 +813,7 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
     patch:
       summary: Modify Route
-      operationId: modify_route_studio_v1_assistants__assistant_id__routes__route_id__patch
+      operationId: v1_modify_route
       parameters:
         - name: assistant_id
           in: path
@@ -849,7 +849,7 @@ paths:
   '/studio/v1/assistants/{assistant_id}/validate_plan':
     post:
       summary: Validate Plan
-      operationId: validate_plan_studio_v1_assistants__assistant_id__validate_plan_post
+      operationId: v1_validate_plan
       parameters:
         - name: assistant_id
           in: path
