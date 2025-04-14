@@ -34,12 +34,6 @@ namespace AI21
         public global::System.Collections.Generic.IList<string>? FileIds { get; set; }
 
         /// <summary>
-        /// Default Value: 15
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("max_segments")]
-        public int? MaxSegments { get; set; }
-
-        /// <summary>
         /// Default Value: segments
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("retrieval_strategy")]
@@ -92,9 +86,6 @@ namespace AI21
         /// <param name="path"></param>
         /// <param name="labels"></param>
         /// <param name="fileIds"></param>
-        /// <param name="maxSegments">
-        /// Default Value: 15
-        /// </param>
         /// <param name="retrievalStrategy">
         /// Default Value: segments
         /// </param>
@@ -121,7 +112,6 @@ namespace AI21
             string? path,
             global::System.Collections.Generic.IList<string>? labels,
             global::System.Collections.Generic.IList<string>? fileIds,
-            int? maxSegments,
             global::AI21.ConversationalRagConfigRetrievalStrategy? retrievalStrategy,
             double? retrievalSimilarityThreshold,
             int? maxNeighbors,
@@ -133,7 +123,6 @@ namespace AI21
             this.Path = path;
             this.Labels = labels;
             this.FileIds = fileIds;
-            this.MaxSegments = maxSegments;
             this.RetrievalStrategy = retrievalStrategy;
             this.RetrievalSimilarityThreshold = retrievalSimilarityThreshold;
             this.MaxNeighbors = maxNeighbors;

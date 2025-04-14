@@ -202,9 +202,6 @@ namespace AI21
         /// <param name="path"></param>
         /// <param name="labels"></param>
         /// <param name="fileIds"></param>
-        /// <param name="maxSegments">
-        /// Default Value: 15
-        /// </param>
         /// <param name="retrievalStrategy">
         /// Default Value: segments
         /// </param>
@@ -230,7 +227,6 @@ namespace AI21
             string? path = default,
             global::System.Collections.Generic.IList<string>? labels = default,
             global::System.Collections.Generic.IList<string>? fileIds = default,
-            int? maxSegments = default,
             global::AI21.ConversationalRagConfigRetrievalStrategy? retrievalStrategy = default,
             double? retrievalSimilarityThreshold = default,
             int? maxNeighbors = default,
@@ -245,7 +241,6 @@ namespace AI21
                 Path = path,
                 Labels = labels,
                 FileIds = fileIds,
-                MaxSegments = maxSegments,
                 RetrievalStrategy = retrievalStrategy,
                 RetrievalSimilarityThreshold = retrievalSimilarityThreshold,
                 MaxNeighbors = maxNeighbors,
