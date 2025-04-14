@@ -1424,10 +1424,6 @@ components:
           type: array
           items:
             type: string
-        max_segments:
-          title: Max Segments
-          type: integer
-          default: 15
         retrieval_strategy:
           title: Retrieval Strategy
           enum:
