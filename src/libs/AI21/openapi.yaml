@@ -1581,6 +1581,10 @@ components:
           title: Verbose
           type: boolean
           default: false
+        include:
+          type: array
+          items:
+            $ref: '#/components/schemas/OutputOptions'
     CreatePlanPayload:
       title: CreatePlanPayload
       required:
@@ -1950,6 +1954,9 @@ components:
           type: string
         result:
           title: Result
+        data_sources:
+          title: Data Sources
+          type: object
     Message:
       title: Message
       required:
@@ -1997,6 +2004,12 @@ components:
         - jamba-mini-1.6-2025-03
         - jamba-large-1.6-2025-03
       type: string
+      description: An enumeration.
+    OutputOptions:
+      title: OutputOptions
+      enum:
+        - data_sources
+        - requirements_results
       description: An enumeration.
     Plan:
       title: Plan

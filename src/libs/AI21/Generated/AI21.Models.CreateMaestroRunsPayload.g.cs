@@ -68,6 +68,12 @@ namespace AI21
         public bool? Verbose { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("include")]
+        public global::System.Collections.Generic.IList<global::AI21.OutputOptions>? Include { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -87,6 +93,7 @@ namespace AI21
         /// <param name="verbose">
         /// Default Value: false
         /// </param>
+        /// <param name="include"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -99,7 +106,8 @@ namespace AI21
             object? context,
             global::System.Collections.Generic.IList<global::AI21.Requirement>? requirements,
             global::AI21.CreateMaestroRunsPayloadBudget? budget,
-            bool? verbose)
+            bool? verbose,
+            global::System.Collections.Generic.IList<global::AI21.OutputOptions>? include)
         {
             this.Input = input;
             this.OutputType = outputType;
@@ -110,6 +118,7 @@ namespace AI21
             this.Requirements = requirements;
             this.Budget = budget;
             this.Verbose = verbose;
+            this.Include = include;
         }
 
         /// <summary>

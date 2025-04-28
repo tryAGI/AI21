@@ -32,6 +32,12 @@ namespace AI21
         public object? Result { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("data_sources")]
+        public object? DataSources { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -47,17 +53,20 @@ namespace AI21
         /// </param>
         /// <param name="status"></param>
         /// <param name="result"></param>
+        /// <param name="dataSources"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public MaestroRunResult(
             global::System.Guid id,
             global::AI21.MaestroRunResultStatus status,
-            object? result)
+            object? result,
+            object? dataSources)
         {
             this.Id = id;
             this.Status = status;
             this.Result = result;
+            this.DataSources = dataSources;
         }
 
         /// <summary>
