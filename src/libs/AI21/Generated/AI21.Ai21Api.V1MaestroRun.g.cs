@@ -207,6 +207,7 @@ namespace AI21
         /// <param name="verbose">
         /// Default Value: false
         /// </param>
+        /// <param name="include"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.MaestroRunResult> V1MaestroRunAsync(
@@ -219,6 +220,7 @@ namespace AI21
             global::System.Collections.Generic.IList<global::AI21.Requirement>? requirements = default,
             global::AI21.CreateMaestroRunsPayloadBudget? budget = default,
             bool? verbose = default,
+            global::System.Collections.Generic.IList<global::AI21.OutputOptions>? include = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::AI21.CreateMaestroRunsPayload
@@ -232,6 +234,7 @@ namespace AI21
                 Requirements = requirements,
                 Budget = budget,
                 Verbose = verbose,
+                Include = include,
             };
 
             return await V1MaestroRunAsync(
