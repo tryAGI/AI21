@@ -29,6 +29,9 @@ namespace AI21
         /// Default Value: false
         /// </param>
         /// <param name="include"></param>
+        /// <param name="structuredRagEnabled">
+        /// Default Value: false
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.MaestroRunResult> V1MaestroRunAsync(
@@ -42,6 +45,7 @@ namespace AI21
             global::AI21.CreateMaestroRunsPayloadBudget? budget = default,
             bool? verbose = default,
             global::System.Collections.Generic.IList<global::AI21.OutputOptions>? include = default,
+            bool? structuredRagEnabled = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
