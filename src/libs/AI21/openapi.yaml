@@ -1585,6 +1585,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/OutputOptions'
+        structured_rag_enabled:
+          title: Structured Rag Enabled
+          type: boolean
+          default: false
     CreatePlanPayload:
       title: CreatePlanPayload
       required:

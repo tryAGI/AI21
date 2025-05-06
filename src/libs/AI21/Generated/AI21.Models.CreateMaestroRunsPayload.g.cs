@@ -74,6 +74,12 @@ namespace AI21
         public global::System.Collections.Generic.IList<global::AI21.OutputOptions>? Include { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("structured_rag_enabled")]
+        public bool? StructuredRagEnabled { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -94,6 +100,9 @@ namespace AI21
         /// Default Value: false
         /// </param>
         /// <param name="include"></param>
+        /// <param name="structuredRagEnabled">
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -107,7 +116,8 @@ namespace AI21
             global::System.Collections.Generic.IList<global::AI21.Requirement>? requirements,
             global::AI21.CreateMaestroRunsPayloadBudget? budget,
             bool? verbose,
-            global::System.Collections.Generic.IList<global::AI21.OutputOptions>? include)
+            global::System.Collections.Generic.IList<global::AI21.OutputOptions>? include,
+            bool? structuredRagEnabled)
         {
             this.Input = input;
             this.OutputType = outputType;
@@ -119,6 +129,7 @@ namespace AI21
             this.Budget = budget;
             this.Verbose = verbose;
             this.Include = include;
+            this.StructuredRagEnabled = structuredRagEnabled;
         }
 
         /// <summary>
