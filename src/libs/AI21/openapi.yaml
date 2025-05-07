@@ -1995,12 +1995,6 @@ components:
     ModelName:
       title: ModelName
       enum:
-        - jamba-instruct
-        - jamba-instruct-preview
-        - jamba-1.5-mini
-        - jamba-1.5-large
-        - jamba-mini-1.5
-        - jamba-large-1.5
         - jamba-mini
         - jamba-large
         - jamba-mini-1.6

@@ -11,30 +11,6 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        JambaInstruct,
-        /// <summary>
-        /// 
-        /// </summary>
-        JambaInstructPreview,
-        /// <summary>
-        /// 
-        /// </summary>
-        Jamba15Mini,
-        /// <summary>
-        /// 
-        /// </summary>
-        Jamba15Large,
-        /// <summary>
-        /// 
-        /// </summary>
-        JambaMini15,
-        /// <summary>
-        /// 
-        /// </summary>
-        JambaLarge15,
-        /// <summary>
-        /// 
-        /// </summary>
         JambaMini,
         /// <summary>
         /// 
@@ -70,12 +46,6 @@ namespace AI21
         {
             return value switch
             {
-                ModelName.JambaInstruct => "jamba-instruct",
-                ModelName.JambaInstructPreview => "jamba-instruct-preview",
-                ModelName.Jamba15Mini => "jamba-1.5-mini",
-                ModelName.Jamba15Large => "jamba-1.5-large",
-                ModelName.JambaMini15 => "jamba-mini-1.5",
-                ModelName.JambaLarge15 => "jamba-large-1.5",
                 ModelName.JambaMini => "jamba-mini",
                 ModelName.JambaLarge => "jamba-large",
                 ModelName.JambaMini16 => "jamba-mini-1.6",
@@ -92,12 +62,6 @@ namespace AI21
         {
             return value switch
             {
-                "jamba-instruct" => ModelName.JambaInstruct,
-                "jamba-instruct-preview" => ModelName.JambaInstructPreview,
-                "jamba-1.5-mini" => ModelName.Jamba15Mini,
-                "jamba-1.5-large" => ModelName.Jamba15Large,
-                "jamba-mini-1.5" => ModelName.JambaMini15,
-                "jamba-large-1.5" => ModelName.JambaLarge15,
                 "jamba-mini" => ModelName.JambaMini,
                 "jamba-large" => ModelName.JambaLarge,
                 "jamba-mini-1.6" => ModelName.JambaMini16,
