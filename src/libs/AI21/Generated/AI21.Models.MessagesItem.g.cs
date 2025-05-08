@@ -34,7 +34,7 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator MessagesItem(global::AI21.UserMessage value) => new MessagesItem(value);
+        public static implicit operator MessagesItem(global::AI21.UserMessage value) => new MessagesItem((global::AI21.UserMessage?)value);
 
         /// <summary>
         /// 
@@ -69,7 +69,7 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator MessagesItem(global::AI21.AssistantMessage value) => new MessagesItem(value);
+        public static implicit operator MessagesItem(global::AI21.AssistantMessage value) => new MessagesItem((global::AI21.AssistantMessage?)value);
 
         /// <summary>
         /// 
@@ -104,7 +104,7 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator MessagesItem(global::AI21.ToolMessage value) => new MessagesItem(value);
+        public static implicit operator MessagesItem(global::AI21.ToolMessage value) => new MessagesItem((global::AI21.ToolMessage?)value);
 
         /// <summary>
         /// 
@@ -139,7 +139,7 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator MessagesItem(global::AI21.SystemMessage value) => new MessagesItem(value);
+        public static implicit operator MessagesItem(global::AI21.SystemMessage value) => new MessagesItem((global::AI21.SystemMessage?)value);
 
         /// <summary>
         /// 
