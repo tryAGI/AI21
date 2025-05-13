@@ -4,11 +4,10 @@
 namespace AI21
 {
     /// <summary>
-    /// Access our powerful language models using an API that makes you smile<br/>
     /// If no httpClient is provided, a new one will be created.<br/>
     /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
     /// </summary>
-    public partial interface IAi21Api : global::System.IDisposable
+    public partial interface IWebsiteConnectorClient : global::System.IDisposable
     {
         /// <summary>
         /// The HttpClient instance.
@@ -36,31 +35,6 @@ namespace AI21
         /// </summary>
         global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; }
 
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public JambaCompleteClient JambaComplete { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public LibraryManagementClient LibraryManagement { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public RAGEngineClient RAGEngine { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public SecretsClient Secrets { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public WebsiteConnectorClient WebsiteConnector { get; }
 
     }
 }

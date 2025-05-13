@@ -331,6 +331,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/secrets/{secret_id}':
+    patch:
+      tags:
+        - Secrets
+      summary: Update Secret
+      operationId: v1_secret_storage
+      parameters:
+        - name: secret_id
+          in: path
+          required: true
+          schema:
+            title: Secret Id
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSecretPayload'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   '/studio/v1/library/files/{file_id}/download':
     get:
       tags:
@@ -513,6 +544,171 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MaestroRunResult'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/demos:
+    get:
+      summary: List Demos
+      description: List all available demos.
+      operationId: list_demos_studio_v1_demos_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response List Demos Studio V1 Demos Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/Demo'
+    post:
+      summary: Create Demo
+      description: Create a new demo.
+      operationId: create_demo_studio_v1_demos_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DemoCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Demo'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/demos/{demo_id}':
+    get:
+      summary: Get Demo
+      description: Get a specific demo by ID.
+      operationId: get_demo_studio_v1_demos__demo_id__get
+      parameters:
+        - name: demo_id
+          in: path
+          required: true
+          schema:
+            title: Demo Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Demo'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    put:
+      summary: Update Demo
+      description: Update an existing demo.
+      operationId: update_demo_studio_v1_demos__demo_id__put
+      parameters:
+        - name: demo_id
+          in: path
+          required: true
+          schema:
+            title: Demo Id
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DemoUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Demo'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      summary: Delete Demo
+      description: Delete a demo.
+      operationId: delete_demo_studio_v1_demos__demo_id__delete
+      parameters:
+        - name: demo_id
+          in: path
+          required: true
+          schema:
+            title: Demo Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/website-connector/ingest-url:
+    post:
+      tags:
+        - Website Connector
+      summary: Connect Website
+      operationId: v1_website_connector_ingest_url
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebsiteConnectorIngestUrlPayload'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/website-connector/url-status:
+    get:
+      tags:
+        - Website Connector
+      summary: Get Url Status
+      operationId: v1_website_connector_get_url_status
+      parameters:
+        - name: url_id
+          in: query
+          required: true
+          schema:
+            title: Url Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
         '422':
           description: Validation Error
           content:
@@ -938,6 +1134,35 @@ paths:
           content:
             application/json:
               schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    patch:
+      summary: Update Workspace Model Endpoint
+      operationId: update_workspace_model_endpoint_studio_v1_settings_models__name__patch
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            title: Name
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkspaceModelUpdate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkspaceModelResponse'
         '422':
           description: Validation Error
           content:
@@ -1682,6 +1907,105 @@ components:
           title: Id
           type: string
           description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
+    Demo:
+      title: Demo
+      required:
+        - id
+        - name
+        - visibility
+        - status
+        - ui_component_name
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
+        name:
+          title: Name
+          type: string
+          description: Name of the demo
+        visibility:
+          allOf:
+            - $ref: '#/components/schemas/DemoVisibility'
+          description: Visibility of the demo (public/private)
+        status:
+          allOf:
+            - $ref: '#/components/schemas/DemoStatus'
+          description: Status of the demo (active/inactive)
+        config:
+          title: Config
+          type: object
+          description: Demo configuration
+        ui_component_name:
+          title: Ui Component Name
+          type: string
+          description: Name of the UI component
+    DemoCreate:
+      title: DemoCreate
+      required:
+        - name
+        - visibility
+        - status
+        - ui_component_name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          description: Name of the demo
+        visibility:
+          allOf:
+            - $ref: '#/components/schemas/DemoVisibility'
+          description: Visibility of the demo (public/private)
+        status:
+          allOf:
+            - $ref: '#/components/schemas/DemoStatus'
+          description: Status of the demo (active/inactive)
+        config:
+          title: Config
+          type: object
+          description: Demo configuration
+        ui_component_name:
+          title: Ui Component Name
+          type: string
+          description: Name of the UI component
+    DemoStatus:
+      title: DemoStatus
+      enum:
+        - active
+        - inactive
+      description: An enumeration.
+    DemoUpdate:
+      title: DemoUpdate
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          description: Name of the demo
+        visibility:
+          allOf:
+            - $ref: '#/components/schemas/DemoVisibility'
+          description: Visibility of the demo (public/private)
+        status:
+          allOf:
+            - $ref: '#/components/schemas/DemoStatus'
+          description: Status of the demo (active/inactive)
+        config:
+          title: Config
+          type: object
+          description: Demo configuration
+        ui_component_name:
+          title: Ui Component Name
+          type: string
+          description: Name of the UI component
+    DemoVisibility:
+      title: DemoVisibility
+      enum:
+        - public
+        - private
+      description: An enumeration.
     DocumentSchema:
       title: DocumentSchema
       required:
@@ -2294,6 +2618,16 @@ components:
           type: array
           items:
             type: string
+    UpdateSecretPayload:
+      title: UpdateSecretPayload
+      type: object
+      properties:
+        secret_name:
+          title: Secret Name
+          type: string
+        secret_value:
+          title: Secret Value
+          type: string
     UsageInfo:
       title: UsageInfo
       required:
@@ -2366,6 +2700,15 @@ components:
         details:
           title: Details
           type: string
+    WebsiteConnectorIngestUrlPayload:
+      title: WebsiteConnectorIngestUrlPayload
+      required:
+        - url
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
     WorkspaceModelResponse:
       title: WorkspaceModelResponse
       required:
@@ -2396,6 +2739,19 @@ components:
           title: Internal
           type: boolean
           default: false
+    WorkspaceModelUpdate:
+      title: WorkspaceModelUpdate
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        model_type:
+          title: Model Type
+          type: string
+        secret_id:
+          title: Secret Id
+          type: string
     WorkspaceModelsResponse:
       title: WorkspaceModelsResponse
       required:
