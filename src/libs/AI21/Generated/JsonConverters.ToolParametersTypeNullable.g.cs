@@ -28,6 +28,10 @@ namespace AI21.JsonConverters
                     var numValue = reader.GetInt32();
                     return (global::AI21.ToolParametersType)numValue;
                 }
+                case global::System.Text.Json.JsonTokenType.Null:
+                {
+                    return default(global::AI21.ToolParametersType?);
+                }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
             }
