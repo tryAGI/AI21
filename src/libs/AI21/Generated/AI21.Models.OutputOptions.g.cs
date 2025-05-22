@@ -15,7 +15,7 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        RequirementsResults,
+        RequirementsResult,
     }
 
     /// <summary>
@@ -31,7 +31,7 @@ namespace AI21
             return value switch
             {
                 OutputOptions.DataSources => "data_sources",
-                OutputOptions.RequirementsResults => "requirements_results",
+                OutputOptions.RequirementsResult => "requirements_result",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -43,7 +43,7 @@ namespace AI21
             return value switch
             {
                 "data_sources" => OutputOptions.DataSources,
-                "requirements_results" => OutputOptions.RequirementsResults,
+                "requirements_result" => OutputOptions.RequirementsResult,
                 _ => null,
             };
         }

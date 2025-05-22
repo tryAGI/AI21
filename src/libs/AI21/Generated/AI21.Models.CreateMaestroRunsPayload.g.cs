@@ -80,6 +80,12 @@ namespace AI21
         public bool? StructuredRagEnabled { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tools_allowed")]
+        public bool? ToolsAllowed { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -103,6 +109,9 @@ namespace AI21
         /// <param name="structuredRagEnabled">
         /// Default Value: false
         /// </param>
+        /// <param name="toolsAllowed">
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -117,7 +126,8 @@ namespace AI21
             global::AI21.CreateMaestroRunsPayloadBudget? budget,
             bool? verbose,
             global::System.Collections.Generic.IList<global::AI21.OutputOptions>? include,
-            bool? structuredRagEnabled)
+            bool? structuredRagEnabled,
+            bool? toolsAllowed)
         {
             this.Input = input;
             this.OutputType = outputType;
@@ -130,6 +140,7 @@ namespace AI21
             this.Verbose = verbose;
             this.Include = include;
             this.StructuredRagEnabled = structuredRagEnabled;
+            this.ToolsAllowed = toolsAllowed;
         }
 
         /// <summary>

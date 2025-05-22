@@ -5,42 +5,43 @@ namespace AI21
 {
     public partial class Ai21Api
     {
-        partial void PrepareV1MaestroRunArguments(
+        partial void PrepareUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::AI21.CreateMaestroRunsPayload request);
-        partial void PrepareV1MaestroRunRequest(
+            global::AI21.BodyUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePost request);
+        partial void PrepareUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::AI21.CreateMaestroRunsPayload request);
-        partial void ProcessV1MaestroRunResponse(
+            global::AI21.BodyUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePost request);
+        partial void ProcessUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessV1MaestroRunResponseContent(
+        partial void ProcessUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Create Maestro Run
+        /// Upload Check Compliance<br/>
+        /// Check compliance of a document file against regulatory requirements.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.MaestroRunResult> V1MaestroRunAsync(
-            global::AI21.CreateMaestroRunsPayload request,
+        public async global::System.Threading.Tasks.Task<string> UploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostAsync(
+            global::AI21.BodyUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePost request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareV1MaestroRunArguments(
+            PrepareUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostArguments(
                 httpClient: HttpClient,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
-                path: "/studio/v1/maestro/runs",
+                path: "/studio/v1/demos/regulations/upload-check-compliance",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -66,17 +67,17 @@ namespace AI21
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
-            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                content: __httpRequestContentBody,
-                encoding: global::System.Text.Encoding.UTF8,
-                mediaType: "application/json");
+            using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
+            __httpRequestContent.Add(
+                content: new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>()),
+                name: "file",
+                fileName: request.Filename ?? string.Empty);
             __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareV1MaestroRunRequest(
+            PrepareUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 request: request);
@@ -89,7 +90,7 @@ namespace AI21
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessV1MaestroRunResponse(
+            ProcessUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -133,7 +134,7 @@ namespace AI21
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessV1MaestroRunResponseContent(
+                ProcessUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -157,9 +158,7 @@ namespace AI21
                     };
                 }
 
-                return
-                    global::AI21.MaestroRunResult.FromJson(__content, JsonSerializerContext) ??
-                    throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                return __content;
             }
             else
             {
@@ -181,73 +180,36 @@ namespace AI21
                     };
                 }
 
-                using var __content = await __response.Content.ReadAsStreamAsync(
+                var __content = await __response.Content.ReadAsStringAsync(
 #if NET5_0_OR_GREATER
                     cancellationToken
 #endif
                 ).ConfigureAwait(false);
 
-                return
-                    await global::AI21.MaestroRunResult.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                    throw new global::System.InvalidOperationException("Response deserialization failed.");
+                return __content;
             }
         }
 
         /// <summary>
-        /// Create Maestro Run
+        /// Upload Check Compliance<br/>
+        /// Check compliance of a document file against regulatory requirements.
         /// </summary>
-        /// <param name="input"></param>
-        /// <param name="outputType"></param>
-        /// <param name="models"></param>
-        /// <param name="tools"></param>
-        /// <param name="toolResources"></param>
-        /// <param name="context"></param>
-        /// <param name="requirements"></param>
-        /// <param name="budget"></param>
-        /// <param name="verbose">
-        /// Default Value: false
-        /// </param>
-        /// <param name="include"></param>
-        /// <param name="structuredRagEnabled">
-        /// Default Value: false
-        /// </param>
-        /// <param name="toolsAllowed">
-        /// Default Value: false
-        /// </param>
+        /// <param name="file"></param>
+        /// <param name="filename"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.MaestroRunResult> V1MaestroRunAsync(
-            global::AI21.AnyOf<global::System.Collections.Generic.IList<global::AI21.Message>, string> input,
-            object? outputType = default,
-            global::System.Collections.Generic.IList<string>? models = default,
-            global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, global::AI21.CreateMaestroRunsPayloadTool2>>? tools = default,
-            global::AI21.ToolResources? toolResources = default,
-            object? context = default,
-            global::System.Collections.Generic.IList<global::AI21.Requirement>? requirements = default,
-            global::AI21.CreateMaestroRunsPayloadBudget? budget = default,
-            bool? verbose = default,
-            global::System.Collections.Generic.IList<global::AI21.OutputOptions>? include = default,
-            bool? structuredRagEnabled = default,
-            bool? toolsAllowed = default,
+        public async global::System.Threading.Tasks.Task<string> UploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostAsync(
+            byte[] file,
+            string filename,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::AI21.CreateMaestroRunsPayload
+            var __request = new global::AI21.BodyUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePost
             {
-                Input = input,
-                OutputType = outputType,
-                Models = models,
-                Tools = tools,
-                ToolResources = toolResources,
-                Context = context,
-                Requirements = requirements,
-                Budget = budget,
-                Verbose = verbose,
-                Include = include,
-                StructuredRagEnabled = structuredRagEnabled,
-                ToolsAllowed = toolsAllowed,
+                File = file,
+                Filename = filename,
             };
 
-            return await V1MaestroRunAsync(
+            return await UploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostAsync(
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

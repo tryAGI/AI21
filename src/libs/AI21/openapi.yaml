@@ -666,6 +666,104 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/demos/document-modifier/parse-pdf:
+    post:
+      summary: Parse Pdf
+      description: Parse a PDF file and return its contents.
+      operationId: parse_pdf_studio_v1_demos_document_modifier_parse_pdf_post
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_parse_pdf_studio_v1_demos_document_modifier_parse_pdf_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Parse Pdf Studio V1 Demos Document Modifier Parse Pdf Post
+                type: object
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/demos/document-modifier/compare-text:
+    post:
+      summary: Compare Text
+      description: Compare text in a document file against a reference text.
+      operationId: compare_text_studio_v1_demos_document_modifier_compare_text_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompareTextRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Compare Text Studio V1 Demos Document Modifier Compare Text Post
+                type: object
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/demos/document-modifier/download:
+    post:
+      summary: Download Modified Document
+      description: Download a modified document.
+      operationId: download_modified_document_studio_v1_demos_document_modifier_download_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DownloadModifiedDocumentRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/demos/regulations/upload-check-compliance:
+    post:
+      summary: Upload Check Compliance
+      description: Check compliance of a document file against regulatory requirements.
+      operationId: upload_check_compliance_studio_v1_demos_regulations_upload_check_compliance_post
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_upload_check_compliance_studio_v1_demos_regulations_upload_check_compliance_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Upload Check Compliance Studio V1 Demos Regulations Upload Check Compliance Post
+                type: object
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /studio/v1/website-connector/ingest-url:
     post:
       tags:
@@ -1332,6 +1430,26 @@ components:
           items:
             type: string
             format: binary
+    Body_parse_pdf_studio_v1_demos_document_modifier_parse_pdf_post:
+      title: Body_parse_pdf_studio_v1_demos_document_modifier_parse_pdf_post
+      required:
+        - file
+      type: object
+      properties:
+        file:
+          title: File
+          type: string
+          format: binary
+    Body_upload_check_compliance_studio_v1_demos_regulations_upload_check_compliance_post:
+      title: Body_upload_check_compliance_studio_v1_demos_regulations_upload_check_compliance_post
+      required:
+        - file
+      type: object
+      properties:
+        file:
+          title: File
+          type: string
+          format: binary
     Body_v1_library_upload:
       title: Body_v1_library_upload
       required:
@@ -1573,6 +1691,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ToolCallDeltaStart'
+    CompareTextRequest:
+      title: CompareTextRequest
+      required:
+        - original_text
+        - modified_text
+      type: object
+      properties:
+        original_text:
+          title: Original Text
+          type: string
+        modified_text:
+          title: Modified Text
+          type: string
     ComparisonOperator:
       title: ComparisonOperator
       type: object
@@ -1669,7 +1800,7 @@ components:
         hybrid_search_alpha:
           title: Hybrid Search Alpha
           type: number
-          default: 0.98
+          default: 1
         response_language:
           title: Response Language
           enum:
@@ -1812,6 +1943,10 @@ components:
             $ref: '#/components/schemas/OutputOptions'
         structured_rag_enabled:
           title: Structured Rag Enabled
+          type: boolean
+          default: false
+        tools_allowed:
+          title: Tools Allowed
           type: boolean
           default: false
     CreatePlanPayload:
@@ -2024,6 +2159,19 @@ components:
           type: object
           additionalProperties:
             type: string
+    DownloadModifiedDocumentRequest:
+      title: DownloadModifiedDocumentRequest
+      required:
+        - content
+        - filename
+      type: object
+      properties:
+        content:
+          title: Content
+          type: string
+        filename:
+          title: Filename
+          type: string
     FileResponse:
       title: FileResponse
       required:
@@ -2285,6 +2433,9 @@ components:
         data_sources:
           title: Data Sources
           type: object
+        requirements_result:
+          title: Requirements Result
+          type: object
     Message:
       title: Message
       required:
@@ -2331,7 +2482,7 @@ components:
       title: OutputOptions
       enum:
         - data_sources
-        - requirements_results
+        - requirements_result
       description: An enumeration.
     Plan:
       title: Plan
