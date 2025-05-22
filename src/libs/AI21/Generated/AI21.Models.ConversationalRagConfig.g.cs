@@ -53,7 +53,7 @@ namespace AI21
         public int? MaxNeighbors { get; set; }
 
         /// <summary>
-        /// Default Value: 0.98
+        /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hybrid_search_alpha")]
         public double? HybridSearchAlpha { get; set; }
@@ -96,7 +96,7 @@ namespace AI21
         /// Default Value: 1
         /// </param>
         /// <param name="hybridSearchAlpha">
-        /// Default Value: 0.98
+        /// Default Value: 1
         /// </param>
         /// <param name="responseLanguage">
         /// Default Value: english

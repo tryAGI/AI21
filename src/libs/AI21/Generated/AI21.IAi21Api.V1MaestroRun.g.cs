@@ -32,6 +32,9 @@ namespace AI21
         /// <param name="structuredRagEnabled">
         /// Default Value: false
         /// </param>
+        /// <param name="toolsAllowed">
+        /// Default Value: false
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.MaestroRunResult> V1MaestroRunAsync(
@@ -46,6 +49,7 @@ namespace AI21
             bool? verbose = default,
             global::System.Collections.Generic.IList<global::AI21.OutputOptions>? include = default,
             bool? structuredRagEnabled = default,
+            bool? toolsAllowed = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

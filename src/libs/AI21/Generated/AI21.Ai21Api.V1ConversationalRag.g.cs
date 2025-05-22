@@ -212,7 +212,7 @@ namespace AI21
         /// Default Value: 1
         /// </param>
         /// <param name="hybridSearchAlpha">
-        /// Default Value: 0.98
+        /// Default Value: 1
         /// </param>
         /// <param name="responseLanguage">
         /// Default Value: english

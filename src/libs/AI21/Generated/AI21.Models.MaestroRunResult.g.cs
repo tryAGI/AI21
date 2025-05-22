@@ -38,6 +38,12 @@ namespace AI21
         public object? DataSources { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("requirements_result")]
+        public object? RequirementsResult { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -54,6 +60,7 @@ namespace AI21
         /// <param name="status"></param>
         /// <param name="result"></param>
         /// <param name="dataSources"></param>
+        /// <param name="requirementsResult"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -61,12 +68,14 @@ namespace AI21
             global::System.Guid id,
             global::AI21.MaestroRunResultStatus status,
             object? result,
-            object? dataSources)
+            object? dataSources,
+            object? requirementsResult)
         {
             this.Id = id;
             this.Status = status;
             this.Result = result;
             this.DataSources = dataSources;
+            this.RequirementsResult = requirementsResult;
         }
 
         /// <summary>
