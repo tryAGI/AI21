@@ -3,45 +3,44 @@
 
 namespace AI21
 {
-    public partial class Ai21Api
+    public partial class WebsiteConnectorClient
     {
-        partial void PrepareUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostArguments(
+        partial void PrepareV1WebsiteConnectorIngestWebsiteArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::AI21.BodyUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePost request);
-        partial void PrepareUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostRequest(
+            global::AI21.WebsiteConnectorIngestWebsitePayload request);
+        partial void PrepareV1WebsiteConnectorIngestWebsiteRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::AI21.BodyUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePost request);
-        partial void ProcessUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostResponse(
+            global::AI21.WebsiteConnectorIngestWebsitePayload request);
+        partial void ProcessV1WebsiteConnectorIngestWebsiteResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostResponseContent(
+        partial void ProcessV1WebsiteConnectorIngestWebsiteResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Upload Check Compliance<br/>
-        /// Check compliance of a document file against regulatory requirements.
+        /// Ingest Website
         /// </summary>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> UploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostAsync(
-            global::AI21.BodyUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePost request,
+        public async global::System.Threading.Tasks.Task<string> V1WebsiteConnectorIngestWebsiteAsync(
+            global::AI21.WebsiteConnectorIngestWebsitePayload request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostArguments(
+            PrepareV1WebsiteConnectorIngestWebsiteArguments(
                 httpClient: HttpClient,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
-                path: "/studio/v1/demos/regulations/upload-check-compliance",
+                path: "/studio/v1/website-connector/ingest-website",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -67,23 +66,17 @@ namespace AI21
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-            using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-            __httpRequestContent.Add(
-                content: new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>()),
-                name: "file",
-                fileName: request.Filename ?? string.Empty);
-            if (request.Budget != default)
-            {
-                __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{request.Budget}"),
-                    name: "budget");
-            }
+            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                content: __httpRequestContentBody,
+                encoding: global::System.Text.Encoding.UTF8,
+                mediaType: "application/json");
             __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostRequest(
+            PrepareV1WebsiteConnectorIngestWebsiteRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 request: request);
@@ -96,7 +89,7 @@ namespace AI21
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostResponse(
+            ProcessV1WebsiteConnectorIngestWebsiteResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -140,7 +133,7 @@ namespace AI21
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostResponseContent(
+                ProcessV1WebsiteConnectorIngestWebsiteResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -197,30 +190,21 @@ namespace AI21
         }
 
         /// <summary>
-        /// Upload Check Compliance<br/>
-        /// Check compliance of a document file against regulatory requirements.
+        /// Ingest Website
         /// </summary>
-        /// <param name="file"></param>
-        /// <param name="filename"></param>
-        /// <param name="budget">
-        /// Default Value: MEDIUM
-        /// </param>
+        /// <param name="sitemapUrl"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<string> UploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostAsync(
-            byte[] file,
-            string filename,
-            string? budget = default,
+        public async global::System.Threading.Tasks.Task<string> V1WebsiteConnectorIngestWebsiteAsync(
+            string sitemapUrl,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::AI21.BodyUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePost
+            var __request = new global::AI21.WebsiteConnectorIngestWebsitePayload
             {
-                File = file,
-                Filename = filename,
-                Budget = budget,
+                SitemapUrl = sitemapUrl,
             };
 
-            return await UploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostAsync(
+            return await V1WebsiteConnectorIngestWebsiteAsync(
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

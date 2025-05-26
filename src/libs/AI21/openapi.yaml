@@ -813,6 +813,30 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/website-connector/ingest-website:
+    post:
+      tags:
+        - Website Connector
+      summary: Ingest Website
+      operationId: v1_website_connector_ingest_website
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebsiteConnectorIngestWebsitePayload'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /studio/v1/assistants:
     get:
       summary: Get Assistants
@@ -1450,6 +1474,10 @@ components:
           title: File
           type: string
           format: binary
+        budget:
+          title: Budget
+          type: string
+          default: MEDIUM
     Body_v1_library_upload:
       title: Body_v1_library_upload
       required:
@@ -2483,6 +2511,7 @@ components:
       enum:
         - data_sources
         - requirements_result
+        - requirements_result.metadata
       description: An enumeration.
     Plan:
       title: Plan
@@ -2859,6 +2888,15 @@ components:
       properties:
         url:
           title: Url
+          type: string
+    WebsiteConnectorIngestWebsitePayload:
+      title: WebsiteConnectorIngestWebsitePayload
+      required:
+        - sitemap_url
+      type: object
+      properties:
+        sitemap_url:
+          title: Sitemap Url
           type: string
     WorkspaceModelResponse:
       title: WorkspaceModelResponse

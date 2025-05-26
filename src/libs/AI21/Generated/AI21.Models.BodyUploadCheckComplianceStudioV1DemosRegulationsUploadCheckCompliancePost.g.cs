@@ -23,6 +23,12 @@ namespace AI21
         public required string Filename { get; set; }
 
         /// <summary>
+        /// Default Value: MEDIUM
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("budget")]
+        public string? Budget { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -33,15 +39,20 @@ namespace AI21
         /// </summary>
         /// <param name="file"></param>
         /// <param name="filename"></param>
+        /// <param name="budget">
+        /// Default Value: MEDIUM
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodyUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePost(
             byte[] file,
-            string filename)
+            string filename,
+            string? budget)
         {
             this.File = file ?? throw new global::System.ArgumentNullException(nameof(file));
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
+            this.Budget = budget;
         }
 
         /// <summary>
