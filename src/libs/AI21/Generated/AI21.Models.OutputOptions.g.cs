@@ -16,6 +16,10 @@ namespace AI21
         /// 
         /// </summary>
         RequirementsResult,
+        /// <summary>
+        /// 
+        /// </summary>
+        RequirementsResultMetadata,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace AI21
             {
                 OutputOptions.DataSources => "data_sources",
                 OutputOptions.RequirementsResult => "requirements_result",
+                OutputOptions.RequirementsResultMetadata => "requirements_result.metadata",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace AI21
             {
                 "data_sources" => OutputOptions.DataSources,
                 "requirements_result" => OutputOptions.RequirementsResult,
+                "requirements_result.metadata" => OutputOptions.RequirementsResultMetadata,
                 _ => null,
             };
         }
