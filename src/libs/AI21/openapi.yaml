@@ -837,6 +837,55 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/website-connector/website-status:
+    get:
+      tags:
+        - Website Connector
+      summary: Get Website Status
+      operationId: v1_website_connector_get_website_status
+      parameters:
+        - name: sitemap_url
+          in: query
+          required: true
+          schema:
+            title: Sitemap Url
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/website-connector/retry-ingest-website:
+    post:
+      tags:
+        - Website Connector
+      summary: Retry Ingest Website
+      operationId: v1_website_connector_retry_ingest_website
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebsiteConnectorRetryIngestWebsitePayload'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /studio/v1/assistants:
     get:
       summary: Get Assistants
@@ -2898,6 +2947,16 @@ components:
         sitemap_url:
           title: Sitemap Url
           type: string
+    WebsiteConnectorRetryIngestWebsitePayload:
+      title: WebsiteConnectorRetryIngestWebsitePayload
+      required:
+        - website_id
+      type: object
+      properties:
+        website_id:
+          title: Website Id
+          type: string
+          format: uuid
     WorkspaceModelResponse:
       title: WorkspaceModelResponse
       required:

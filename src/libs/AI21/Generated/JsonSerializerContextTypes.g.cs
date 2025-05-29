@@ -598,34 +598,38 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.WorkspaceModelResponse? Type143 { get; set; }
+        public global::AI21.WebsiteConnectorRetryIngestWebsitePayload? Type143 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.WorkspaceModelUpdate? Type144 { get; set; }
+        public global::AI21.WorkspaceModelResponse? Type144 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.WorkspaceModelsResponse? Type145 { get; set; }
+        public global::AI21.WorkspaceModelUpdate? Type145 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::AI21.WorkspaceModelResponse>? Type146 { get; set; }
+        public global::AI21.WorkspaceModelsResponse? Type146 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::AI21.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>? Type147 { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.WorkspaceModelResponse>? Type147 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>? Type148 { get; set; }
+        public global::AI21.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>? Type148 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::AI21.FileResponse>? Type149 { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>? Type149 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::AI21.Demo>? Type150 { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.FileResponse>? Type150 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::AI21.Demo>? Type151 { get; set; }
     }
 }
