@@ -691,6 +691,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/demos/document-modifier/get-parsed-file:
+    get:
+      summary: Get Parsed File
+      description: Get the parsed file from the document modifier.
+      operationId: get_parsed_file_studio_v1_demos_document_modifier_get_parsed_file_get
+      parameters:
+        - name: file_name
+          in: query
+          required: true
+          schema:
+            title: File Name
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Parsed File Studio V1 Demos Document Modifier Get Parsed File Get
+                type: object
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /studio/v1/demos/document-modifier/compare-text:
     post:
       summary: Compare Text
