@@ -37,7 +37,7 @@ namespace AI21
                 httpClient: HttpClient,
                 executionId: ref executionId);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::AI21.PathBuilder(
                 path: $"/studio/v1/maestro/runs/{executionId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

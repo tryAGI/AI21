@@ -32,7 +32,7 @@ namespace AI21
             PrepareGetAvailableModelsEndpointStudioV1SettingsModelsAvailableGetArguments(
                 httpClient: HttpClient);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::AI21.PathBuilder(
                 path: "/studio/v1/settings/models/available",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

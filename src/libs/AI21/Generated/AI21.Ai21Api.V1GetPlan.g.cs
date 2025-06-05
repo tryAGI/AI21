@@ -42,7 +42,7 @@ namespace AI21
                 assistantId: ref assistantId,
                 planId: ref planId);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::AI21.PathBuilder(
                 path: $"/studio/v1/assistants/{assistantId}/plans/{planId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

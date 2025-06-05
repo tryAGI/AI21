@@ -32,7 +32,7 @@ namespace AI21
             PrepareV1SecretStorageArguments(
                 httpClient: HttpClient);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::AI21.PathBuilder(
                 path: "/studio/v1/secrets",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

@@ -33,7 +33,7 @@ namespace AI21
             PrepareListDemosStudioV1DemosGetArguments(
                 httpClient: HttpClient);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::AI21.PathBuilder(
                 path: "/studio/v1/demos",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

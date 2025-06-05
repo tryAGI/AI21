@@ -40,7 +40,7 @@ namespace AI21
                 httpClient: HttpClient,
                 request: request);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::AI21.PathBuilder(
                 path: "/studio/v1/demos/regulations/upload-check-compliance",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

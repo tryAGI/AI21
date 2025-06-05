@@ -37,7 +37,7 @@ namespace AI21
                 httpClient: HttpClient,
                 secretId: ref secretId);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::AI21.PathBuilder(
                 path: "/studio/v1/secrets",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

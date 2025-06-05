@@ -45,7 +45,7 @@ namespace AI21
                 httpClient: HttpClient,
                 request: request);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::AI21.PathBuilder(
                 path: "/studio/v1/library/files",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

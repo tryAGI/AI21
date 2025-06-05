@@ -42,7 +42,7 @@ namespace AI21
                 entityId: ref entityId,
                 dataSource: ref dataSource);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::AI21.PathBuilder(
                 path: $"/studio/v1/connectors/connected-users/{entityId}/data-sources/{dataSource}/status",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

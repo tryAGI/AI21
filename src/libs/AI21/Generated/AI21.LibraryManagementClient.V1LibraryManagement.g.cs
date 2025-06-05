@@ -68,7 +68,7 @@ namespace AI21
                 limit: ref limit,
                 offset: ref offset);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::AI21.PathBuilder(
                 path: "/studio/v1/library/files",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 
