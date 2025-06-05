@@ -37,7 +37,7 @@ namespace AI21
                 httpClient: HttpClient,
                 sitemapUrl: ref sitemapUrl);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::AI21.PathBuilder(
                 path: "/studio/v1/website-connector/website-status",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

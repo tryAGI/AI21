@@ -44,7 +44,7 @@ namespace AI21
                 secretId: ref secretId,
                 request: request);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::AI21.PathBuilder(
                 path: $"/studio/v1/secrets/{secretId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

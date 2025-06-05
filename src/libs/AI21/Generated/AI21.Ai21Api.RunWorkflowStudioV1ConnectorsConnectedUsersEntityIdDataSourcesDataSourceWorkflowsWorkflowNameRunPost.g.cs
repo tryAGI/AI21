@@ -47,7 +47,7 @@ namespace AI21
                 dataSource: ref dataSource,
                 workflowName: ref workflowName);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::AI21.PathBuilder(
                 path: $"/studio/v1/connectors/connected-users/{entityId}/data-sources/{dataSource}/workflows/{workflowName}/run",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

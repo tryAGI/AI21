@@ -38,7 +38,7 @@ namespace AI21
                 httpClient: HttpClient,
                 fileName: ref fileName);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::AI21.PathBuilder(
                 path: "/studio/v1/demos/document-modifier/get-parsed-file",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

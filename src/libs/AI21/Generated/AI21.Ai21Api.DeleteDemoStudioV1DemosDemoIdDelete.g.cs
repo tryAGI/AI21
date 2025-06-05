@@ -38,7 +38,7 @@ namespace AI21
                 httpClient: HttpClient,
                 demoId: ref demoId);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::AI21.PathBuilder(
                 path: $"/studio/v1/demos/{demoId}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
