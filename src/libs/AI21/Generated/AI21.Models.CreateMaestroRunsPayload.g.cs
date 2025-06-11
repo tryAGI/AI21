@@ -86,6 +86,13 @@ namespace AI21
         public bool? ToolsAllowed { get; set; }
 
         /// <summary>
+        /// Default Value: maestro_run
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("payload_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.MaestroPayloadTypeJsonConverter))]
+        public global::AI21.MaestroPayloadType? PayloadType { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -112,6 +119,9 @@ namespace AI21
         /// <param name="toolsAllowed">
         /// Default Value: false
         /// </param>
+        /// <param name="payloadType">
+        /// Default Value: maestro_run
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -127,7 +137,8 @@ namespace AI21
             bool? verbose,
             global::System.Collections.Generic.IList<global::AI21.OutputOptions>? include,
             bool? structuredRagEnabled,
-            bool? toolsAllowed)
+            bool? toolsAllowed,
+            global::AI21.MaestroPayloadType? payloadType)
         {
             this.Input = input;
             this.OutputType = outputType;
@@ -141,6 +152,7 @@ namespace AI21
             this.Include = include;
             this.StructuredRagEnabled = structuredRagEnabled;
             this.ToolsAllowed = toolsAllowed;
+            this.PayloadType = payloadType;
         }
 
         /// <summary>

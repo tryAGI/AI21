@@ -53,6 +53,8 @@ namespace AI21
             typeof(global::AI21.JsonConverters.CreateMaestroRunsPayloadBudgetNullableJsonConverter),
             typeof(global::AI21.JsonConverters.OutputOptionsJsonConverter),
             typeof(global::AI21.JsonConverters.OutputOptionsNullableJsonConverter),
+            typeof(global::AI21.JsonConverters.MaestroPayloadTypeJsonConverter),
+            typeof(global::AI21.JsonConverters.MaestroPayloadTypeNullableJsonConverter),
             typeof(global::AI21.JsonConverters.DemoVisibilityJsonConverter),
             typeof(global::AI21.JsonConverters.DemoVisibilityNullableJsonConverter),
             typeof(global::AI21.JsonConverters.DemoStatusJsonConverter),
