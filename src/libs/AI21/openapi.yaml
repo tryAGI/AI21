@@ -765,6 +765,31 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/demos/document-modifier/jamba-execute:
+    post:
+      summary: Jamba Execute
+      description: Execute a Jamba request.
+      operationId: jamba_execute_studio_v1_demos_document_modifier_jamba_execute_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JambaExecuteRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Jamba Execute Studio V1 Demos Document Modifier Jamba Execute Post
+                type: object
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /studio/v1/demos/regulations/upload-check-compliance:
     post:
       summary: Upload Check Compliance
@@ -784,6 +809,55 @@ paths:
               schema:
                 title: Response Upload Check Compliance Studio V1 Demos Regulations Upload Check Compliance Post
                 type: object
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/demos/rfi/generate-response-pdf:
+    post:
+      summary: Combine section answers ➜ styled PDF for download
+      operationId: generate_response_pdf_studio_v1_demos_rfi_generate_response_pdf_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarkdownRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+            application/pdf: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/demos/rfi/process-rfi:
+    post:
+      summary: Process Rfi Document
+      operationId: process_rfi_document_studio_v1_demos_rfi_process_rfi_post
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_process_rfi_document_studio_v1_demos_rfi_process_rfi_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Process Rfi Document Studio V1 Demos Rfi Process Rfi Post
+                type: array
+                items:
+                  $ref: '#/components/schemas/RFIResponseSection'
         '422':
           description: Validation Error
           content:
@@ -1539,6 +1613,26 @@ components:
           title: File
           type: string
           format: binary
+    Body_process_rfi_document_studio_v1_demos_rfi_process_rfi_post:
+      title: Body_process_rfi_document_studio_v1_demos_rfi_process_rfi_post
+      required:
+        - file
+      type: object
+      properties:
+        file:
+          title: File
+          type: string
+          description: RFI document file (PDF supported)
+          format: binary
+        budget:
+          title: Budget
+          type: string
+          description: 'Budget level: LOW, MEDIUM, or HIGH'
+          default: MEDIUM
+        vector_store_id:
+          title: Vector Store Id
+          type: string
+          description: Vector store ID to use for RFI processing
     Body_upload_check_compliance_studio_v1_demos_regulations_upload_check_compliance_post:
       title: Body_upload_check_compliance_studio_v1_demos_regulations_upload_check_compliance_post
       required:
@@ -2052,6 +2146,10 @@ components:
           title: Tools Allowed
           type: boolean
           default: false
+        payload_type:
+          allOf:
+            - $ref: '#/components/schemas/MaestroPayloadType'
+          default: maestro_run
     CreatePlanPayload:
       title: CreatePlanPayload
       required:
@@ -2388,6 +2486,23 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ValidationError'
+    JambaExecuteRequest:
+      title: JambaExecuteRequest
+      required:
+        - content
+        - task
+        - prompt
+      type: object
+      properties:
+        content:
+          title: Content
+          type: string
+        task:
+          title: Task
+          type: string
+        prompt:
+          title: Prompt
+          type: string
     LibrarySearchRequest:
       title: LibrarySearchRequest
       required:
@@ -2511,6 +2626,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TopLogprobsData'
+    MaestroPayloadType:
+      title: MaestroPayloadType
+      enum:
+        - conversational_rag
+        - maestro_run
+      description: An enumeration.
     MaestroRunResult:
       title: MaestroRunResult
       required:
@@ -2539,6 +2660,16 @@ components:
         requirements_result:
           title: Requirements Result
           type: object
+    MarkdownRequest:
+      title: MarkdownRequest
+      required:
+        - text
+      type: object
+      properties:
+        text:
+          title: Text
+          type: string
+          description: All section answers concatenated
     Message:
       title: Message
       required:
@@ -2629,6 +2760,26 @@ components:
         - type: object
           additionalProperties:
             $ref: '#/components/schemas/ComparisonOperator'
+    RFIResponseSection:
+      title: RFIResponseSection
+      required:
+        - header
+        - description
+      type: object
+      properties:
+        header:
+          title: Header
+          type: string
+          description: Exact or closest RFI heading for the section
+        description:
+          title: Description
+          type: string
+          description: ≤350-character directive listing everything to include in that section
+        generated_content:
+          title: Generated Content
+          type: string
+          description: Generated content for this section based on company files
+      description: Model for a single RFI response section.
     Requirement:
       title: Requirement
       required:
