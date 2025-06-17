@@ -7,11 +7,11 @@ namespace AI21
     {
         partial void PrepareV1WebsiteConnectorGetWebsiteStatusArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string sitemapUrl);
+            ref global::System.Guid websiteId);
         partial void PrepareV1WebsiteConnectorGetWebsiteStatusRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string sitemapUrl);
+            global::System.Guid websiteId);
         partial void ProcessV1WebsiteConnectorGetWebsiteStatusResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -24,24 +24,24 @@ namespace AI21
         /// <summary>
         /// Get Website Status
         /// </summary>
-        /// <param name="sitemapUrl"></param>
+        /// <param name="websiteId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> V1WebsiteConnectorGetWebsiteStatusAsync(
-            string sitemapUrl,
+            global::System.Guid websiteId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareV1WebsiteConnectorGetWebsiteStatusArguments(
                 httpClient: HttpClient,
-                sitemapUrl: ref sitemapUrl);
+                websiteId: ref websiteId);
 
             var __pathBuilder = new global::AI21.PathBuilder(
                 path: "/studio/v1/website-connector/website-status",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 
-                .AddRequiredParameter("sitemap_url", sitemapUrl) 
+                .AddRequiredParameter("website_id", websiteId.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -74,7 +74,7 @@ namespace AI21
             PrepareV1WebsiteConnectorGetWebsiteStatusRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                sitemapUrl: sitemapUrl);
+                websiteId: websiteId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

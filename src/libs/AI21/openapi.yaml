@@ -944,12 +944,13 @@ paths:
       summary: Get Website Status
       operationId: v1_website_connector_get_website_status
       parameters:
-        - name: sitemap_url
+        - name: website_id
           in: query
           required: true
           schema:
-            title: Sitemap Url
+            title: Website Id
             type: string
+            format: uuid
       responses:
         '200':
           description: Successful Response
@@ -2631,6 +2632,7 @@ components:
       enum:
         - conversational_rag
         - maestro_run
+        - conv_rag_maestro_run
       description: An enumeration.
     MaestroRunResult:
       title: MaestroRunResult
@@ -2708,8 +2710,12 @@ components:
         - jamba-large
         - jamba-mini-1.6
         - jamba-large-1.6
+        - jamba-mini-1.7
+        - jamba-large-1.7
         - jamba-mini-1.6-2025-03
         - jamba-large-1.6-2025-03
+        - jamba-mini-1.7-2025-06
+        - jamba-large-1.7-2025-06
       type: string
       description: An enumeration.
     OutputOptions:

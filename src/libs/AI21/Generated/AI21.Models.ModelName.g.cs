@@ -27,11 +27,27 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
+        JambaMini17,
+        /// <summary>
+        /// 
+        /// </summary>
+        JambaLarge17,
+        /// <summary>
+        /// 
+        /// </summary>
         JambaMini16202503,
         /// <summary>
         /// 
         /// </summary>
         JambaLarge16202503,
+        /// <summary>
+        /// 
+        /// </summary>
+        JambaMini17202506,
+        /// <summary>
+        /// 
+        /// </summary>
+        JambaLarge17202506,
     }
 
     /// <summary>
@@ -50,8 +66,12 @@ namespace AI21
                 ModelName.JambaLarge => "jamba-large",
                 ModelName.JambaMini16 => "jamba-mini-1.6",
                 ModelName.JambaLarge16 => "jamba-large-1.6",
+                ModelName.JambaMini17 => "jamba-mini-1.7",
+                ModelName.JambaLarge17 => "jamba-large-1.7",
                 ModelName.JambaMini16202503 => "jamba-mini-1.6-2025-03",
                 ModelName.JambaLarge16202503 => "jamba-large-1.6-2025-03",
+                ModelName.JambaMini17202506 => "jamba-mini-1.7-2025-06",
+                ModelName.JambaLarge17202506 => "jamba-large-1.7-2025-06",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -66,8 +86,12 @@ namespace AI21
                 "jamba-large" => ModelName.JambaLarge,
                 "jamba-mini-1.6" => ModelName.JambaMini16,
                 "jamba-large-1.6" => ModelName.JambaLarge16,
+                "jamba-mini-1.7" => ModelName.JambaMini17,
+                "jamba-large-1.7" => ModelName.JambaLarge17,
                 "jamba-mini-1.6-2025-03" => ModelName.JambaMini16202503,
                 "jamba-large-1.6-2025-03" => ModelName.JambaLarge16202503,
+                "jamba-mini-1.7-2025-06" => ModelName.JambaMini17202506,
+                "jamba-large-1.7-2025-06" => ModelName.JambaLarge17202506,
                 _ => null,
             };
         }
