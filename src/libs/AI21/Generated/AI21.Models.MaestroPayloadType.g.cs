@@ -16,6 +16,10 @@ namespace AI21
         /// 
         /// </summary>
         MaestroRun,
+        /// <summary>
+        /// 
+        /// </summary>
+        ConvRagMaestroRun,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace AI21
             {
                 MaestroPayloadType.ConversationalRag => "conversational_rag",
                 MaestroPayloadType.MaestroRun => "maestro_run",
+                MaestroPayloadType.ConvRagMaestroRun => "conv_rag_maestro_run",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace AI21
             {
                 "conversational_rag" => MaestroPayloadType.ConversationalRag,
                 "maestro_run" => MaestroPayloadType.MaestroRun,
+                "conv_rag_maestro_run" => MaestroPayloadType.ConvRagMaestroRun,
                 _ => null,
             };
         }
