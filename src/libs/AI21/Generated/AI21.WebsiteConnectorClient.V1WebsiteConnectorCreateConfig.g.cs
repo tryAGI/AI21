@@ -5,42 +5,42 @@ namespace AI21
 {
     public partial class WebsiteConnectorClient
     {
-        partial void PrepareV1WebsiteConnectorIngestWebsiteArguments(
+        partial void PrepareV1WebsiteConnectorCreateConfigArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::AI21.WebsiteConnectorIngestWebsitePayload request);
-        partial void PrepareV1WebsiteConnectorIngestWebsiteRequest(
+            global::AI21.WebsiteConnectorCreateConfigPayload request);
+        partial void PrepareV1WebsiteConnectorCreateConfigRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::AI21.WebsiteConnectorIngestWebsitePayload request);
-        partial void ProcessV1WebsiteConnectorIngestWebsiteResponse(
+            global::AI21.WebsiteConnectorCreateConfigPayload request);
+        partial void ProcessV1WebsiteConnectorCreateConfigResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessV1WebsiteConnectorIngestWebsiteResponseContent(
+        partial void ProcessV1WebsiteConnectorCreateConfigResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Ingest Website
+        /// Create Client Config
         /// </summary>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> V1WebsiteConnectorIngestWebsiteAsync(
-            global::AI21.WebsiteConnectorIngestWebsitePayload request,
+        public async global::System.Threading.Tasks.Task<string> V1WebsiteConnectorCreateConfigAsync(
+            global::AI21.WebsiteConnectorCreateConfigPayload request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareV1WebsiteConnectorIngestWebsiteArguments(
+            PrepareV1WebsiteConnectorCreateConfigArguments(
                 httpClient: HttpClient,
                 request: request);
 
             var __pathBuilder = new global::AI21.PathBuilder(
-                path: "/studio/v1/website-connector/ingest-website",
+                path: "/studio/v1/website-connector/client-config",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -76,7 +76,7 @@ namespace AI21
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareV1WebsiteConnectorIngestWebsiteRequest(
+            PrepareV1WebsiteConnectorCreateConfigRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 request: request);
@@ -89,7 +89,7 @@ namespace AI21
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessV1WebsiteConnectorIngestWebsiteResponse(
+            ProcessV1WebsiteConnectorCreateConfigResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -142,7 +142,7 @@ namespace AI21
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessV1WebsiteConnectorIngestWebsiteResponseContent(
+                ProcessV1WebsiteConnectorCreateConfigResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -199,24 +199,37 @@ namespace AI21
         }
 
         /// <summary>
-        /// Ingest Website
+        /// Create Client Config
         /// </summary>
-        /// <param name="sitemapUrl"></param>
-        /// <param name="clientConfig"></param>
+        /// <param name="name"></param>
+        /// <param name="getFilesFromSitemap">
+        /// Default Value: false
+        /// </param>
+        /// <param name="isSlowDomain">
+        /// Default Value: false
+        /// </param>
+        /// <param name="urlPatternsToExclude"></param>
+        /// <param name="urlExtensionsToKeep"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<string> V1WebsiteConnectorIngestWebsiteAsync(
-            string sitemapUrl,
-            string? clientConfig = default,
+        public async global::System.Threading.Tasks.Task<string> V1WebsiteConnectorCreateConfigAsync(
+            string name,
+            global::System.Collections.Generic.IList<string> urlPatternsToExclude,
+            global::System.Collections.Generic.IList<string> urlExtensionsToKeep,
+            bool? getFilesFromSitemap = default,
+            bool? isSlowDomain = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::AI21.WebsiteConnectorIngestWebsitePayload
+            var __request = new global::AI21.WebsiteConnectorCreateConfigPayload
             {
-                SitemapUrl = sitemapUrl,
-                ClientConfig = clientConfig,
+                Name = name,
+                GetFilesFromSitemap = getFilesFromSitemap,
+                IsSlowDomain = isSlowDomain,
+                UrlPatternsToExclude = urlPatternsToExclude,
+                UrlExtensionsToKeep = urlExtensionsToKeep,
             };
 
-            return await V1WebsiteConnectorIngestWebsiteAsync(
+            return await V1WebsiteConnectorCreateConfigAsync(
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

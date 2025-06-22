@@ -5,46 +5,47 @@ namespace AI21
 {
     public partial class WebsiteConnectorClient
     {
-        partial void PrepareV1WebsiteConnectorIngestWebsiteArguments(
+        partial void PrepareV1WebsiteConnectorGetConfigArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::AI21.WebsiteConnectorIngestWebsitePayload request);
-        partial void PrepareV1WebsiteConnectorIngestWebsiteRequest(
+            ref string configName);
+        partial void PrepareV1WebsiteConnectorGetConfigRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::AI21.WebsiteConnectorIngestWebsitePayload request);
-        partial void ProcessV1WebsiteConnectorIngestWebsiteResponse(
+            string configName);
+        partial void ProcessV1WebsiteConnectorGetConfigResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessV1WebsiteConnectorIngestWebsiteResponseContent(
+        partial void ProcessV1WebsiteConnectorGetConfigResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Ingest Website
+        /// Get Client Config
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="configName"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> V1WebsiteConnectorIngestWebsiteAsync(
-            global::AI21.WebsiteConnectorIngestWebsitePayload request,
+        public async global::System.Threading.Tasks.Task<string> V1WebsiteConnectorGetConfigAsync(
+            string configName,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
-            PrepareV1WebsiteConnectorIngestWebsiteArguments(
+            PrepareV1WebsiteConnectorGetConfigArguments(
                 httpClient: HttpClient,
-                request: request);
+                configName: ref configName);
 
             var __pathBuilder = new global::AI21.PathBuilder(
-                path: "/studio/v1/website-connector/ingest-website",
+                path: "/studio/v1/website-connector/client-config",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder 
+                .AddRequiredParameter("config_name", configName) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: global::System.Net.Http.HttpMethod.Post,
+                method: global::System.Net.Http.HttpMethod.Get,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -66,20 +67,14 @@ namespace AI21
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
-            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                content: __httpRequestContentBody,
-                encoding: global::System.Text.Encoding.UTF8,
-                mediaType: "application/json");
-            __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareV1WebsiteConnectorIngestWebsiteRequest(
+            PrepareV1WebsiteConnectorGetConfigRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                request: request);
+                configName: configName);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -89,7 +84,7 @@ namespace AI21
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessV1WebsiteConnectorIngestWebsiteResponse(
+            ProcessV1WebsiteConnectorGetConfigResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -142,7 +137,7 @@ namespace AI21
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessV1WebsiteConnectorIngestWebsiteResponseContent(
+                ProcessV1WebsiteConnectorGetConfigResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -196,29 +191,6 @@ namespace AI21
                     };
                 }
             }
-        }
-
-        /// <summary>
-        /// Ingest Website
-        /// </summary>
-        /// <param name="sitemapUrl"></param>
-        /// <param name="clientConfig"></param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<string> V1WebsiteConnectorIngestWebsiteAsync(
-            string sitemapUrl,
-            string? clientConfig = default,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var __request = new global::AI21.WebsiteConnectorIngestWebsitePayload
-            {
-                SitemapUrl = sitemapUrl,
-                ClientConfig = clientConfig,
-            };
-
-            return await V1WebsiteConnectorIngestWebsiteAsync(
-                request: __request,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

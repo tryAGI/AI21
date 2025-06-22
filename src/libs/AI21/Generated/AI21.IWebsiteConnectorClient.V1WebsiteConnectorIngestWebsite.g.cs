@@ -18,10 +18,12 @@ namespace AI21
         /// Ingest Website
         /// </summary>
         /// <param name="sitemapUrl"></param>
+        /// <param name="clientConfig"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> V1WebsiteConnectorIngestWebsiteAsync(
             string sitemapUrl,
+            string? clientConfig = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
