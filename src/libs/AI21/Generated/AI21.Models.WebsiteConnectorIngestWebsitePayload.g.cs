@@ -16,6 +16,12 @@ namespace AI21
         public required string SitemapUrl { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("client_config")]
+        public string? ClientConfig { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -25,13 +31,16 @@ namespace AI21
         /// Initializes a new instance of the <see cref="WebsiteConnectorIngestWebsitePayload" /> class.
         /// </summary>
         /// <param name="sitemapUrl"></param>
+        /// <param name="clientConfig"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public WebsiteConnectorIngestWebsitePayload(
-            string sitemapUrl)
+            string sitemapUrl,
+            string? clientConfig)
         {
             this.SitemapUrl = sitemapUrl ?? throw new global::System.ArgumentNullException(nameof(sitemapUrl));
+            this.ClientConfig = clientConfig;
         }
 
         /// <summary>
