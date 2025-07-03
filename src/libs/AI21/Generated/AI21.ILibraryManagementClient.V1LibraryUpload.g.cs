@@ -35,6 +35,9 @@ namespace AI21
         /// <param name="labels"></param>
         /// <param name="publicUrl"></param>
         /// <param name="customConfigs"></param>
+        /// <param name="uploadMode">
+        /// Default Value: immediate
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> V1LibraryUploadAsync(
@@ -44,6 +47,7 @@ namespace AI21
             global::System.Collections.Generic.IList<string>? labels = default,
             string? publicUrl = default,
             string? customConfigs = default,
+            global::AI21.UploadMode? uploadMode = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

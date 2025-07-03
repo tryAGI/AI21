@@ -93,6 +93,12 @@ namespace AI21
         public global::AI21.MaestroPayloadType? PayloadType { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("custom_retrieval_configs")]
+        public global::System.Collections.Generic.IList<object>? CustomRetrievalConfigs { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -122,6 +128,7 @@ namespace AI21
         /// <param name="payloadType">
         /// Default Value: maestro_run
         /// </param>
+        /// <param name="customRetrievalConfigs"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -138,7 +145,8 @@ namespace AI21
             global::System.Collections.Generic.IList<global::AI21.OutputOptions>? include,
             bool? structuredRagEnabled,
             bool? toolsAllowed,
-            global::AI21.MaestroPayloadType? payloadType)
+            global::AI21.MaestroPayloadType? payloadType,
+            global::System.Collections.Generic.IList<object>? customRetrievalConfigs)
         {
             this.Input = input;
             this.OutputType = outputType;
@@ -153,6 +161,7 @@ namespace AI21
             this.StructuredRagEnabled = structuredRagEnabled;
             this.ToolsAllowed = toolsAllowed;
             this.PayloadType = payloadType;
+            this.CustomRetrievalConfigs = customRetrievalConfigs;
         }
 
         /// <summary>

@@ -19,6 +19,8 @@ namespace AI21
             typeof(global::AI21.JsonConverters.AssistantMessageRoleNullableJsonConverter),
             typeof(global::AI21.JsonConverters.ToolCallTypeJsonConverter),
             typeof(global::AI21.JsonConverters.ToolCallTypeNullableJsonConverter),
+            typeof(global::AI21.JsonConverters.UploadModeJsonConverter),
+            typeof(global::AI21.JsonConverters.UploadModeNullableJsonConverter),
             typeof(global::AI21.JsonConverters.ChatStreamingFirstDeltaRoleJsonConverter),
             typeof(global::AI21.JsonConverters.ChatStreamingFirstDeltaRoleNullableJsonConverter),
             typeof(global::AI21.JsonConverters.ToolCallDeltaStartTypeJsonConverter),
