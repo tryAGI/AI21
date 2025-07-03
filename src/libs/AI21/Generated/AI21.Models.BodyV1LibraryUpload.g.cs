@@ -47,6 +47,13 @@ namespace AI21
         public string? CustomConfigs { get; set; }
 
         /// <summary>
+        /// Default Value: immediate
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("upload_mode")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.UploadModeJsonConverter))]
+        public global::AI21.UploadMode? UploadMode { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -61,6 +68,9 @@ namespace AI21
         /// <param name="labels"></param>
         /// <param name="publicUrl"></param>
         /// <param name="customConfigs"></param>
+        /// <param name="uploadMode">
+        /// Default Value: immediate
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -70,7 +80,8 @@ namespace AI21
             string? path,
             global::System.Collections.Generic.IList<string>? labels,
             string? publicUrl,
-            string? customConfigs)
+            string? customConfigs,
+            global::AI21.UploadMode? uploadMode)
         {
             this.File = file ?? throw new global::System.ArgumentNullException(nameof(file));
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
@@ -78,6 +89,7 @@ namespace AI21
             this.Labels = labels;
             this.PublicUrl = publicUrl;
             this.CustomConfigs = customConfigs;
+            this.UploadMode = uploadMode;
         }
 
         /// <summary>

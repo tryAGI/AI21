@@ -116,7 +116,7 @@ paths:
           schema:
             title: Limit
             type: integer
-            default: 10000
+            default: 500000
         - name: offset
           in: query
           schema:
@@ -864,6 +864,53 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/demos/scraper/conversational-rag:
+    post:
+      summary: Execute Conv Rag
+      operationId: execute_conv_rag_studio_v1_demos_scraper_conversational_rag_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConvRagExecuteRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Execute Conv Rag Studio V1 Demos Scraper Conversational Rag Post
+                type: object
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/demos/scraper/file-url/{file_id}':
+    get:
+      summary: Get File Url
+      operationId: get_file_url_studio_v1_demos_scraper_file_url__file_id__get
+      parameters:
+        - name: file_id
+          in: path
+          required: true
+          schema:
+            title: File Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /studio/v1/website-connector/ingest-url:
     post:
       tags:
@@ -1029,6 +1076,52 @@ paths:
           content:
             application/json:
               schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/generation/requirements:
+    post:
+      summary: Generate Requirements
+      operationId: v1_studio_api_generation_requirements
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequirementsGenerationRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequirementsGenerationResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/generation/thread-name:
+    post:
+      summary: Generate Thread Name
+      operationId: v1_studio_api_generation_thread_name
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ThreadNameGenerationRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThreadNameGenerationResponse'
         '422':
           description: Validation Error
           content:
@@ -1720,6 +1813,10 @@ components:
         custom_configs:
           title: Custom Configs
           type: string
+        upload_mode:
+          allOf:
+            - $ref: '#/components/schemas/UploadMode'
+          default: immediate
     ChatCompletion:
       title: ChatCompletion
       required:
@@ -2001,6 +2098,18 @@ components:
         - FAILED
         - SUCCEEDED
       description: An enumeration.
+    ConvRagExecuteRequest:
+      title: ConvRagExecuteRequest
+      required:
+        - message
+      type: object
+      properties:
+        message:
+          title: Message
+          type: string
+        label:
+          title: Label
+          type: string
     ConversationalRagConfig:
       title: ConversationalRagConfig
       required:
@@ -2062,6 +2171,10 @@ components:
           default: english
         verbose:
           title: Verbose
+          type: boolean
+          default: false
+        should_set_custom_retrieval_configs:
+          title: Should Set Custom Retrieval Configs
           type: boolean
           default: false
       description: This class is to be used as a common class to all Studio API requests payloads
@@ -2199,6 +2312,11 @@ components:
           allOf:
             - $ref: '#/components/schemas/MaestroPayloadType'
           default: maestro_run
+        custom_retrieval_configs:
+          title: Custom Retrieval Configs
+          type: array
+          items:
+            type: object
     CreatePlanPayload:
       title: CreatePlanPayload
       required:
@@ -2762,8 +2880,8 @@ components:
         - jamba-large-1.7
         - jamba-mini-1.6-2025-03
         - jamba-large-1.6-2025-03
-        - jamba-mini-1.7-2025-06
-        - jamba-large-1.7-2025-06
+        - jamba-mini-1.7-2025-07
+        - jamba-large-1.7-2025-07
       type: string
       description: An enumeration.
     OutputOptions:
@@ -2850,6 +2968,39 @@ components:
         is_mandatory:
           title: Is Mandatory
           type: boolean
+    RequirementItem:
+      title: RequirementItem
+      required:
+        - name
+        - description
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+    RequirementsGenerationRequest:
+      title: RequirementsGenerationRequest
+      required:
+        - query
+      type: object
+      properties:
+        query:
+          title: Query
+          type: string
+    RequirementsGenerationResponse:
+      title: RequirementsGenerationResponse
+      required:
+        - requirements
+      type: object
+      properties:
+        requirements:
+          title: Requirements
+          type: array
+          items:
+            $ref: '#/components/schemas/RequirementItem'
     ResponseFormat:
       title: ResponseFormat
       required:
@@ -2899,6 +3050,24 @@ components:
           default: system
         content:
           title: Content
+          type: string
+    ThreadNameGenerationRequest:
+      title: ThreadNameGenerationRequest
+      required:
+        - query
+      type: object
+      properties:
+        query:
+          title: Query
+          type: string
+    ThreadNameGenerationResponse:
+      title: ThreadNameGenerationResponse
+      required:
+        - thread_name
+      type: object
+      properties:
+        thread_name:
+          title: Thread Name
           type: string
     ToolCall:
       title: ToolCall
@@ -3088,6 +3257,13 @@ components:
         secret_value:
           title: Secret Value
           type: string
+    UploadMode:
+      title: UploadMode
+      enum:
+        - immediate
+        - batch
+      type: string
+      description: An enumeration.
     UsageInfo:
       title: UsageInfo
       required:
