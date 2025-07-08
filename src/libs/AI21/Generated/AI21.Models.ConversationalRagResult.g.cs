@@ -31,18 +31,16 @@ namespace AI21
         public global::System.Collections.Generic.IList<string>? SearchQueries { get; set; }
 
         /// <summary>
-        /// 
+        /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("context_retrieved")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool ContextRetrieved { get; set; }
+        public bool? ContextRetrieved { get; set; }
 
         /// <summary>
-        /// 
+        /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("answer_in_context")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool AnswerInContext { get; set; }
+        public bool? AnswerInContext { get; set; }
 
         /// <summary>
         /// 
@@ -67,8 +65,12 @@ namespace AI21
         /// </param>
         /// <param name="choices"></param>
         /// <param name="searchQueries"></param>
-        /// <param name="contextRetrieved"></param>
-        /// <param name="answerInContext"></param>
+        /// <param name="contextRetrieved">
+        /// Default Value: false
+        /// </param>
+        /// <param name="answerInContext">
+        /// Default Value: false
+        /// </param>
         /// <param name="sources"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -76,17 +78,17 @@ namespace AI21
         public ConversationalRagResult(
             string id,
             global::System.Collections.Generic.IList<global::AI21.Message> choices,
-            bool contextRetrieved,
-            bool answerInContext,
             global::System.Collections.Generic.IList<global::AI21.ConversationalRagSource> sources,
-            global::System.Collections.Generic.IList<string>? searchQueries)
+            global::System.Collections.Generic.IList<string>? searchQueries,
+            bool? contextRetrieved,
+            bool? answerInContext)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Choices = choices ?? throw new global::System.ArgumentNullException(nameof(choices));
-            this.ContextRetrieved = contextRetrieved;
-            this.AnswerInContext = answerInContext;
             this.Sources = sources ?? throw new global::System.ArgumentNullException(nameof(sources));
             this.SearchQueries = searchQueries;
+            this.ContextRetrieved = contextRetrieved;
+            this.AnswerInContext = answerInContext;
         }
 
         /// <summary>

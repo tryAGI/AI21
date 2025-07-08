@@ -38,6 +38,7 @@ namespace AI21
         /// <param name="uploadMode">
         /// Default Value: immediate
         /// </param>
+        /// <param name="batchId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> V1LibraryUploadAsync(
@@ -48,6 +49,7 @@ namespace AI21
             string? publicUrl = default,
             string? customConfigs = default,
             global::AI21.UploadMode? uploadMode = default,
+            global::System.Guid? batchId = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

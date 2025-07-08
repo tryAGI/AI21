@@ -362,6 +362,33 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/library/batches/{batch_id}/status':
+    get:
+      tags:
+        - RAG Engine
+      summary: Get Batch Ingestion Status
+      operationId: v1_library_management
+      parameters:
+        - name: batch_id
+          in: path
+          required: true
+          schema:
+            title: Batch Id
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IngestionBatchStatusResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   '/studio/v1/library/files/{file_id}/download':
     get:
       tags:
@@ -1817,6 +1844,10 @@ components:
           allOf:
             - $ref: '#/components/schemas/UploadMode'
           default: immediate
+        batch_id:
+          title: Batch Id
+          type: string
+          format: uuid
     ChatCompletion:
       title: ChatCompletion
       required:
@@ -2183,8 +2214,6 @@ components:
       required:
         - id
         - choices
-        - context_retrieved
-        - answer_in_context
         - sources
       type: object
       properties:
@@ -2205,9 +2234,11 @@ components:
         context_retrieved:
           title: Context Retrieved
           type: boolean
+          default: false
         answer_in_context:
           title: Answer In Context
           type: boolean
+          default: false
         sources:
           title: Sources
           type: array
@@ -2217,8 +2248,6 @@ components:
       title: ConversationalRagSource
       required:
         - text
-        - file_id
-        - file_name
       type: object
       properties:
         text:
@@ -2302,6 +2331,10 @@ components:
             $ref: '#/components/schemas/OutputOptions'
         structured_rag_enabled:
           title: Structured Rag Enabled
+          type: boolean
+          default: false
+        dynamic_planning_enabled:
+          title: Dynamic Planning Enabled
           type: boolean
           default: false
         tools_allowed:
@@ -2653,6 +2686,41 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ValidationError'
+    IgnestionBatchStatusCount:
+      title: IgnestionBatchStatusCount
+      required:
+        - status
+        - count
+      type: object
+      properties:
+        status:
+          title: Status
+          type: string
+        count:
+          title: Count
+          type: integer
+    IngestionBatchStatusResponse:
+      title: IngestionBatchStatusResponse
+      required:
+        - batch_id
+        - total_documents
+        - statuses
+      type: object
+      properties:
+        batch_id:
+          title: Batch Id
+          type: string
+          description: The UUID of the batch
+        total_documents:
+          title: Total Documents
+          type: integer
+          description: Total number of documents in the batch
+        statuses:
+          title: Statuses
+          type: array
+          items:
+            $ref: '#/components/schemas/IgnestionBatchStatusCount'
+          description: List of document counts by status
     JambaExecuteRequest:
       title: JambaExecuteRequest
       required:

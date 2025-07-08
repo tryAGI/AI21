@@ -54,6 +54,12 @@ namespace AI21
         public global::AI21.UploadMode? UploadMode { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("batch_id")]
+        public global::System.Guid? BatchId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -71,6 +77,7 @@ namespace AI21
         /// <param name="uploadMode">
         /// Default Value: immediate
         /// </param>
+        /// <param name="batchId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -81,7 +88,8 @@ namespace AI21
             global::System.Collections.Generic.IList<string>? labels,
             string? publicUrl,
             string? customConfigs,
-            global::AI21.UploadMode? uploadMode)
+            global::AI21.UploadMode? uploadMode,
+            global::System.Guid? batchId)
         {
             this.File = file ?? throw new global::System.ArgumentNullException(nameof(file));
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
@@ -90,6 +98,7 @@ namespace AI21
             this.PublicUrl = publicUrl;
             this.CustomConfigs = customConfigs;
             this.UploadMode = uploadMode;
+            this.BatchId = batchId;
         }
 
         /// <summary>

@@ -32,6 +32,9 @@ namespace AI21
         /// <param name="structuredRagEnabled">
         /// Default Value: false
         /// </param>
+        /// <param name="dynamicPlanningEnabled">
+        /// Default Value: false
+        /// </param>
         /// <param name="toolsAllowed">
         /// Default Value: false
         /// </param>
@@ -53,6 +56,7 @@ namespace AI21
             bool? verbose = default,
             global::System.Collections.Generic.IList<global::AI21.OutputOptions>? include = default,
             bool? structuredRagEnabled = default,
+            bool? dynamicPlanningEnabled = default,
             bool? toolsAllowed = default,
             global::AI21.MaestroPayloadType? payloadType = default,
             global::System.Collections.Generic.IList<object>? customRetrievalConfigs = default,

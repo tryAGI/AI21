@@ -19,15 +19,13 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string FileId { get; set; }
+        public string? FileId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_name")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string FileName { get; set; }
+        public string? FileName { get; set; }
 
         /// <summary>
         /// 
@@ -74,16 +72,16 @@ namespace AI21
 #endif
         public ConversationalRagSource(
             string text,
-            string fileId,
-            string fileName,
+            string? fileId,
+            string? fileName,
             double? score,
             int? order,
             string? publicUrl,
             global::System.Collections.Generic.IList<string>? labels)
         {
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
-            this.FileId = fileId ?? throw new global::System.ArgumentNullException(nameof(fileId));
-            this.FileName = fileName ?? throw new global::System.ArgumentNullException(nameof(fileName));
+            this.FileId = fileId;
+            this.FileName = fileName;
             this.Score = score;
             this.Order = order;
             this.PublicUrl = publicUrl;

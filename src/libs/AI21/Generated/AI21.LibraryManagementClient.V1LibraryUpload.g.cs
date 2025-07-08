@@ -106,6 +106,12 @@ namespace AI21
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.UploadMode?.ToValueString()}"),
                     name: "upload_mode");
+            } 
+            if (request.BatchId != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.BatchId}"),
+                    name: "batch_id");
             }
             __httpRequest.Content = __httpRequestContent;
 
@@ -252,6 +258,7 @@ namespace AI21
         /// <param name="uploadMode">
         /// Default Value: immediate
         /// </param>
+        /// <param name="batchId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> V1LibraryUploadAsync(
@@ -262,6 +269,7 @@ namespace AI21
             string? publicUrl = default,
             string? customConfigs = default,
             global::AI21.UploadMode? uploadMode = default,
+            global::System.Guid? batchId = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::AI21.BodyV1LibraryUpload
@@ -273,6 +281,7 @@ namespace AI21
                 PublicUrl = publicUrl,
                 CustomConfigs = customConfigs,
                 UploadMode = uploadMode,
+                BatchId = batchId,
             };
 
             return await V1LibraryUploadAsync(

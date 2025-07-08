@@ -7,11 +7,11 @@ namespace AI21
     {
         partial void PrepareV1LibraryManagementArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref global::System.Guid fileId);
+            ref global::System.Guid batchId);
         partial void PrepareV1LibraryManagementRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::System.Guid fileId);
+            global::System.Guid batchId);
         partial void ProcessV1LibraryManagementResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -22,23 +22,23 @@ namespace AI21
             ref string content);
 
         /// <summary>
-        /// Generate Documents Signed Url
+        /// Get Batch Ingestion Status
         /// </summary>
-        /// <param name="fileId"></param>
+        /// <param name="batchId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> V1LibraryManagementAsync(
-            global::System.Guid fileId,
+        public async global::System.Threading.Tasks.Task<global::AI21.IngestionBatchStatusResponse> V1LibraryManagementAsync(
+            global::System.Guid batchId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareV1LibraryManagementArguments(
                 httpClient: HttpClient,
-                fileId: ref fileId);
+                batchId: ref batchId);
 
             var __pathBuilder = new global::AI21.PathBuilder(
-                path: $"/studio/v1/library/files/{fileId}/download",
+                path: $"/studio/v1/library/batches/{batchId}/status",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -71,7 +71,7 @@ namespace AI21
             PrepareV1LibraryManagementRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                fileId: fileId);
+                batchId: batchId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -143,7 +143,9 @@ namespace AI21
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    return __content;
+                    return
+                        global::AI21.IngestionBatchStatusResponse.FromJson(__content, JsonSerializerContext) ??
+                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -166,13 +168,15 @@ namespace AI21
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    var __content = await __response.Content.ReadAsStringAsync(
+                    using var __content = await __response.Content.ReadAsStreamAsync(
 #if NET5_0_OR_GREATER
                         cancellationToken
 #endif
                     ).ConfigureAwait(false);
 
-                    return __content;
+                    return
+                        await global::AI21.IngestionBatchStatusResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
                 {
