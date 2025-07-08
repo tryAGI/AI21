@@ -82,6 +82,12 @@ namespace AI21
         /// <summary>
         /// Default Value: false
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_planning_enabled")]
+        public bool? DynamicPlanningEnabled { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools_allowed")]
         public bool? ToolsAllowed { get; set; }
 
@@ -122,6 +128,9 @@ namespace AI21
         /// <param name="structuredRagEnabled">
         /// Default Value: false
         /// </param>
+        /// <param name="dynamicPlanningEnabled">
+        /// Default Value: false
+        /// </param>
         /// <param name="toolsAllowed">
         /// Default Value: false
         /// </param>
@@ -144,6 +153,7 @@ namespace AI21
             bool? verbose,
             global::System.Collections.Generic.IList<global::AI21.OutputOptions>? include,
             bool? structuredRagEnabled,
+            bool? dynamicPlanningEnabled,
             bool? toolsAllowed,
             global::AI21.MaestroPayloadType? payloadType,
             global::System.Collections.Generic.IList<object>? customRetrievalConfigs)
@@ -159,6 +169,7 @@ namespace AI21
             this.Verbose = verbose;
             this.Include = include;
             this.StructuredRagEnabled = structuredRagEnabled;
+            this.DynamicPlanningEnabled = dynamicPlanningEnabled;
             this.ToolsAllowed = toolsAllowed;
             this.PayloadType = payloadType;
             this.CustomRetrievalConfigs = customRetrievalConfigs;
