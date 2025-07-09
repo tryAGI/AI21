@@ -18,22 +18,24 @@ namespace AI21
         /// Create Client Config
         /// </summary>
         /// <param name="name"></param>
-        /// <param name="getFilesFromSitemap">
+        /// <param name="extractLinkedFiles">
         /// Default Value: false
         /// </param>
-        /// <param name="isSlowDomain">
+        /// <param name="waitForDynamicContent">
         /// Default Value: false
         /// </param>
-        /// <param name="urlPatternsToExclude"></param>
-        /// <param name="urlExtensionsToKeep"></param>
+        /// <param name="skipUrlPatterns"></param>
+        /// <param name="targetFileExtensions"></param>
+        /// <param name="localization"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> V1WebsiteConnectorCreateConfigAsync(
             string name,
-            global::System.Collections.Generic.IList<string> urlPatternsToExclude,
-            global::System.Collections.Generic.IList<string> urlExtensionsToKeep,
-            bool? getFilesFromSitemap = default,
-            bool? isSlowDomain = default,
+            global::System.Collections.Generic.IList<string> skipUrlPatterns,
+            global::System.Collections.Generic.IList<string> targetFileExtensions,
+            bool? extractLinkedFiles = default,
+            bool? waitForDynamicContent = default,
+            string? localization = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

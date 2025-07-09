@@ -3408,31 +3408,34 @@ components:
       title: WebsiteConnectorCreateConfigPayload
       required:
         - name
-        - url_patterns_to_exclude
-        - url_extensions_to_keep
+        - skip_url_patterns
+        - target_file_extensions
       type: object
       properties:
         name:
           title: Name
           type: string
-        get_files_from_sitemap:
-          title: Get Files From Sitemap
+        extract_linked_files:
+          title: Extract Linked Files
           type: boolean
           default: false
-        is_slow_domain:
-          title: Is Slow Domain
+        wait_for_dynamic_content:
+          title: Wait For Dynamic Content
           type: boolean
           default: false
-        url_patterns_to_exclude:
-          title: Url Patterns To Exclude
+        skip_url_patterns:
+          title: Skip Url Patterns
           type: array
           items:
             type: string
-        url_extensions_to_keep:
-          title: Url Extensions To Keep
+        target_file_extensions:
+          title: Target File Extensions
           type: array
           items:
             type: string
+        localization:
+          title: Localization
+          type: string
     WebsiteConnectorIngestUrlPayload:
       title: WebsiteConnectorIngestUrlPayload
       required:
