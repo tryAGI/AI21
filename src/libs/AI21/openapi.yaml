@@ -926,12 +926,42 @@ paths:
           schema:
             title: File Id
             type: string
+        - name: api_key
+          in: query
+          schema:
+            title: Api Key
+            type: string
       responses:
         '200':
           description: Successful Response
           content:
             application/json:
               schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/demos/scraper/can-iframe:
+    get:
+      summary: Can Iframe
+      operationId: can_iframe_studio_v1_demos_scraper_can_iframe_get
+      parameters:
+        - name: url
+          in: query
+          required: true
+          schema:
+            title: Url
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Can Iframe Studio V1 Demos Scraper Can Iframe Get
+                type: object
         '422':
           description: Validation Error
           content:
@@ -2141,6 +2171,9 @@ components:
         label:
           title: Label
           type: string
+        api_key:
+          title: Api Key
+          type: string
     ConversationalRagConfig:
       title: ConversationalRagConfig
       required:
@@ -2326,9 +2359,10 @@ components:
           type: boolean
           default: false
         include:
+          title: Include
           type: array
           items:
-            $ref: '#/components/schemas/OutputOptions'
+            type: string
         structured_rag_enabled:
           title: Structured Rag Enabled
           type: boolean
@@ -2738,6 +2772,9 @@ components:
         prompt:
           title: Prompt
           type: string
+        api_key:
+          title: Api Key
+          type: string
     LibrarySearchRequest:
       title: LibrarySearchRequest
       required:
@@ -2951,13 +2988,6 @@ components:
         - jamba-mini-1.7-2025-07
         - jamba-large-1.7-2025-07
       type: string
-      description: An enumeration.
-    OutputOptions:
-      title: OutputOptions
-      enum:
-        - data_sources
-        - requirements_result
-        - requirements_result.metadata
       description: An enumeration.
     Plan:
       title: Plan

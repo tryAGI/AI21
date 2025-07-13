@@ -19,11 +19,13 @@ namespace AI21
         /// </summary>
         /// <param name="message"></param>
         /// <param name="label"></param>
+        /// <param name="apiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> ExecuteConvRagStudioV1DemosScraperConversationalRagPostAsync(
             string message,
             string? label = default,
+            string? apiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

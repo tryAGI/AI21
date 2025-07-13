@@ -71,7 +71,7 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("include")]
-        public global::System.Collections.Generic.IList<global::AI21.OutputOptions>? Include { get; set; }
+        public global::System.Collections.Generic.IList<string>? Include { get; set; }
 
         /// <summary>
         /// Default Value: false
@@ -151,7 +151,7 @@ namespace AI21
             global::System.Collections.Generic.IList<global::AI21.Requirement>? requirements,
             global::AI21.CreateMaestroRunsPayloadBudget? budget,
             bool? verbose,
-            global::System.Collections.Generic.IList<global::AI21.OutputOptions>? include,
+            global::System.Collections.Generic.IList<string>? include,
             bool? structuredRagEnabled,
             bool? dynamicPlanningEnabled,
             bool? toolsAllowed,

@@ -7,11 +7,13 @@ namespace AI21
     {
         partial void PrepareGetFileUrlStudioV1DemosScraperFileUrlFileIdGetArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string fileId);
+            ref string fileId,
+            ref string? apiKey);
         partial void PrepareGetFileUrlStudioV1DemosScraperFileUrlFileIdGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string fileId);
+            string fileId,
+            string? apiKey);
         partial void ProcessGetFileUrlStudioV1DemosScraperFileUrlFileIdGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -25,21 +27,27 @@ namespace AI21
         /// Get File Url
         /// </summary>
         /// <param name="fileId"></param>
+        /// <param name="apiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> GetFileUrlStudioV1DemosScraperFileUrlFileIdGetAsync(
             string fileId,
+            string? apiKey = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGetFileUrlStudioV1DemosScraperFileUrlFileIdGetArguments(
                 httpClient: HttpClient,
-                fileId: ref fileId);
+                fileId: ref fileId,
+                apiKey: ref apiKey);
 
             var __pathBuilder = new global::AI21.PathBuilder(
                 path: $"/studio/v1/demos/scraper/file-url/{fileId}",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder 
+                .AddOptionalParameter("api_key", apiKey) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -71,7 +79,8 @@ namespace AI21
             PrepareGetFileUrlStudioV1DemosScraperFileUrlFileIdGetRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                fileId: fileId);
+                fileId: fileId,
+                apiKey: apiKey);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

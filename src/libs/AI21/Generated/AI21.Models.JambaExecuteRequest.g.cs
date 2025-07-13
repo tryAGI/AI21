@@ -30,6 +30,12 @@ namespace AI21
         public required string Prompt { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("api_key")]
+        public string? ApiKey { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -41,17 +47,20 @@ namespace AI21
         /// <param name="content"></param>
         /// <param name="task"></param>
         /// <param name="prompt"></param>
+        /// <param name="apiKey"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public JambaExecuteRequest(
             string content,
             string task,
-            string prompt)
+            string prompt,
+            string? apiKey)
         {
             this.Content = content ?? throw new global::System.ArgumentNullException(nameof(content));
             this.Task = task ?? throw new global::System.ArgumentNullException(nameof(task));
             this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
+            this.ApiKey = apiKey;
         }
 
         /// <summary>
