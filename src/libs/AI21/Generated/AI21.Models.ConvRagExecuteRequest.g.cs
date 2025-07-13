@@ -22,6 +22,12 @@ namespace AI21
         public string? Label { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("api_key")]
+        public string? ApiKey { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -32,15 +38,18 @@ namespace AI21
         /// </summary>
         /// <param name="message"></param>
         /// <param name="label"></param>
+        /// <param name="apiKey"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ConvRagExecuteRequest(
             string message,
-            string? label)
+            string? label,
+            string? apiKey)
         {
             this.Message = message ?? throw new global::System.ArgumentNullException(nameof(message));
             this.Label = label;
+            this.ApiKey = apiKey;
         }
 
         /// <summary>

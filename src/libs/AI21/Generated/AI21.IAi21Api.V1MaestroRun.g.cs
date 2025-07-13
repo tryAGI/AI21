@@ -54,7 +54,7 @@ namespace AI21
             global::System.Collections.Generic.IList<global::AI21.Requirement>? requirements = default,
             global::AI21.CreateMaestroRunsPayloadBudget? budget = default,
             bool? verbose = default,
-            global::System.Collections.Generic.IList<global::AI21.OutputOptions>? include = default,
+            global::System.Collections.Generic.IList<string>? include = default,
             bool? structuredRagEnabled = default,
             bool? dynamicPlanningEnabled = default,
             bool? toolsAllowed = default,
