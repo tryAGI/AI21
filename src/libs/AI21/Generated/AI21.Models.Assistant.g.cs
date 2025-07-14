@@ -96,7 +96,7 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
-        public global::System.Collections.Generic.IList<object>? Tools { get; set; }
+        public global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, global::AI21.AssistantTool2>>? Tools { get; set; }
 
         /// <summary>
         /// 
@@ -149,7 +149,7 @@ namespace AI21
             string? avatar,
             bool? isArchived,
             global::AI21.AnyOf<global::System.Collections.Generic.IList<global::System.Guid>, global::System.Collections.Generic.IList<string>>? models,
-            global::System.Collections.Generic.IList<object>? tools,
+            global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, global::AI21.AssistantTool2>>? tools,
             global::AI21.AssistantToolResource? toolResources)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));

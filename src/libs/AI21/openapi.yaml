@@ -1776,6 +1776,7 @@ components:
         - file_search
         - web_search
         - plan_approval
+      type: string
       description: An enumeration.
     AssistantToolResource:
       title: AssistantToolResource
@@ -3487,6 +3488,11 @@ components:
         client_config:
           title: Client Config
           type: string
+        labels:
+          title: Labels
+          type: array
+          items:
+            type: string
     WebsiteConnectorRetryIngestWebsitePayload:
       title: WebsiteConnectorRetryIngestWebsitePayload
       required:

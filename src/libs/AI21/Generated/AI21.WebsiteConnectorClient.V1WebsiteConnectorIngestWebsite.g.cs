@@ -203,17 +203,20 @@ namespace AI21
         /// </summary>
         /// <param name="sitemapUrl"></param>
         /// <param name="clientConfig"></param>
+        /// <param name="labels"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> V1WebsiteConnectorIngestWebsiteAsync(
             string sitemapUrl,
             string? clientConfig = default,
+            global::System.Collections.Generic.IList<string>? labels = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::AI21.WebsiteConnectorIngestWebsitePayload
             {
                 SitemapUrl = sitemapUrl,
                 ClientConfig = clientConfig,
+                Labels = labels,
             };
 
             return await V1WebsiteConnectorIngestWebsiteAsync(
