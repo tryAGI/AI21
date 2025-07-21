@@ -113,19 +113,6 @@ namespace AI21
         public global::AI21.ResponseFormat? ResponseFormat { get; set; }
 
         /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("guided_json")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.AnyOfJsonConverter<string, object>))]
-        public global::AI21.AnyOf<string, object>? GuidedJson { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("guided_decoding_backend")]
-        public string? GuidedDecodingBackend { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -188,8 +175,6 @@ namespace AI21
         /// <param name="mockResponse"></param>
         /// <param name="documents"></param>
         /// <param name="responseFormat"></param>
-        /// <param name="guidedJson"></param>
-        /// <param name="guidedDecodingBackend"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -205,9 +190,7 @@ namespace AI21
             bool? stream,
             global::AI21.MockResponseConfig? mockResponse,
             global::System.Collections.Generic.IList<global::AI21.DocumentSchema>? documents,
-            global::AI21.ResponseFormat? responseFormat,
-            global::AI21.AnyOf<string, object>? guidedJson,
-            string? guidedDecodingBackend)
+            global::AI21.ResponseFormat? responseFormat)
         {
             this.Model = model;
             this.Messages = messages ?? throw new global::System.ArgumentNullException(nameof(messages));
@@ -221,8 +204,6 @@ namespace AI21
             this.MockResponse = mockResponse;
             this.Documents = documents;
             this.ResponseFormat = responseFormat;
-            this.GuidedJson = guidedJson;
-            this.GuidedDecodingBackend = guidedDecodingBackend;
         }
 
         /// <summary>
