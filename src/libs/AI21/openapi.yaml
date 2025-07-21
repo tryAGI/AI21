@@ -2050,6 +2050,14 @@ components:
             - $ref: '#/components/schemas/ResponseFormat'
           default:
             type: text
+        guided_json:
+          title: Guided Json
+          anyOf:
+            - type: string
+            - type: object
+        guided_decoding_backend:
+          title: Guided Decoding Backend
+          type: string
     ChatStreamingContentDelta:
       title: ChatStreamingContentDelta
       required:
