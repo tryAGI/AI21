@@ -269,8 +269,6 @@ namespace AI21
         /// <param name="mockResponse"></param>
         /// <param name="documents"></param>
         /// <param name="responseFormat"></param>
-        /// <param name="guidedJson"></param>
-        /// <param name="guidedDecodingBackend"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>> V1ChatCompleteAsync(
@@ -286,8 +284,6 @@ namespace AI21
             global::AI21.MockResponseConfig? mockResponse = default,
             global::System.Collections.Generic.IList<global::AI21.DocumentSchema>? documents = default,
             global::AI21.ResponseFormat? responseFormat = default,
-            global::AI21.AnyOf<string, object>? guidedJson = default,
-            string? guidedDecodingBackend = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::AI21.ChatRequest
@@ -304,8 +300,6 @@ namespace AI21
                 MockResponse = mockResponse,
                 Documents = documents,
                 ResponseFormat = responseFormat,
-                GuidedJson = guidedJson,
-                GuidedDecodingBackend = guidedDecodingBackend,
             };
 
             return await V1ChatCompleteAsync(
