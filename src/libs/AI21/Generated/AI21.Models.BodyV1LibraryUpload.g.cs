@@ -60,6 +60,12 @@ namespace AI21
         public global::System.Guid? BatchId { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("data_source")]
+        public string? DataSource { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -78,6 +84,7 @@ namespace AI21
         /// Default Value: immediate
         /// </param>
         /// <param name="batchId"></param>
+        /// <param name="dataSource"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -89,7 +96,8 @@ namespace AI21
             string? publicUrl,
             string? customConfigs,
             global::AI21.UploadMode? uploadMode,
-            global::System.Guid? batchId)
+            global::System.Guid? batchId,
+            string? dataSource)
         {
             this.File = file ?? throw new global::System.ArgumentNullException(nameof(file));
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
@@ -99,6 +107,7 @@ namespace AI21
             this.CustomConfigs = customConfigs;
             this.UploadMode = uploadMode;
             this.BatchId = batchId;
+            this.DataSource = dataSource;
         }
 
         /// <summary>
