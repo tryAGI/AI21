@@ -67,8 +67,6 @@ namespace AI21
             typeof(global::AI21.JsonConverters.RetrievalStrategyNullableJsonConverter),
             typeof(global::AI21.JsonConverters.MaestroRunResultStatusJsonConverter),
             typeof(global::AI21.JsonConverters.MaestroRunResultStatusNullableJsonConverter),
-            typeof(global::AI21.JsonConverters.ModelQuantizationJsonConverter),
-            typeof(global::AI21.JsonConverters.ModelQuantizationNullableJsonConverter),
             typeof(global::AI21.JsonConverters.MessagesItemJsonConverter),
             typeof(global::AI21.JsonConverters.QueryFilterJsonConverter),
             typeof(global::AI21.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<global::System.Guid>, global::System.Collections.Generic.IList<string>>),

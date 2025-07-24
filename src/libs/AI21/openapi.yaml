@@ -1185,17 +1185,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /studio/v1/models:
-    get:
-      summary: Get Models Info
-      operationId: v1_list_models_info
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ModelsInfoResponse'
   /studio/v1/assistants:
     get:
       summary: Get Assistants
@@ -1890,9 +1879,6 @@ components:
           title: Batch Id
           type: string
           format: uuid
-        data_source:
-          title: Data Source
-          type: string
     ChatCompletion:
       title: ChatCompletion
       required:
@@ -2989,35 +2975,6 @@ components:
           minimum: 0.0
           type: number
           default: 0.1
-    ModelInfo:
-      title: ModelInfo
-      required:
-        - id
-        - name
-        - updated
-        - context_length
-        - quantization
-        - max_completion_tokens
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
-          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
-        name:
-          title: Name
-          type: string
-        updated:
-          title: Updated
-          type: string
-        context_length:
-          title: Context Length
-          type: integer
-        quantization:
-          $ref: '#/components/schemas/ModelQuantization'
-        max_completion_tokens:
-          title: Max Completion Tokens
-          type: integer
     ModelName:
       title: ModelName
       enum:
@@ -3033,24 +2990,6 @@ components:
         - jamba-large-1.7-2025-07
       type: string
       description: An enumeration.
-    ModelQuantization:
-      title: ModelQuantization
-      enum:
-        - FP8
-        - experts_int8
-      type: string
-      description: An enumeration.
-    ModelsInfoResponse:
-      title: ModelsInfoResponse
-      required:
-        - data
-      type: object
-      properties:
-        data:
-          title: Data
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelInfo'
     Plan:
       title: Plan
       required:
