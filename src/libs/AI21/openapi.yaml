@@ -530,6 +530,105 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/connectors/website:
+    get:
+      summary: Get Website Connector
+      operationId: get_website_connector_studio_v1_connectors_website_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+    post:
+      summary: Post Website Connector
+      operationId: post_website_connector_studio_v1_connectors_website_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebsiteConnectorPayload'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/connectors/website/{connector_id}':
+    get:
+      summary: Get Website Connector By Id
+      operationId: get_website_connector_by_id_studio_v1_connectors_website__connector_id__get
+      parameters:
+        - name: connector_id
+          in: path
+          required: true
+          schema:
+            title: Connector Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      summary: Delete Website Connector
+      operationId: delete_website_connector_studio_v1_connectors_website__connector_id__delete
+      parameters:
+        - name: connector_id
+          in: path
+          required: true
+          schema:
+            title: Connector Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/connectors/website/{connector_id}/sync':
+    post:
+      summary: Sync Website
+      operationId: sync_website_studio_v1_connectors_website__connector_id__sync_post
+      parameters:
+        - name: connector_id
+          in: path
+          required: true
+          schema:
+            title: Connector Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /studio/v1/maestro/runs:
     post:
       summary: Create Maestro Run
@@ -3554,6 +3653,26 @@ components:
           type: array
           items:
             type: string
+    WebsiteConnectorPayload:
+      title: WebsiteConnectorPayload
+      required:
+        - type
+        - value
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - sitemap
+            - urls
+          type: string
+        value:
+          title: Value
+          anyOf:
+            - type: string
+            - type: array
+              items:
+                type: string
     WebsiteConnectorRetryIngestWebsitePayload:
       title: WebsiteConnectorRetryIngestWebsitePayload
       required:
