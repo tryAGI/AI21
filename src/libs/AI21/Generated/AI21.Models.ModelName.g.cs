@@ -19,27 +19,11 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        JambaMini16,
-        /// <summary>
-        /// 
-        /// </summary>
-        JambaLarge16,
-        /// <summary>
-        /// 
-        /// </summary>
         JambaMini17,
         /// <summary>
         /// 
         /// </summary>
         JambaLarge17,
-        /// <summary>
-        /// 
-        /// </summary>
-        JambaMini16202503,
-        /// <summary>
-        /// 
-        /// </summary>
-        JambaLarge16202503,
         /// <summary>
         /// 
         /// </summary>
@@ -64,12 +48,8 @@ namespace AI21
             {
                 ModelName.JambaMini => "jamba-mini",
                 ModelName.JambaLarge => "jamba-large",
-                ModelName.JambaMini16 => "jamba-mini-1.6",
-                ModelName.JambaLarge16 => "jamba-large-1.6",
                 ModelName.JambaMini17 => "jamba-mini-1.7",
                 ModelName.JambaLarge17 => "jamba-large-1.7",
-                ModelName.JambaMini16202503 => "jamba-mini-1.6-2025-03",
-                ModelName.JambaLarge16202503 => "jamba-large-1.6-2025-03",
                 ModelName.JambaMini17202507 => "jamba-mini-1.7-2025-07",
                 ModelName.JambaLarge17202507 => "jamba-large-1.7-2025-07",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -84,12 +64,8 @@ namespace AI21
             {
                 "jamba-mini" => ModelName.JambaMini,
                 "jamba-large" => ModelName.JambaLarge,
-                "jamba-mini-1.6" => ModelName.JambaMini16,
-                "jamba-large-1.6" => ModelName.JambaLarge16,
                 "jamba-mini-1.7" => ModelName.JambaMini17,
                 "jamba-large-1.7" => ModelName.JambaLarge17,
-                "jamba-mini-1.6-2025-03" => ModelName.JambaMini16202503,
-                "jamba-large-1.6-2025-03" => ModelName.JambaLarge16202503,
                 "jamba-mini-1.7-2025-07" => ModelName.JambaMini17202507,
                 "jamba-large-1.7-2025-07" => ModelName.JambaLarge17202507,
                 _ => null,

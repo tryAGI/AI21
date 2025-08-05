@@ -530,6 +530,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/connectors/connected-users/data-sources/syncs:
+    post:
+      summary: Run Sync
+      operationId: run_sync_studio_v1_connectors_connected_users_data_sources_syncs_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConnectorsSyncParams'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /studio/v1/connectors/website:
     get:
       summary: Get Website Connector
@@ -2256,6 +2278,29 @@ components:
         failed_uploaded_files:
           title: Failed Uploaded Files
           type: integer
+    ConnectorsSyncParams:
+      title: ConnectorsSyncParams
+      required:
+        - token
+        - data_source
+        - configuration_name
+      type: object
+      properties:
+        token:
+          title: Token
+          type: string
+        data_source:
+          title: Data Source
+          type: string
+        pipeline:
+          title: Pipeline
+          type: string
+        configuration:
+          title: Configuration
+          type: object
+        configuration_name:
+          title: Configuration Name
+          type: string
     ConnectorsToken:
       title: ConnectorsToken
       required:
@@ -3122,12 +3167,8 @@ components:
       enum:
         - jamba-mini
         - jamba-large
-        - jamba-mini-1.6
-        - jamba-large-1.6
         - jamba-mini-1.7
         - jamba-large-1.7
-        - jamba-mini-1.6-2025-03
-        - jamba-large-1.6-2025-03
         - jamba-mini-1.7-2025-07
         - jamba-large-1.7-2025-07
       type: string
