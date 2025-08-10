@@ -482,6 +482,12 @@ paths:
           schema:
             title: Data Source
             type: string
+        - name: paragon_token
+          in: query
+          required: true
+          schema:
+            title: Paragon Token
+            type: string
       responses:
         '200':
           description: Successful Response
@@ -651,6 +657,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/connectors/paragon/webhook:
+    post:
+      summary: Forward Paragon Webhook
+      operationId: forward_paragon_webhook_studio_v1_connectors_paragon_webhook_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
   /studio/v1/maestro/runs:
     post:
       summary: Create Maestro Run
@@ -2283,7 +2299,8 @@ components:
       required:
         - token
         - data_source
-        - configuration_name
+        - organization_id
+        - pipeline
       type: object
       properties:
         token:
@@ -2291,6 +2308,9 @@ components:
           type: string
         data_source:
           title: Data Source
+          type: string
+        organization_id:
+          title: Organization Id
           type: string
         pipeline:
           title: Pipeline
