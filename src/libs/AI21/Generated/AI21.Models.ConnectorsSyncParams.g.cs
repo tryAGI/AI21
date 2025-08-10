@@ -25,8 +25,16 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("organization_id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string OrganizationId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pipeline")]
-        public string? Pipeline { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Pipeline { get; set; }
 
         /// <summary>
         /// 
@@ -38,8 +46,7 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("configuration_name")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ConfigurationName { get; set; }
+        public string? ConfigurationName { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -52,6 +59,7 @@ namespace AI21
         /// </summary>
         /// <param name="token"></param>
         /// <param name="dataSource"></param>
+        /// <param name="organizationId"></param>
         /// <param name="pipeline"></param>
         /// <param name="configuration"></param>
         /// <param name="configurationName"></param>
@@ -61,15 +69,17 @@ namespace AI21
         public ConnectorsSyncParams(
             string token,
             string dataSource,
-            string configurationName,
-            string? pipeline,
-            object? configuration)
+            string organizationId,
+            string pipeline,
+            object? configuration,
+            string? configurationName)
         {
             this.Token = token ?? throw new global::System.ArgumentNullException(nameof(token));
             this.DataSource = dataSource ?? throw new global::System.ArgumentNullException(nameof(dataSource));
-            this.ConfigurationName = configurationName ?? throw new global::System.ArgumentNullException(nameof(configurationName));
-            this.Pipeline = pipeline;
+            this.OrganizationId = organizationId ?? throw new global::System.ArgumentNullException(nameof(organizationId));
+            this.Pipeline = pipeline ?? throw new global::System.ArgumentNullException(nameof(pipeline));
             this.Configuration = configuration;
+            this.ConfigurationName = configurationName;
         }
 
         /// <summary>

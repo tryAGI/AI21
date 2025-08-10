@@ -203,6 +203,7 @@ namespace AI21
         /// </summary>
         /// <param name="token"></param>
         /// <param name="dataSource"></param>
+        /// <param name="organizationId"></param>
         /// <param name="pipeline"></param>
         /// <param name="configuration"></param>
         /// <param name="configurationName"></param>
@@ -211,15 +212,17 @@ namespace AI21
         public async global::System.Threading.Tasks.Task<string> RunSyncStudioV1ConnectorsConnectedUsersDataSourcesSyncsPostAsync(
             string token,
             string dataSource,
-            string configurationName,
-            string? pipeline = default,
+            string organizationId,
+            string pipeline,
             object? configuration = default,
+            string? configurationName = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::AI21.ConnectorsSyncParams
             {
                 Token = token,
                 DataSource = dataSource,
+                OrganizationId = organizationId,
                 Pipeline = pipeline,
                 Configuration = configuration,
                 ConfigurationName = configurationName,
