@@ -1276,6 +1276,88 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/structured-rag/organizations/{organization_id}/schemas':
+    get:
+      summary: Get Organization Schemas
+      operationId: get_organization_schemas_studio_v1_structured_rag_organizations__organization_id__schemas_get
+      parameters:
+        - name: organization_id
+          in: path
+          required: true
+          schema:
+            title: Organization Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrgSchemas'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    post:
+      summary: Create Organization Schema
+      operationId: create_organization_schema_studio_v1_structured_rag_organizations__organization_id__schemas_post
+      parameters:
+        - name: organization_id
+          in: path
+          required: true
+          schema:
+            title: Organization Id
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrganizationSchemaRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/structured-rag/organizations/{organization_id}/schema-detection':
+    post:
+      summary: Detect Schema
+      operationId: detect_schema_studio_v1_structured_rag_organizations__organization_id__schema_detection_post
+      parameters:
+        - name: organization_id
+          in: path
+          required: true
+          schema:
+            title: Organization Id
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DetectSchemaRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetectSchemaResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /studio/v1/generation/requirements:
     post:
       summary: Generate Requirements
@@ -2563,6 +2645,23 @@ components:
           type: array
           items:
             type: object
+    CreateOrganizationSchemaRequest:
+      title: CreateOrganizationSchemaRequest
+      required:
+        - schema_name
+        - schema_object
+      type: object
+      properties:
+        schema_name:
+          title: Schema Name
+          type: string
+        schema_object:
+          title: Schema Object
+          type: object
+        run_classification:
+          title: Run Classification
+          type: boolean
+          default: false
     CreatePlanPayload:
       title: CreatePlanPayload
       required:
@@ -2755,6 +2854,49 @@ components:
         - public
         - private
       description: An enumeration.
+    DetectSchemaRequest:
+      title: DetectSchemaRequest
+      required:
+        - documents
+      type: object
+      properties:
+        documents:
+          title: Documents
+          type: array
+          items:
+            $ref: '#/components/schemas/DocumentReference'
+        queries:
+          title: Queries
+          type: array
+          items:
+            type: string
+    DetectSchemaResponse:
+      title: DetectSchemaResponse
+      required:
+        - schema_name
+        - schema_definition
+      type: object
+      properties:
+        schema_name:
+          title: Schema Name
+          type: string
+        schema_definition:
+          title: Schema Definition
+          type: object
+    DocumentReference:
+      title: DocumentReference
+      required:
+        - document_id
+        - name
+      type: object
+      properties:
+        document_id:
+          title: Document Id
+          type: string
+          format: uuid
+        name:
+          title: Name
+          type: string
     DocumentSchema:
       title: DocumentSchema
       required:
@@ -3211,6 +3353,39 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ModelInfo'
+    OrgSchema:
+      title: OrgSchema
+      required:
+        - organization_id
+        - schema_name
+        - schema_definition
+        - table_stats
+      type: object
+      properties:
+        organization_id:
+          title: Organization Id
+          type: string
+          format: uuid
+        schema_name:
+          title: Schema Name
+          type: string
+        schema_definition:
+          title: Schema Definition
+          type: object
+        table_stats:
+          title: Table Stats
+          type: object
+    OrgSchemas:
+      title: OrgSchemas
+      required:
+        - schemas
+      type: object
+      properties:
+        schemas:
+          title: Schemas
+          type: array
+          items:
+            $ref: '#/components/schemas/OrgSchema'
     Plan:
       title: Plan
       required:
