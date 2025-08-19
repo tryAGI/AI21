@@ -11,10 +11,6 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        Arabic,
-        /// <summary>
-        /// 
-        /// </summary>
         Dutch,
         /// <summary>
         /// 
@@ -58,7 +54,6 @@ namespace AI21
         {
             return value switch
             {
-                ConversationalRagConfigResponseLanguage.Arabic => "arabic",
                 ConversationalRagConfigResponseLanguage.Dutch => "dutch",
                 ConversationalRagConfigResponseLanguage.English => "english",
                 ConversationalRagConfigResponseLanguage.French => "french",
@@ -77,7 +72,6 @@ namespace AI21
         {
             return value switch
             {
-                "arabic" => ConversationalRagConfigResponseLanguage.Arabic,
                 "dutch" => ConversationalRagConfigResponseLanguage.Dutch,
                 "english" => ConversationalRagConfigResponseLanguage.English,
                 "french" => ConversationalRagConfigResponseLanguage.French,

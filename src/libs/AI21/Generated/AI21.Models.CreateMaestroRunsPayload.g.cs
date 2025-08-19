@@ -105,13 +105,6 @@ namespace AI21
         public global::System.Collections.Generic.IList<object>? CustomRetrievalConfigs { get; set; }
 
         /// <summary>
-        /// Default Value: english
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("response_language")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.CreateMaestroRunsPayloadResponseLanguageJsonConverter))]
-        public global::AI21.CreateMaestroRunsPayloadResponseLanguage? ResponseLanguage { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -145,9 +138,6 @@ namespace AI21
         /// Default Value: maestro_run
         /// </param>
         /// <param name="customRetrievalConfigs"></param>
-        /// <param name="responseLanguage">
-        /// Default Value: english
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -166,8 +156,7 @@ namespace AI21
             bool? dynamicPlanningEnabled,
             bool? toolsAllowed,
             global::AI21.MaestroPayloadType? payloadType,
-            global::System.Collections.Generic.IList<object>? customRetrievalConfigs,
-            global::AI21.CreateMaestroRunsPayloadResponseLanguage? responseLanguage)
+            global::System.Collections.Generic.IList<object>? customRetrievalConfigs)
         {
             this.Input = input;
             this.OutputType = outputType;
@@ -184,7 +173,6 @@ namespace AI21
             this.ToolsAllowed = toolsAllowed;
             this.PayloadType = payloadType;
             this.CustomRetrievalConfigs = customRetrievalConfigs;
-            this.ResponseLanguage = responseLanguage;
         }
 
         /// <summary>
