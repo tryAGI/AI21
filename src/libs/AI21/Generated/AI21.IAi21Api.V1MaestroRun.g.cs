@@ -42,9 +42,6 @@ namespace AI21
         /// Default Value: maestro_run
         /// </param>
         /// <param name="customRetrievalConfigs"></param>
-        /// <param name="responseLanguage">
-        /// Default Value: english
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.MaestroRunResult> V1MaestroRunAsync(
@@ -63,7 +60,6 @@ namespace AI21
             bool? toolsAllowed = default,
             global::AI21.MaestroPayloadType? payloadType = default,
             global::System.Collections.Generic.IList<object>? customRetrievalConfigs = default,
-            global::AI21.CreateMaestroRunsPayloadResponseLanguage? responseLanguage = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
