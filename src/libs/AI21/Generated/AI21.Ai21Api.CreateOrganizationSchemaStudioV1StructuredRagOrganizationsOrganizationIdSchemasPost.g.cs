@@ -5,42 +5,47 @@ namespace AI21
 {
     public partial class Ai21Api
     {
-        partial void PrepareV1MaestroRunArguments(
+        partial void PrepareCreateOrganizationSchemaStudioV1StructuredRagOrganizationsOrganizationIdSchemasPostArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::AI21.CreateMaestroRunsPayload request);
-        partial void PrepareV1MaestroRunRequest(
+            ref string organizationId,
+            global::AI21.CreateOrganizationSchemaRequest request);
+        partial void PrepareCreateOrganizationSchemaStudioV1StructuredRagOrganizationsOrganizationIdSchemasPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::AI21.CreateMaestroRunsPayload request);
-        partial void ProcessV1MaestroRunResponse(
+            string organizationId,
+            global::AI21.CreateOrganizationSchemaRequest request);
+        partial void ProcessCreateOrganizationSchemaStudioV1StructuredRagOrganizationsOrganizationIdSchemasPostResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessV1MaestroRunResponseContent(
+        partial void ProcessCreateOrganizationSchemaStudioV1StructuredRagOrganizationsOrganizationIdSchemasPostResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Create Maestro Run
+        /// Create Organization Schema
         /// </summary>
+        /// <param name="organizationId"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.MaestroRunResult> V1MaestroRunAsync(
-            global::AI21.CreateMaestroRunsPayload request,
+        public async global::System.Threading.Tasks.Task<string> CreateOrganizationSchemaStudioV1StructuredRagOrganizationsOrganizationIdSchemasPostAsync(
+            string organizationId,
+            global::AI21.CreateOrganizationSchemaRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareV1MaestroRunArguments(
+            PrepareCreateOrganizationSchemaStudioV1StructuredRagOrganizationsOrganizationIdSchemasPostArguments(
                 httpClient: HttpClient,
+                organizationId: ref organizationId,
                 request: request);
 
             var __pathBuilder = new global::AI21.PathBuilder(
-                path: "/studio/v1/maestro/runs",
+                path: $"/studio/v1/structured-rag/organizations/{organizationId}/schemas",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -76,9 +81,10 @@ namespace AI21
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareV1MaestroRunRequest(
+            PrepareCreateOrganizationSchemaStudioV1StructuredRagOrganizationsOrganizationIdSchemasPostRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
+                organizationId: organizationId,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -89,7 +95,7 @@ namespace AI21
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessV1MaestroRunResponse(
+            ProcessCreateOrganizationSchemaStudioV1StructuredRagOrganizationsOrganizationIdSchemasPostResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Validation Error
@@ -142,7 +148,7 @@ namespace AI21
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessV1MaestroRunResponseContent(
+                ProcessCreateOrganizationSchemaStudioV1StructuredRagOrganizationsOrganizationIdSchemasPostResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -151,9 +157,7 @@ namespace AI21
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    return
-                        global::AI21.MaestroRunResult.FromJson(__content, JsonSerializerContext) ??
-                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -176,15 +180,13 @@ namespace AI21
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    using var __content = await __response.Content.ReadAsStreamAsync(
+                    var __content = await __response.Content.ReadAsStringAsync(
 #if NET5_0_OR_GREATER
                         cancellationToken
 #endif
                     ).ConfigureAwait(false);
 
-                    return
-                        await global::AI21.MaestroRunResult.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -203,78 +205,32 @@ namespace AI21
         }
 
         /// <summary>
-        /// Create Maestro Run
+        /// Create Organization Schema
         /// </summary>
-        /// <param name="input"></param>
-        /// <param name="outputType"></param>
-        /// <param name="models"></param>
-        /// <param name="tools"></param>
-        /// <param name="toolResources"></param>
-        /// <param name="context"></param>
-        /// <param name="requirements"></param>
-        /// <param name="budget"></param>
-        /// <param name="verbose">
+        /// <param name="organizationId"></param>
+        /// <param name="schemaName"></param>
+        /// <param name="schemaObject"></param>
+        /// <param name="runClassification">
         /// Default Value: false
-        /// </param>
-        /// <param name="include"></param>
-        /// <param name="structuredRagEnabled">
-        /// Default Value: false
-        /// </param>
-        /// <param name="dynamicPlanningEnabled">
-        /// Default Value: false
-        /// </param>
-        /// <param name="toolsAllowed">
-        /// Default Value: false
-        /// </param>
-        /// <param name="payloadType">
-        /// Default Value: maestro_run
-        /// </param>
-        /// <param name="customRetrievalConfigs"></param>
-        /// <param name="responseLanguage">
-        /// Default Value: english
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.MaestroRunResult> V1MaestroRunAsync(
-            global::AI21.AnyOf<global::System.Collections.Generic.IList<global::AI21.Message>, string> input,
-            object? outputType = default,
-            global::System.Collections.Generic.IList<string>? models = default,
-            global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, global::AI21.CreateMaestroRunsPayloadTool2>>? tools = default,
-            global::AI21.ToolResources? toolResources = default,
-            object? context = default,
-            global::System.Collections.Generic.IList<global::AI21.Requirement>? requirements = default,
-            global::AI21.CreateMaestroRunsPayloadBudget? budget = default,
-            bool? verbose = default,
-            global::System.Collections.Generic.IList<string>? include = default,
-            bool? structuredRagEnabled = default,
-            bool? dynamicPlanningEnabled = default,
-            bool? toolsAllowed = default,
-            global::AI21.MaestroPayloadType? payloadType = default,
-            global::System.Collections.Generic.IList<object>? customRetrievalConfigs = default,
-            global::AI21.CreateMaestroRunsPayloadResponseLanguage? responseLanguage = default,
+        public async global::System.Threading.Tasks.Task<string> CreateOrganizationSchemaStudioV1StructuredRagOrganizationsOrganizationIdSchemasPostAsync(
+            string organizationId,
+            string schemaName,
+            object schemaObject,
+            bool? runClassification = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::AI21.CreateMaestroRunsPayload
+            var __request = new global::AI21.CreateOrganizationSchemaRequest
             {
-                Input = input,
-                OutputType = outputType,
-                Models = models,
-                Tools = tools,
-                ToolResources = toolResources,
-                Context = context,
-                Requirements = requirements,
-                Budget = budget,
-                Verbose = verbose,
-                Include = include,
-                StructuredRagEnabled = structuredRagEnabled,
-                DynamicPlanningEnabled = dynamicPlanningEnabled,
-                ToolsAllowed = toolsAllowed,
-                PayloadType = payloadType,
-                CustomRetrievalConfigs = customRetrievalConfigs,
-                ResponseLanguage = responseLanguage,
+                SchemaName = schemaName,
+                SchemaObject = schemaObject,
+                RunClassification = runClassification,
             };
 
-            return await V1MaestroRunAsync(
+            return await CreateOrganizationSchemaStudioV1StructuredRagOrganizationsOrganizationIdSchemasPostAsync(
+                organizationId: organizationId,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }
