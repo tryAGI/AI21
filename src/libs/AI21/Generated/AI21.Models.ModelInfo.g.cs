@@ -54,6 +54,13 @@ namespace AI21
         public required int MaxCompletionTokens { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("pricing")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::AI21.ModelPricing Pricing { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -74,6 +81,7 @@ namespace AI21
         /// An enumeration.
         /// </param>
         /// <param name="maxCompletionTokens"></param>
+        /// <param name="pricing"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -83,7 +91,8 @@ namespace AI21
             string updated,
             int contextLength,
             global::AI21.ModelQuantization quantization,
-            int maxCompletionTokens)
+            int maxCompletionTokens,
+            global::AI21.ModelPricing pricing)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -91,6 +100,7 @@ namespace AI21
             this.ContextLength = contextLength;
             this.Quantization = quantization;
             this.MaxCompletionTokens = maxCompletionTokens;
+            this.Pricing = pricing ?? throw new global::System.ArgumentNullException(nameof(pricing));
         }
 
         /// <summary>
