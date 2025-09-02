@@ -105,7 +105,7 @@ namespace AI21
         public global::System.Collections.Generic.IList<object>? CustomRetrievalConfigs { get; set; }
 
         /// <summary>
-        /// Default Value: english
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_language")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.CreateMaestroRunsPayloadResponseLanguageJsonConverter))]
@@ -145,9 +145,7 @@ namespace AI21
         /// Default Value: maestro_run
         /// </param>
         /// <param name="customRetrievalConfigs"></param>
-        /// <param name="responseLanguage">
-        /// Default Value: english
-        /// </param>
+        /// <param name="responseLanguage"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

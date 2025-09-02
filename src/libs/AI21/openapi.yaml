@@ -2688,7 +2688,6 @@ components:
             - portuguese
             - spanish
           type: string
-          default: english
     CreateOrganizationSchemaRequest:
       title: CreateOrganizationSchemaRequest
       required:

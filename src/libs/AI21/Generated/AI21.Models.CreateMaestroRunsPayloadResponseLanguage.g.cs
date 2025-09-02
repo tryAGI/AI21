@@ -4,7 +4,7 @@
 namespace AI21
 {
     /// <summary>
-    /// Default Value: english
+    /// 
     /// </summary>
     public enum CreateMaestroRunsPayloadResponseLanguage
     {
