@@ -41,6 +41,8 @@ namespace AI21
             typeof(global::AI21.JsonConverters.ToolParametersTypeNullableJsonConverter),
             typeof(global::AI21.JsonConverters.ResponseFormatTypeJsonConverter),
             typeof(global::AI21.JsonConverters.ResponseFormatTypeNullableJsonConverter),
+            typeof(global::AI21.JsonConverters.ParagonSyncStatusJsonConverter),
+            typeof(global::AI21.JsonConverters.ParagonSyncStatusNullableJsonConverter),
             typeof(global::AI21.JsonConverters.ConnectorsWorkflowStatusJsonConverter),
             typeof(global::AI21.JsonConverters.ConnectorsWorkflowStatusNullableJsonConverter),
             typeof(global::AI21.JsonConverters.MessageRoleJsonConverter),

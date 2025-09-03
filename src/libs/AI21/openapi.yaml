@@ -501,6 +501,42 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/connectors/connected-users/{entity_id}/data-sources/{data_source}/connection-status':
+    get:
+      summary: Get Connector Connection Status
+      operationId: get_connector_connection_status_studio_v1_connectors_connected_users__entity_id__data_sources__data_source__connection_status_get
+      parameters:
+        - name: entity_id
+          in: path
+          required: true
+          schema:
+            title: Entity Id
+            type: string
+        - name: data_source
+          in: path
+          required: true
+          schema:
+            title: Data Source
+            type: string
+        - name: paragon_token
+          in: query
+          required: true
+          schema:
+            title: Paragon Token
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConnectorConnectionStatus'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   '/studio/v1/connectors/connected-users/{entity_id}/data-sources/{data_source}/workflows/{workflow_name}/run':
     post:
       summary: Run Workflow
@@ -2374,6 +2410,30 @@ components:
     ComparisonOperator:
       title: ComparisonOperator
       type: object
+    ConnectorConnectionStatus:
+      title: ConnectorConnectionStatus
+      required:
+        - files_indexed
+        - creation_date
+        - status
+      type: object
+      properties:
+        latest_updated:
+          title: Latest Updated
+          type: string
+          format: date-time
+        files_indexed:
+          title: Files Indexed
+          type: integer
+        creation_date:
+          title: Creation Date
+          type: string
+          format: date-time
+        status:
+          $ref: '#/components/schemas/ParagonSyncStatus'
+        last_synced_at:
+          title: Last Synced At
+          type: string
     ConnectorsDataSources:
       title: ConnectorsDataSources
       required:
@@ -3445,6 +3505,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/OrgSchema'
+    ParagonSyncStatus:
+      title: ParagonSyncStatus
+      enum:
+        - ACTIVE
+        - IDLE
+        - ERRORED
+        - PAUSED
+      type: string
+      description: An enumeration.
     Plan:
       title: Plan
       required:
