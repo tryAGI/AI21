@@ -24,12 +24,16 @@ namespace AI21
         /// <param name="budget">
         /// Default Value: MEDIUM
         /// </param>
+        /// <param name="vectorStoreId">
+        /// Vector store ID to use for RFI processing
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> UploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostAsync(
             byte[] file,
             string filename,
             string? budget = default,
+            string? vectorStoreId = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
