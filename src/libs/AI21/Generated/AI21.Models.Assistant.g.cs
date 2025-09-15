@@ -105,6 +105,26 @@ namespace AI21
         public global::AI21.AssistantToolResource? ToolResources { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("requirements")]
+        public global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesAssistantRequirement>? Requirements { get; set; }
+
+        /// <summary>
+        /// Default Value: medium
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("budget")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.BudgetLevelJsonConverter))]
+        public global::AI21.BudgetLevel? Budget { get; set; }
+
+        /// <summary>
+        /// Default Value: public
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("visibility")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.VisibilityJsonConverter))]
+        public global::AI21.Visibility? Visibility { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -133,6 +153,13 @@ namespace AI21
         /// <param name="models"></param>
         /// <param name="tools"></param>
         /// <param name="toolResources"></param>
+        /// <param name="requirements"></param>
+        /// <param name="budget">
+        /// Default Value: medium
+        /// </param>
+        /// <param name="visibility">
+        /// Default Value: public
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -150,7 +177,10 @@ namespace AI21
             bool? isArchived,
             global::AI21.AnyOf<global::System.Collections.Generic.IList<global::System.Guid>, global::System.Collections.Generic.IList<string>>? models,
             global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, global::AI21.AssistantTool2>>? tools,
-            global::AI21.AssistantToolResource? toolResources)
+            global::AI21.AssistantToolResource? toolResources,
+            global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesAssistantRequirement>? requirements,
+            global::AI21.BudgetLevel? budget,
+            global::AI21.Visibility? visibility)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.CreatedAt = createdAt;
@@ -166,6 +196,9 @@ namespace AI21
             this.Models = models;
             this.Tools = tools;
             this.ToolResources = toolResources;
+            this.Requirements = requirements;
+            this.Budget = budget;
+            this.Visibility = visibility;
         }
 
         /// <summary>
