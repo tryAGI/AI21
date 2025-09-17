@@ -4,7 +4,7 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    /// Default Value: unset
     /// </summary>
     public enum CreateMaestroRunsPayloadResponseLanguage
     {
@@ -44,6 +44,10 @@ namespace AI21
         /// 
         /// </summary>
         Spanish,
+        /// <summary>
+        /// 
+        /// </summary>
+        Unset,
     }
 
     /// <summary>
@@ -67,6 +71,7 @@ namespace AI21
                 CreateMaestroRunsPayloadResponseLanguage.Italian => "italian",
                 CreateMaestroRunsPayloadResponseLanguage.Portuguese => "portuguese",
                 CreateMaestroRunsPayloadResponseLanguage.Spanish => "spanish",
+                CreateMaestroRunsPayloadResponseLanguage.Unset => "unset",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -86,6 +91,7 @@ namespace AI21
                 "italian" => CreateMaestroRunsPayloadResponseLanguage.Italian,
                 "portuguese" => CreateMaestroRunsPayloadResponseLanguage.Portuguese,
                 "spanish" => CreateMaestroRunsPayloadResponseLanguage.Spanish,
+                "unset" => CreateMaestroRunsPayloadResponseLanguage.Unset,
                 _ => null,
             };
         }
