@@ -26,6 +26,7 @@ namespace AI21
         /// <param name="retrievalStrategy">
         /// Default Value: segments
         /// </param>
+        /// <param name="maxDocuments"></param>
         /// <param name="retrievalSimilarityThreshold">
         /// Default Value: 0
         /// </param>
@@ -36,7 +37,7 @@ namespace AI21
         /// Default Value: 1
         /// </param>
         /// <param name="responseLanguage">
-        /// Default Value: english
+        /// Default Value: unset
         /// </param>
         /// <param name="verbose">
         /// Default Value: false
@@ -51,7 +52,8 @@ namespace AI21
             string? path = default,
             global::System.Collections.Generic.IList<string>? labels = default,
             global::System.Collections.Generic.IList<string>? fileIds = default,
-            global::AI21.ConversationalRagConfigRetrievalStrategy? retrievalStrategy = default,
+            global::AI21.RetrievalStrategy? retrievalStrategy = default,
+            int? maxDocuments = default,
             double? retrievalSimilarityThreshold = default,
             int? maxNeighbors = default,
             double? hybridSearchAlpha = default,
