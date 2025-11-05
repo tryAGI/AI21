@@ -1015,6 +1015,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/demos/regulations/vector-store/{vector_store_id}':
+    get:
+      summary: Get Vector Store
+      description: Get a vector store by ID.
+      operationId: get_vector_store_studio_v1_demos_regulations_vector_store__vector_store_id__get
+      parameters:
+        - name: vector_store_id
+          in: path
+          required: true
+          schema:
+            title: Vector Store Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Vector Store Studio V1 Demos Regulations Vector Store  Vector Store Id  Get
+                type: object
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /studio/v1/demos/rfi/generate-response-pdf:
     post:
       summary: Combine section answers ➜ styled PDF for download
@@ -1491,6 +1517,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListAssistantsResponse'
+    post:
+      summary: Create Assistant
+      operationId: v1_create_assistant
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAssistantRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assistant'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   '/studio/v1/assistants/{assistant_id}':
     get:
       summary: Get Assistant
@@ -1532,6 +1580,65 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeleteAssistantResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    patch:
+      summary: Modify Assistant
+      operationId: v1_modify_assistant
+      parameters:
+        - name: assistant_id
+          in: path
+          required: true
+          schema:
+            title: Assistant Id
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModifyAssistantRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assistant'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/assistants/{assistant_id}/run':
+    post:
+      summary: Run Assistant
+      operationId: v1_run_assistant
+      parameters:
+        - name: assistant_id
+          in: path
+          required: true
+          schema:
+            title: Assistant Id
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RunAssistantRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MaestroRunResult'
         '422':
           description: Validation Error
           content:
@@ -1837,6 +1944,29 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/mcp/discover:
+    post:
+      summary: Mcp Tool Discovery
+      operationId: mcp_tool_discovery_studio_v1_mcp_discover_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MCPDefinition'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MCPDiscoveryResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /studio/v1/settings/models:
     get:
       summary: Get Workspace Models By Organization Endpoint
@@ -2004,6 +2134,23 @@ components:
               $ref: '#/components/schemas/AssistantTool'
         tool_resources:
           $ref: '#/components/schemas/AssistantToolResource'
+        requirements:
+          title: Requirements
+          type: array
+          items:
+            $ref: '#/components/schemas/language_studio_api_server__data_types__assistant__Requirement'
+        budget:
+          allOf:
+            - $ref: '#/components/schemas/BudgetLevel'
+          default: medium
+        visibility:
+          allOf:
+            - $ref: '#/components/schemas/Visibility'
+          default: public
+        assistant_type:
+          allOf:
+            - $ref: '#/components/schemas/AssistantType'
+          default: default
     AssistantMessage:
       title: AssistantMessage
       type: object
@@ -2071,6 +2218,7 @@ components:
         - file_search
         - web_search
         - plan_approval
+        - rag
       type: string
       description: An enumeration.
     AssistantToolResource:
@@ -2086,6 +2234,13 @@ components:
         plan_approval:
           title: Plan Approval
           type: object
+    AssistantType:
+      title: AssistantType
+      enum:
+        - default
+        - chat
+        - maestro
+      description: An enumeration.
     Body_convert_document_file_studio_v1_chat_files_convert_post:
       title: Body_convert_document_file_studio_v1_chat_files_convert_post
       required:
@@ -2142,6 +2297,10 @@ components:
           title: Budget
           type: string
           default: MEDIUM
+        vector_store_id:
+          title: Vector Store Id
+          type: string
+          description: Vector store ID to use for RFI processing
     Body_v1_library_upload:
       title: Body_v1_library_upload
       required:
@@ -2177,6 +2336,13 @@ components:
         data_source:
           title: Data Source
           type: string
+    BudgetLevel:
+      title: BudgetLevel
+      enum:
+        - low
+        - medium
+        - high
+      description: An enumeration.
     ChatCompletion:
       title: ChatCompletion
       required:
@@ -2299,7 +2465,7 @@ components:
           title: Tools
           type: array
           items:
-            $ref: '#/components/schemas/ToolDefinition'
+            $ref: '#/components/schemas/language_studio_api_server__data_types__chat__ToolDefinition'
         n:
           title: N
           type: integer
@@ -2550,14 +2716,12 @@ components:
           items:
             type: string
         retrieval_strategy:
-          title: Retrieval Strategy
-          enum:
-            - default
-            - segments
-            - add_neighbors
-            - full_doc
-          type: string
+          allOf:
+            - $ref: '#/components/schemas/RetrievalStrategy'
           default: segments
+        max_documents:
+          title: Max Documents
+          type: integer
         retrieval_similarity_threshold:
           title: Retrieval Similarity Threshold
           type: number
@@ -2582,8 +2746,9 @@ components:
             - italian
             - portuguese
             - spanish
+            - unset
           type: string
-          default: english
+          default: unset
         verbose:
           title: Verbose
           type: boolean
@@ -2657,6 +2822,52 @@ components:
           type: array
           items:
             type: string
+    CreateAssistantRequest:
+      title: CreateAssistantRequest
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        optimization:
+          title: Optimization
+          type: string
+        avatar:
+          title: Avatar
+          type: string
+        models:
+          title: Models
+          type: array
+          items:
+            type: string
+        tools:
+          title: Tools
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              $ref: '#/components/schemas/AssistantTool'
+        tool_resources:
+          title: Tool Resources
+          type: object
+        requirements:
+          title: Requirements
+          type: array
+          items:
+            $ref: '#/components/schemas/language_studio_api_server__data_types__assistant__Requirement'
+        budget:
+          allOf:
+            - $ref: '#/components/schemas/BudgetLevel'
+          default: medium
+        assistant_type:
+          allOf:
+            - $ref: '#/components/schemas/AssistantType'
+          default: default
     CreateMaestroRunsPayload:
       title: CreateMaestroRunsPayload
       required:
@@ -2682,14 +2893,9 @@ components:
           title: Tools
           type: array
           items:
-            type: object
-            additionalProperties:
-              enum:
-                - file_search
-                - web_search
-              type: string
+            $ref: '#/components/schemas/language_studio_api_server__data_types__execution_engine__ToolDefinition'
         tool_resources:
-          $ref: '#/components/schemas/ToolResources'
+          $ref: '#/components/schemas/ToolResource'
         context:
           title: Context
           type: object
@@ -2697,7 +2903,7 @@ components:
           title: Requirements
           type: array
           items:
-            $ref: '#/components/schemas/Requirement'
+            $ref: '#/components/schemas/language_studio_api_server__data_types__execution_engine__Requirement'
         budget:
           title: Budget
           enum:
@@ -2722,10 +2928,6 @@ components:
           title: Dynamic Planning Enabled
           type: boolean
           default: false
-        tools_allowed:
-          title: Tools Allowed
-          type: boolean
-          default: false
         payload_type:
           allOf:
             - $ref: '#/components/schemas/MaestroPayloadType'
@@ -2747,7 +2949,9 @@ components:
             - italian
             - portuguese
             - spanish
+            - unset
           type: string
+          default: unset
     CreateOrganizationSchemaRequest:
       title: CreateOrganizationSchemaRequest
       required:
@@ -3097,6 +3301,63 @@ components:
         dataSource:
           title: Datasource
           type: string
+    FileSearchToolResource:
+      title: FileSearchToolResource
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - file_search
+          type: string
+          default: file_search
+        retrieval_similarity_threshold:
+          title: Retrieval Similarity Threshold
+          type: number
+        labels:
+          title: Labels
+          type: array
+          items:
+            type: string
+        labels_filter_mode:
+          title: Labels Filter Mode
+          enum:
+            - AND
+            - OR
+          type: string
+          default: AND
+        labels_filter:
+          $ref: '#/components/schemas/QueryFilter'
+        file_ids:
+          title: File Ids
+          type: array
+          items:
+            type: string
+        retrieval_strategy:
+          allOf:
+            - $ref: '#/components/schemas/RetrievalStrategy'
+          default: segments
+        max_neighbors:
+          title: Max Neighbors
+          type: integer
+        path:
+          title: Path
+          type: string
+        response_language:
+          title: Response Language
+          enum:
+            - arabic
+            - dutch
+            - english
+            - french
+            - german
+            - hebrew
+            - italian
+            - portuguese
+            - spanish
+            - unset
+          type: string
+          default: unset
     FileStatus:
       title: FileStatus
       enum:
@@ -3135,6 +3396,91 @@ components:
           type: string
         parameters:
           $ref: '#/components/schemas/ToolParameters'
+    HTTPToolEndpoint:
+      title: HTTPToolEndpoint
+      required:
+        - url
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+        headers:
+          title: Headers
+          type: object
+    HTTPToolFunction:
+      title: HTTPToolFunction
+      required:
+        - name
+        - description
+        - parameters
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        parameters:
+          $ref: '#/components/schemas/HTTPToolFunctionParameters'
+    HTTPToolFunctionParamProperties:
+      title: HTTPToolFunctionParamProperties
+      required:
+        - type
+        - description
+      type: object
+      properties:
+        type:
+          title: Type
+          type: string
+        description:
+          title: Description
+          type: string
+    HTTPToolFunctionParameters:
+      title: HTTPToolFunctionParameters
+      required:
+        - properties
+        - required
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - object
+          type: string
+          default: object
+        properties:
+          title: Properties
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/HTTPToolFunctionParamProperties'
+        required:
+          title: Required
+          type: array
+          items:
+            type: string
+        additionalProperties:
+          title: Additionalproperties
+          type: boolean
+          default: false
+    HTTPToolResource:
+      title: HTTPToolResource
+      required:
+        - function
+        - endpoint
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - http
+          type: string
+          default: http
+        function:
+          $ref: '#/components/schemas/HTTPToolFunction'
+        endpoint:
+          $ref: '#/components/schemas/HTTPToolEndpoint'
     HTTPValidationError:
       title: HTTPValidationError
       type: object
@@ -3322,6 +3668,78 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TopLogprobsData'
+    MCPDefinition:
+      title: MCPDefinition
+      required:
+        - server_url
+      type: object
+      properties:
+        server_url:
+          title: Server Url
+          type: string
+        server_label:
+          title: Server Label
+          type: string
+        headers:
+          title: Headers
+          type: object
+    MCPDiscoveryResponse:
+      title: MCPDiscoveryResponse
+      required:
+        - mcp_definition
+        - tools
+      type: object
+      properties:
+        mcp_definition:
+          $ref: '#/components/schemas/MCPDefinition'
+        tools:
+          title: Tools
+          type: array
+          items:
+            $ref: '#/components/schemas/MCPTool'
+    MCPTool:
+      title: MCPTool
+      required:
+        - name
+        - inputSchema
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        inputSchema:
+          title: Inputschema
+          type: object
+    MCPToolResource:
+      title: MCPToolResource
+      required:
+        - server_label
+        - server_url
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - mcp
+          type: string
+          default: mcp
+        server_label:
+          title: Server Label
+          type: string
+        server_url:
+          title: Server Url
+          type: string
+        headers:
+          title: Headers
+          type: object
+        allowed_tools:
+          title: Allowed Tools
+          type: array
+          items:
+            type: string
     MaestroPayloadType:
       title: MaestroPayloadType
       enum:
@@ -3472,6 +3890,48 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ModelInfo'
+    ModifyAssistantRequest:
+      title: ModifyAssistantRequest
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        optimization:
+          $ref: '#/components/schemas/RunOptimization'
+        avatar:
+          title: Avatar
+          type: string
+        is_archived:
+          title: Is Archived
+          type: boolean
+          default: false
+        models:
+          title: Models
+          type: array
+          items:
+            type: string
+        tools:
+          title: Tools
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              $ref: '#/components/schemas/AssistantTool'
+        tool_resources:
+          $ref: '#/components/schemas/AssistantToolResource'
+        requirements:
+          title: Requirements
+          type: array
+          items:
+            $ref: '#/components/schemas/language_studio_api_server__data_types__assistant__Requirement'
+        budget:
+          $ref: '#/components/schemas/BudgetLevel'
+        visibility:
+          $ref: '#/components/schemas/Visibility'
     OrgSchema:
       title: OrgSchema
       required:
@@ -3575,22 +4035,6 @@ components:
           type: string
           description: Generated content for this section based on company files
       description: Model for a single RFI response section.
-    Requirement:
-      title: Requirement
-      required:
-        - name
-        - description
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-        description:
-          title: Description
-          type: string
-        is_mandatory:
-          title: Is Mandatory
-          type: boolean
     RequirementItem:
       title: RequirementItem
       required:
@@ -3644,6 +4088,62 @@ components:
         - add_neighbors
         - full_doc
       type: string
+      description: An enumeration.
+    RunAssistantRequest:
+      title: RunAssistantRequest
+      required:
+        - input
+      type: object
+      properties:
+        input:
+          title: Input
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+        verbose:
+          title: Verbose
+          type: boolean
+          default: false
+        output_type:
+          title: Output Type
+          type: object
+        include:
+          title: Include
+          type: array
+          items:
+            type: string
+          default:
+            - data_sources
+            - requirements_result
+            - requirements_result.metadata
+        structured_rag_enabled:
+          title: Structured Rag Enabled
+          type: boolean
+          default: false
+        dynamic_planning_enabled:
+          title: Dynamic Planning Enabled
+          type: boolean
+          default: false
+        response_language:
+          title: Response Language
+          enum:
+            - arabic
+            - dutch
+            - english
+            - french
+            - german
+            - hebrew
+            - italian
+            - portuguese
+            - spanish
+            - unset
+          type: string
+          default: unset
+    RunOptimization:
+      title: RunOptimization
+      enum:
+        - cost
+        - latency
       description: An enumeration.
     SecretResponse:
       title: SecretResponse
@@ -3746,20 +4246,6 @@ components:
           type: string
         function:
           $ref: '#/components/schemas/ToolFunctionDeltaStart'
-    ToolDefinition:
-      title: ToolDefinition
-      required:
-        - type
-        - function
-      type: object
-      properties:
-        type:
-          title: Type
-          enum:
-            - function
-          type: string
-        function:
-          $ref: '#/components/schemas/FunctionToolDefinition'
     ToolFunction:
       title: ToolFunction
       required:
@@ -3833,16 +4319,14 @@ components:
           items:
             type: string
           description: List of required properties
-    ToolResources:
-      title: ToolResources
+    ToolResource:
+      title: ToolResource
       type: object
       properties:
         file_search:
-          title: File Search
-          type: object
+          $ref: '#/components/schemas/FileSearchToolResource'
         web_search:
-          title: Web Search
-          type: object
+          $ref: '#/components/schemas/WebSearchToolResource'
     TopLogprobsData:
       title: TopLogprobsData
       required:
@@ -3959,6 +4443,30 @@ components:
         details:
           title: Details
           type: string
+    Visibility:
+      title: Visibility
+      enum:
+        - public
+        - private
+      description: An enumeration.
+    WebSearchToolResource:
+      title: WebSearchToolResource
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - web_search
+          type: string
+          default: web_search
+        urls:
+          title: Urls
+          type: array
+          items:
+            type: string
+        fallback_to_web:
+          title: Fallback To Web
+          type: boolean
     WebsiteConnectorCreateConfigPayload:
       title: WebsiteConnectorCreateConfigPayload
       required:
@@ -4101,6 +4609,67 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/WorkspaceModelResponse'
+    language_studio_api_server__data_types__assistant__Requirement:
+      title: Requirement
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
+        title:
+          title: Title
+          type: string
+        description:
+          title: Description
+          type: string
+        type:
+          title: Type
+          type: string
+    language_studio_api_server__data_types__chat__ToolDefinition:
+      title: ToolDefinition
+      required:
+        - type
+        - function
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - function
+          type: string
+        function:
+          $ref: '#/components/schemas/FunctionToolDefinition'
+    language_studio_api_server__data_types__execution_engine__Requirement:
+      title: Requirement
+      required:
+        - name
+        - description
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        is_mandatory:
+          title: Is Mandatory
+          type: boolean
+    language_studio_api_server__data_types__execution_engine__ToolDefinition:
+      title: ToolDefinition
+      oneOf:
+        - $ref: '#/components/schemas/HTTPToolResource'
+        - $ref: '#/components/schemas/MCPToolResource'
+        - $ref: '#/components/schemas/FileSearchToolResource'
+        - $ref: '#/components/schemas/WebSearchToolResource'
+      discriminator:
+        propertyName: type
+        mapping:
+          http: '#/components/schemas/HTTPToolResource'
+          mcp: '#/components/schemas/MCPToolResource'
+          file_search: '#/components/schemas/FileSearchToolResource'
+          web_search: '#/components/schemas/WebSearchToolResource'
   securitySchemes:
     Bearer:
       type: http
