@@ -44,6 +44,12 @@ namespace AI21
         public object? RequirementsResult { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("error")]
+        public global::AI21.MaestroRunError? Error { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -61,6 +67,7 @@ namespace AI21
         /// <param name="result"></param>
         /// <param name="dataSources"></param>
         /// <param name="requirementsResult"></param>
+        /// <param name="error"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -69,13 +76,15 @@ namespace AI21
             global::AI21.MaestroRunResultStatus status,
             object? result,
             object? dataSources,
-            object? requirementsResult)
+            object? requirementsResult,
+            global::AI21.MaestroRunError? error)
         {
             this.Id = id;
             this.Status = status;
             this.Result = result;
             this.DataSources = dataSources;
             this.RequirementsResult = requirementsResult;
+            this.Error = error;
         }
 
         /// <summary>
