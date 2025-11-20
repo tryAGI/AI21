@@ -32,7 +32,7 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
-        public global::System.Collections.Generic.IList<global::AI21.ToolDefinition>? Tools { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesChatToolDefinition>? Tools { get; set; }
 
         /// <summary>
         /// How many chat responses to generate. _Range: 1 – 16_ **Notes:**<br/>
@@ -181,7 +181,7 @@ namespace AI21
         public ChatRequest(
             global::AI21.ModelName model,
             global::System.Collections.Generic.IList<global::AI21.MessagesItem> messages,
-            global::System.Collections.Generic.IList<global::AI21.ToolDefinition>? tools,
+            global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesChatToolDefinition>? tools,
             int? n,
             int? maxTokens,
             double? temperature,
