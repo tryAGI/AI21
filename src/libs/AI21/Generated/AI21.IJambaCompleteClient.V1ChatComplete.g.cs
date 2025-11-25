@@ -86,7 +86,7 @@ namespace AI21
         global::System.Threading.Tasks.Task<global::AI21.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>> V1ChatCompleteAsync(
             global::AI21.ModelName model,
             global::System.Collections.Generic.IList<global::AI21.MessagesItem> messages,
-            global::System.Collections.Generic.IList<global::AI21.ToolDefinition>? tools = default,
+            global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesChatToolDefinition>? tools = default,
             int? n = default,
             int? maxTokens = default,
             double? temperature = default,
