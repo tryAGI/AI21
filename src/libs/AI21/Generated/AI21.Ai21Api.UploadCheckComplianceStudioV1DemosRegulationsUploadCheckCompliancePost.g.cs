@@ -77,6 +77,12 @@ namespace AI21
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.Budget}"),
                     name: "budget");
+            } 
+            if (request.VectorStoreId != default)
+            {
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.VectorStoreId}"),
+                    name: "vector_store_id");
             }
             __httpRequest.Content = __httpRequestContent;
 
@@ -214,12 +220,16 @@ namespace AI21
         /// <param name="budget">
         /// Default Value: MEDIUM
         /// </param>
+        /// <param name="vectorStoreId">
+        /// Vector store ID to use for RFI processing
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> UploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostAsync(
             byte[] file,
             string filename,
             string? budget = default,
+            string? vectorStoreId = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::AI21.BodyUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePost
@@ -227,6 +237,7 @@ namespace AI21
                 File = file,
                 Filename = filename,
                 Budget = budget,
+                VectorStoreId = vectorStoreId,
             };
 
             return await UploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostAsync(
