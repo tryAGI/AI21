@@ -34,13 +34,13 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
-        public global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, global::AI21.CreateMaestroRunsPayloadTool2>>? Tools { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.ToolsItem>? Tools { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_resources")]
-        public global::AI21.ToolResources? ToolResources { get; set; }
+        public global::AI21.ToolResource? ToolResources { get; set; }
 
         /// <summary>
         /// 
@@ -52,7 +52,7 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("requirements")]
-        public global::System.Collections.Generic.IList<global::AI21.Requirement>? Requirements { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesExecutionEngineRequirement>? Requirements { get; set; }
 
         /// <summary>
         /// 
@@ -86,12 +86,6 @@ namespace AI21
         public bool? DynamicPlanningEnabled { get; set; }
 
         /// <summary>
-        /// Default Value: false
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("tools_allowed")]
-        public bool? ToolsAllowed { get; set; }
-
-        /// <summary>
         /// Default Value: maestro_run
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("payload_type")]
@@ -105,7 +99,7 @@ namespace AI21
         public global::System.Collections.Generic.IList<object>? CustomRetrievalConfigs { get; set; }
 
         /// <summary>
-        /// 
+        /// Default Value: unset
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_language")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.CreateMaestroRunsPayloadResponseLanguageJsonConverter))]
@@ -138,14 +132,13 @@ namespace AI21
         /// <param name="dynamicPlanningEnabled">
         /// Default Value: false
         /// </param>
-        /// <param name="toolsAllowed">
-        /// Default Value: false
-        /// </param>
         /// <param name="payloadType">
         /// Default Value: maestro_run
         /// </param>
         /// <param name="customRetrievalConfigs"></param>
-        /// <param name="responseLanguage"></param>
+        /// <param name="responseLanguage">
+        /// Default Value: unset
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -153,16 +146,15 @@ namespace AI21
             global::AI21.AnyOf<global::System.Collections.Generic.IList<global::AI21.Message>, string> input,
             object? outputType,
             global::System.Collections.Generic.IList<string>? models,
-            global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, global::AI21.CreateMaestroRunsPayloadTool2>>? tools,
-            global::AI21.ToolResources? toolResources,
+            global::System.Collections.Generic.IList<global::AI21.ToolsItem>? tools,
+            global::AI21.ToolResource? toolResources,
             object? context,
-            global::System.Collections.Generic.IList<global::AI21.Requirement>? requirements,
+            global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesExecutionEngineRequirement>? requirements,
             global::AI21.CreateMaestroRunsPayloadBudget? budget,
             bool? verbose,
             global::System.Collections.Generic.IList<string>? include,
             bool? structuredRagEnabled,
             bool? dynamicPlanningEnabled,
-            bool? toolsAllowed,
             global::AI21.MaestroPayloadType? payloadType,
             global::System.Collections.Generic.IList<object>? customRetrievalConfigs,
             global::AI21.CreateMaestroRunsPayloadResponseLanguage? responseLanguage)
@@ -179,7 +171,6 @@ namespace AI21
             this.Include = include;
             this.StructuredRagEnabled = structuredRagEnabled;
             this.DynamicPlanningEnabled = dynamicPlanningEnabled;
-            this.ToolsAllowed = toolsAllowed;
             this.PayloadType = payloadType;
             this.CustomRetrievalConfigs = customRetrievalConfigs;
             this.ResponseLanguage = responseLanguage;
