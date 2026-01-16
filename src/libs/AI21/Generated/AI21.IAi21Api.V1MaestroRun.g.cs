@@ -35,30 +35,28 @@ namespace AI21
         /// <param name="dynamicPlanningEnabled">
         /// Default Value: false
         /// </param>
-        /// <param name="toolsAllowed">
-        /// Default Value: false
-        /// </param>
         /// <param name="payloadType">
         /// Default Value: maestro_run
         /// </param>
         /// <param name="customRetrievalConfigs"></param>
-        /// <param name="responseLanguage"></param>
+        /// <param name="responseLanguage">
+        /// Default Value: unset
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.MaestroRunResult> V1MaestroRunAsync(
             global::AI21.AnyOf<global::System.Collections.Generic.IList<global::AI21.Message>, string> input,
             object? outputType = default,
             global::System.Collections.Generic.IList<string>? models = default,
-            global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, global::AI21.CreateMaestroRunsPayloadTool2>>? tools = default,
-            global::AI21.ToolResources? toolResources = default,
+            global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesExecutionEngineToolDefinition>? tools = default,
+            global::AI21.ToolResource? toolResources = default,
             object? context = default,
-            global::System.Collections.Generic.IList<global::AI21.Requirement>? requirements = default,
+            global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesExecutionEngineRequirement>? requirements = default,
             global::AI21.CreateMaestroRunsPayloadBudget? budget = default,
             bool? verbose = default,
             global::System.Collections.Generic.IList<string>? include = default,
             bool? structuredRagEnabled = default,
             bool? dynamicPlanningEnabled = default,
-            bool? toolsAllowed = default,
             global::AI21.MaestroPayloadType? payloadType = default,
             global::System.Collections.Generic.IList<object>? customRetrievalConfigs = default,
             global::AI21.CreateMaestroRunsPayloadResponseLanguage? responseLanguage = default,
