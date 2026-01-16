@@ -37,8 +37,14 @@ namespace AI21
         /// Default Value: segments
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("retrieval_strategy")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.ConversationalRagConfigRetrievalStrategyJsonConverter))]
-        public global::AI21.ConversationalRagConfigRetrievalStrategy? RetrievalStrategy { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.RetrievalStrategyJsonConverter))]
+        public global::AI21.RetrievalStrategy? RetrievalStrategy { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_documents")]
+        public int? MaxDocuments { get; set; }
 
         /// <summary>
         /// Default Value: 0
@@ -59,7 +65,7 @@ namespace AI21
         public double? HybridSearchAlpha { get; set; }
 
         /// <summary>
-        /// Default Value: english
+        /// Default Value: unset
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_language")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.ConversationalRagConfigResponseLanguageJsonConverter))]
@@ -95,6 +101,7 @@ namespace AI21
         /// <param name="retrievalStrategy">
         /// Default Value: segments
         /// </param>
+        /// <param name="maxDocuments"></param>
         /// <param name="retrievalSimilarityThreshold">
         /// Default Value: 0
         /// </param>
@@ -105,7 +112,7 @@ namespace AI21
         /// Default Value: 1
         /// </param>
         /// <param name="responseLanguage">
-        /// Default Value: english
+        /// Default Value: unset
         /// </param>
         /// <param name="verbose">
         /// Default Value: false
@@ -121,7 +128,8 @@ namespace AI21
             string? path,
             global::System.Collections.Generic.IList<string>? labels,
             global::System.Collections.Generic.IList<string>? fileIds,
-            global::AI21.ConversationalRagConfigRetrievalStrategy? retrievalStrategy,
+            global::AI21.RetrievalStrategy? retrievalStrategy,
+            int? maxDocuments,
             double? retrievalSimilarityThreshold,
             int? maxNeighbors,
             double? hybridSearchAlpha,
@@ -134,6 +142,7 @@ namespace AI21
             this.Labels = labels;
             this.FileIds = fileIds;
             this.RetrievalStrategy = retrievalStrategy;
+            this.MaxDocuments = maxDocuments;
             this.RetrievalSimilarityThreshold = retrievalSimilarityThreshold;
             this.MaxNeighbors = maxNeighbors;
             this.HybridSearchAlpha = hybridSearchAlpha;
