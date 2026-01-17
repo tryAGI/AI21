@@ -20,6 +20,10 @@ namespace AI21
         /// 
         /// </summary>
         PlanApproval,
+        /// <summary>
+        /// 
+        /// </summary>
+        Rag,
     }
 
     /// <summary>
@@ -37,6 +41,7 @@ namespace AI21
                 AssistantTool2.FileSearch => "file_search",
                 AssistantTool2.WebSearch => "web_search",
                 AssistantTool2.PlanApproval => "plan_approval",
+                AssistantTool2.Rag => "rag",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -50,6 +55,7 @@ namespace AI21
                 "file_search" => AssistantTool2.FileSearch,
                 "web_search" => AssistantTool2.WebSearch,
                 "plan_approval" => AssistantTool2.PlanApproval,
+                "rag" => AssistantTool2.Rag,
                 _ => null,
             };
         }
