@@ -4,7 +4,7 @@
 namespace AI21
 {
     /// <summary>
-    /// Default Value: english
+    /// Default Value: unset
     /// </summary>
     public enum ConversationalRagConfigResponseLanguage
     {
@@ -44,6 +44,10 @@ namespace AI21
         /// 
         /// </summary>
         Spanish,
+        /// <summary>
+        /// 
+        /// </summary>
+        Unset,
     }
 
     /// <summary>
@@ -67,6 +71,7 @@ namespace AI21
                 ConversationalRagConfigResponseLanguage.Italian => "italian",
                 ConversationalRagConfigResponseLanguage.Portuguese => "portuguese",
                 ConversationalRagConfigResponseLanguage.Spanish => "spanish",
+                ConversationalRagConfigResponseLanguage.Unset => "unset",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -86,6 +91,7 @@ namespace AI21
                 "italian" => ConversationalRagConfigResponseLanguage.Italian,
                 "portuguese" => ConversationalRagConfigResponseLanguage.Portuguese,
                 "spanish" => ConversationalRagConfigResponseLanguage.Spanish,
+                "unset" => ConversationalRagConfigResponseLanguage.Unset,
                 _ => null,
             };
         }
