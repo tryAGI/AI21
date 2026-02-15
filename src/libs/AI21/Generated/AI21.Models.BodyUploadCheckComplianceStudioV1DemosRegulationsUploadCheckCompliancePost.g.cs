@@ -29,6 +29,12 @@ namespace AI21
         public string? Budget { get; set; }
 
         /// <summary>
+        /// Vector store ID to use for RFI processing
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("vector_store_id")]
+        public string? VectorStoreId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -42,17 +48,22 @@ namespace AI21
         /// <param name="budget">
         /// Default Value: MEDIUM
         /// </param>
+        /// <param name="vectorStoreId">
+        /// Vector store ID to use for RFI processing
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BodyUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePost(
             byte[] file,
             string filename,
-            string? budget)
+            string? budget,
+            string? vectorStoreId)
         {
             this.File = file ?? throw new global::System.ArgumentNullException(nameof(file));
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
             this.Budget = budget;
+            this.VectorStoreId = vectorStoreId;
         }
 
         /// <summary>
