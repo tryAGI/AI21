@@ -34,6 +34,56 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
+#if NET6_0_OR_GREATER
+        public global::AI21.AssistantMessage? Assistant { get; init; }
+#else
+        public global::AI21.AssistantMessage? Assistant { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Assistant))]
+#endif
+        public bool IsAssistant => Assistant != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::AI21.ToolMessage? Tool { get; init; }
+#else
+        public global::AI21.ToolMessage? Tool { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Tool))]
+#endif
+        public bool IsTool => Tool != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::AI21.SystemMessage? System { get; init; }
+#else
+        public global::AI21.SystemMessage? System { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(System))]
+#endif
+        public bool IsSystem => System != null;
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator MessagesItem(global::AI21.UserMessage value) => new MessagesItem((global::AI21.UserMessage?)value);
 
         /// <summary>
@@ -48,23 +98,6 @@ namespace AI21
         {
             User = value;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::AI21.AssistantMessage? Assistant { get; init; }
-#else
-        public global::AI21.AssistantMessage? Assistant { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Assistant))]
-#endif
-        public bool IsAssistant => Assistant != null;
 
         /// <summary>
         /// 
@@ -87,23 +120,6 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-#if NET6_0_OR_GREATER
-        public global::AI21.ToolMessage? Tool { get; init; }
-#else
-        public global::AI21.ToolMessage? Tool { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Tool))]
-#endif
-        public bool IsTool => Tool != null;
-
-        /// <summary>
-        /// 
-        /// </summary>
         public static implicit operator MessagesItem(global::AI21.ToolMessage value) => new MessagesItem((global::AI21.ToolMessage?)value);
 
         /// <summary>
@@ -118,23 +134,6 @@ namespace AI21
         {
             Tool = value;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::AI21.SystemMessage? System { get; init; }
-#else
-        public global::AI21.SystemMessage? System { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(System))]
-#endif
-        public bool IsSystem => System != null;
 
         /// <summary>
         /// 

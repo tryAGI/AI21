@@ -32,6 +32,7 @@ namespace AI21
         /// <exception cref="global::AI21.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.DetectSchemaResponse> DetectSchemaStudioV1StructuredRagOrganizationsOrganizationIdSchemaDetectionPostAsync(
             string organizationId,
+
             global::AI21.DetectSchemaRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

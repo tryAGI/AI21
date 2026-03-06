@@ -11,7 +11,7 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        FP8,
+        Fp8,
         /// <summary>
         /// 
         /// </summary>
@@ -30,7 +30,7 @@ namespace AI21
         {
             return value switch
             {
-                ModelQuantization.FP8 => "FP8",
+                ModelQuantization.Fp8 => "FP8",
                 ModelQuantization.ExpertsInt8 => "experts_int8",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -42,7 +42,7 @@ namespace AI21
         {
             return value switch
             {
-                "FP8" => ModelQuantization.FP8,
+                "FP8" => ModelQuantization.Fp8,
                 "experts_int8" => ModelQuantization.ExpertsInt8,
                 _ => null,
             };

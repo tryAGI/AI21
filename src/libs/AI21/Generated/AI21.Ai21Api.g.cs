@@ -58,7 +58,7 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        public RAGEngineClient RAGEngine => new RAGEngineClient(HttpClient, authorizations: Authorizations)
+        public RagEngineClient RagEngine => new RagEngineClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,

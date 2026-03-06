@@ -28,6 +28,7 @@ namespace AI21
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> ConvertDocumentFileStudioV1ChatFilesConvertPostAsync(
+
             global::AI21.BodyConvertDocumentFileStudioV1ChatFilesConvertPost request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -69,7 +70,7 @@ namespace AI21
             using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
             __httpRequestContent.Add(
                 content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.Files, x => x))}]"),
-                name: "files");
+                name: "\"files\"");
             __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(

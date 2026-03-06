@@ -33,6 +33,7 @@ namespace AI21
         /// <exception cref="global::AI21.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.Demo> UpdateDemoStudioV1DemosDemoIdPutAsync(
             string demoId,
+
             global::AI21.DemoUpdate request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

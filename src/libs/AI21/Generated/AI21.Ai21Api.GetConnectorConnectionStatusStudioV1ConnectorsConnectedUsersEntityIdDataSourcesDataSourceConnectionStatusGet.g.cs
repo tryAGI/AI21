@@ -50,7 +50,7 @@ namespace AI21
             var __pathBuilder = new global::AI21.PathBuilder(
                 path: $"/studio/v1/connectors/connected-users/{entityId}/data-sources/{dataSource}/connection-status",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
+            __pathBuilder
                 .AddRequiredParameter("paragon_token", paragonToken) 
                 ; 
             var __path = __pathBuilder.ToString();

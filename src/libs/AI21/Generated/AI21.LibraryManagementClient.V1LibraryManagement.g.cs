@@ -71,12 +71,12 @@ namespace AI21
             var __pathBuilder = new global::AI21.PathBuilder(
                 path: "/studio/v1/library/files",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("name", name) 
-                .AddOptionalParameter("path", path) 
-                .AddOptionalParameter("status", status?.ToValueString()) 
-                .AddOptionalParameter("label", label, delimiter: ",", explode: true) 
-                .AddOptionalParameter("limit", limit?.ToString()) 
+            __pathBuilder
+                .AddOptionalParameter("name", name)
+                .AddOptionalParameter("path", path)
+                .AddOptionalParameter("status", status?.ToValueString())
+                .AddOptionalParameter("label", label, delimiter: ",", explode: true)
+                .AddOptionalParameter("limit", limit?.ToString())
                 .AddOptionalParameter("offset", offset?.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();

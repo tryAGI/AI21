@@ -40,7 +40,7 @@ namespace AI21
             var __pathBuilder = new global::AI21.PathBuilder(
                 path: "/studio/v1/website-connector/url-status",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
+            __pathBuilder
                 .AddRequiredParameter("url_id", urlId) 
                 ; 
             var __path = __pathBuilder.ToString();

@@ -11,6 +11,7 @@ namespace AI21
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.ThreadNameGenerationResponse> V1StudioApiGenerationThreadNameAsync(
+
             global::AI21.ThreadNameGenerationRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
 

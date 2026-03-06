@@ -11,6 +11,7 @@ namespace AI21
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.MaestroRunResult> V1MaestroRunAsync(
+
             global::AI21.CreateMaestroRunsPayload request,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -21,7 +22,6 @@ namespace AI21
         /// <param name="outputType"></param>
         /// <param name="models"></param>
         /// <param name="tools"></param>
-        /// <param name="toolResources"></param>
         /// <param name="context"></param>
         /// <param name="requirements"></param>
         /// <param name="budget"></param>
@@ -35,33 +35,43 @@ namespace AI21
         /// <param name="dynamicPlanningEnabled">
         /// Default Value: false
         /// </param>
-        /// <param name="toolsAllowed">
-        /// Default Value: false
-        /// </param>
-        /// <param name="payloadType">
-        /// Default Value: maestro_run
+        /// <param name="assistantId"></param>
+        /// <param name="variant">
+        /// Default Value: main
         /// </param>
         /// <param name="customRetrievalConfigs"></param>
-        /// <param name="responseLanguage"></param>
+        /// <param name="responseLanguage">
+        /// Default Value: unset
+        /// </param>
+        /// <param name="systemPrompt"></param>
+        /// <param name="stream">
+        /// Whether or not to stream the result one token at a time using<br/>
+        /// [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events).<br/>
+        /// This can be useful when waiting for long results where a long wait time for an<br/>
+        /// answer can be problematic, such as a chatbot. If set to `True`, then `n` must<br/>
+        /// be 1. A streaming response is different than the non-streaming response.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.MaestroRunResult> V1MaestroRunAsync(
             global::AI21.AnyOf<global::System.Collections.Generic.IList<global::AI21.Message>, string> input,
             object? outputType = default,
             global::System.Collections.Generic.IList<string>? models = default,
-            global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, global::AI21.CreateMaestroRunsPayloadTool2>>? tools = default,
-            global::AI21.ToolResources? toolResources = default,
+            global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesExecutionEngineToolDefinition>? tools = default,
             object? context = default,
-            global::System.Collections.Generic.IList<global::AI21.Requirement>? requirements = default,
+            global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesExecutionEngineRequirement>? requirements = default,
             global::AI21.CreateMaestroRunsPayloadBudget? budget = default,
             bool? verbose = default,
             global::System.Collections.Generic.IList<string>? include = default,
             bool? structuredRagEnabled = default,
             bool? dynamicPlanningEnabled = default,
-            bool? toolsAllowed = default,
-            global::AI21.MaestroPayloadType? payloadType = default,
+            string? assistantId = default,
+            global::AI21.CreateMaestroRunsPayloadVariant? variant = default,
             global::System.Collections.Generic.IList<object>? customRetrievalConfigs = default,
             global::AI21.CreateMaestroRunsPayloadResponseLanguage? responseLanguage = default,
+            string? systemPrompt = default,
+            bool? stream = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

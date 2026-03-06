@@ -7,14 +7,14 @@ namespace AI21
     {
         partial void PrepareV1ModifyRouteArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string assistantId,
             ref string routeId,
+            ref string assistantId,
             global::AI21.UpdateRoutePayload request);
         partial void PrepareV1ModifyRouteRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string assistantId,
             string routeId,
+            string assistantId,
             global::AI21.UpdateRoutePayload request);
         partial void ProcessV1ModifyRouteResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -28,14 +28,15 @@ namespace AI21
         /// <summary>
         /// Modify Route
         /// </summary>
-        /// <param name="assistantId"></param>
         /// <param name="routeId"></param>
+        /// <param name="assistantId"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.AssistantRoute> V1ModifyRouteAsync(
-            string assistantId,
             string routeId,
+            string assistantId,
+
             global::AI21.UpdateRoutePayload request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -45,8 +46,8 @@ namespace AI21
                 client: HttpClient);
             PrepareV1ModifyRouteArguments(
                 httpClient: HttpClient,
-                assistantId: ref assistantId,
                 routeId: ref routeId,
+                assistantId: ref assistantId,
                 request: request);
 
             var __pathBuilder = new global::AI21.PathBuilder(
@@ -89,8 +90,8 @@ namespace AI21
             PrepareV1ModifyRouteRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                assistantId: assistantId,
                 routeId: routeId,
+                assistantId: assistantId,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -217,15 +218,15 @@ namespace AI21
         /// <summary>
         /// Modify Route
         /// </summary>
-        /// <param name="assistantId"></param>
         /// <param name="routeId"></param>
+        /// <param name="assistantId"></param>
         /// <param name="description"></param>
         /// <param name="examples"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.AssistantRoute> V1ModifyRouteAsync(
-            string assistantId,
             string routeId,
+            string assistantId,
             string description,
             global::System.Collections.Generic.IList<string>? examples = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -237,8 +238,8 @@ namespace AI21
             };
 
             return await V1ModifyRouteAsync(
-                assistantId: assistantId,
                 routeId: routeId,
+                assistantId: assistantId,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

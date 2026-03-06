@@ -29,6 +29,7 @@ namespace AI21
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> UploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostAsync(
+
             global::AI21.BodyUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePost request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -68,15 +69,28 @@ namespace AI21
                 }
             }
             using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
+            var __contentFile = new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>());
             __httpRequestContent.Add(
-                content: new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>()),
-                name: "file",
-                fileName: request.Filename ?? string.Empty);
+                content: __contentFile,
+                name: "\"file\"",
+                fileName: request.Filename != null ? $"\"{request.Filename}\"" : string.Empty);
+            if (__contentFile.Headers.ContentDisposition != null)
+            {
+                __contentFile.Headers.ContentDisposition.FileNameStar = null;
+            }
             if (request.Budget != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.Budget}"),
-                    name: "budget");
+                    name: "\"budget\"");
+            } 
+            if (request.VectorStoreId != default)
+            {
+
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.VectorStoreId}"),
+                    name: "\"vector_store_id\"");
             }
             __httpRequest.Content = __httpRequestContent;
 
@@ -214,12 +228,16 @@ namespace AI21
         /// <param name="budget">
         /// Default Value: MEDIUM
         /// </param>
+        /// <param name="vectorStoreId">
+        /// Vector store ID to use for RFI processing
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> UploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostAsync(
             byte[] file,
             string filename,
             string? budget = default,
+            string? vectorStoreId = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::AI21.BodyUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePost
@@ -227,6 +245,7 @@ namespace AI21
                 File = file,
                 Filename = filename,
                 Budget = budget,
+                VectorStoreId = vectorStoreId,
             };
 
             return await UploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePostAsync(
