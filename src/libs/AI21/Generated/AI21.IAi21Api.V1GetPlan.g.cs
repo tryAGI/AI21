@@ -7,13 +7,13 @@ namespace AI21
         /// <summary>
         /// Get Plan
         /// </summary>
-        /// <param name="assistantId"></param>
         /// <param name="planId"></param>
+        /// <param name="assistantId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.Plan> V1GetPlanAsync(
-            string assistantId,
             string planId,
+            string assistantId,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

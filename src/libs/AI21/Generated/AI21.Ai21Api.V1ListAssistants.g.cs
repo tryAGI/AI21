@@ -6,10 +6,12 @@ namespace AI21
     public partial class Ai21Api
     {
         partial void PrepareV1ListAssistantsArguments(
-            global::System.Net.Http.HttpClient httpClient);
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Collections.Generic.IList<string>? workspaceIds);
         partial void PrepareV1ListAssistantsRequest(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            global::System.Collections.Generic.IList<string>? workspaceIds);
         partial void ProcessV1ListAssistantsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -22,19 +24,25 @@ namespace AI21
         /// <summary>
         /// Get Assistants
         /// </summary>
+        /// <param name="workspaceIds"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.ListAssistantsResponse> V1ListAssistantsAsync(
+            global::System.Collections.Generic.IList<string>? workspaceIds = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareV1ListAssistantsArguments(
-                httpClient: HttpClient);
+                httpClient: HttpClient,
+                workspaceIds: workspaceIds);
 
             var __pathBuilder = new global::AI21.PathBuilder(
                 path: "/studio/v1/assistants",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder
+                .AddOptionalParameter("workspace_ids", workspaceIds, delimiter: ",", explode: true) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -65,7 +73,8 @@ namespace AI21
                 request: __httpRequest);
             PrepareV1ListAssistantsRequest(
                 httpClient: HttpClient,
-                httpRequestMessage: __httpRequest);
+                httpRequestMessage: __httpRequest,
+                workspaceIds: workspaceIds);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -78,6 +87,43 @@ namespace AI21
             ProcessV1ListAssistantsResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
+            // Validation Error
+            if ((int)__response.StatusCode == 422)
+            {
+                string? __content_422 = null;
+                global::System.Exception? __exception_422 = null;
+                global::AI21.HTTPValidationError? __value_422 = null;
+                try
+                {
+                    if (ReadResponseAsString)
+                    {
+                        __content_422 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                        __value_422 = global::AI21.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                    }
+                    else
+                    {
+                        var __contentStream_422 = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
+                        __value_422 = await global::AI21.HTTPValidationError.FromJsonStreamAsync(__contentStream_422, JsonSerializerContext).ConfigureAwait(false);
+                    }
+                }
+                catch (global::System.Exception __ex)
+                {
+                    __exception_422 = __ex;
+                }
+
+                throw new global::AI21.ApiException<global::AI21.HTTPValidationError>(
+                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
+                    innerException: __exception_422,
+                    statusCode: __response.StatusCode)
+                {
+                    ResponseBody = __content_422,
+                    ResponseObject = __value_422,
+                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                        __response.Headers,
+                        h => h.Key,
+                        h => h.Value),
+                };
+            }
 
             if (ReadResponseAsString)
             {

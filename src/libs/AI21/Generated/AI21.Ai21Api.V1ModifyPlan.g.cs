@@ -7,14 +7,14 @@ namespace AI21
     {
         partial void PrepareV1ModifyPlanArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string assistantId,
             ref string planId,
+            ref string assistantId,
             global::AI21.CreatePlanPayload request);
         partial void PrepareV1ModifyPlanRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string assistantId,
             string planId,
+            string assistantId,
             global::AI21.CreatePlanPayload request);
         partial void ProcessV1ModifyPlanResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -28,14 +28,15 @@ namespace AI21
         /// <summary>
         /// Modify Plan
         /// </summary>
-        /// <param name="assistantId"></param>
         /// <param name="planId"></param>
+        /// <param name="assistantId"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.Plan> V1ModifyPlanAsync(
-            string assistantId,
             string planId,
+            string assistantId,
+
             global::AI21.CreatePlanPayload request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -45,8 +46,8 @@ namespace AI21
                 client: HttpClient);
             PrepareV1ModifyPlanArguments(
                 httpClient: HttpClient,
-                assistantId: ref assistantId,
                 planId: ref planId,
+                assistantId: ref assistantId,
                 request: request);
 
             var __pathBuilder = new global::AI21.PathBuilder(
@@ -89,8 +90,8 @@ namespace AI21
             PrepareV1ModifyPlanRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                assistantId: assistantId,
                 planId: planId,
+                assistantId: assistantId,
                 request: request);
 
             using var __response = await HttpClient.SendAsync(
@@ -217,15 +218,15 @@ namespace AI21
         /// <summary>
         /// Modify Plan
         /// </summary>
-        /// <param name="assistantId"></param>
         /// <param name="planId"></param>
+        /// <param name="assistantId"></param>
         /// <param name="code"></param>
         /// <param name="schemas"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.Plan> V1ModifyPlanAsync(
-            string assistantId,
             string planId,
+            string assistantId,
             string code,
             global::System.Collections.Generic.IList<object>? schemas = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -237,8 +238,8 @@ namespace AI21
             };
 
             return await V1ModifyPlanAsync(
-                assistantId: assistantId,
                 planId: planId,
+                assistantId: assistantId,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }

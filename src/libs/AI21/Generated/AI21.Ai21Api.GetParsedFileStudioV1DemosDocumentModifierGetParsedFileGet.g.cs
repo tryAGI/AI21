@@ -41,7 +41,7 @@ namespace AI21
             var __pathBuilder = new global::AI21.PathBuilder(
                 path: "/studio/v1/demos/document-modifier/get-parsed-file",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
+            __pathBuilder
                 .AddRequiredParameter("file_name", fileName) 
                 ; 
             var __path = __pathBuilder.ToString();

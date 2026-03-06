@@ -32,6 +32,7 @@ namespace AI21
         /// <exception cref="global::AI21.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> CreateOrganizationSchemaStudioV1StructuredRagOrganizationsOrganizationIdSchemasPostAsync(
             string organizationId,
+
             global::AI21.CreateOrganizationSchemaRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

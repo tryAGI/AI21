@@ -45,7 +45,7 @@ namespace AI21
             var __pathBuilder = new global::AI21.PathBuilder(
                 path: $"/studio/v1/assistants/{assistantId}/routes",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
+            __pathBuilder
                 .AddOptionalParameter("name", name) 
                 ; 
             var __path = __pathBuilder.ToString();

@@ -32,7 +32,7 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
-        public global::System.Collections.Generic.IList<global::AI21.ToolDefinition>? Tools { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesChatToolDefinition>? Tools { get; set; }
 
         /// <summary>
         /// How many chat responses to generate. _Range: 1 – 16_ **Notes:**<br/>
@@ -107,7 +107,7 @@ namespace AI21
         public global::System.Collections.Generic.IList<global::AI21.DocumentSchema>? Documents { get; set; }
 
         /// <summary>
-        /// 
+        /// Default Value: {"type":"text"}
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
         public global::AI21.ResponseFormat? ResponseFormat { get; set; }
@@ -174,14 +174,16 @@ namespace AI21
         /// </param>
         /// <param name="mockResponse"></param>
         /// <param name="documents"></param>
-        /// <param name="responseFormat"></param>
+        /// <param name="responseFormat">
+        /// Default Value: {"type":"text"}
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ChatRequest(
             global::AI21.ModelName model,
             global::System.Collections.Generic.IList<global::AI21.MessagesItem> messages,
-            global::System.Collections.Generic.IList<global::AI21.ToolDefinition>? tools,
+            global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesChatToolDefinition>? tools,
             int? n,
             int? maxTokens,
             double? temperature,

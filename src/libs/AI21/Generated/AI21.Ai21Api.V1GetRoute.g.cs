@@ -7,13 +7,13 @@ namespace AI21
     {
         partial void PrepareV1GetRouteArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string assistantId,
-            ref string routeId);
+            ref string routeId,
+            ref string assistantId);
         partial void PrepareV1GetRouteRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string assistantId,
-            string routeId);
+            string routeId,
+            string assistantId);
         partial void ProcessV1GetRouteResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -26,21 +26,21 @@ namespace AI21
         /// <summary>
         /// Get Route
         /// </summary>
-        /// <param name="assistantId"></param>
         /// <param name="routeId"></param>
+        /// <param name="assistantId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.AssistantRoute> V1GetRouteAsync(
-            string assistantId,
             string routeId,
+            string assistantId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareV1GetRouteArguments(
                 httpClient: HttpClient,
-                assistantId: ref assistantId,
-                routeId: ref routeId);
+                routeId: ref routeId,
+                assistantId: ref assistantId);
 
             var __pathBuilder = new global::AI21.PathBuilder(
                 path: $"/studio/v1/assistants/{assistantId}/routes/{routeId}",
@@ -76,8 +76,8 @@ namespace AI21
             PrepareV1GetRouteRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                assistantId: assistantId,
-                routeId: routeId);
+                routeId: routeId,
+                assistantId: assistantId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

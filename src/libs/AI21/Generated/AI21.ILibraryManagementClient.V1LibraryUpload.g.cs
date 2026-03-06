@@ -17,6 +17,7 @@ namespace AI21
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         global::System.Threading.Tasks.Task<string> V1LibraryUploadAsync(
+
             global::AI21.BodyV1LibraryUpload request,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -40,6 +41,7 @@ namespace AI21
         /// </param>
         /// <param name="batchId"></param>
         /// <param name="dataSource"></param>
+        /// <param name="metadata"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> V1LibraryUploadAsync(
@@ -52,6 +54,7 @@ namespace AI21
             global::AI21.UploadMode? uploadMode = default,
             global::System.Guid? batchId = default,
             string? dataSource = default,
+            string? metadata = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

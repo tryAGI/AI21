@@ -34,13 +34,7 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
-        public global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, global::AI21.CreateMaestroRunsPayloadTool2>>? Tools { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("tool_resources")]
-        public global::AI21.ToolResources? ToolResources { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesExecutionEngineToolDefinition>? Tools { get; set; }
 
         /// <summary>
         /// 
@@ -52,7 +46,7 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("requirements")]
-        public global::System.Collections.Generic.IList<global::AI21.Requirement>? Requirements { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesExecutionEngineRequirement>? Requirements { get; set; }
 
         /// <summary>
         /// 
@@ -86,17 +80,17 @@ namespace AI21
         public bool? DynamicPlanningEnabled { get; set; }
 
         /// <summary>
-        /// Default Value: false
+        /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("tools_allowed")]
-        public bool? ToolsAllowed { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("assistant_id")]
+        public string? AssistantId { get; set; }
 
         /// <summary>
-        /// Default Value: maestro_run
+        /// Default Value: main
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("payload_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.MaestroPayloadTypeJsonConverter))]
-        public global::AI21.MaestroPayloadType? PayloadType { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("variant")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.CreateMaestroRunsPayloadVariantJsonConverter))]
+        public global::AI21.CreateMaestroRunsPayloadVariant? Variant { get; set; }
 
         /// <summary>
         /// 
@@ -105,11 +99,28 @@ namespace AI21
         public global::System.Collections.Generic.IList<object>? CustomRetrievalConfigs { get; set; }
 
         /// <summary>
-        /// 
+        /// Default Value: unset
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_language")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.CreateMaestroRunsPayloadResponseLanguageJsonConverter))]
         public global::AI21.CreateMaestroRunsPayloadResponseLanguage? ResponseLanguage { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("system_prompt")]
+        public string? SystemPrompt { get; set; }
+
+        /// <summary>
+        /// Whether or not to stream the result one token at a time using<br/>
+        /// [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events).<br/>
+        /// This can be useful when waiting for long results where a long wait time for an<br/>
+        /// answer can be problematic, such as a chatbot. If set to `True`, then `n` must<br/>
+        /// be 1. A streaming response is different than the non-streaming response.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("stream")]
+        public bool? Stream { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -124,7 +135,6 @@ namespace AI21
         /// <param name="outputType"></param>
         /// <param name="models"></param>
         /// <param name="tools"></param>
-        /// <param name="toolResources"></param>
         /// <param name="context"></param>
         /// <param name="requirements"></param>
         /// <param name="budget"></param>
@@ -138,14 +148,23 @@ namespace AI21
         /// <param name="dynamicPlanningEnabled">
         /// Default Value: false
         /// </param>
-        /// <param name="toolsAllowed">
-        /// Default Value: false
-        /// </param>
-        /// <param name="payloadType">
-        /// Default Value: maestro_run
+        /// <param name="assistantId"></param>
+        /// <param name="variant">
+        /// Default Value: main
         /// </param>
         /// <param name="customRetrievalConfigs"></param>
-        /// <param name="responseLanguage"></param>
+        /// <param name="responseLanguage">
+        /// Default Value: unset
+        /// </param>
+        /// <param name="systemPrompt"></param>
+        /// <param name="stream">
+        /// Whether or not to stream the result one token at a time using<br/>
+        /// [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events).<br/>
+        /// This can be useful when waiting for long results where a long wait time for an<br/>
+        /// answer can be problematic, such as a chatbot. If set to `True`, then `n` must<br/>
+        /// be 1. A streaming response is different than the non-streaming response.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -153,25 +172,25 @@ namespace AI21
             global::AI21.AnyOf<global::System.Collections.Generic.IList<global::AI21.Message>, string> input,
             object? outputType,
             global::System.Collections.Generic.IList<string>? models,
-            global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, global::AI21.CreateMaestroRunsPayloadTool2>>? tools,
-            global::AI21.ToolResources? toolResources,
+            global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesExecutionEngineToolDefinition>? tools,
             object? context,
-            global::System.Collections.Generic.IList<global::AI21.Requirement>? requirements,
+            global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesExecutionEngineRequirement>? requirements,
             global::AI21.CreateMaestroRunsPayloadBudget? budget,
             bool? verbose,
             global::System.Collections.Generic.IList<string>? include,
             bool? structuredRagEnabled,
             bool? dynamicPlanningEnabled,
-            bool? toolsAllowed,
-            global::AI21.MaestroPayloadType? payloadType,
+            string? assistantId,
+            global::AI21.CreateMaestroRunsPayloadVariant? variant,
             global::System.Collections.Generic.IList<object>? customRetrievalConfigs,
-            global::AI21.CreateMaestroRunsPayloadResponseLanguage? responseLanguage)
+            global::AI21.CreateMaestroRunsPayloadResponseLanguage? responseLanguage,
+            string? systemPrompt,
+            bool? stream)
         {
             this.Input = input;
             this.OutputType = outputType;
             this.Models = models;
             this.Tools = tools;
-            this.ToolResources = toolResources;
             this.Context = context;
             this.Requirements = requirements;
             this.Budget = budget;
@@ -179,10 +198,12 @@ namespace AI21
             this.Include = include;
             this.StructuredRagEnabled = structuredRagEnabled;
             this.DynamicPlanningEnabled = dynamicPlanningEnabled;
-            this.ToolsAllowed = toolsAllowed;
-            this.PayloadType = payloadType;
+            this.AssistantId = assistantId;
+            this.Variant = variant;
             this.CustomRetrievalConfigs = customRetrievalConfigs;
             this.ResponseLanguage = responseLanguage;
+            this.SystemPrompt = systemPrompt;
+            this.Stream = stream;
         }
 
         /// <summary>

@@ -34,6 +34,7 @@ namespace AI21
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> V1LibraryUploadAsync(
+
             global::AI21.BodyV1LibraryUpload request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -73,51 +74,70 @@ namespace AI21
                 }
             }
             using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
+            var __contentFile = new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>());
             __httpRequestContent.Add(
-                content: new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>()),
-                name: "file",
-                fileName: request.Filename ?? string.Empty);
+                content: __contentFile,
+                name: "\"file\"",
+                fileName: request.Filename != null ? $"\"{request.Filename}\"" : string.Empty);
+            if (__contentFile.Headers.ContentDisposition != null)
+            {
+                __contentFile.Headers.ContentDisposition.FileNameStar = null;
+            }
             if (request.Path != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.Path}"),
-                    name: "path");
+                    name: "\"path\"");
             } 
             if (request.Labels != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.Labels, x => x))}]"),
-                    name: "labels");
+                    name: "\"labels\"");
             } 
             if (request.PublicUrl != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.PublicUrl}"),
-                    name: "publicUrl");
+                    name: "\"publicUrl\"");
             } 
             if (request.CustomConfigs != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.CustomConfigs}"),
-                    name: "custom_configs");
+                    name: "\"custom_configs\"");
             } 
             if (request.UploadMode != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.UploadMode?.ToValueString()}"),
-                    name: "upload_mode");
+                    name: "\"upload_mode\"");
             } 
             if (request.BatchId != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.BatchId}"),
-                    name: "batch_id");
+                    name: "\"batch_id\"");
             } 
             if (request.DataSource != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.DataSource}"),
-                    name: "data_source");
+                    name: "\"data_source\"");
+            } 
+            if (request.Metadata != default)
+            {
+
+                __httpRequestContent.Add(
+                    content: new global::System.Net.Http.StringContent($"{request.Metadata}"),
+                    name: "\"metadata\"");
             }
             __httpRequest.Content = __httpRequestContent;
 
@@ -266,6 +286,7 @@ namespace AI21
         /// </param>
         /// <param name="batchId"></param>
         /// <param name="dataSource"></param>
+        /// <param name="metadata"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<string> V1LibraryUploadAsync(
@@ -278,6 +299,7 @@ namespace AI21
             global::AI21.UploadMode? uploadMode = default,
             global::System.Guid? batchId = default,
             string? dataSource = default,
+            string? metadata = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::AI21.BodyV1LibraryUpload
@@ -291,6 +313,7 @@ namespace AI21
                 UploadMode = uploadMode,
                 BatchId = batchId,
                 DataSource = dataSource,
+                Metadata = metadata,
             };
 
             return await V1LibraryUploadAsync(

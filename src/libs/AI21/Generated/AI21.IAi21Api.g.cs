@@ -50,7 +50,7 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        public RAGEngineClient RAGEngine { get; }
+        public RagEngineClient RagEngine { get; }
 
         /// <summary>
         /// 

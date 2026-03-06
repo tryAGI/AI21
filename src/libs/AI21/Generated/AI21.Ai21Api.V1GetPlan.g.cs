@@ -7,13 +7,13 @@ namespace AI21
     {
         partial void PrepareV1GetPlanArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string assistantId,
-            ref string planId);
+            ref string planId,
+            ref string assistantId);
         partial void PrepareV1GetPlanRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string assistantId,
-            string planId);
+            string planId,
+            string assistantId);
         partial void ProcessV1GetPlanResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -26,21 +26,21 @@ namespace AI21
         /// <summary>
         /// Get Plan
         /// </summary>
-        /// <param name="assistantId"></param>
         /// <param name="planId"></param>
+        /// <param name="assistantId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::AI21.Plan> V1GetPlanAsync(
-            string assistantId,
             string planId,
+            string assistantId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareV1GetPlanArguments(
                 httpClient: HttpClient,
-                assistantId: ref assistantId,
-                planId: ref planId);
+                planId: ref planId,
+                assistantId: ref assistantId);
 
             var __pathBuilder = new global::AI21.PathBuilder(
                 path: $"/studio/v1/assistants/{assistantId}/plans/{planId}",
@@ -76,8 +76,8 @@ namespace AI21
             PrepareV1GetPlanRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                assistantId: assistantId,
-                planId: planId);
+                planId: planId,
+                assistantId: assistantId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

@@ -69,6 +69,12 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("workspace_id")]
+        public string? WorkspaceId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string UserId { get; set; }
@@ -96,13 +102,71 @@ namespace AI21
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
-        public global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, global::AI21.AssistantTool2>>? Tools { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesExecutionEngineToolDefinition>? Tools { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("tool_resources")]
-        public global::AI21.AssistantToolResource? ToolResources { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("requirements")]
+        public global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesAssistantRequirement>? Requirements { get; set; }
+
+        /// <summary>
+        /// Default Value: medium
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("budget")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.BudgetLevelJsonConverter))]
+        public global::AI21.BudgetLevel? Budget { get; set; }
+
+        /// <summary>
+        /// Default Value: public
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("visibility")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.VisibilityJsonConverter))]
+        public global::AI21.Visibility? Visibility { get; set; }
+
+        /// <summary>
+        /// Default Value: default
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("assistant_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.AssistantTypeJsonConverter))]
+        public global::AI21.AssistantType? AssistantType { get; set; }
+
+        /// <summary>
+        /// Default Value: unset
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("response_language")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.AssistantResponseLanguageJsonConverter))]
+        public global::AI21.AssistantResponseLanguage? ResponseLanguage { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("vibe_prompt")]
+        public string? VibePrompt { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("starter_questions")]
+        public global::System.Collections.Generic.IList<global::AI21.StarterQuestion>? StarterQuestions { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("system_prompt")]
+        public string? SystemPrompt { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("workflow_config")]
+        public global::AI21.WorkflowConfig? WorkflowConfig { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("config_overrides")]
+        public object? ConfigOverrides { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -125,6 +189,7 @@ namespace AI21
         /// <param name="description"></param>
         /// <param name="optimization"></param>
         /// <param name="organizationId"></param>
+        /// <param name="workspaceId"></param>
         /// <param name="userId"></param>
         /// <param name="avatar"></param>
         /// <param name="isArchived">
@@ -132,7 +197,24 @@ namespace AI21
         /// </param>
         /// <param name="models"></param>
         /// <param name="tools"></param>
-        /// <param name="toolResources"></param>
+        /// <param name="requirements"></param>
+        /// <param name="budget">
+        /// Default Value: medium
+        /// </param>
+        /// <param name="visibility">
+        /// Default Value: public
+        /// </param>
+        /// <param name="assistantType">
+        /// Default Value: default
+        /// </param>
+        /// <param name="responseLanguage">
+        /// Default Value: unset
+        /// </param>
+        /// <param name="vibePrompt"></param>
+        /// <param name="starterQuestions"></param>
+        /// <param name="systemPrompt"></param>
+        /// <param name="workflowConfig"></param>
+        /// <param name="configOverrides"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -146,11 +228,21 @@ namespace AI21
             string userId,
             string? description,
             string? optimization,
+            string? workspaceId,
             string? avatar,
             bool? isArchived,
             global::AI21.AnyOf<global::System.Collections.Generic.IList<global::System.Guid>, global::System.Collections.Generic.IList<string>>? models,
-            global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, global::AI21.AssistantTool2>>? tools,
-            global::AI21.AssistantToolResource? toolResources)
+            global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesExecutionEngineToolDefinition>? tools,
+            global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesAssistantRequirement>? requirements,
+            global::AI21.BudgetLevel? budget,
+            global::AI21.Visibility? visibility,
+            global::AI21.AssistantType? assistantType,
+            global::AI21.AssistantResponseLanguage? responseLanguage,
+            string? vibePrompt,
+            global::System.Collections.Generic.IList<global::AI21.StarterQuestion>? starterQuestions,
+            string? systemPrompt,
+            global::AI21.WorkflowConfig? workflowConfig,
+            object? configOverrides)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.CreatedAt = createdAt;
@@ -161,11 +253,21 @@ namespace AI21
             this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
             this.Description = description;
             this.Optimization = optimization;
+            this.WorkspaceId = workspaceId;
             this.Avatar = avatar;
             this.IsArchived = isArchived;
             this.Models = models;
             this.Tools = tools;
-            this.ToolResources = toolResources;
+            this.Requirements = requirements;
+            this.Budget = budget;
+            this.Visibility = visibility;
+            this.AssistantType = assistantType;
+            this.ResponseLanguage = responseLanguage;
+            this.VibePrompt = vibePrompt;
+            this.StarterQuestions = starterQuestions;
+            this.SystemPrompt = systemPrompt;
+            this.WorkflowConfig = workflowConfig;
+            this.ConfigOverrides = configOverrides;
         }
 
         /// <summary>

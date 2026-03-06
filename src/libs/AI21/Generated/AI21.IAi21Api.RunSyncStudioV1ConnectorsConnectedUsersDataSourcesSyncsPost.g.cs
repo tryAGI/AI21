@@ -11,6 +11,7 @@ namespace AI21
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         global::System.Threading.Tasks.Task<string> RunSyncStudioV1ConnectorsConnectedUsersDataSourcesSyncsPostAsync(
+
             global::AI21.ConnectorsSyncParams request,
             global::System.Threading.CancellationToken cancellationToken = default);
 

@@ -40,7 +40,7 @@ namespace AI21
             var __pathBuilder = new global::AI21.PathBuilder(
                 path: "/studio/v1/secrets",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
+            __pathBuilder
                 .AddRequiredParameter("secret_id", secretId) 
                 ; 
             var __path = __pathBuilder.ToString();

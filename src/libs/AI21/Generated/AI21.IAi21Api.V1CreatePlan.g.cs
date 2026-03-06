@@ -13,6 +13,7 @@ namespace AI21
         /// <exception cref="global::AI21.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.Plan> V1CreatePlanAsync(
             string assistantId,
+
             global::AI21.CreatePlanPayload request,
             global::System.Threading.CancellationToken cancellationToken = default);
 

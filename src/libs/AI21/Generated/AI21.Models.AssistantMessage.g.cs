@@ -38,6 +38,12 @@ namespace AI21
         public global::System.Collections.Generic.IList<global::AI21.ToolCall>? ToolCalls { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reasoning_content")]
+        public string? ReasoningContent { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -61,17 +67,20 @@ namespace AI21
         /// </param>
         /// <param name="content"></param>
         /// <param name="toolCalls"></param>
+        /// <param name="reasoningContent"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AssistantMessage(
             global::AI21.AssistantMessageRole? role,
             string? content,
-            global::System.Collections.Generic.IList<global::AI21.ToolCall>? toolCalls)
+            global::System.Collections.Generic.IList<global::AI21.ToolCall>? toolCalls,
+            string? reasoningContent)
         {
             this.Role = role;
             this.Content = content;
             this.ToolCalls = toolCalls;
+            this.ReasoningContent = reasoningContent;
         }
 
         /// <summary>

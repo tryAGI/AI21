@@ -59,29 +59,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /studio/v1/conversational-rag:
-    post:
-      summary: Conversational Rag
-      operationId: v1_conversational_rag
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ConversationalRagConfig'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ConversationalRagResult'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
   /studio/v1/library/files:
     get:
       tags:
@@ -411,6 +388,33 @@ paths:
               schema:
                 title: Response V1 Library Management
                 type: string
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/library/files/{file_id}/parsed':
+    get:
+      tags:
+        - RAG Engine
+      summary: Download Parsed Document
+      description: Download parsed document with Content-Disposition header for immediate download.
+      operationId: v1_library_management
+      parameters:
+        - name: file_id
+          in: path
+          required: true
+          schema:
+            title: File Id
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
         '422':
           description: Validation Error
           content:
@@ -1015,6 +1019,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/demos/regulations/vector-store/{vector_store_id}':
+    get:
+      summary: Get Vector Store
+      description: Get a vector store by ID.
+      operationId: get_vector_store_studio_v1_demos_regulations_vector_store__vector_store_id__get
+      parameters:
+        - name: vector_store_id
+          in: path
+          required: true
+          schema:
+            title: Vector Store Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Vector Store Studio V1 Demos Regulations Vector Store  Vector Store Id  Get
+                type: object
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /studio/v1/demos/rfi/generate-response-pdf:
     post:
       summary: Combine section answers ➜ styled PDF for download
@@ -1058,30 +1088,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RFIResponseSection'
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /studio/v1/demos/scraper/conversational-rag:
-    post:
-      summary: Execute Conv Rag
-      operationId: execute_conv_rag_studio_v1_demos_scraper_conversational_rag_post
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ConvRagExecuteRequest'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                title: Response Execute Conv Rag Studio V1 Demos Scraper Conversational Rag Post
-                type: object
         '422':
           description: Validation Error
           content:
@@ -1484,6 +1490,14 @@ paths:
     get:
       summary: Get Assistants
       operationId: v1_list_assistants
+      parameters:
+        - name: workspace_ids
+          in: query
+          schema:
+            title: Workspace Ids
+            type: array
+            items:
+              type: string
       responses:
         '200':
           description: Successful Response
@@ -1491,6 +1505,57 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListAssistantsResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    post:
+      summary: Create Assistant
+      operationId: v1_create_assistant
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAssistantRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assistant'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/assistants/generate:
+    post:
+      summary: Generate Assistant
+      operationId: v1_generate_assistant
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerateAssistantRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateAssistantResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   '/studio/v1/assistants/{assistant_id}':
     get:
       summary: Get Assistant
@@ -1532,6 +1597,65 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeleteAssistantResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    patch:
+      summary: Modify Assistant
+      operationId: v1_modify_assistant
+      parameters:
+        - name: assistant_id
+          in: path
+          required: true
+          schema:
+            title: Assistant Id
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModifyAssistantRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assistant'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/assistants/{assistant_id}/run':
+    post:
+      summary: Run Assistant
+      operationId: v1_run_assistant
+      parameters:
+        - name: assistant_id
+          in: path
+          required: true
+          schema:
+            title: Assistant Id
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RunAssistantRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MaestroRunResult'
         '422':
           description: Validation Error
           content:
@@ -1596,17 +1720,17 @@ paths:
       summary: Get Plan
       operationId: v1_get_plan
       parameters:
-        - name: assistant_id
-          in: path
-          required: true
-          schema:
-            title: Assistant Id
-            type: string
         - name: plan_id
           in: path
           required: true
           schema:
             title: Plan Id
+            type: string
+        - name: assistant_id
+          in: path
+          required: true
+          schema:
+            title: Assistant Id
             type: string
       responses:
         '200':
@@ -1625,17 +1749,17 @@ paths:
       summary: Modify Plan
       operationId: v1_modify_plan
       parameters:
-        - name: assistant_id
-          in: path
-          required: true
-          schema:
-            title: Assistant Id
-            type: string
         - name: plan_id
           in: path
           required: true
           schema:
             title: Plan Id
+            type: string
+        - name: assistant_id
+          in: path
+          required: true
+          schema:
+            title: Assistant Id
             type: string
       requestBody:
         content:
@@ -1719,17 +1843,17 @@ paths:
       summary: Get Route
       operationId: v1_get_route
       parameters:
-        - name: assistant_id
-          in: path
-          required: true
-          schema:
-            title: Assistant Id
-            type: string
         - name: route_id
           in: path
           required: true
           schema:
             title: Route Id
+            type: string
+        - name: assistant_id
+          in: path
+          required: true
+          schema:
+            title: Assistant Id
             type: string
       responses:
         '200':
@@ -1748,17 +1872,17 @@ paths:
       summary: Delete Route
       operationId: v1_delete_route
       parameters:
-        - name: assistant_id
-          in: path
-          required: true
-          schema:
-            title: Assistant Id
-            type: string
         - name: route_id
           in: path
           required: true
           schema:
             title: Route Id
+            type: string
+        - name: assistant_id
+          in: path
+          required: true
+          schema:
+            title: Assistant Id
             type: string
       responses:
         '200':
@@ -1776,17 +1900,17 @@ paths:
       summary: Modify Route
       operationId: v1_modify_route
       parameters:
-        - name: assistant_id
-          in: path
-          required: true
-          schema:
-            title: Assistant Id
-            type: string
         - name: route_id
           in: path
           required: true
           schema:
             title: Route Id
+            type: string
+        - name: assistant_id
+          in: path
+          required: true
+          schema:
+            title: Assistant Id
             type: string
       requestBody:
         content:
@@ -1831,6 +1955,235 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ValidationResult'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/executions/{execution_id}/explanations/steps':
+    get:
+      summary: Get Step Explanations
+      description: "Get step explanations for an execution (cached or generated).\nSet force_regenerate=True to regenerate even if cached."
+      operationId: get_step_explanations_studio_v1_executions__execution_id__explanations_steps_get
+      parameters:
+        - name: execution_id
+          in: path
+          required: true
+          schema:
+            title: Execution Id
+            type: string
+        - name: force_regenerate
+          in: query
+          schema:
+            title: Force Regenerate
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/executions/{execution_id}/explanations/output':
+    get:
+      summary: Get Output Explanation
+      description: "Get output explanation for an execution (cached or generated).\nSet force_regenerate=True to regenerate even if cached."
+      operationId: get_output_explanation_studio_v1_executions__execution_id__explanations_output_get
+      parameters:
+        - name: execution_id
+          in: path
+          required: true
+          schema:
+            title: Execution Id
+            type: string
+        - name: force_regenerate
+          in: query
+          schema:
+            title: Force Regenerate
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/mcp/discover:
+    post:
+      summary: Mcp Tool Discovery
+      operationId: mcp_tool_discovery_studio_v1_mcp_discover_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MCPDefinition'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MCPDiscoveryResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /studio/v1/mcp/storage:
+    get:
+      summary: List Mcp Storage
+      operationId: list_mcp_storage_studio_v1_mcp_storage_get
+      parameters:
+        - name: workspace_id
+          in: query
+          schema:
+            title: Workspace Id
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListMCPsStorageResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    post:
+      summary: Create Mcp Storage
+      operationId: create_mcp_storage_studio_v1_mcp_storage_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMCPStorageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MCPStorageResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/mcp/storage/{mcp_id}':
+    get:
+      summary: Get Mcp Storage
+      operationId: get_mcp_storage_studio_v1_mcp_storage__mcp_id__get
+      parameters:
+        - name: mcp_id
+          in: path
+          required: true
+          schema:
+            title: Mcp Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MCPStorageResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      summary: Delete Mcp Storage
+      operationId: delete_mcp_storage_studio_v1_mcp_storage__mcp_id__delete
+      parameters:
+        - name: mcp_id
+          in: path
+          required: true
+          schema:
+            title: Mcp Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteMCPStorageResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    patch:
+      summary: Update Mcp Storage
+      operationId: update_mcp_storage_studio_v1_mcp_storage__mcp_id__patch
+      parameters:
+        - name: mcp_id
+          in: path
+          required: true
+          schema:
+            title: Mcp Id
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateMCPStorageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MCPStorageResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/studio/v1/mcp/storage/{mcp_id}/assistants':
+    get:
+      summary: Get Assistants By Mcp
+      operationId: get_assistants_by_mcp_studio_v1_mcp_storage__mcp_id__assistants_get
+      parameters:
+        - name: mcp_id
+          in: path
+          required: true
+          schema:
+            title: Mcp Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssistantsByMcpResponse'
         '422':
           description: Validation Error
           content:
@@ -1934,6 +2287,716 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /solutions/tlv_municipality/convrag:
+    post:
+      summary: Tlv Convrag
+      operationId: tlv_convrag_solutions_tlv_municipality_convrag_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions-preview/tlv_municipality/convrag:
+    post:
+      summary: Tlv Convrag Prefix Preview
+      operationId: tlv_convrag_prefix_preview_solutions_preview_tlv_municipality_convrag_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions/fnac/v1/classifications:
+    post:
+      summary: Fnac V1 Classifications
+      operationId: fnac_v1_classifications_solutions_fnac_v1_classifications_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions/fnac/v1/descriptions:
+    post:
+      summary: Fnac V1 Descriptions
+      operationId: fnac_v1_descriptions_solutions_fnac_v1_descriptions_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions/fnac/v1-deprecated/classifications:
+    post:
+      summary: Fnac V1 Deprecated Classifications
+      operationId: fnac_v1_deprecated_classifications_solutions_fnac_v1_deprecated_classifications_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions/fnac/v1-deprecated/descriptions:
+    post:
+      summary: Fnac V1 Deprecated Descriptions
+      operationId: fnac_v1_deprecated_descriptions_solutions_fnac_v1_deprecated_descriptions_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions/fd/batches/v1/classifications:
+    post:
+      summary: Fnac Batch Classifications
+      operationId: fnac_batch_classifications_solutions_fd_batches_v1_classifications_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  '/solutions/fd/batches/v1/classifications/{batch_id}/status':
+    post:
+      summary: Fnac Batch Classifications Status
+      operationId: fnac_batch_classifications_status_solutions_fd_batches_v1_classifications__batch_id__status_post
+      parameters:
+        - name: batch_id
+          in: path
+          required: true
+          schema:
+            title: Batch Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/solutions/fd/batches/v1/classifications/{batch_id}/results':
+    post:
+      summary: Fnac Batch Classifications Results
+      operationId: fnac_batch_classifications_results_solutions_fd_batches_v1_classifications__batch_id__results_post
+      parameters:
+        - name: batch_id
+          in: path
+          required: true
+          schema:
+            title: Batch Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /solutions/fd/batches/v1/descriptions:
+    post:
+      summary: Fnac Batch Descriptions
+      operationId: fnac_batch_descriptions_solutions_fd_batches_v1_descriptions_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  '/solutions/fd/batches/v1/descriptions/{batch_id}/status':
+    post:
+      summary: Fnac Batch Descriptions Status
+      operationId: fnac_batch_descriptions_status_solutions_fd_batches_v1_descriptions__batch_id__status_post
+      parameters:
+        - name: batch_id
+          in: path
+          required: true
+          schema:
+            title: Batch Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/solutions/fd/batches/v1/descriptions/{batch_id}/results':
+    post:
+      summary: Fnac Batch Descriptions Results
+      operationId: fnac_batch_descriptions_results_solutions_fd_batches_v1_descriptions__batch_id__results_post
+      parameters:
+        - name: batch_id
+          in: path
+          required: true
+          schema:
+            title: Batch Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /solutions-preview/fnac/v1/classifications:
+    post:
+      summary: Fnac V1 Classifications Prefix Preview
+      operationId: fnac_v1_classifications_prefix_preview_solutions_preview_fnac_v1_classifications_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions-preview/fnac/v1/descriptions:
+    post:
+      summary: Fnac V1 Descriptions Prefix Preview
+      operationId: fnac_v1_descriptions_prefix_preview_solutions_preview_fnac_v1_descriptions_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions-preview/fnac/v1-deprecated/classifications:
+    post:
+      summary: Fnac V1 Deprecated Classifications Prefix Preview
+      operationId: fnac_v1_deprecated_classifications_prefix_preview_solutions_preview_fnac_v1_deprecated_classifications_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions-preview/fnac/v1-deprecated/descriptions:
+    post:
+      summary: Fnac V1 Deprecated Descriptions Prefix Preview
+      operationId: fnac_v1_deprecated_descriptions_prefix_preview_solutions_preview_fnac_v1_deprecated_descriptions_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions-preview/fd/batches/v1/classifications:
+    post:
+      summary: Fnac Batch Classifications Prefix Preview
+      operationId: fnac_batch_classifications_prefix_preview_solutions_preview_fd_batches_v1_classifications_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  '/solutions-preview/fd/batches/v1/classifications/{batch_id}/status':
+    post:
+      summary: Fnac Batch Classifications Status Prefix Preview
+      operationId: fnac_batch_classifications_status_prefix_preview_solutions_preview_fd_batches_v1_classifications__batch_id__status_post
+      parameters:
+        - name: batch_id
+          in: path
+          required: true
+          schema:
+            title: Batch Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/solutions-preview/fd/batches/v1/classifications/{batch_id}/results':
+    post:
+      summary: Fnac Batch Classifications Results Prefix Preview
+      operationId: fnac_batch_classifications_results_prefix_preview_solutions_preview_fd_batches_v1_classifications__batch_id__results_post
+      parameters:
+        - name: batch_id
+          in: path
+          required: true
+          schema:
+            title: Batch Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /solutions-preview/fd/batches/v1/descriptions:
+    post:
+      summary: Fnac Batch Descriptions Prefix Preview
+      operationId: fnac_batch_descriptions_prefix_preview_solutions_preview_fd_batches_v1_descriptions_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  '/solutions-preview/fd/batches/v1/descriptions/{batch_id}/status':
+    post:
+      summary: Fnac Batch Descriptions Status Prefix Preview
+      operationId: fnac_batch_descriptions_status_prefix_preview_solutions_preview_fd_batches_v1_descriptions__batch_id__status_post
+      parameters:
+        - name: batch_id
+          in: path
+          required: true
+          schema:
+            title: Batch Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  '/solutions-preview/fd/batches/v1/descriptions/{batch_id}/results':
+    post:
+      summary: Fnac Batch Descriptions Results Prefix Preview
+      operationId: fnac_batch_descriptions_results_prefix_preview_solutions_preview_fd_batches_v1_descriptions__batch_id__results_post
+      parameters:
+        - name: batch_id
+          in: path
+          required: true
+          schema:
+            title: Batch Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /solutions/fd_aftersales/parts-classification/batch:
+    post:
+      summary: Fnac Aftersales Batch Predict
+      operationId: fnac_aftersales_batch_predict_solutions_fd_aftersales_parts_classification_batch_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  '/solutions/fd_aftersales/parts-classification/batch/{batch_id}/status':
+    get:
+      summary: Fnac Aftersales Batch Predict Status
+      operationId: fnac_aftersales_batch_predict_status_solutions_fd_aftersales_parts_classification_batch__batch_id__status_get
+      parameters:
+        - name: batch_id
+          in: path
+          required: true
+          schema:
+            title: Batch Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /solutions-preview/fd_aftersales/parts-classification/batch:
+    post:
+      summary: Fnac Aftersales Batch Predict Prefix Preview
+      operationId: fnac_aftersales_batch_predict_prefix_preview_solutions_preview_fd_aftersales_parts_classification_batch_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  '/solutions-preview/fd_aftersales/parts-classification/batch/{batch_id}/status':
+    get:
+      summary: Fnac Aftersales Batch Predict Status Prefix Preview
+      operationId: fnac_aftersales_batch_predict_status_prefix_preview_solutions_preview_fd_aftersales_parts_classification_batch__batch_id__status_get
+      parameters:
+        - name: batch_id
+          in: path
+          required: true
+          schema:
+            title: Batch Id
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /solutions/vidaa/summarize:
+    post:
+      summary: Vidaa Summarize
+      operationId: vidaa_summarize_solutions_vidaa_summarize_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions/vidaa/action-items:
+    post:
+      summary: Vidaa Action Items
+      operationId: vidaa_action_items_solutions_vidaa_action_items_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions/vidaa/sources:
+    get:
+      summary: Vidaa Sources
+      operationId: vidaa_sources_solutions_vidaa_sources_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions/vidaa/feed-items:
+    get:
+      summary: Vidaa Feed Items
+      operationId: vidaa_feed_items_solutions_vidaa_feed_items_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions/vidaa/subscribe:
+    post:
+      summary: Vidaa Subscribe
+      operationId: vidaa_subscribe_solutions_vidaa_subscribe_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions/vidaa/unsubscribe:
+    post:
+      summary: Vidaa Unsubscribe
+      operationId: vidaa_unsubscribe_solutions_vidaa_unsubscribe_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions/vidaa/subscriptions:
+    get:
+      summary: Vidaa Subscriptions
+      operationId: vidaa_subscriptions_solutions_vidaa_subscriptions_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions/vidaa/scheduler-stats:
+    get:
+      summary: Vidaa Scheduler Stats
+      operationId: vidaa_scheduler_stats_solutions_vidaa_scheduler_stats_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions/vidaa/trigger-poll:
+    post:
+      summary: Vidaa Trigger Poll
+      operationId: vidaa_trigger_poll_solutions_vidaa_trigger_poll_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions/vidaa/api/messages:
+    post:
+      summary: Vidaa Messages
+      operationId: vidaa_messages_solutions_vidaa_api_messages_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions-preview/vidaa/api/messages:
+    post:
+      summary: Vidaa Messages Preview
+      operationId: vidaa_messages_preview_solutions_preview_vidaa_api_messages_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions-preview/vidaa/summarize:
+    post:
+      summary: Vidaa Summarize Preview
+      operationId: vidaa_summarize_preview_solutions_preview_vidaa_summarize_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions-preview/vidaa/action-items:
+    post:
+      summary: Vidaa Action Items Preview
+      operationId: vidaa_action_items_preview_solutions_preview_vidaa_action_items_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions-preview/vidaa/sources:
+    get:
+      summary: Vidaa Sources Preview
+      operationId: vidaa_sources_preview_solutions_preview_vidaa_sources_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions-preview/vidaa/feed-items:
+    get:
+      summary: Vidaa Feed Items Preview
+      operationId: vidaa_feed_items_preview_solutions_preview_vidaa_feed_items_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions-preview/vidaa/subscribe:
+    post:
+      summary: Vidaa Subscribe Preview
+      operationId: vidaa_subscribe_preview_solutions_preview_vidaa_subscribe_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions-preview/vidaa/unsubscribe:
+    post:
+      summary: Vidaa Unsubscribe Preview
+      operationId: vidaa_unsubscribe_preview_solutions_preview_vidaa_unsubscribe_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions-preview/vidaa/subscriptions:
+    get:
+      summary: Vidaa Subscriptions Preview
+      operationId: vidaa_subscriptions_preview_solutions_preview_vidaa_subscriptions_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions-preview/vidaa/scheduler-stats:
+    get:
+      summary: Vidaa Scheduler Stats Preview
+      operationId: vidaa_scheduler_stats_preview_solutions_preview_vidaa_scheduler_stats_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions-preview/vidaa/trigger-poll:
+    post:
+      summary: Vidaa Trigger Poll Preview
+      operationId: vidaa_trigger_poll_preview_solutions_preview_vidaa_trigger_poll_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions/wpp/query:
+    post:
+      summary: Wpp Query
+      operationId: wpp_query_solutions_wpp_query_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions/wpp/feedback:
+    post:
+      summary: Wpp Feedback
+      operationId: wpp_feedback_solutions_wpp_feedback_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions-preview/wpp/query:
+    post:
+      summary: Wpp Query Prefix Preview
+      operationId: wpp_query_prefix_preview_solutions_preview_wpp_query_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions-preview/wpp/feedback:
+    post:
+      summary: Wpp Feedback Prefix Preview
+      operationId: wpp_feedback_prefix_preview_solutions_preview_wpp_feedback_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions/kirsh/grant-compliance:
+    post:
+      summary: Kirsh Grant Compliance
+      operationId: kirsh_grant_compliance_solutions_kirsh_grant_compliance_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions/kirsh/grant-metadata:
+    post:
+      summary: Kirsh Grant Metadata
+      operationId: kirsh_grant_metadata_solutions_kirsh_grant_metadata_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions/kirsh-document-upload/process:
+    post:
+      summary: Kirsh Document Upload Process
+      operationId: kirsh_document_upload_process_solutions_kirsh_document_upload_process_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions/kirsh/email-assistant:
+    post:
+      summary: Kirsh Email Assistant
+      operationId: kirsh_email_assistant_solutions_kirsh_email_assistant_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions-preview/kirsh/grant-compliance:
+    post:
+      summary: Kirsh Grant Compliance Prefix Preview
+      operationId: kirsh_grant_compliance_prefix_preview_solutions_preview_kirsh_grant_compliance_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions-preview/kirsh/grant-metadata:
+    post:
+      summary: Kirsh Grant Metadata Prefix Preview
+      operationId: kirsh_grant_metadata_prefix_preview_solutions_preview_kirsh_grant_metadata_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions-preview/kirsh-document-upload/process:
+    post:
+      summary: Kirsh Document Upload Process Prefix Preview
+      operationId: kirsh_document_upload_process_prefix_preview_solutions_preview_kirsh_document_upload_process_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
+  /solutions-preview/kirsh/email-assistant:
+    post:
+      summary: Kirsh Email Assistant Prefix Preview
+      operationId: kirsh_email_assistant_prefix_preview_solutions_preview_kirsh_email_assistant_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
 components:
   schemas:
     Assistant:
@@ -1975,6 +3038,9 @@ components:
         organization_id:
           title: Organization Id
           type: string
+        workspace_id:
+          title: Workspace Id
+          type: string
         user_id:
           title: User Id
           type: string
@@ -1999,11 +3065,70 @@ components:
           title: Tools
           type: array
           items:
-            type: object
-            additionalProperties:
-              $ref: '#/components/schemas/AssistantTool'
-        tool_resources:
-          $ref: '#/components/schemas/AssistantToolResource'
+            $ref: '#/components/schemas/language_studio_api_server__data_types__execution_engine__ToolDefinition'
+        requirements:
+          title: Requirements
+          type: array
+          items:
+            $ref: '#/components/schemas/language_studio_api_server__data_types__assistant__Requirement'
+        budget:
+          allOf:
+            - $ref: '#/components/schemas/BudgetLevel'
+          default: medium
+        visibility:
+          allOf:
+            - $ref: '#/components/schemas/Visibility'
+          default: public
+        assistant_type:
+          allOf:
+            - $ref: '#/components/schemas/AssistantType'
+          default: default
+        response_language:
+          title: Response Language
+          enum:
+            - arabic
+            - dutch
+            - english
+            - french
+            - german
+            - hebrew
+            - italian
+            - portuguese
+            - spanish
+            - unset
+          type: string
+          default: unset
+        vibe_prompt:
+          title: Vibe Prompt
+          type: string
+        starter_questions:
+          title: Starter Questions
+          type: array
+          items:
+            $ref: '#/components/schemas/StarterQuestion'
+        system_prompt:
+          title: System Prompt
+          type: string
+        workflow_config:
+          $ref: '#/components/schemas/WorkflowConfig'
+        config_overrides:
+          title: Config Overrides
+          type: object
+    AssistantBasicInfo:
+      title: AssistantBasicInfo
+      required:
+        - id
+        - name
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
+          format: uuid
+        name:
+          title: Name
+          type: string
     AssistantMessage:
       title: AssistantMessage
       type: object
@@ -2023,6 +3148,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ToolCall'
+        reasoning_content:
+          title: Reasoning Content
+          type: string
     AssistantRoute:
       title: AssistantRoute
       required:
@@ -2065,27 +3193,32 @@ components:
         assistant_id:
           title: Assistant Id
           type: string
-    AssistantTool:
-      title: AssistantTool
+    AssistantType:
+      title: AssistantType
       enum:
-        - file_search
-        - web_search
-        - plan_approval
-      type: string
+        - default
+        - chat
+        - maestro
       description: An enumeration.
-    AssistantToolResource:
-      title: AssistantToolResource
+    AssistantsByMcpResponse:
+      title: AssistantsByMcpResponse
+      required:
+        - results
       type: object
       properties:
-        file_search:
-          title: File Search
-          type: object
-        web_search:
-          title: Web Search
-          type: object
-        plan_approval:
-          title: Plan Approval
-          type: object
+        results:
+          title: Results
+          type: array
+          items:
+            $ref: '#/components/schemas/AssistantBasicInfo'
+    AuthenticationType:
+      title: AuthenticationType
+      enum:
+        - none
+        - token-api
+        - custom-header
+      type: string
+      description: An enumeration.
     Body_convert_document_file_studio_v1_chat_files_convert_post:
       title: Body_convert_document_file_studio_v1_chat_files_convert_post
       required:
@@ -2142,6 +3275,10 @@ components:
           title: Budget
           type: string
           default: MEDIUM
+        vector_store_id:
+          title: Vector Store Id
+          type: string
+          description: Vector store ID to use for RFI processing
     Body_v1_library_upload:
       title: Body_v1_library_upload
       required:
@@ -2177,6 +3314,16 @@ components:
         data_source:
           title: Data Source
           type: string
+        metadata:
+          title: Metadata
+          type: string
+    BudgetLevel:
+      title: BudgetLevel
+      enum:
+        - low
+        - medium
+        - high
+      description: An enumeration.
     ChatCompletion:
       title: ChatCompletion
       required:
@@ -2299,7 +3446,7 @@ components:
           title: Tools
           type: array
           items:
-            $ref: '#/components/schemas/ToolDefinition'
+            $ref: '#/components/schemas/language_studio_api_server__data_types__chat__ToolDefinition'
         n:
           title: N
           type: integer
@@ -2509,151 +3656,87 @@ components:
         - FAILED
         - SUCCEEDED
       description: An enumeration.
-    ConvRagExecuteRequest:
-      title: ConvRagExecuteRequest
+    CreateAssistantRequest:
+      title: CreateAssistantRequest
       required:
-        - message
+        - name
       type: object
       properties:
-        message:
-          title: Message
+        name:
+          title: Name
           type: string
-        label:
-          title: Label
+        description:
+          title: Description
           type: string
-        api_key:
-          title: Api Key
+        optimization:
+          title: Optimization
           type: string
-    ConversationalRagConfig:
-      title: ConversationalRagConfig
-      required:
-        - messages
-      type: object
-      properties:
-        messages:
-          title: Messages
-          type: array
-          items:
-            $ref: '#/components/schemas/Message'
-          description: messages
-        path:
-          title: Path
+        avatar:
+          title: Avatar
           type: string
-        labels:
-          title: Labels
+        models:
+          title: Models
           type: array
           items:
             type: string
-        file_ids:
-          title: File Ids
+        tools:
+          title: Tools
           type: array
           items:
-            type: string
-        retrieval_strategy:
-          title: Retrieval Strategy
-          enum:
-            - default
-            - segments
-            - add_neighbors
-            - full_doc
+            $ref: '#/components/schemas/language_studio_api_server__data_types__execution_engine__ToolDefinition'
+        requirements:
+          title: Requirements
+          type: array
+          items:
+            $ref: '#/components/schemas/language_studio_api_server__data_types__assistant__Requirement'
+        budget:
+          allOf:
+            - $ref: '#/components/schemas/BudgetLevel'
+          default: medium
+        assistant_type:
+          allOf:
+            - $ref: '#/components/schemas/AssistantType'
+          default: default
+        starter_questions:
+          title: Starter Questions
+          type: array
+          items:
+            $ref: '#/components/schemas/StarterQuestion'
+        system_prompt:
+          title: System Prompt
           type: string
-          default: segments
-        retrieval_similarity_threshold:
-          title: Retrieval Similarity Threshold
-          type: number
-          default: 0
-        max_neighbors:
-          title: Max Neighbors
-          type: integer
-          default: 1
-        hybrid_search_alpha:
-          title: Hybrid Search Alpha
-          type: number
-          default: 1
-        response_language:
-          title: Response Language
-          enum:
-            - arabic
-            - dutch
-            - english
-            - french
-            - german
-            - hebrew
-            - italian
-            - portuguese
-            - spanish
-          type: string
-          default: english
-        verbose:
-          title: Verbose
-          type: boolean
-          default: false
-        should_set_custom_retrieval_configs:
-          title: Should Set Custom Retrieval Configs
-          type: boolean
-          default: false
-      description: This class is to be used as a common class to all Studio API requests payloads
-    ConversationalRagResult:
-      title: ConversationalRagResult
+        workflow_config:
+          $ref: '#/components/schemas/WorkflowConfig'
+        config_overrides:
+          title: Config Overrides
+          type: object
+    CreateMCPStorageRequest:
+      title: CreateMCPStorageRequest
       required:
-        - id
-        - choices
-        - sources
+        - server_url
+        - server_label
       type: object
       properties:
-        id:
-          title: Id
+        server_url:
+          title: Server Url
           type: string
-          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
-        choices:
-          title: Choices
-          type: array
-          items:
-            $ref: '#/components/schemas/Message'
-        search_queries:
-          title: Search Queries
-          type: array
-          items:
-            type: string
-        context_retrieved:
-          title: Context Retrieved
-          type: boolean
-          default: false
-        answer_in_context:
-          title: Answer In Context
-          type: boolean
-          default: false
-        sources:
-          title: Sources
-          type: array
-          items:
-            $ref: '#/components/schemas/ConversationalRagSource'
-    ConversationalRagSource:
-      title: ConversationalRagSource
-      required:
-        - text
-      type: object
-      properties:
-        text:
-          title: Text
+        server_label:
+          title: Server Label
           type: string
-        file_id:
-          title: File Id
+        workspace_id:
+          title: Workspace Id
           type: string
-        file_name:
-          title: File Name
+          format: uuid
+        authentication_type:
+          $ref: '#/components/schemas/AuthenticationType'
+        auth_header_name:
+          title: Auth Header Name
           type: string
-        score:
-          title: Score
-          type: number
-        order:
-          title: Order
-          type: integer
-        public_url:
-          title: Public Url
+        auth_value:
+          title: Auth Value
           type: string
-        labels:
-          title: Labels
+        allowed_tools:
+          title: Allowed Tools
           type: array
           items:
             type: string
@@ -2682,14 +3765,7 @@ components:
           title: Tools
           type: array
           items:
-            type: object
-            additionalProperties:
-              enum:
-                - file_search
-                - web_search
-              type: string
-        tool_resources:
-          $ref: '#/components/schemas/ToolResources'
+            $ref: '#/components/schemas/language_studio_api_server__data_types__execution_engine__ToolDefinition'
         context:
           title: Context
           type: object
@@ -2697,7 +3773,7 @@ components:
           title: Requirements
           type: array
           items:
-            $ref: '#/components/schemas/Requirement'
+            $ref: '#/components/schemas/language_studio_api_server__data_types__execution_engine__Requirement'
         budget:
           title: Budget
           enum:
@@ -2722,14 +3798,16 @@ components:
           title: Dynamic Planning Enabled
           type: boolean
           default: false
-        tools_allowed:
-          title: Tools Allowed
-          type: boolean
-          default: false
-        payload_type:
-          allOf:
-            - $ref: '#/components/schemas/MaestroPayloadType'
-          default: maestro_run
+        assistant_id:
+          title: Assistant Id
+          type: string
+        variant:
+          title: Variant
+          enum:
+            - main
+            - ingestion
+          type: string
+          default: main
         custom_retrieval_configs:
           title: Custom Retrieval Configs
           type: array
@@ -2747,7 +3825,17 @@ components:
             - italian
             - portuguese
             - spanish
+            - unset
           type: string
+          default: unset
+        system_prompt:
+          title: System Prompt
+          type: string
+        stream:
+          title: Stream
+          type: boolean
+          description: "Whether or not to stream the result one token at a time using\n[server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events).\nThis can be useful when waiting for long results where a long wait time for an\nanswer can be problematic, such as a chatbot. If set to `True`, then `n` must\nbe 1. A streaming response is different than the non-streaming response.\n"
+          default: false
     CreateOrganizationSchemaRequest:
       title: CreateOrganizationSchemaRequest
       required:
@@ -2858,6 +3946,17 @@ components:
           title: Id
           type: string
           description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
+    DeleteMCPStorageResponse:
+      title: DeleteMCPStorageResponse
+      required:
+        - id
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
+          format: uuid
     Demo:
       title: Demo
       required:
@@ -3097,6 +4196,71 @@ components:
         dataSource:
           title: Datasource
           type: string
+    FileSearchToolResource:
+      title: FileSearchToolResource
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - file_search
+          type: string
+          default: file_search
+        retrieval_similarity_threshold:
+          title: Retrieval Similarity Threshold
+          type: number
+        labels:
+          title: Labels
+          type: array
+          items:
+            type: string
+        labels_filter_mode:
+          title: Labels Filter Mode
+          enum:
+            - AND
+            - OR
+          type: string
+          default: AND
+        labels_filter:
+          $ref: '#/components/schemas/QueryFilter'
+        file_ids:
+          title: File Ids
+          type: array
+          items:
+            type: string
+        retrieval_strategy:
+          allOf:
+            - $ref: '#/components/schemas/RetrievalStrategy'
+          default: segments
+        max_neighbors:
+          title: Max Neighbors
+          type: integer
+        path:
+          title: Path
+          type: string
+        response_language:
+          title: Response Language
+          enum:
+            - arabic
+            - dutch
+            - english
+            - french
+            - german
+            - hebrew
+            - italian
+            - portuguese
+            - spanish
+            - unset
+          type: string
+          default: unset
+        hybrid_search_alpha:
+          title: Hybrid Search Alpha
+          type: number
+          default: 1
+        use_two_step_embedders:
+          title: Use Two Step Embedders
+          type: boolean
+          default: false
     FileStatus:
       title: FileStatus
       enum:
@@ -3135,6 +4299,228 @@ components:
           type: string
         parameters:
           $ref: '#/components/schemas/ToolParameters'
+    GenerateAssistantRequest:
+      title: GenerateAssistantRequest
+      required:
+        - prompt
+      type: object
+      properties:
+        prompt:
+          title: Prompt
+          type: string
+        avatar:
+          title: Avatar
+          type: string
+    GenerateAssistantResponse:
+      title: GenerateAssistantResponse
+      required:
+        - id
+        - created_at
+        - updated_at
+        - object
+        - name
+        - organization_id
+        - user_id
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
+        created_at:
+          title: Created At
+          type: string
+          format: date-time
+        updated_at:
+          title: Updated At
+          type: string
+          format: date-time
+        object:
+          title: Object
+          type: string
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        optimization:
+          title: Optimization
+          type: string
+        organization_id:
+          title: Organization Id
+          type: string
+        workspace_id:
+          title: Workspace Id
+          type: string
+        user_id:
+          title: User Id
+          type: string
+        avatar:
+          title: Avatar
+          type: string
+        is_archived:
+          title: Is Archived
+          type: boolean
+          default: false
+        models:
+          title: Models
+          anyOf:
+            - type: array
+              items:
+                type: string
+                format: uuid
+            - type: array
+              items:
+                type: string
+        tools:
+          title: Tools
+          type: array
+          items:
+            $ref: '#/components/schemas/language_studio_api_server__data_types__execution_engine__ToolDefinition'
+        requirements:
+          title: Requirements
+          type: array
+          items:
+            $ref: '#/components/schemas/language_studio_api_server__data_types__assistant__Requirement'
+        budget:
+          allOf:
+            - $ref: '#/components/schemas/BudgetLevel'
+          default: medium
+        visibility:
+          allOf:
+            - $ref: '#/components/schemas/Visibility'
+          default: public
+        assistant_type:
+          allOf:
+            - $ref: '#/components/schemas/AssistantType'
+          default: default
+        response_language:
+          title: Response Language
+          enum:
+            - arabic
+            - dutch
+            - english
+            - french
+            - german
+            - hebrew
+            - italian
+            - portuguese
+            - spanish
+            - unset
+          type: string
+          default: unset
+        vibe_prompt:
+          title: Vibe Prompt
+          type: string
+        starter_questions:
+          title: Starter Questions
+          type: array
+          items:
+            $ref: '#/components/schemas/StarterQuestion'
+        system_prompt:
+          title: System Prompt
+          type: string
+        workflow_config:
+          $ref: '#/components/schemas/WorkflowConfig'
+        config_overrides:
+          title: Config Overrides
+          type: object
+        custom_tool_needed:
+          title: Custom Tool Needed
+          type: object
+          additionalProperties:
+            type: string
+        recommended_files:
+          title: Recommended Files
+          type: array
+          items:
+            type: string
+    HTTPToolEndpoint:
+      title: HTTPToolEndpoint
+      required:
+        - url
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+        headers:
+          title: Headers
+          type: object
+    HTTPToolFunction:
+      title: HTTPToolFunction
+      required:
+        - name
+        - description
+        - parameters
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        parameters:
+          $ref: '#/components/schemas/HTTPToolFunctionParameters'
+    HTTPToolFunctionParamProperties:
+      title: HTTPToolFunctionParamProperties
+      required:
+        - type
+        - description
+      type: object
+      properties:
+        type:
+          title: Type
+          type: string
+        description:
+          title: Description
+          type: string
+    HTTPToolFunctionParameters:
+      title: HTTPToolFunctionParameters
+      required:
+        - properties
+        - required
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - object
+          type: string
+          default: object
+        properties:
+          title: Properties
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/HTTPToolFunctionParamProperties'
+        required:
+          title: Required
+          type: array
+          items:
+            type: string
+        additionalProperties:
+          title: Additionalproperties
+          type: boolean
+          default: false
+    HTTPToolResource:
+      title: HTTPToolResource
+      required:
+        - function
+        - endpoint
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - http
+          type: string
+          default: http
+        function:
+          $ref: '#/components/schemas/HTTPToolFunction'
+        endpoint:
+          $ref: '#/components/schemas/HTTPToolEndpoint'
     HTTPValidationError:
       title: HTTPValidationError
       type: object
@@ -3264,6 +4650,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Assistant'
+    ListMCPsStorageResponse:
+      title: ListMCPsStorageResponse
+      required:
+        - results
+      type: object
+      properties:
+        results:
+          title: Results
+          type: array
+          items:
+            $ref: '#/components/schemas/MCPStorageResponse'
     ListPlansResponse:
       title: ListPlansResponse
       required:
@@ -3322,13 +4719,133 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TopLogprobsData'
-    MaestroPayloadType:
-      title: MaestroPayloadType
-      enum:
-        - conversational_rag
-        - maestro_run
-        - conv_rag_maestro_run
-      description: An enumeration.
+    MCPDefinition:
+      title: MCPDefinition
+      required:
+        - server_url
+      type: object
+      properties:
+        server_url:
+          title: Server Url
+          type: string
+        server_label:
+          title: Server Label
+          type: string
+        headers:
+          title: Headers
+          type: object
+    MCPDiscoveryResponse:
+      title: MCPDiscoveryResponse
+      required:
+        - mcp_definition
+        - tools
+      type: object
+      properties:
+        mcp_definition:
+          $ref: '#/components/schemas/MCPDefinition'
+        tools:
+          title: Tools
+          type: array
+          items:
+            $ref: '#/components/schemas/MCPTool'
+    MCPStorageResponse:
+      title: MCPStorageResponse
+      required:
+        - id
+        - server_url
+        - server_label
+        - organization_id
+        - user_id
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
+          format: uuid
+        server_url:
+          title: Server Url
+          type: string
+        server_label:
+          title: Server Label
+          type: string
+        organization_id:
+          title: Organization Id
+          type: string
+          format: uuid
+        workspace_id:
+          title: Workspace Id
+          type: string
+          format: uuid
+        user_id:
+          title: User Id
+          type: string
+          format: uuid
+        authentication_type:
+          $ref: '#/components/schemas/AuthenticationType'
+        auth_header_name:
+          title: Auth Header Name
+          type: string
+        auth_secret_key:
+          title: Auth Secret Key
+          type: string
+        allowed_tools:
+          title: Allowed Tools
+          type: array
+          items:
+            type: string
+    MCPTool:
+      title: MCPTool
+      required:
+        - name
+        - inputSchema
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        inputSchema:
+          title: Inputschema
+          type: object
+    MCPToolResource:
+      title: MCPToolResource
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - mcp
+          type: string
+          default: mcp
+        server_label:
+          title: Server Label
+          type: string
+        server_url:
+          title: Server Url
+          type: string
+        headers:
+          title: Headers
+          type: object
+        allowed_tools:
+          title: Allowed Tools
+          type: array
+          items:
+            type: string
+        mcp_id:
+          title: Mcp Id
+          type: string
+    MaestroRunError:
+      title: MaestroRunError
+      required:
+        - message
+      type: object
+      properties:
+        message:
+          title: Message
+          type: string
     MaestroRunResult:
       title: MaestroRunResult
       required:
@@ -3357,6 +4874,8 @@ components:
         requirements_result:
           title: Requirements Result
           type: object
+        error:
+          $ref: '#/components/schemas/MaestroRunError'
     MarkdownRequest:
       title: MarkdownRequest
       required:
@@ -3435,10 +4954,10 @@ components:
       enum:
         - jamba-mini
         - jamba-large
-        - jamba-mini-1.7
         - jamba-large-1.7
-        - jamba-mini-1.7-2025-07
         - jamba-large-1.7-2025-07
+        - jamba-mini-2
+        - jamba-mini-2-2026-01
       type: string
       description: An enumeration.
     ModelPricing:
@@ -3472,6 +4991,66 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ModelInfo'
+    ModifyAssistantRequest:
+      title: ModifyAssistantRequest
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        optimization:
+          $ref: '#/components/schemas/RunOptimization'
+        avatar:
+          title: Avatar
+          type: string
+        is_archived:
+          title: Is Archived
+          type: boolean
+          default: false
+        models:
+          title: Models
+          type: array
+          items:
+            type: string
+        tools:
+          title: Tools
+          type: array
+          items:
+            $ref: '#/components/schemas/language_studio_api_server__data_types__execution_engine__ToolDefinition'
+        requirements:
+          title: Requirements
+          type: array
+          items:
+            $ref: '#/components/schemas/language_studio_api_server__data_types__assistant__Requirement'
+        budget:
+          $ref: '#/components/schemas/BudgetLevel'
+        visibility:
+          $ref: '#/components/schemas/Visibility'
+        response_language:
+          title: Response Language
+          enum:
+            - arabic
+            - dutch
+            - english
+            - french
+            - german
+            - hebrew
+            - italian
+            - portuguese
+            - spanish
+            - unset
+          type: string
+        system_prompt:
+          title: System Prompt
+          type: string
+        workflow_config:
+          $ref: '#/components/schemas/WorkflowConfig'
+        config_overrides:
+          title: Config Overrides
+          type: object
     OrgSchema:
       title: OrgSchema
       required:
@@ -3575,22 +5154,6 @@ components:
           type: string
           description: Generated content for this section based on company files
       description: Model for a single RFI response section.
-    Requirement:
-      title: Requirement
-      required:
-        - name
-        - description
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-        description:
-          title: Description
-          type: string
-        is_mandatory:
-          title: Is Mandatory
-          type: boolean
     RequirementItem:
       title: RequirementItem
       required:
@@ -3645,6 +5208,65 @@ components:
         - full_doc
       type: string
       description: An enumeration.
+    RunAssistantRequest:
+      title: RunAssistantRequest
+      required:
+        - input
+      type: object
+      properties:
+        input:
+          title: Input
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+        verbose:
+          title: Verbose
+          type: boolean
+          default: false
+        output_type:
+          title: Output Type
+          type: object
+        include:
+          title: Include
+          type: array
+          items:
+            type: string
+          default:
+            - data_sources
+            - requirements_result
+            - requirements_result.metadata
+        structured_rag_enabled:
+          title: Structured Rag Enabled
+          type: boolean
+          default: false
+        dynamic_planning_enabled:
+          title: Dynamic Planning Enabled
+          type: boolean
+          default: false
+        response_language:
+          title: Response Language
+          enum:
+            - arabic
+            - dutch
+            - english
+            - french
+            - german
+            - hebrew
+            - italian
+            - portuguese
+            - spanish
+            - unset
+          type: string
+          default: unset
+        system_prompt:
+          title: System Prompt
+          type: string
+    RunOptimization:
+      title: RunOptimization
+      enum:
+        - cost
+        - latency
+      description: An enumeration.
     SecretResponse:
       title: SecretResponse
       required:
@@ -3657,6 +5279,19 @@ components:
           type: string
         secret_key:
           title: Secret Key
+          type: string
+    StarterQuestion:
+      title: StarterQuestion
+      required:
+        - title
+        - prompt
+      type: object
+      properties:
+        title:
+          title: Title
+          type: string
+        prompt:
+          title: Prompt
           type: string
     SystemMessage:
       title: SystemMessage
@@ -3746,20 +5381,6 @@ components:
           type: string
         function:
           $ref: '#/components/schemas/ToolFunctionDeltaStart'
-    ToolDefinition:
-      title: ToolDefinition
-      required:
-        - type
-        - function
-      type: object
-      properties:
-        type:
-          title: Type
-          enum:
-            - function
-          type: string
-        function:
-          $ref: '#/components/schemas/FunctionToolDefinition'
     ToolFunction:
       title: ToolFunction
       required:
@@ -3833,16 +5454,6 @@ components:
           items:
             type: string
           description: List of required properties
-    ToolResources:
-      title: ToolResources
-      type: object
-      properties:
-        file_search:
-          title: File Search
-          type: object
-        web_search:
-          title: Web Search
-          type: object
     TopLogprobsData:
       title: TopLogprobsData
       required:
@@ -3856,6 +5467,15 @@ components:
         logprob:
           title: Logprob
           type: number
+    UpdateMCPStorageRequest:
+      title: UpdateMCPStorageRequest
+      required:
+        - server_label
+      type: object
+      properties:
+        server_label:
+          title: Server Label
+          type: string
     UpdateRoutePayload:
       title: UpdateRoutePayload
       required:
@@ -3959,6 +5579,40 @@ components:
         details:
           title: Details
           type: string
+    Visibility:
+      title: Visibility
+      enum:
+        - public
+        - private
+      description: An enumeration.
+    WebSearchToolResource:
+      title: WebSearchToolResource
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - web_search
+          type: string
+          default: web_search
+        urls:
+          title: Urls
+          type: array
+          items:
+            type: string
+        fallback_to_web:
+          title: Fallback To Web
+          type: boolean
+        query_suffix:
+          title: Query Suffix
+          type: string
+        rephrase_query:
+          title: Rephrase Query
+          type: boolean
+        use_cached_pages:
+          title: Use Cached Pages
+          type: boolean
+          default: false
     WebsiteConnectorCreateConfigPayload:
       title: WebsiteConnectorCreateConfigPayload
       required:
@@ -4047,6 +5701,21 @@ components:
           title: Website Id
           type: string
           format: uuid
+    WorkflowConfig:
+      title: WorkflowConfig
+      required:
+        - endpoint_url
+      type: object
+      properties:
+        endpoint_url:
+          title: Endpoint Url
+          type: string
+        headers:
+          title: Headers
+          type: object
+        additional_params:
+          title: Additional Params
+          type: object
     WorkspaceModelResponse:
       title: WorkspaceModelResponse
       required:
@@ -4101,6 +5770,67 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/WorkspaceModelResponse'
+    language_studio_api_server__data_types__assistant__Requirement:
+      title: Requirement
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          description: "A unique ID for the request (not the message). Repeated identical requests\nget different IDs. However, for a streaming response, the ID will be the same\nfor all responses in the stream.\n"
+        title:
+          title: Title
+          type: string
+        description:
+          title: Description
+          type: string
+        type:
+          title: Type
+          type: string
+    language_studio_api_server__data_types__chat__ToolDefinition:
+      title: ToolDefinition
+      required:
+        - type
+        - function
+      type: object
+      properties:
+        type:
+          title: Type
+          enum:
+            - function
+          type: string
+        function:
+          $ref: '#/components/schemas/FunctionToolDefinition'
+    language_studio_api_server__data_types__execution_engine__Requirement:
+      title: Requirement
+      required:
+        - name
+        - description
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+        description:
+          title: Description
+          type: string
+        is_mandatory:
+          title: Is Mandatory
+          type: boolean
+    language_studio_api_server__data_types__execution_engine__ToolDefinition:
+      title: ToolDefinition
+      oneOf:
+        - $ref: '#/components/schemas/HTTPToolResource'
+        - $ref: '#/components/schemas/MCPToolResource'
+        - $ref: '#/components/schemas/FileSearchToolResource'
+        - $ref: '#/components/schemas/WebSearchToolResource'
+      discriminator:
+        propertyName: type
+        mapping:
+          http: '#/components/schemas/HTTPToolResource'
+          mcp: '#/components/schemas/MCPToolResource'
+          file_search: '#/components/schemas/FileSearchToolResource'
+          web_search: '#/components/schemas/WebSearchToolResource'
   securitySchemes:
     Bearer:
       type: http

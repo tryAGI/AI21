@@ -16,6 +16,7 @@ namespace AI21
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>> V1ChatCompleteAsync(
+
             global::AI21.ChatRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -80,13 +81,15 @@ namespace AI21
         /// </param>
         /// <param name="mockResponse"></param>
         /// <param name="documents"></param>
-        /// <param name="responseFormat"></param>
+        /// <param name="responseFormat">
+        /// Default Value: {"type":"text"}
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>> V1ChatCompleteAsync(
             global::AI21.ModelName model,
             global::System.Collections.Generic.IList<global::AI21.MessagesItem> messages,
-            global::System.Collections.Generic.IList<global::AI21.ToolDefinition>? tools = default,
+            global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesChatToolDefinition>? tools = default,
             int? n = default,
             int? maxTokens = default,
             double? temperature = default,
