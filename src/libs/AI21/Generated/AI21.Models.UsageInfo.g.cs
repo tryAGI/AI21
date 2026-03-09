@@ -17,21 +17,21 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt_tokens")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int PromptTokens { get; set; } = default!;
+        public required int PromptTokens { get; set; }
 
         /// <summary>
         /// Number of tokens in the response message.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("completion_tokens")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CompletionTokens { get; set; } = default!;
+        public required int CompletionTokens { get; set; }
 
         /// <summary>
         /// `prompt_tokens` + `completion_tokens`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_tokens")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int TotalTokens { get; set; } = default!;
+        public required int TotalTokens { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
