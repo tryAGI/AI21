@@ -11,12 +11,13 @@ namespace AI21
     public sealed partial class ChatRequest
     {
         /// <summary>
-        /// An enumeration.
+        /// The name of the model to use. Choose one of the following values:<br/>
+        /// * `jamba-instruct-preview`
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.ModelNameJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::AI21.ModelName Model { get; set; }
+        public global::AI21.ModelName Model { get; set; } = default!;
 
         /// <summary>
         /// The previous messages in this chat, from oldest (index 0) to newest. Messages<br/>
@@ -26,7 +27,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("messages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::AI21.MessagesItem> Messages { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.MessagesItem> Messages { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -101,7 +102,7 @@ namespace AI21
         public global::AI21.MockResponseConfig? MockResponse { get; set; }
 
         /// <summary>
-        /// 
+        /// Default Value: []
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("documents")]
         public global::System.Collections.Generic.IList<global::AI21.DocumentSchema>? Documents { get; set; }
@@ -122,7 +123,8 @@ namespace AI21
         /// Initializes a new instance of the <see cref="ChatRequest" /> class.
         /// </summary>
         /// <param name="model">
-        /// An enumeration.
+        /// The name of the model to use. Choose one of the following values:<br/>
+        /// * `jamba-instruct-preview`
         /// </param>
         /// <param name="messages">
         /// The previous messages in this chat, from oldest (index 0) to newest. Messages<br/>
@@ -173,7 +175,9 @@ namespace AI21
         /// Default Value: false
         /// </param>
         /// <param name="mockResponse"></param>
-        /// <param name="documents"></param>
+        /// <param name="documents">
+        /// Default Value: []
+        /// </param>
         /// <param name="responseFormat">
         /// Default Value: {"type":"text"}
         /// </param>

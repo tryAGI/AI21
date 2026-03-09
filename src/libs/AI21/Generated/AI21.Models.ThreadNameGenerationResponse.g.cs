@@ -13,7 +13,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("thread_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ThreadName { get; set; }
+        public string ThreadName { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

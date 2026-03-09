@@ -56,22 +56,6 @@ namespace AI21
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
-
-            foreach (var __authorization in Authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
-            }
             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
@@ -217,7 +201,8 @@ namespace AI21
         /// token is generated, rather than waiting for the entire response.
         /// </summary>
         /// <param name="model">
-        /// An enumeration.
+        /// The name of the model to use. Choose one of the following values:<br/>
+        /// * `jamba-instruct-preview`
         /// </param>
         /// <param name="messages">
         /// The previous messages in this chat, from oldest (index 0) to newest. Messages<br/>
@@ -268,7 +253,9 @@ namespace AI21
         /// Default Value: false
         /// </param>
         /// <param name="mockResponse"></param>
-        /// <param name="documents"></param>
+        /// <param name="documents">
+        /// Default Value: []
+        /// </param>
         /// <param name="responseFormat">
         /// Default Value: {"type":"text"}
         /// </param>

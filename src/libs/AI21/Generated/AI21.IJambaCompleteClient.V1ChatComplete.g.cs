@@ -29,7 +29,8 @@ namespace AI21
         /// token is generated, rather than waiting for the entire response.
         /// </summary>
         /// <param name="model">
-        /// An enumeration.
+        /// The name of the model to use. Choose one of the following values:<br/>
+        /// * `jamba-instruct-preview`
         /// </param>
         /// <param name="messages">
         /// The previous messages in this chat, from oldest (index 0) to newest. Messages<br/>
@@ -80,7 +81,9 @@ namespace AI21
         /// Default Value: false
         /// </param>
         /// <param name="mockResponse"></param>
-        /// <param name="documents"></param>
+        /// <param name="documents">
+        /// Default Value: []
+        /// </param>
         /// <param name="responseFormat">
         /// Default Value: {"type":"text"}
         /// </param>

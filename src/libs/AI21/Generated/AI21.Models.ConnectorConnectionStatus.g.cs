@@ -19,14 +19,14 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("files_indexed")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int FilesIndexed { get; set; }
+        public int FilesIndexed { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("creation_date")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTime CreationDate { get; set; }
+        public global::System.DateTime CreationDate { get; set; } = default!;
 
         /// <summary>
         /// An enumeration.
@@ -34,7 +34,7 @@ namespace AI21
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.ParagonSyncStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::AI21.ParagonSyncStatus Status { get; set; }
+        public global::AI21.ParagonSyncStatus Status { get; set; } = default!;
 
         /// <summary>
         /// 

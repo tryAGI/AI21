@@ -13,14 +13,14 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("secret_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string SecretId { get; set; }
+        public string SecretId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("secret_key")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string SecretKey { get; set; }
+        public string SecretKey { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

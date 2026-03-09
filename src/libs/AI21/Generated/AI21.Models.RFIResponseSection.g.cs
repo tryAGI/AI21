@@ -13,14 +13,14 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("header")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Header { get; set; }
+        public string Header { get; set; } = default!;
 
         /// <summary>
         /// ≤350-character directive listing everything to include in that section
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Description { get; set; }
+        public string Description { get; set; } = default!;
 
         /// <summary>
         /// Generated content for this section based on company files

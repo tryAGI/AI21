@@ -16,7 +16,7 @@ namespace AI21
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.WebsiteConnectorPayloadTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::AI21.WebsiteConnectorPayloadType Type { get; set; }
+        public global::AI21.WebsiteConnectorPayloadType Type { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -24,7 +24,7 @@ namespace AI21
         [global::System.Text.Json.Serialization.JsonPropertyName("value")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::AI21.AnyOf<string, global::System.Collections.Generic.IList<string>> Value { get; set; }
+        public global::AI21.AnyOf<string, global::System.Collections.Generic.IList<string>> Value { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

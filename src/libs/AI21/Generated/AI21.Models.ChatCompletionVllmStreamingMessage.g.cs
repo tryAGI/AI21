@@ -15,17 +15,17 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// The message
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("choices")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::AI21.ChatCompletionResponseDeltaChoice> Choices { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.ChatCompletionResponseDeltaChoice> Choices { get; set; } = default!;
 
         /// <summary>
-        /// 
+        /// Included in the last message only. Total token counts for the message.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage")]
         public global::AI21.UsageInfo? Usage { get; set; }
@@ -53,7 +53,9 @@ namespace AI21
         /// <param name="choices">
         /// The message
         /// </param>
-        /// <param name="usage"></param>
+        /// <param name="usage">
+        /// Included in the last message only. Total token counts for the message.
+        /// </param>
         /// <param name="meta"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

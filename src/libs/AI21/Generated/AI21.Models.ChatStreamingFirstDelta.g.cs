@@ -23,7 +23,7 @@ namespace AI21
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.ChatStreamingFirstDeltaRoleJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::AI21.ChatStreamingFirstDeltaRole Role { get; set; }
+        public global::AI21.ChatStreamingFirstDeltaRole Role { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

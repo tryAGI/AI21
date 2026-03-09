@@ -21,7 +21,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("properties")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required object Properties { get; set; }
+        public object Properties { get; set; } = default!;
 
         /// <summary>
         /// List of required properties

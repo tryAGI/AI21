@@ -13,28 +13,28 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("token")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Token { get; set; }
+        public string Token { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data_source")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string DataSource { get; set; }
+        public string DataSource { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("organization_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string OrganizationId { get; set; }
+        public string OrganizationId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pipeline")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Pipeline { get; set; }
+        public string Pipeline { get; set; } = default!;
 
         /// <summary>
         /// 

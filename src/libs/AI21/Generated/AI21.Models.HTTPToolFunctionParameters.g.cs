@@ -20,14 +20,14 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("properties")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.Dictionary<string, global::AI21.HTTPToolFunctionParamProperties> Properties { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::AI21.HTTPToolFunctionParamProperties> Properties { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("required")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> Required { get; set; }
+        public global::System.Collections.Generic.IList<string> Required { get; set; } = default!;
 
         /// <summary>
         /// Default Value: false
@@ -35,11 +35,6 @@ namespace AI21
         [global::System.Text.Json.Serialization.JsonPropertyName("additionalProperties")]
         public bool? AdditionalProperties { get; set; }
 
-        /// <summary>
-        /// Additional properties that are not explicitly defined in the schema
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonExtensionData]
-        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HTTPToolFunctionParameters" /> class.
