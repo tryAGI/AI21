@@ -20,14 +20,14 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("function")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::AI21.HTTPToolFunction Function { get; set; } = default!;
+        public required global::AI21.HTTPToolFunction Function { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("endpoint")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::AI21.HTTPToolEndpoint Endpoint { get; set; } = default!;
+        public required global::AI21.HTTPToolEndpoint Endpoint { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

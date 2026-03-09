@@ -14,7 +14,7 @@ namespace AI21
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.ResponseFormatTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::AI21.ResponseFormatType Type { get; set; } = default!;
+        public required global::AI21.ResponseFormatType Type { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
