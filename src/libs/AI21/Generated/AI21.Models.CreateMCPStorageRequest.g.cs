@@ -13,14 +13,14 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("server_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ServerUrl { get; set; } = default!;
+        public required string ServerUrl { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("server_label")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ServerLabel { get; set; } = default!;
+        public required string ServerLabel { get; set; }
 
         /// <summary>
         /// 

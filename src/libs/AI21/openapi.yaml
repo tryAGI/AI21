@@ -3007,6 +3007,16 @@ paths:
           content:
             application/json:
               schema: { }
+  /solutions/claroty/suggest-vendor-model:
+    post:
+      summary: Claroty Suggest Vendor Model
+      operationId: claroty_suggest_vendor_model_solutions_claroty_suggest_vendor_model_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
 components:
   schemas:
     Assistant:

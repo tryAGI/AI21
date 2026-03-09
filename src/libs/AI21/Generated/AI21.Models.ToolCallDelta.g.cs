@@ -13,14 +13,14 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("index")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int Index { get; set; } = default!;
+        public required int Index { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("function")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::AI21.ToolFunctionDelta Function { get; set; } = default!;
+        public required global::AI21.ToolFunctionDelta Function { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
