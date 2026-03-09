@@ -13,7 +13,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("endpoint_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string EndpointUrl { get; set; } = default!;
+        public required string EndpointUrl { get; set; }
 
         /// <summary>
         /// 

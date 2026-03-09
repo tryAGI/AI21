@@ -13,21 +13,21 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("batch_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string BatchId { get; set; } = default!;
+        public required string BatchId { get; set; }
 
         /// <summary>
         /// Total number of documents in the batch
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_documents")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int TotalDocuments { get; set; } = default!;
+        public required int TotalDocuments { get; set; }
 
         /// <summary>
         /// List of document counts by status
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("statuses")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::AI21.IgnestionBatchStatusCount> Statuses { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::AI21.IgnestionBatchStatusCount> Statuses { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
