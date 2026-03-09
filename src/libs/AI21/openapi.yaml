@@ -2997,6 +2997,16 @@ paths:
           content:
             application/json:
               schema: { }
+  /solutions/claroty/product-lookup:
+    post:
+      summary: Claroty Product Lookup
+      operationId: claroty_product_lookup_solutions_claroty_product_lookup_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: { }
 components:
   schemas:
     Assistant:
