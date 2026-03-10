@@ -5,35 +5,35 @@ namespace AI21
 {
     public partial class Ai21Api
     {
-        partial void PrepareClarotyProductLookupSolutionsClarotyProductLookupPostArguments(
+        partial void PrepareClarotySuggestVendorModelSolutionsClarotySuggestVendorModelPostArguments(
             global::System.Net.Http.HttpClient httpClient);
-        partial void PrepareClarotyProductLookupSolutionsClarotyProductLookupPostRequest(
+        partial void PrepareClarotySuggestVendorModelSolutionsClarotySuggestVendorModelPostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage);
-        partial void ProcessClarotyProductLookupSolutionsClarotyProductLookupPostResponse(
+        partial void ProcessClarotySuggestVendorModelSolutionsClarotySuggestVendorModelPostResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessClarotyProductLookupSolutionsClarotyProductLookupPostResponseContent(
+        partial void ProcessClarotySuggestVendorModelSolutionsClarotySuggestVendorModelPostResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Claroty Product Lookup
+        /// Claroty Suggest Vendor Model
         /// </summary>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> ClarotyProductLookupSolutionsClarotyProductLookupPostAsync(
+        public async global::System.Threading.Tasks.Task<string> ClarotySuggestVendorModelSolutionsClarotySuggestVendorModelPostAsync(
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareClarotyProductLookupSolutionsClarotyProductLookupPostArguments(
+            PrepareClarotySuggestVendorModelSolutionsClarotySuggestVendorModelPostArguments(
                 httpClient: HttpClient);
 
             var __pathBuilder = new global::AI21.PathBuilder(
-                path: "/solutions/claroty/product-lookup",
+                path: "/solutions/claroty/suggest-vendor-model",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -47,7 +47,7 @@ namespace AI21
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareClarotyProductLookupSolutionsClarotyProductLookupPostRequest(
+            PrepareClarotySuggestVendorModelSolutionsClarotySuggestVendorModelPostRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest);
 
@@ -59,7 +59,7 @@ namespace AI21
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessClarotyProductLookupSolutionsClarotyProductLookupPostResponse(
+            ProcessClarotySuggestVendorModelSolutionsClarotySuggestVendorModelPostResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
 
@@ -75,7 +75,7 @@ namespace AI21
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessClarotyProductLookupSolutionsClarotyProductLookupPostResponseContent(
+                ProcessClarotySuggestVendorModelSolutionsClarotySuggestVendorModelPostResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);

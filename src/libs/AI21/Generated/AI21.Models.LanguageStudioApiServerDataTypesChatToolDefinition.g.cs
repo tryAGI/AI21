@@ -20,7 +20,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("function")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::AI21.FunctionToolDefinition Function { get; set; } = default!;
+        public required global::AI21.FunctionToolDefinition Function { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
