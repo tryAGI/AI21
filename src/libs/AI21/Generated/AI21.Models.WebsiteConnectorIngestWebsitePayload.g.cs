@@ -13,7 +13,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sitemap_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string SitemapUrl { get; set; } = default!;
+        public required string SitemapUrl { get; set; }
 
         /// <summary>
         /// 
