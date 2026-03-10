@@ -15,7 +15,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Guid Id { get; set; } = default!;
+        public required global::System.Guid Id { get; set; }
 
         /// <summary>
         /// 
@@ -23,7 +23,7 @@ namespace AI21
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.MaestroRunResultStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::AI21.MaestroRunResultStatus Status { get; set; } = default!;
+        public required global::AI21.MaestroRunResultStatus Status { get; set; }
 
         /// <summary>
         /// 
