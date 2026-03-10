@@ -50,15 +50,18 @@ namespace AI21.JsonConverters
                 system = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::AI21.MessagesItem(
+            var __value = new global::AI21.MessagesItem(
                 discriminator?.Role,
                 user,
+
                 assistant,
+
                 tool,
+
                 system
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

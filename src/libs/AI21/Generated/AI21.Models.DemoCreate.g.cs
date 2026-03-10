@@ -13,7 +13,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// Visibility of the demo (public/private)
@@ -21,7 +21,7 @@ namespace AI21
         [global::System.Text.Json.Serialization.JsonPropertyName("visibility")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.DemoVisibilityJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::AI21.DemoVisibility Visibility { get; set; } = default!;
+        public required global::AI21.DemoVisibility Visibility { get; set; }
 
         /// <summary>
         /// Status of the demo (active/inactive)
@@ -29,7 +29,7 @@ namespace AI21
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.DemoStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::AI21.DemoStatus Status { get; set; } = default!;
+        public required global::AI21.DemoStatus Status { get; set; }
 
         /// <summary>
         /// Demo configuration
@@ -42,7 +42,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ui_component_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string UiComponentName { get; set; } = default!;
+        public required string UiComponentName { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

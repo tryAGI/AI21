@@ -52,9 +52,11 @@ namespace AI21.JsonConverters
             {
             }
 
-            var result = new global::AI21.QueryFilter(
+            var __value = new global::AI21.QueryFilter(
                 comparisonOperator,
+
                 logicalOperator,
+
                 value3
                 );
 
@@ -77,7 +79,7 @@ namespace AI21.JsonConverters
                 _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

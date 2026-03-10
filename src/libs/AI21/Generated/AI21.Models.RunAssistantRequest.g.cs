@@ -13,7 +13,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::AI21.Message> Input { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::AI21.Message> Input { get; set; }
 
         /// <summary>
         /// Default Value: false

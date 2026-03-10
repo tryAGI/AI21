@@ -50,15 +50,18 @@ namespace AI21.JsonConverters
                 webSearch = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            var result = new global::AI21.LanguageStudioApiServerDataTypesExecutionEngineToolDefinition(
+            var __value = new global::AI21.LanguageStudioApiServerDataTypesExecutionEngineToolDefinition(
                 discriminator?.Type,
                 http,
+
                 mcp,
+
                 fileSearch,
+
                 webSearch
                 );
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />
