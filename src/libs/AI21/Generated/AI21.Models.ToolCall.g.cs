@@ -15,7 +15,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
+        public required string Id { get; set; }
 
         /// <summary>
         /// Default Value: function
@@ -29,7 +29,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("function")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::AI21.ToolFunction Function { get; set; } = default!;
+        public required global::AI21.ToolFunction Function { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -30,14 +30,14 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Content { get; set; } = default!;
+        public required string Content { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_call_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ToolCallId { get; set; } = default!;
+        public required string ToolCallId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
