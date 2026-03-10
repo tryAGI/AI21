@@ -15,28 +15,28 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
+        public required string Id { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("updated")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Updated { get; set; } = default!;
+        public required string Updated { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("context_length")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int ContextLength { get; set; } = default!;
+        public required int ContextLength { get; set; }
 
         /// <summary>
         /// An enumeration.
@@ -44,21 +44,21 @@ namespace AI21
         [global::System.Text.Json.Serialization.JsonPropertyName("quantization")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.ModelQuantizationJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::AI21.ModelQuantization Quantization { get; set; } = default!;
+        public required global::AI21.ModelQuantization Quantization { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_completion_tokens")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int MaxCompletionTokens { get; set; } = default!;
+        public required int MaxCompletionTokens { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pricing")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::AI21.ModelPricing Pricing { get; set; } = default!;
+        public required global::AI21.ModelPricing Pricing { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
