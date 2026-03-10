@@ -10,10 +10,10 @@ C# SDK for the [AI21](https://ai21.com/) AI platform, auto-generated from the AI
 
 ```bash
 # Build the solution
-dotnet build AI21.sln
+dotnet build AI21.slnx
 
 # Build for release (also produces NuGet package)
-dotnet build AI21.sln -c Release
+dotnet build AI21.slnx -c Release
 
 # Run integration tests (requires AI21_API_KEY env var)
 dotnet test src/tests/AI21.IntegrationTests/AI21.IntegrationTests.csproj
