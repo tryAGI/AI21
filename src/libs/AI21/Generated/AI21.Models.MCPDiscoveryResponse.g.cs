@@ -13,14 +13,14 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mcp_definition")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::AI21.MCPDefinition McpDefinition { get; set; } = default!;
+        public required global::AI21.MCPDefinition McpDefinition { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::AI21.MCPTool> Tools { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::AI21.MCPTool> Tools { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

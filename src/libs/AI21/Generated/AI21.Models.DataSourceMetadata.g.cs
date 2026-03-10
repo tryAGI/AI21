@@ -13,35 +13,35 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Type { get; set; } = default!;
+        public required string Type { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Description { get; set; } = default!;
+        public required string Description { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("icon")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Icon { get; set; } = default!;
+        public required string Icon { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("connected")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool Connected { get; set; } = default!;
+        public required bool Connected { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

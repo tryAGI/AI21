@@ -13,7 +13,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fileId")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Guid FileId { get; set; } = default!;
+        public required global::System.Guid FileId { get; set; }
 
         /// <summary>
         /// The name of the file. This is the local file name from when the file was<br/>
@@ -21,7 +21,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// An arbitrary file-path-like string to indicate the content of a file. This has<br/>
@@ -44,14 +44,14 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fileType")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string FileType { get; set; } = default!;
+        public required string FileType { get; set; }
 
         /// <summary>
         /// The size of the file, in bytes.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sizeBytes")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int SizeBytes { get; set; } = default!;
+        public required int SizeBytes { get; set; }
 
         /// <summary>
         /// Any string labels you have associated with the file. You can apply arbitrary<br/>
@@ -75,21 +75,21 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("createdBy")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Guid CreatedBy { get; set; } = default!;
+        public required global::System.Guid CreatedBy { get; set; }
 
         /// <summary>
         /// The date when the file was uploaded.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("creationDate")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.DateTime CreationDate { get; set; } = default!;
+        public required global::System.DateTime CreationDate { get; set; }
 
         /// <summary>
         /// When the file data or metadata was last changed.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lastUpdated")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.DateTime LastUpdated { get; set; } = default!;
+        public required global::System.DateTime LastUpdated { get; set; }
 
         /// <summary>
         /// File status. One of the following values: "DB_RECORD_CREATED",<br/>
@@ -97,7 +97,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Status { get; set; } = default!;
+        public required string Status { get; set; }
 
         /// <summary>
         /// 
