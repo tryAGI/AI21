@@ -13,7 +13,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("query")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Query { get; set; }
+        public string Query { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

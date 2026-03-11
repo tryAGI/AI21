@@ -13,14 +13,14 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("schema_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string SchemaName { get; set; }
+        public string SchemaName { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("schema_object")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required object SchemaObject { get; set; }
+        public object SchemaObject { get; set; } = default!;
 
         /// <summary>
         /// Default Value: false

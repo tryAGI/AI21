@@ -15,14 +15,14 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// One or more responses, depending on the `n` parameter from the request.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("choices")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::AI21.ChatCompletionResponseChoice> Choices { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.ChatCompletionResponseChoice> Choices { get; set; } = default!;
 
         /// <summary>
         /// The token counts for this request. Per-token billing is based on the<br/>
@@ -30,7 +30,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::AI21.UsageInfo Usage { get; set; }
+        public global::AI21.UsageInfo Usage { get; set; } = default!;
 
         /// <summary>
         /// 

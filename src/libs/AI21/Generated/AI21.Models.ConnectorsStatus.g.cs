@@ -13,7 +13,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string CreatedAt { get; set; }
+        public string CreatedAt { get; set; } = default!;
 
         /// <summary>
         /// An enumeration.
@@ -21,21 +21,21 @@ namespace AI21
         [global::System.Text.Json.Serialization.JsonPropertyName("workflow_status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.ConnectorsWorkflowStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::AI21.ConnectorsWorkflowStatus WorkflowStatus { get; set; }
+        public global::AI21.ConnectorsWorkflowStatus WorkflowStatus { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("files_successfully_uploaded")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int FilesSuccessfullyUploaded { get; set; }
+        public int FilesSuccessfullyUploaded { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("failed_uploaded_files")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int FailedUploadedFiles { get; set; }
+        public int FailedUploadedFiles { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

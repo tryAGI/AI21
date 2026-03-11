@@ -13,7 +13,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_valid")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool IsValid { get; set; }
+        public bool IsValid { get; set; } = default!;
 
         /// <summary>
         /// 

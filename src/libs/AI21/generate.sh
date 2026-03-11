@@ -9,7 +9,7 @@ fi
 autosdk generate openapi.yaml \
   --namespace AI21 \
   --clientClassName Ai21Api \
-  --targetFramework net8.0 \
+  --targetFramework net10.0 \
   --output Generated \
   --exclude-deprecated-operations \
   --base-url https://api.ai21.com/ \

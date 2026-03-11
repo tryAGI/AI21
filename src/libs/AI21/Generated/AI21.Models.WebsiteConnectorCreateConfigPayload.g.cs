@@ -13,7 +13,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// Default Value: false
@@ -32,14 +32,14 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("skip_url_patterns")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> SkipUrlPatterns { get; set; }
+        public global::System.Collections.Generic.IList<string> SkipUrlPatterns { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target_file_extensions")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> TargetFileExtensions { get; set; }
+        public global::System.Collections.Generic.IList<string> TargetFileExtensions { get; set; } = default!;
 
         /// <summary>
         /// 

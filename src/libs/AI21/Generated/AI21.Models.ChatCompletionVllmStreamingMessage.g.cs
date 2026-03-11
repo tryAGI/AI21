@@ -15,14 +15,14 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// The message
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("choices")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::AI21.ChatCompletionResponseDeltaChoice> Choices { get; set; }
+        public global::System.Collections.Generic.IList<global::AI21.ChatCompletionResponseDeltaChoice> Choices { get; set; } = default!;
 
         /// <summary>
         /// Included in the last message only. Total token counts for the message.
