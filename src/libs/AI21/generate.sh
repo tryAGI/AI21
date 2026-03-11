@@ -11,4 +11,6 @@ autosdk generate openapi.yaml \
   --clientClassName Ai21Api \
   --targetFramework net8.0 \
   --output Generated \
-  --exclude-deprecated-operations
+  --exclude-deprecated-operations \
+  --base-url https://api.ai21.com/ \
+  --security-scheme Http:Header:Bearer

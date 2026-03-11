@@ -3,8 +3,6 @@ info:
   title: AI21 Studio API
   description: Access our powerful language models using an API that makes you smile
   version: 1.0.0
-servers:
-  - url: https://api.ai21.com/
 paths:
   /studio/v1/chat/files/convert:
     post:
@@ -4524,10 +4522,6 @@ components:
           type: array
           items:
             type: string
-        additionalProperties:
-          title: Additionalproperties
-          type: boolean
-          default: false
     HTTPToolResource:
       title: HTTPToolResource
       required:
@@ -5857,9 +5851,3 @@ components:
           mcp: '#/components/schemas/MCPToolResource'
           file_search: '#/components/schemas/FileSearchToolResource'
           web_search: '#/components/schemas/WebSearchToolResource'
-  securitySchemes:
-    Bearer:
-      type: http
-      scheme: bearer
-security:
-  - { }

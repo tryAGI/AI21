@@ -30,12 +30,6 @@ namespace AI21
         public required global::System.Collections.Generic.IList<string> Required { get; set; }
 
         /// <summary>
-        /// Default Value: false
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("additionalProperties")]
-        public bool? AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -49,22 +43,17 @@ namespace AI21
         /// </param>
         /// <param name="properties"></param>
         /// <param name="required"></param>
-        /// <param name="additionalProperties">
-        /// Default Value: false
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public HTTPToolFunctionParameters(
             global::System.Collections.Generic.Dictionary<string, global::AI21.HTTPToolFunctionParamProperties> properties,
             global::System.Collections.Generic.IList<string> required,
-            global::AI21.HTTPToolFunctionParametersType? type,
-            bool? additionalProperties)
+            global::AI21.HTTPToolFunctionParametersType? type)
         {
             this.Properties = properties ?? throw new global::System.ArgumentNullException(nameof(properties));
             this.Required = required ?? throw new global::System.ArgumentNullException(nameof(required));
             this.Type = type;
-            this.AdditionalProperties = additionalProperties;
         }
 
         /// <summary>

@@ -20,30 +20,15 @@ foreach (var pair in openApiDocument.Paths!)
     }
 }
 
-// Set server
-openApiDocument.Servers?.Clear();
-openApiDocument.Servers?.Add(new OpenApiServer
+// Remove 'additionalProperties' property from HTTPToolFunctionParameters to avoid
+// naming collision with the generated [JsonExtensionData] AdditionalProperties
+// TODO: Move this fix to AutoSDK level so all SDKs benefit
+if (openApiDocument.Components?.Schemas?.TryGetValue("HTTPToolFunctionParameters", out var httpToolFuncParams) == true
+    && httpToolFuncParams is OpenApiSchema httpToolFuncParamsSchema)
 {
-    Url = "https://api.ai21.com/",
-});
-
-openApiDocument.Components ??= new OpenApiComponents();
-openApiDocument.Components.SecuritySchemes ??= new Dictionary<string, IOpenApiSecurityScheme>();
-openApiDocument.Components.SecuritySchemes.Add("Bearer", new OpenApiSecurityScheme
-{
-    Type = SecuritySchemeType.Http,
-    Scheme = "bearer",
-});
-openApiDocument.Security =
-[
-    new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecuritySchemeReference("Bearer", openApiDocument),
-            new List<string>()
-        }
-    }
-];
+    httpToolFuncParamsSchema.Properties?.Remove("additionalProperties");
+    httpToolFuncParamsSchema.Required?.Remove("additionalProperties");
+}
 
 yamlOrJson = await openApiDocument.SerializeAsYamlAsync(OpenApiSpecVersion.OpenApi3_2);
 
