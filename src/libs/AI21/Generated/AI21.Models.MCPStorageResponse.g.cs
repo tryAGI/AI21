@@ -15,28 +15,28 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Guid Id { get; set; } = default!;
+        public required global::System.Guid Id { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("server_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ServerUrl { get; set; } = default!;
+        public required string ServerUrl { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("server_label")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ServerLabel { get; set; } = default!;
+        public required string ServerLabel { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("organization_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Guid OrganizationId { get; set; } = default!;
+        public required global::System.Guid OrganizationId { get; set; }
 
         /// <summary>
         /// 
@@ -49,7 +49,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Guid UserId { get; set; } = default!;
+        public required global::System.Guid UserId { get; set; }
 
         /// <summary>
         /// An enumeration.

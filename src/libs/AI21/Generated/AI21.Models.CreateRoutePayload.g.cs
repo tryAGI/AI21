@@ -13,28 +13,28 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("plan_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string PlanId { get; set; } = default!;
+        public required string PlanId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Description { get; set; } = default!;
+        public required string Description { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("examples")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> Examples { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<string> Examples { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

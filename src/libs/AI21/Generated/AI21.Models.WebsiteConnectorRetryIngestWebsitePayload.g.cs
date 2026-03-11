@@ -13,7 +13,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("website_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Guid WebsiteId { get; set; } = default!;
+        public required global::System.Guid WebsiteId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
