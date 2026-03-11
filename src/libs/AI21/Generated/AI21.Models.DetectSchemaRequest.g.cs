@@ -13,7 +13,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("documents")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::AI21.DocumentReference> Documents { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::AI21.DocumentReference> Documents { get; set; }
 
         /// <summary>
         /// 

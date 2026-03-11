@@ -15,7 +15,7 @@ namespace AI21
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("index")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int Index { get; set; } = default!;
+        public required int Index { get; set; }
 
         /// <summary>
         /// - **The first message** in the stream will be an object set to `{"role":"assistant"}`.<br/>
@@ -24,7 +24,7 @@ namespace AI21
         [global::System.Text.Json.Serialization.JsonPropertyName("delta")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.AnyOfJsonConverter<global::AI21.ChatStreamingFirstDelta, global::AI21.ChatStreamingContentDelta, global::AI21.ChatStreamingToolCallsFirstDelta, global::AI21.ChatStreamingToolCallsDelta>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::AI21.AnyOf<global::AI21.ChatStreamingFirstDelta, global::AI21.ChatStreamingContentDelta, global::AI21.ChatStreamingToolCallsFirstDelta, global::AI21.ChatStreamingToolCallsDelta> Delta { get; set; } = default!;
+        public required global::AI21.AnyOf<global::AI21.ChatStreamingFirstDelta, global::AI21.ChatStreamingContentDelta, global::AI21.ChatStreamingToolCallsFirstDelta, global::AI21.ChatStreamingToolCallsDelta> Delta { get; set; }
 
         /// <summary>
         /// 
