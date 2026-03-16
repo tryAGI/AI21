@@ -4,7 +4,7 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    /// Default Value: {}
     /// </summary>
     public sealed partial class DocumentSchemaMetadata
     {
