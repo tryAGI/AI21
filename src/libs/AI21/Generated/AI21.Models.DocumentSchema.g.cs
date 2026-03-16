@@ -24,7 +24,7 @@ namespace AI21
         public required string Content { get; set; }
 
         /// <summary>
-        /// 
+        /// Default Value: {}
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
         public global::System.Collections.Generic.Dictionary<string, string>? Metadata { get; set; }
@@ -44,7 +44,9 @@ namespace AI21
         /// for all responses in the stream.
         /// </param>
         /// <param name="content"></param>
-        /// <param name="metadata"></param>
+        /// <param name="metadata">
+        /// Default Value: {}
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
