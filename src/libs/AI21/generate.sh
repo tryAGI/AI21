@@ -8,7 +8,7 @@ if [ $? -ne 0 ]; then
 fi
 autosdk generate openapi.yaml \
   --namespace AI21 \
-  --clientClassName Ai21Api \
+  --clientClassName Ai21Client \
   --targetFramework net10.0 \
   --output Generated \
   --exclude-deprecated-operations \

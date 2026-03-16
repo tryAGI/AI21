@@ -16,7 +16,7 @@
 ```csharp
 using AI21;
 
-usung var api = new Ai21Api(apiKey);
+usung var api = new Ai21Client(apiKey);
 
 await api.Chat.V1J2UltraChatAsync(
     messages:

@@ -37,7 +37,7 @@ The SDK code is **entirely auto-generated** -- do not manually edit files in `sr
 
 | Project | Purpose |
 |---------|---------|
-| `src/libs/AI21/` | Main SDK library (`Ai21Api`) |
+| `src/libs/AI21/` | Main SDK library (`Ai21Client`) |
 | `src/tests/AI21.IntegrationTests/` | Integration tests against real AI21 API |
 | `src/helpers/FixOpenApiSpec/` | OpenAPI spec fixer tool |
 | `src/helpers/GenerateDocs/` | Documentation generator from integration tests |
@@ -55,7 +55,7 @@ The SDK code is **entirely auto-generated** -- do not manually edit files in `sr
 ### Key Conventions
 
 - No hand-written extension files -- the SDK is purely generated code
-- The client class is named `Ai21Api`
+- The client class is named `Ai21Client`
 - The namespace is `AI21`
 
 ### CI/CD

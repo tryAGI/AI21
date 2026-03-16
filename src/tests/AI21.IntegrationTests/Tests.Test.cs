@@ -5,7 +5,7 @@ public partial class Tests
     [TestMethod]
     public async Task J2UltraChat()
     {
-        using var api = GetAuthorizedApi();
+        using var api = GetAuthorizedClient();
 
         // await api.Completion.V1J2UltraCompleteAsync(
         //     messages:
