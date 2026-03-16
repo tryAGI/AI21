@@ -8,14 +8,23 @@ var yamlOrJson = await File.ReadAllTextAsync(path);
 
 var openApiDocument = yamlOrJson.GetOpenApiDocument(Settings.Default);
 
-foreach (var pair in openApiDocument.Paths!)
+if (openApiDocument.Paths != null)
 {
-    foreach (var (_, operation) in pair.Value.Operations)
+    foreach (var pair in openApiDocument.Paths)
     {
-        var startTime = operation.Parameters?.FirstOrDefault(x => x.Name == "request_start_time");
-        if (startTime != null)
+        var operations = pair.Value?.Operations;
+        if (operations == null)
         {
-            ((OpenApiSchema)startTime.Schema!).Default = JsonValue.Create("1730898900272");
+            continue;
+        }
+
+        foreach (var operation in operations.Values)
+        {
+            var startTime = operation.Parameters?.FirstOrDefault(x => x.Name == "request_start_time");
+            if (startTime != null)
+            {
+                ((OpenApiSchema)startTime.Schema!).Default = JsonValue.Create("1730898900272");
+            }
         }
     }
 }
