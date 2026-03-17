@@ -1,8 +1,9 @@
+set -e
 dotnet tool install --global autosdk.cli --prerelease
 rm -rf Generated
-curl -o openapi.yaml https://api.ai21.com/openapi.json
+curl --fail --silent --show-error -o openapi.json https://api.ai21.com/openapi.json
 
-autosdk generate openapi.yaml \
+autosdk generate openapi.json \
   --namespace AI21 \
   --clientClassName Ai21Client \
   --targetFramework net10.0 \
