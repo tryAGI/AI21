@@ -41,7 +41,6 @@ The SDK code is **entirely auto-generated** -- do not manually edit files in `sr
 | `src/tests/AI21.IntegrationTests/` | Integration tests against real AI21 API |
 | `src/helpers/FixOpenApiSpec/` | OpenAPI spec fixer tool |
 | `src/helpers/GenerateDocs/` | Documentation generator from integration tests |
-| `src/helpers/TrimmingHelper/` | NativeAOT/trimming compatibility validator |
 
 ### Build Configuration
 
