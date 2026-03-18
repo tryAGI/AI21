@@ -29,7 +29,6 @@ cd src/libs/AI21 && ./generate.sh
 The SDK code is **entirely auto-generated** -- do not manually edit files in `src/libs/AI21/Generated/`.
 
 1. `src/libs/AI21/openapi.yaml` -- the AI21 OpenAPI spec (fetched from `https://api.ai21.com/openapi.json`)
-2. `src/helpers/FixOpenApiSpec/` -- converts OpenAPI 3.1 to 3.0 format for compatibility
 3. `src/libs/AI21/generate.sh` -- orchestrates: download spec, fix spec, run AutoSDK CLI, output to `Generated/`
 4. CI auto-updates the spec and creates PRs if changes are detected
 
@@ -39,8 +38,6 @@ The SDK code is **entirely auto-generated** -- do not manually edit files in `sr
 |---------|---------|
 | `src/libs/AI21/` | Main SDK library (`Ai21Client`) |
 | `src/tests/AI21.IntegrationTests/` | Integration tests against real AI21 API |
-| `src/helpers/FixOpenApiSpec/` | OpenAPI spec fixer tool |
-| `src/helpers/GenerateDocs/` | Documentation generator from integration tests |
 
 ### Build Configuration
 
