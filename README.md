@@ -31,6 +31,22 @@ await api.Chat.V1J2UltraChatAsync(
     cancellationToken: CancellationToken.None);
 ```
 
+### Microsoft.Extensions.AI
+
+The SDK implements [`IChatClient`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai.ichatclient):
+```csharp
+using AI21;
+using Microsoft.Extensions.AI;
+
+IChatClient chatClient = new Ai21Client(apiKey);
+
+var response = await chatClient.GetResponseAsync(
+    [new ChatMessage(ChatRole.User, "Hello!")],
+    new ChatOptions { ModelId = "jamba-1.5-mini" });
+
+Console.WriteLine(response.Text);
+```
+
 ## Support
 
 Priority place for bugs: https://github.com/tryAGI/AI21/issues  
