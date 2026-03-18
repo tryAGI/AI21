@@ -11,4 +11,6 @@ public partial class Tests
 
         return new Ai21Client(apiKey);
     }
+
+    private static Ai21Client CreateTestClient() => new(apiKey: "test-key");
 }
