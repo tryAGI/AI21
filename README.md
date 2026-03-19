@@ -48,6 +48,9 @@ var response = await chatClient.GetResponseAsync(
 Console.WriteLine(response.Text);
 ```
 
+<!-- EXAMPLES:START -->
+<!-- EXAMPLES:END -->
+
 ## Support
 
 Priority place for bugs: https://github.com/tryAGI/AI21/issues  
