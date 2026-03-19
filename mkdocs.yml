@@ -1,6 +1,8 @@
-site_name: OpenAI .NET Documentation
+site_name: AI21 .NET Documentation
 nav:
 - Overview: index.md
+- Guides:
+  - Microsoft.Extensions.AI: guides/meai.md
 # EXAMPLES:START
 
 # EXAMPLES:END
