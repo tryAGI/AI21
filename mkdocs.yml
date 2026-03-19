@@ -4,7 +4,16 @@ nav:
 - Guides:
   - Microsoft.Extensions.AI: guides/meai.md
 # EXAMPLES:START
-
+- Examples:
+  - ChatClient.FiveRandomWords: examples/chatclient-fiverandomwords.md
+  - ChatClient.FiveRandomWords.Streaming: examples/chatclient-fiverandomwords-streaming.md
+  - ChatClient.GetService.ReturnsChatClientMetadata: examples/chatclient-getservice-returnschatclientmetadata.md
+  - ChatClient.GetService.ReturnsNullForUnknownKey: examples/chatclient-getservice-returnsnullforunknownkey.md
+  - ChatClient.GetService.ReturnsSelf: examples/chatclient-getservice-returnsself.md
+  - ChatClient.ToolCalling.MultiTurn: examples/chatclient-toolcalling-multiturn.md
+  - ChatClient.ToolCalling.SingleTurn: examples/chatclient-toolcalling-singleturn.md
+  - ChatClient.ToolCalling.Streaming: examples/chatclient-toolcalling-streaming.md
+  - Test: examples/test.md
 # EXAMPLES:END
 
 #  - Quick Start: QuickStart.md

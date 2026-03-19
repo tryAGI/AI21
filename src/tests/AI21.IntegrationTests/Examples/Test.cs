@@ -1,3 +1,9 @@
+/*
+order: 90
+title: Test
+slug: test
+*/
+
 namespace AI21.IntegrationTests;
 
 public partial class Tests

@@ -11,6 +11,7 @@
 - Updated and supported automatically if there are no breaking changes
 - All modern .NET features - nullability, trimming, NativeAOT, etc.
 - Support .Net Framework/.Net Standard 2.0
+- Microsoft.Extensions.AI `IChatClient` support
 
 ### Usage
 ```csharp
@@ -29,6 +30,22 @@ await api.Chat.V1J2UltraChatAsync(
     ],
     system: string.Empty,
     cancellationToken: CancellationToken.None);
+```
+
+### Microsoft.Extensions.AI
+
+The SDK implements [`IChatClient`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai.ichatclient):
+```csharp
+using AI21;
+using Microsoft.Extensions.AI;
+
+IChatClient chatClient = new Ai21Client(apiKey);
+
+var response = await chatClient.GetResponseAsync(
+    [new ChatMessage(ChatRole.User, "Hello!")],
+    new ChatOptions { ModelId = "jamba-1.5-mini" });
+
+Console.WriteLine(response.Text);
 ```
 
 ## Support
