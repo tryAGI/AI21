@@ -1,4 +1,4 @@
-# ChatClient.GetService.ReturnsChatClientMetadata
+# Chat Client Get Service Returns Chat Client Metadata
 
 
 

@@ -1,4 +1,4 @@
-# ChatClient.GetService.ReturnsSelf
+# Chat Client Get Service Returns Null For Unknown Key
 
 
 
@@ -8,5 +8,5 @@ This example assumes `using AI21;` is in scope and `apiKey` contains your AI21 A
 using var client = CreateTestClient();
 IChatClient chatClient = client;
 
-var self = chatClient.GetService<Ai21Client>();
+var result = chatClient.GetService<ChatClientMetadata>(serviceKey: "unknown");
 ```
