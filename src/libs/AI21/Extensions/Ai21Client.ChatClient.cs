@@ -1,4 +1,5 @@
 using System.Runtime.CompilerServices;
+using System.Text;
 using System.Text.Json;
 using Microsoft.Extensions.AI;
 
@@ -55,6 +56,8 @@ public partial class Ai21Client : IChatClient
             yield break;
         }
 
+        var toolCallBuilders = new Dictionary<int, (string Id, string Name, StringBuilder Args)>();
+
         foreach (var streamMsg in streamMessages)
         {
             foreach (var choice in streamMsg.Choices)
@@ -63,11 +66,56 @@ public partial class Ai21Client : IChatClient
                 {
                     ResponseId = streamMsg.Id,
                     Role = ChatRole.Assistant,
-                    FinishReason = ToFinishReason(choice.FinishReason),
                     RawRepresentation = streamMsg,
                 };
 
-                ProcessStreamingDelta(update, choice.Delta);
+                var delta = choice.Delta;
+                if (delta.IsValue2 && delta.Value2 is { } contentDelta)
+                {
+                    if (!string.IsNullOrEmpty(contentDelta.Content))
+                    {
+                        update.Contents.Add(new TextContent(contentDelta.Content)
+                        {
+                            RawRepresentation = contentDelta,
+                        });
+                    }
+                }
+                else if (delta.IsValue3 && delta.Value3 is { } toolCallsFirst)
+                {
+                    foreach (var toolCall in toolCallsFirst.ToolCalls)
+                    {
+                        toolCallBuilders[toolCall.Index] = (
+                            Id: toolCall.Id,
+                            Name: toolCall.Function.Name,
+                            Args: new StringBuilder());
+                    }
+                }
+                else if (delta.IsValue4 && delta.Value4 is { } toolCallsDelta)
+                {
+                    foreach (var toolCall in toolCallsDelta.ToolCalls)
+                    {
+                        if (!string.IsNullOrEmpty(toolCall.Function.Arguments) &&
+                            toolCallBuilders.TryGetValue(toolCall.Index, out var existing))
+                        {
+                            existing.Args.Append(toolCall.Function.Arguments);
+                        }
+                    }
+                }
+
+                if (choice.FinishReason is not null)
+                {
+                    update.FinishReason = ToFinishReason(choice.FinishReason);
+                    if (toolCallBuilders.Count > 0)
+                    {
+                        foreach (var (_, builder) in toolCallBuilders)
+                        {
+                            update.Contents.Add(new FunctionCallContent(
+                                builder.Id, builder.Name,
+                                ParseArguments(builder.Args.ToString())));
+                        }
+                        toolCallBuilders.Clear();
+                    }
+                }
 
                 yield return update;
             }
@@ -87,50 +135,6 @@ public partial class Ai21Client : IChatClient
         }
     }
 
-    private static void ProcessStreamingDelta(
-        ChatResponseUpdate update,
-        AnyOf<ChatStreamingFirstDelta, ChatStreamingContentDelta, ChatStreamingToolCallsFirstDelta, ChatStreamingToolCallsDelta> delta)
-    {
-        if (delta.IsValue2 && delta.Value2 is { } contentDelta)
-        {
-            if (!string.IsNullOrEmpty(contentDelta.Content))
-            {
-                update.Contents.Add(new TextContent(contentDelta.Content)
-                {
-                    RawRepresentation = contentDelta,
-                });
-            }
-        }
-        else if (delta.IsValue3 && delta.Value3 is { } toolCallsFirst)
-        {
-            foreach (var toolCall in toolCallsFirst.ToolCalls)
-            {
-                update.Contents.Add(new FunctionCallContent(
-                    callId: toolCall.Id,
-                    name: toolCall.Function.Name,
-                    arguments: null)
-                {
-                    RawRepresentation = toolCall,
-                });
-            }
-        }
-        else if (delta.IsValue4 && delta.Value4 is { } toolCallsDelta)
-        {
-            foreach (var toolCall in toolCallsDelta.ToolCalls)
-            {
-                if (!string.IsNullOrEmpty(toolCall.Function.Arguments))
-                {
-                    update.Contents.Add(new FunctionCallContent(
-                        callId: null,
-                        name: null,
-                        arguments: ParseArguments(toolCall.Function.Arguments))
-                    {
-                        RawRepresentation = toolCall,
-                    });
-                }
-            }
-        }
-    }
 
     private ChatRequest CreateChatRequest(
         IEnumerable<ChatMessage> messages,
