@@ -21,12 +21,10 @@ namespace AI21
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Jamba Execute<br/>
         /// Execute a Jamba request.
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
@@ -216,7 +214,6 @@ namespace AI21
                 }
             }
         }
-
         /// <summary>
         /// Jamba Execute<br/>
         /// Execute a Jamba request.

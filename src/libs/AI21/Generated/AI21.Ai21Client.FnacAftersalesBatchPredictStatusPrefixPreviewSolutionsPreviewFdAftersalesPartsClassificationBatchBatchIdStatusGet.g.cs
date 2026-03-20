@@ -21,7 +21,6 @@ namespace AI21
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Fnac Aftersales Batch Predict Status Prefix Preview
         /// </summary>

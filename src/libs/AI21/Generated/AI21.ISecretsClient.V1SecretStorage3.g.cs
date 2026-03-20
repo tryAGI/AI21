@@ -4,7 +4,6 @@ namespace AI21
 {
     public partial interface ISecretsClient
     {
-
         /// <summary>
         /// Delete Secret
         /// </summary>

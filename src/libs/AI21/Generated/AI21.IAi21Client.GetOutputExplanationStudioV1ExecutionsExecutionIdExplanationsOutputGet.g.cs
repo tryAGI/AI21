@@ -4,7 +4,6 @@ namespace AI21
 {
     public partial interface IAi21Client
     {
-
         /// <summary>
         /// Get Output Explanation<br/>
         /// Get output explanation for an execution (cached or generated).<br/>

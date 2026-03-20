@@ -21,7 +21,6 @@ namespace AI21
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Download Parsed Document<br/>
         /// Download parsed document with Content-Disposition header for immediate download.

@@ -4,7 +4,6 @@ namespace AI21
 {
     public partial interface IAi21Client
     {
-
         /// <summary>
         /// Kirsh Document Upload Process Prefix Preview
         /// </summary>
