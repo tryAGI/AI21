@@ -4,11 +4,13 @@ namespace AI21
 {
     public partial interface IAi21Client
     {
+
         /// <summary>
         /// Update Demo<br/>
         /// Update an existing demo.
         /// </summary>
         /// <param name="demoId"></param>
+
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>

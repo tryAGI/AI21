@@ -4,10 +4,12 @@ namespace AI21
 {
     public partial interface IAi21Client
     {
+
         /// <summary>
         /// Detect Schema
         /// </summary>
         /// <param name="organizationId"></param>
+
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>

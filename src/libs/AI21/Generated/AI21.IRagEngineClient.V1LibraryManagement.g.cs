@@ -4,6 +4,7 @@ namespace AI21
 {
     public partial interface IRagEngineClient
     {
+
         /// <summary>
         /// Get Batch Ingestion Status
         /// </summary>

@@ -4,6 +4,7 @@ namespace AI21
 {
     public partial interface ILibraryManagementClient
     {
+
         /// <summary>
         /// Upload Workspace File<br/>
         /// Upload files to use for [RAG Engine document searches](https://docs.ai21.com/docs/rag-engine-overview).<br/>
@@ -13,6 +14,7 @@ namespace AI21
         /// - **Max library size:** 1 GB total size. No limit to individual file size.<br/>
         /// - **Supported file types:** PDF, DocX, HTML, TXT
         /// </summary>
+
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>

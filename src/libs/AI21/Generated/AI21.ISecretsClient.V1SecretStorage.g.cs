@@ -4,6 +4,7 @@ namespace AI21
 {
     public partial interface ISecretsClient
     {
+
         /// <summary>
         /// Get Secret List
         /// </summary>

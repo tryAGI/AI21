@@ -21,6 +21,7 @@ namespace AI21
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
+
         /// <summary>
         /// Studio Chat Complete<br/>
         /// This is the endpoint for the [Jamba Instruct model](https://docs.ai21.com/docs/jamba-models).<br/>
@@ -29,6 +30,7 @@ namespace AI21
         /// You can optionally stream results if you want to get the response as each<br/>
         /// token is generated, rather than waiting for the entire response.
         /// </summary>
+
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
