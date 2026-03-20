@@ -4,11 +4,9 @@ namespace AI21
 {
     public partial interface IAi21Client
     {
-
         /// <summary>
         /// Mcp Tool Discovery
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
@@ -16,7 +14,6 @@ namespace AI21
 
             global::AI21.MCPDefinition request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Mcp Tool Discovery
         /// </summary>

@@ -21,11 +21,9 @@ namespace AI21
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Create Maestro Run
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
@@ -219,7 +217,6 @@ namespace AI21
                 }
             }
         }
-
         /// <summary>
         /// Create Maestro Run
         /// </summary>

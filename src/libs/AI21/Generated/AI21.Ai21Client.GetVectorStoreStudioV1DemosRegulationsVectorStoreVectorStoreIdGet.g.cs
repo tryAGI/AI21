@@ -21,7 +21,6 @@ namespace AI21
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Get Vector Store<br/>
         /// Get a vector store by ID.

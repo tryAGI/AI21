@@ -4,12 +4,10 @@ namespace AI21
 {
     public partial interface IAi21Client
     {
-
         /// <summary>
         /// Upload Check Compliance<br/>
         /// Check compliance of a document file against regulatory requirements.
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
@@ -17,7 +15,6 @@ namespace AI21
 
             global::AI21.BodyUploadCheckComplianceStudioV1DemosRegulationsUploadCheckCompliancePost request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Upload Check Compliance<br/>
         /// Check compliance of a document file against regulatory requirements.

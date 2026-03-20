@@ -4,7 +4,6 @@ namespace AI21
 {
     public partial interface IRagEngineClient
     {
-
         /// <summary>
         /// Download Parsed Document<br/>
         /// Download parsed document with Content-Disposition header for immediate download.

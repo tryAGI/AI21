@@ -21,7 +21,6 @@ namespace AI21
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Delete File<br/>
         /// Delete the specified file from the library.<br/>

@@ -19,7 +19,6 @@ namespace AI21
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Fnac V1 Deprecated Classifications Prefix Preview
         /// </summary>

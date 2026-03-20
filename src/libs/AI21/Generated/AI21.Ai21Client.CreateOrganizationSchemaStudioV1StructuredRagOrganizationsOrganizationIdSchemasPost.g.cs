@@ -23,12 +23,10 @@ namespace AI21
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Create Organization Schema
         /// </summary>
         /// <param name="organizationId"></param>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
@@ -221,7 +219,6 @@ namespace AI21
                 }
             }
         }
-
         /// <summary>
         /// Create Organization Schema
         /// </summary>

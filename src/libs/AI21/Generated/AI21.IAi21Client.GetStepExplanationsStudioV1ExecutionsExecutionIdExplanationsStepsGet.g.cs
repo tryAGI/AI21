@@ -4,7 +4,6 @@ namespace AI21
 {
     public partial interface IAi21Client
     {
-
         /// <summary>
         /// Get Step Explanations<br/>
         /// Get step explanations for an execution (cached or generated).<br/>

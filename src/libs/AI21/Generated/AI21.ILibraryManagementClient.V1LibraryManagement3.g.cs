@@ -4,7 +4,6 @@ namespace AI21
 {
     public partial interface ILibraryManagementClient
     {
-
         /// <summary>
         /// Update File<br/>
         /// Update the specified parameters of a specific document in the user's library.<br/>
@@ -17,7 +16,6 @@ namespace AI21
         /// &gt; add "New Label C" and "New Label D" to the list, you must specify `"labels": ["Label A", "Label B", "New Label C", "New Label D"]`.
         /// </summary>
         /// <param name="fileId"></param>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
@@ -26,7 +24,6 @@ namespace AI21
 
             global::AI21.FilesUpdateRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Update File<br/>
         /// Update the specified parameters of a specific document in the user's library.<br/>

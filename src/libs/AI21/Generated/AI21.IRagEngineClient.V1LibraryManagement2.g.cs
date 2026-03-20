@@ -4,7 +4,6 @@ namespace AI21
 {
     public partial interface IRagEngineClient
     {
-
         /// <summary>
         /// Generate Documents Signed Url
         /// </summary>

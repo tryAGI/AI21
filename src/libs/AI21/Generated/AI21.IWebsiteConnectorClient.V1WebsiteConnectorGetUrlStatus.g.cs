@@ -4,7 +4,6 @@ namespace AI21
 {
     public partial interface IWebsiteConnectorClient
     {
-
         /// <summary>
         /// Get Url Status
         /// </summary>

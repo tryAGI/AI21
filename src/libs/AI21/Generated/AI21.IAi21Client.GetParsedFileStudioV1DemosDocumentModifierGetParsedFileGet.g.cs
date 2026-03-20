@@ -4,7 +4,6 @@ namespace AI21
 {
     public partial interface IAi21Client
     {
-
         /// <summary>
         /// Get Parsed File<br/>
         /// Get the parsed file from the document modifier.

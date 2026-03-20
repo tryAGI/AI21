@@ -23,7 +23,6 @@ namespace AI21
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Get Step Explanations<br/>
         /// Get step explanations for an execution (cached or generated).<br/>

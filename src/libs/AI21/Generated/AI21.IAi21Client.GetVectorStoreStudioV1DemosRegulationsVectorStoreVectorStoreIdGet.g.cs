@@ -4,7 +4,6 @@ namespace AI21
 {
     public partial interface IAi21Client
     {
-
         /// <summary>
         /// Get Vector Store<br/>
         /// Get a vector store by ID.
