@@ -50,7 +50,7 @@ namespace AI21
                 path: $"/studio/v1/executions/{executionId}/explanations/output",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
-                .AddOptionalParameter("force_regenerate", forceRegenerate?.ToString()) 
+                .AddOptionalParameter("force_regenerate", forceRegenerate?.ToString().ToLowerInvariant()) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
