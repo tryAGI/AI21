@@ -11,15 +11,15 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
+        High,
+        /// <summary>
+        /// 
+        /// </summary>
         Low,
         /// <summary>
         /// 
         /// </summary>
         Medium,
-        /// <summary>
-        /// 
-        /// </summary>
-        High,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace AI21
         {
             return value switch
             {
+                BudgetLevel.High => "high",
                 BudgetLevel.Low => "low",
                 BudgetLevel.Medium => "medium",
-                BudgetLevel.High => "high",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace AI21
         {
             return value switch
             {
+                "high" => BudgetLevel.High,
                 "low" => BudgetLevel.Low,
                 "medium" => BudgetLevel.Medium,
-                "high" => BudgetLevel.High,
                 _ => null,
             };
         }

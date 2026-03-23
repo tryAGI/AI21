@@ -11,11 +11,11 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        User,
+        Assistant,
         /// <summary>
         /// 
         /// </summary>
-        Assistant,
+        System,
         /// <summary>
         /// 
         /// </summary>
@@ -23,7 +23,7 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        System,
+        User,
     }
 
     /// <summary>
@@ -38,10 +38,10 @@ namespace AI21
         {
             return value switch
             {
-                ChatRequestMessageDiscriminatorRole.User => "user",
                 ChatRequestMessageDiscriminatorRole.Assistant => "assistant",
-                ChatRequestMessageDiscriminatorRole.Tool => "tool",
                 ChatRequestMessageDiscriminatorRole.System => "system",
+                ChatRequestMessageDiscriminatorRole.Tool => "tool",
+                ChatRequestMessageDiscriminatorRole.User => "user",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +52,10 @@ namespace AI21
         {
             return value switch
             {
-                "user" => ChatRequestMessageDiscriminatorRole.User,
                 "assistant" => ChatRequestMessageDiscriminatorRole.Assistant,
-                "tool" => ChatRequestMessageDiscriminatorRole.Tool,
                 "system" => ChatRequestMessageDiscriminatorRole.System,
+                "tool" => ChatRequestMessageDiscriminatorRole.Tool,
+                "user" => ChatRequestMessageDiscriminatorRole.User,
                 _ => null,
             };
         }

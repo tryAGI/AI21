@@ -15,11 +15,11 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        Idle,
+        Errored,
         /// <summary>
         /// 
         /// </summary>
-        Errored,
+        Idle,
         /// <summary>
         /// 
         /// </summary>
@@ -39,8 +39,8 @@ namespace AI21
             return value switch
             {
                 ParagonSyncStatus.Active => "ACTIVE",
-                ParagonSyncStatus.Idle => "IDLE",
                 ParagonSyncStatus.Errored => "ERRORED",
+                ParagonSyncStatus.Idle => "IDLE",
                 ParagonSyncStatus.Paused => "PAUSED",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -53,8 +53,8 @@ namespace AI21
             return value switch
             {
                 "ACTIVE" => ParagonSyncStatus.Active,
-                "IDLE" => ParagonSyncStatus.Idle,
                 "ERRORED" => ParagonSyncStatus.Errored,
+                "IDLE" => ParagonSyncStatus.Idle,
                 "PAUSED" => ParagonSyncStatus.Paused,
                 _ => null,
             };

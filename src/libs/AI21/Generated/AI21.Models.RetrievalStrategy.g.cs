@@ -11,7 +11,7 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        Segments,
+        AddNeighbors,
         /// <summary>
         /// 
         /// </summary>
@@ -19,11 +19,11 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        AddNeighbors,
+        FullDoc,
         /// <summary>
         /// 
         /// </summary>
-        FullDoc,
+        Segments,
     }
 
     /// <summary>
@@ -38,10 +38,10 @@ namespace AI21
         {
             return value switch
             {
-                RetrievalStrategy.Segments => "segments",
-                RetrievalStrategy.Default => "default",
                 RetrievalStrategy.AddNeighbors => "add_neighbors",
+                RetrievalStrategy.Default => "default",
                 RetrievalStrategy.FullDoc => "full_doc",
+                RetrievalStrategy.Segments => "segments",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +52,10 @@ namespace AI21
         {
             return value switch
             {
-                "segments" => RetrievalStrategy.Segments,
-                "default" => RetrievalStrategy.Default,
                 "add_neighbors" => RetrievalStrategy.AddNeighbors,
+                "default" => RetrievalStrategy.Default,
                 "full_doc" => RetrievalStrategy.FullDoc,
+                "segments" => RetrievalStrategy.Segments,
                 _ => null,
             };
         }

@@ -11,15 +11,15 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
+        CustomHeader,
+        /// <summary>
+        /// 
+        /// </summary>
         None,
         /// <summary>
         /// 
         /// </summary>
         TokenApi,
-        /// <summary>
-        /// 
-        /// </summary>
-        CustomHeader,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace AI21
         {
             return value switch
             {
+                AuthenticationType.CustomHeader => "custom-header",
                 AuthenticationType.None => "none",
                 AuthenticationType.TokenApi => "token-api",
-                AuthenticationType.CustomHeader => "custom-header",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace AI21
         {
             return value switch
             {
+                "custom-header" => AuthenticationType.CustomHeader,
                 "none" => AuthenticationType.None,
                 "token-api" => AuthenticationType.TokenApi,
-                "custom-header" => AuthenticationType.CustomHeader,
                 _ => null,
             };
         }
