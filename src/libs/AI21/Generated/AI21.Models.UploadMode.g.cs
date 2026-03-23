@@ -11,11 +11,11 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        Immediate,
+        Batch,
         /// <summary>
         /// 
         /// </summary>
-        Batch,
+        Immediate,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace AI21
         {
             return value switch
             {
-                UploadMode.Immediate => "immediate",
                 UploadMode.Batch => "batch",
+                UploadMode.Immediate => "immediate",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace AI21
         {
             return value switch
             {
-                "immediate" => UploadMode.Immediate,
                 "batch" => UploadMode.Batch,
+                "immediate" => UploadMode.Immediate,
                 _ => null,
             };
         }

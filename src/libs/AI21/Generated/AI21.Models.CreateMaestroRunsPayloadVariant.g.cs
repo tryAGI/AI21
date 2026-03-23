@@ -11,11 +11,11 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        Main,
+        Ingestion,
         /// <summary>
         /// 
         /// </summary>
-        Ingestion,
+        Main,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace AI21
         {
             return value switch
             {
-                CreateMaestroRunsPayloadVariant.Main => "main",
                 CreateMaestroRunsPayloadVariant.Ingestion => "ingestion",
+                CreateMaestroRunsPayloadVariant.Main => "main",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace AI21
         {
             return value switch
             {
-                "main" => CreateMaestroRunsPayloadVariant.Main,
                 "ingestion" => CreateMaestroRunsPayloadVariant.Ingestion,
+                "main" => CreateMaestroRunsPayloadVariant.Main,
                 _ => null,
             };
         }

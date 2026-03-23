@@ -11,15 +11,15 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
+        FileSearch,
+        /// <summary>
+        /// 
+        /// </summary>
         Http,
         /// <summary>
         /// 
         /// </summary>
         Mcp,
-        /// <summary>
-        /// 
-        /// </summary>
-        FileSearch,
         /// <summary>
         /// 
         /// </summary>
@@ -38,9 +38,9 @@ namespace AI21
         {
             return value switch
             {
+                LanguageStudioApiServerDataTypesExecutionEngineToolDefinitionDiscriminatorType.FileSearch => "file_search",
                 LanguageStudioApiServerDataTypesExecutionEngineToolDefinitionDiscriminatorType.Http => "http",
                 LanguageStudioApiServerDataTypesExecutionEngineToolDefinitionDiscriminatorType.Mcp => "mcp",
-                LanguageStudioApiServerDataTypesExecutionEngineToolDefinitionDiscriminatorType.FileSearch => "file_search",
                 LanguageStudioApiServerDataTypesExecutionEngineToolDefinitionDiscriminatorType.WebSearch => "web_search",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -52,9 +52,9 @@ namespace AI21
         {
             return value switch
             {
+                "file_search" => LanguageStudioApiServerDataTypesExecutionEngineToolDefinitionDiscriminatorType.FileSearch,
                 "http" => LanguageStudioApiServerDataTypesExecutionEngineToolDefinitionDiscriminatorType.Http,
                 "mcp" => LanguageStudioApiServerDataTypesExecutionEngineToolDefinitionDiscriminatorType.Mcp,
-                "file_search" => LanguageStudioApiServerDataTypesExecutionEngineToolDefinitionDiscriminatorType.FileSearch,
                 "web_search" => LanguageStudioApiServerDataTypesExecutionEngineToolDefinitionDiscriminatorType.WebSearch,
                 _ => null,
             };

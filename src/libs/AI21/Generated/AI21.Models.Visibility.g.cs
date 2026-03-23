@@ -11,11 +11,11 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        Public,
+        Private,
         /// <summary>
         /// 
         /// </summary>
-        Private,
+        Public,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace AI21
         {
             return value switch
             {
-                Visibility.Public => "public",
                 Visibility.Private => "private",
+                Visibility.Public => "public",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace AI21
         {
             return value switch
             {
-                "public" => Visibility.Public,
                 "private" => Visibility.Private,
+                "public" => Visibility.Public,
                 _ => null,
             };
         }

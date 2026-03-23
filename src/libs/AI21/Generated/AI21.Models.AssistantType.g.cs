@@ -11,11 +11,11 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        Default,
+        Chat,
         /// <summary>
         /// 
         /// </summary>
-        Chat,
+        Default,
         /// <summary>
         /// 
         /// </summary>
@@ -34,8 +34,8 @@ namespace AI21
         {
             return value switch
             {
-                AssistantType.Default => "default",
                 AssistantType.Chat => "chat",
+                AssistantType.Default => "default",
                 AssistantType.Maestro => "maestro",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -47,8 +47,8 @@ namespace AI21
         {
             return value switch
             {
-                "default" => AssistantType.Default,
                 "chat" => AssistantType.Chat,
+                "default" => AssistantType.Default,
                 "maestro" => AssistantType.Maestro,
                 _ => null,
             };

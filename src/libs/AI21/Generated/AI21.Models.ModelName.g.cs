@@ -11,10 +11,6 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
-        JambaMini,
-        /// <summary>
-        /// 
-        /// </summary>
         JambaLarge,
         /// <summary>
         /// 
@@ -24,6 +20,10 @@ namespace AI21
         /// 
         /// </summary>
         JambaLarge17202507,
+        /// <summary>
+        /// 
+        /// </summary>
+        JambaMini,
         /// <summary>
         /// 
         /// </summary>
@@ -46,10 +46,10 @@ namespace AI21
         {
             return value switch
             {
-                ModelName.JambaMini => "jamba-mini",
                 ModelName.JambaLarge => "jamba-large",
                 ModelName.JambaLarge17 => "jamba-large-1.7",
                 ModelName.JambaLarge17202507 => "jamba-large-1.7-2025-07",
+                ModelName.JambaMini => "jamba-mini",
                 ModelName.JambaMini2 => "jamba-mini-2",
                 ModelName.JambaMini2202601 => "jamba-mini-2-2026-01",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -62,10 +62,10 @@ namespace AI21
         {
             return value switch
             {
-                "jamba-mini" => ModelName.JambaMini,
                 "jamba-large" => ModelName.JambaLarge,
                 "jamba-large-1.7" => ModelName.JambaLarge17,
                 "jamba-large-1.7-2025-07" => ModelName.JambaLarge17202507,
+                "jamba-mini" => ModelName.JambaMini,
                 "jamba-mini-2" => ModelName.JambaMini2,
                 "jamba-mini-2-2026-01" => ModelName.JambaMini2202601,
                 _ => null,

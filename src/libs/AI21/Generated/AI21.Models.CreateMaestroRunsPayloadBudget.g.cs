@@ -11,15 +11,15 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
+        High,
+        /// <summary>
+        /// 
+        /// </summary>
         Low,
         /// <summary>
         /// 
         /// </summary>
         Medium,
-        /// <summary>
-        /// 
-        /// </summary>
-        High,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace AI21
         {
             return value switch
             {
+                CreateMaestroRunsPayloadBudget.High => "high",
                 CreateMaestroRunsPayloadBudget.Low => "low",
                 CreateMaestroRunsPayloadBudget.Medium => "medium",
-                CreateMaestroRunsPayloadBudget.High => "high",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace AI21
         {
             return value switch
             {
+                "high" => CreateMaestroRunsPayloadBudget.High,
                 "low" => CreateMaestroRunsPayloadBudget.Low,
                 "medium" => CreateMaestroRunsPayloadBudget.Medium,
-                "high" => CreateMaestroRunsPayloadBudget.High,
                 _ => null,
             };
         }
