@@ -136,7 +136,7 @@ public partial class Ai21Client : IChatClient
     }
 
 
-    private ChatRequest CreateChatRequest(
+    private static ChatRequest CreateChatRequest(
         IEnumerable<ChatMessage> messages,
         ChatOptions? options)
     {
