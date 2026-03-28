@@ -29,7 +29,7 @@ namespace AI21.JsonConverters
 
             var __score0 = 0;
             {
-                var __ti = typeInfoResolver.GetTypeInfo(typeof(object), options);
+                var __ti = typeInfoResolver.GetTypeInfo(typeof(global::AI21.ComparisonOperator), options);
                 if (__ti != null && __ti.Kind == global::System.Text.Json.Serialization.Metadata.JsonTypeInfoKind.Object)
                 {
                     foreach (var __prop in __ti.Properties)
@@ -51,7 +51,7 @@ namespace AI21.JsonConverters
             }
             var __score2 = 0;
             {
-                var __ti = typeInfoResolver.GetTypeInfo(typeof(global::System.Collections.Generic.Dictionary<string, object>), options);
+                var __ti = typeInfoResolver.GetTypeInfo(typeof(global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>), options);
                 if (__ti != null && __ti.Kind == global::System.Text.Json.Serialization.Metadata.JsonTypeInfoKind.Object)
                 {
                     foreach (var __prop in __ti.Properties)
@@ -66,9 +66,9 @@ namespace AI21.JsonConverters
             if (__score1 > __bestScore) { __bestScore = __score1; __bestIndex = 1; }
             if (__score2 > __bestScore) { __bestScore = __score2; __bestIndex = 2; }
 
-            object? comparisonOperator = default;
+            global::AI21.ComparisonOperator? comparisonOperator = default;
             global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<object>>? logicalOperator = default;
-            global::System.Collections.Generic.Dictionary<string, object>? value3 = default;
+            global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>? value3 = default;
             if (__bestIndex >= 0)
             {
                 if (__bestIndex == 0)
@@ -76,8 +76,8 @@ namespace AI21.JsonConverters
                     try
                     {
 
-                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(object), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<object> ??
-                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(object).Name}");
+                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::AI21.ComparisonOperator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::AI21.ComparisonOperator> ??
+                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::AI21.ComparisonOperator).Name}");
                         comparisonOperator = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                     }
                     catch (global::System.Text.Json.JsonException)
@@ -110,8 +110,8 @@ namespace AI21.JsonConverters
                     try
                     {
 
-                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::System.Collections.Generic.Dictionary<string, object>), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::System.Collections.Generic.Dictionary<string, object>> ??
-                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::System.Collections.Generic.Dictionary<string, object>).Name}");
+                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>> ??
+                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>).Name}");
                         value3 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                     }
                     catch (global::System.Text.Json.JsonException)
@@ -128,8 +128,8 @@ namespace AI21.JsonConverters
                 try
                 {
 
-                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(object), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<object> ??
-                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(object).Name}");
+                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::AI21.ComparisonOperator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::AI21.ComparisonOperator> ??
+                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::AI21.ComparisonOperator).Name}");
                     comparisonOperator = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                 }
                 catch (global::System.Text.Json.JsonException)
@@ -156,8 +156,8 @@ namespace AI21.JsonConverters
                 try
                 {
 
-                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::System.Collections.Generic.Dictionary<string, object>), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::System.Collections.Generic.Dictionary<string, object>> ??
-                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::System.Collections.Generic.Dictionary<string, object>).Name}");
+                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>> ??
+                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>).Name}");
                     value3 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                 }
                 catch (global::System.Text.Json.JsonException)
@@ -190,8 +190,8 @@ namespace AI21.JsonConverters
 
             if (value.IsComparisonOperator)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(object), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<object?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(object).Name}");
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::AI21.ComparisonOperator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::AI21.ComparisonOperator?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::AI21.ComparisonOperator).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.ComparisonOperator, typeInfo);
             }
             else if (value.IsLogicalOperator)
@@ -202,8 +202,8 @@ namespace AI21.JsonConverters
             }
             else if (value.IsValue3)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::System.Collections.Generic.Dictionary<string, object>), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::System.Collections.Generic.Dictionary<string, object>?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::System.Collections.Generic.Dictionary<string, object>).Name}");
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.Value3, typeInfo);
             }
         }
