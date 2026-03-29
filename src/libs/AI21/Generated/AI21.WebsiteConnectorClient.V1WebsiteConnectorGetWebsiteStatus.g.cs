@@ -41,7 +41,7 @@ namespace AI21
                 path: "/studio/v1/website-connector/website-status",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
-                .AddRequiredParameter("website_id", websiteId.ToString()) 
+                .AddRequiredParameter("website_id", websiteId.ToString()!) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
