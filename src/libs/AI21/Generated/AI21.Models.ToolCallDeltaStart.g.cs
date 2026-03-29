@@ -53,8 +53,8 @@ namespace AI21
         /// for all responses in the stream.
         /// </param>
         /// <param name="index"></param>
-        /// <param name="type"></param>
         /// <param name="function"></param>
+        /// <param name="type"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -66,8 +66,8 @@ namespace AI21
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Index = index;
-            this.Function = function ?? throw new global::System.ArgumentNullException(nameof(function));
             this.Type = type;
+            this.Function = function ?? throw new global::System.ArgumentNullException(nameof(function));
         }
 
         /// <summary>

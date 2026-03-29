@@ -68,8 +68,8 @@ namespace AI21
         /// <param name="createdAt"></param>
         /// <param name="updatedAt"></param>
         /// <param name="code"></param>
-        /// <param name="schemas"></param>
         /// <param name="assistantId"></param>
+        /// <param name="schemas"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -85,8 +85,8 @@ namespace AI21
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
             this.Code = code ?? throw new global::System.ArgumentNullException(nameof(code));
-            this.AssistantId = assistantId ?? throw new global::System.ArgumentNullException(nameof(assistantId));
             this.Schemas = schemas;
+            this.AssistantId = assistantId ?? throw new global::System.ArgumentNullException(nameof(assistantId));
         }
 
         /// <summary>

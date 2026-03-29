@@ -51,12 +51,12 @@ namespace AI21
         /// <summary>
         /// Initializes a new instance of the <see cref="ConnectorConnectionStatus" /> class.
         /// </summary>
-        /// <param name="latestUpdated"></param>
         /// <param name="filesIndexed"></param>
         /// <param name="creationDate"></param>
         /// <param name="status">
         /// An enumeration.
         /// </param>
+        /// <param name="latestUpdated"></param>
         /// <param name="lastSyncedAt"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -68,10 +68,10 @@ namespace AI21
             global::System.DateTime? latestUpdated,
             string? lastSyncedAt)
         {
+            this.LatestUpdated = latestUpdated;
             this.FilesIndexed = filesIndexed;
             this.CreationDate = creationDate;
             this.Status = status;
-            this.LatestUpdated = latestUpdated;
             this.LastSyncedAt = lastSyncedAt;
         }
 

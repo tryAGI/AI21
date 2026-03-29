@@ -31,8 +31,8 @@ namespace AI21
         /// <summary>
         /// Initializes a new instance of the <see cref="LanguageStudioApiServerDataTypesChatToolDefinition" /> class.
         /// </summary>
-        /// <param name="type"></param>
         /// <param name="function"></param>
+        /// <param name="type"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -40,8 +40,8 @@ namespace AI21
             global::AI21.FunctionToolDefinition function,
             global::AI21.LanguageStudioApiServerDataTypesChatToolDefinitionType type)
         {
-            this.Function = function ?? throw new global::System.ArgumentNullException(nameof(function));
             this.Type = type;
+            this.Function = function ?? throw new global::System.ArgumentNullException(nameof(function));
         }
 
         /// <summary>

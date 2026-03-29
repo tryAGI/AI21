@@ -62,11 +62,11 @@ namespace AI21
         /// <param name="status">
         /// Status of the demo (active/inactive)
         /// </param>
-        /// <param name="config">
-        /// Demo configuration
-        /// </param>
         /// <param name="uiComponentName">
         /// Name of the UI component
+        /// </param>
+        /// <param name="config">
+        /// Demo configuration
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -81,8 +81,8 @@ namespace AI21
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Visibility = visibility;
             this.Status = status;
-            this.UiComponentName = uiComponentName ?? throw new global::System.ArgumentNullException(nameof(uiComponentName));
             this.Config = config;
+            this.UiComponentName = uiComponentName ?? throw new global::System.ArgumentNullException(nameof(uiComponentName));
         }
 
         /// <summary>

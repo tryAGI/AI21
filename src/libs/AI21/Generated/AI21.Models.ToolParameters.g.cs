@@ -38,11 +38,11 @@ namespace AI21
         /// <summary>
         /// Initializes a new instance of the <see cref="ToolParameters" /> class.
         /// </summary>
+        /// <param name="properties"></param>
         /// <param name="type">
         /// Type of the parameter schema, only `object` is supported<br/>
         /// Default Value: object
         /// </param>
-        /// <param name="properties"></param>
         /// <param name="required">
         /// List of required properties
         /// </param>
@@ -54,8 +54,8 @@ namespace AI21
             global::AI21.ToolParametersType? type,
             global::System.Collections.Generic.IList<string>? required)
         {
-            this.Properties = properties ?? throw new global::System.ArgumentNullException(nameof(properties));
             this.Type = type;
+            this.Properties = properties ?? throw new global::System.ArgumentNullException(nameof(properties));
             this.Required = required;
         }
 

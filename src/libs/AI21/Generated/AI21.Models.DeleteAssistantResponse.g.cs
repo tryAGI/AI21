@@ -38,16 +38,16 @@ namespace AI21
         /// <summary>
         /// Initializes a new instance of the <see cref="DeleteAssistantResponse" /> class.
         /// </summary>
+        /// <param name="id">
+        /// A unique ID for the request (not the message). Repeated identical requests<br/>
+        /// get different IDs. However, for a streaming response, the ID will be the same<br/>
+        /// for all responses in the stream.
+        /// </param>
         /// <param name="object">
         /// Default Value: assistant
         /// </param>
         /// <param name="deleted">
         /// Default Value: true
-        /// </param>
-        /// <param name="id">
-        /// A unique ID for the request (not the message). Repeated identical requests<br/>
-        /// get different IDs. However, for a streaming response, the ID will be the same<br/>
-        /// for all responses in the stream.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -57,9 +57,9 @@ namespace AI21
             string? @object,
             bool? deleted)
         {
-            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Object = @object;
             this.Deleted = deleted;
+            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
         }
 
         /// <summary>
