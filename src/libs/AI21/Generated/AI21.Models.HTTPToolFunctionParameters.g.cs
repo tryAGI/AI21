@@ -38,11 +38,11 @@ namespace AI21
         /// <summary>
         /// Initializes a new instance of the <see cref="HTTPToolFunctionParameters" /> class.
         /// </summary>
+        /// <param name="properties"></param>
+        /// <param name="required"></param>
         /// <param name="type">
         /// Default Value: object
         /// </param>
-        /// <param name="properties"></param>
-        /// <param name="required"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -51,9 +51,9 @@ namespace AI21
             global::System.Collections.Generic.IList<string> required,
             global::AI21.HTTPToolFunctionParametersType? type)
         {
+            this.Type = type;
             this.Properties = properties ?? throw new global::System.ArgumentNullException(nameof(properties));
             this.Required = required ?? throw new global::System.ArgumentNullException(nameof(required));
-            this.Type = type;
         }
 
         /// <summary>

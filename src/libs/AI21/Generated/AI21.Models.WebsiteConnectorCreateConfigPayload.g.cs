@@ -57,14 +57,14 @@ namespace AI21
         /// Initializes a new instance of the <see cref="WebsiteConnectorCreateConfigPayload" /> class.
         /// </summary>
         /// <param name="name"></param>
+        /// <param name="skipUrlPatterns"></param>
+        /// <param name="targetFileExtensions"></param>
         /// <param name="extractLinkedFiles">
         /// Default Value: false
         /// </param>
         /// <param name="waitForDynamicContent">
         /// Default Value: false
         /// </param>
-        /// <param name="skipUrlPatterns"></param>
-        /// <param name="targetFileExtensions"></param>
         /// <param name="localization"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -78,10 +78,10 @@ namespace AI21
             string? localization)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.SkipUrlPatterns = skipUrlPatterns ?? throw new global::System.ArgumentNullException(nameof(skipUrlPatterns));
-            this.TargetFileExtensions = targetFileExtensions ?? throw new global::System.ArgumentNullException(nameof(targetFileExtensions));
             this.ExtractLinkedFiles = extractLinkedFiles;
             this.WaitForDynamicContent = waitForDynamicContent;
+            this.SkipUrlPatterns = skipUrlPatterns ?? throw new global::System.ArgumentNullException(nameof(skipUrlPatterns));
+            this.TargetFileExtensions = targetFileExtensions ?? throw new global::System.ArgumentNullException(nameof(targetFileExtensions));
             this.Localization = localization;
         }
 

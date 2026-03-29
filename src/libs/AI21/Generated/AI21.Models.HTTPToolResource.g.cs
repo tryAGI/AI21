@@ -38,11 +38,11 @@ namespace AI21
         /// <summary>
         /// Initializes a new instance of the <see cref="HTTPToolResource" /> class.
         /// </summary>
+        /// <param name="function"></param>
+        /// <param name="endpoint"></param>
         /// <param name="type">
         /// Default Value: http
         /// </param>
-        /// <param name="function"></param>
-        /// <param name="endpoint"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -51,9 +51,9 @@ namespace AI21
             global::AI21.HTTPToolEndpoint endpoint,
             global::AI21.HTTPToolResourceType? type)
         {
+            this.Type = type;
             this.Function = function ?? throw new global::System.ArgumentNullException(nameof(function));
             this.Endpoint = endpoint ?? throw new global::System.ArgumentNullException(nameof(endpoint));
-            this.Type = type;
         }
 
         /// <summary>

@@ -48,6 +48,8 @@ namespace AI21
         /// <summary>
         /// Initializes a new instance of the <see cref="ToolMessage" /> class.
         /// </summary>
+        /// <param name="content"></param>
+        /// <param name="toolCallId"></param>
         /// <param name="role">
         /// The role of an individual message.<br/>
         /// - `user`:  Input provided by the user. Any instructions given here that conflict<br/>
@@ -61,8 +63,6 @@ namespace AI21
         ///   charming French accent."<br/>
         /// Default Value: tool
         /// </param>
-        /// <param name="content"></param>
-        /// <param name="toolCallId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -71,9 +71,9 @@ namespace AI21
             string toolCallId,
             global::AI21.ToolMessageRole? role)
         {
+            this.Role = role;
             this.Content = content ?? throw new global::System.ArgumentNullException(nameof(content));
             this.ToolCallId = toolCallId ?? throw new global::System.ArgumentNullException(nameof(toolCallId));
-            this.Role = role;
         }
 
         /// <summary>

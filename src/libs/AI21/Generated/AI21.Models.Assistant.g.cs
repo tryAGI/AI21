@@ -184,11 +184,11 @@ namespace AI21
         /// <param name="updatedAt"></param>
         /// <param name="object"></param>
         /// <param name="name"></param>
+        /// <param name="organizationId"></param>
+        /// <param name="userId"></param>
         /// <param name="description"></param>
         /// <param name="optimization"></param>
-        /// <param name="organizationId"></param>
         /// <param name="workspaceId"></param>
-        /// <param name="userId"></param>
         /// <param name="avatar"></param>
         /// <param name="isArchived">
         /// Default Value: false
@@ -247,11 +247,11 @@ namespace AI21
             this.UpdatedAt = updatedAt;
             this.Object = @object ?? throw new global::System.ArgumentNullException(nameof(@object));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.OrganizationId = organizationId ?? throw new global::System.ArgumentNullException(nameof(organizationId));
-            this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
             this.Description = description;
             this.Optimization = optimization;
+            this.OrganizationId = organizationId ?? throw new global::System.ArgumentNullException(nameof(organizationId));
             this.WorkspaceId = workspaceId;
+            this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
             this.Avatar = avatar;
             this.IsArchived = isArchived;
             this.Models = models;

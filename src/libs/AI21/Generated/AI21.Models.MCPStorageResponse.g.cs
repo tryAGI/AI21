@@ -93,8 +93,8 @@ namespace AI21
         /// <param name="serverUrl"></param>
         /// <param name="serverLabel"></param>
         /// <param name="organizationId"></param>
-        /// <param name="workspaceId"></param>
         /// <param name="userId"></param>
+        /// <param name="workspaceId"></param>
         /// <param name="authenticationType">
         /// An enumeration.
         /// </param>
@@ -120,8 +120,8 @@ namespace AI21
             this.ServerUrl = serverUrl ?? throw new global::System.ArgumentNullException(nameof(serverUrl));
             this.ServerLabel = serverLabel ?? throw new global::System.ArgumentNullException(nameof(serverLabel));
             this.OrganizationId = organizationId;
-            this.UserId = userId;
             this.WorkspaceId = workspaceId;
+            this.UserId = userId;
             this.AuthenticationType = authenticationType;
             this.AuthHeaderName = authHeaderName;
             this.AuthSecretKey = authSecretKey;
