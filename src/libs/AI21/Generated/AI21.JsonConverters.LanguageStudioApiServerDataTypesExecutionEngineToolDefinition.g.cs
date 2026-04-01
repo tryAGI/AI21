@@ -77,25 +77,25 @@ namespace AI21.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::AI21.HTTPToolResource), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::AI21.HTTPToolResource?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::AI21.HTTPToolResource).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Http, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Http!, typeInfo);
             }
             else if (value.IsMcp)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::AI21.MCPToolResource), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::AI21.MCPToolResource?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::AI21.MCPToolResource).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Mcp, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Mcp!, typeInfo);
             }
             else if (value.IsFileSearch)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::AI21.FileSearchToolResource), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::AI21.FileSearchToolResource?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::AI21.FileSearchToolResource).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.FileSearch, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.FileSearch!, typeInfo);
             }
             else if (value.IsWebSearch)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::AI21.WebSearchToolResource), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::AI21.WebSearchToolResource?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::AI21.WebSearchToolResource).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.WebSearch, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.WebSearch!, typeInfo);
             }
         }
     }
