@@ -5,6 +5,25 @@ namespace AI21
 {
     public partial class LibraryManagementClient
     {
+
+
+        private static readonly global::AI21.EndPointSecurityRequirement s_V1LibraryDeleteSecurityRequirement0 =
+            new global::AI21.EndPointSecurityRequirement
+            {
+                Authorizations = new global::AI21.EndPointAuthorizationRequirement[]
+                {                    new global::AI21.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::AI21.EndPointSecurityRequirement[] s_V1LibraryDeleteSecurityRequirements =
+            new global::AI21.EndPointSecurityRequirement[]
+            {                s_V1LibraryDeleteSecurityRequirement0,
+            };
         partial void PrepareV1LibraryDeleteArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref global::System.Guid fileId);
@@ -40,9 +59,15 @@ namespace AI21
                 httpClient: HttpClient,
                 fileId: ref fileId);
 
+
+            var __authorizations = global::AI21.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_V1LibraryDeleteSecurityRequirements,
+                operationName: "V1LibraryDeleteAsync");
+
             var __pathBuilder = new global::AI21.PathBuilder(
                 path: $"/studio/v1/library/files/{fileId}",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Delete,
@@ -52,7 +77,7 @@ namespace AI21
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

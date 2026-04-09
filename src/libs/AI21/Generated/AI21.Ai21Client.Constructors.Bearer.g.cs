@@ -6,6 +6,7 @@ namespace AI21
     public sealed partial class Ai21Client
     {
         /// <inheritdoc cref="Ai21Client(global::System.Net.Http.HttpClient?, global::System.Uri?, global::System.Collections.Generic.List{global::AI21.EndPointAuthorization}?, bool)"/>
+
         public Ai21Client(
             string apiKey,
             global::System.Net.Http.HttpClient? httpClient = null,

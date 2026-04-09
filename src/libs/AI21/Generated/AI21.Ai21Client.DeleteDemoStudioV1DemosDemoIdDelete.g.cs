@@ -5,6 +5,25 @@ namespace AI21
 {
     public partial class Ai21Client
     {
+
+
+        private static readonly global::AI21.EndPointSecurityRequirement s_DeleteDemoStudioV1DemosDemoIdDeleteSecurityRequirement0 =
+            new global::AI21.EndPointSecurityRequirement
+            {
+                Authorizations = new global::AI21.EndPointAuthorizationRequirement[]
+                {                    new global::AI21.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::AI21.EndPointSecurityRequirement[] s_DeleteDemoStudioV1DemosDemoIdDeleteSecurityRequirements =
+            new global::AI21.EndPointSecurityRequirement[]
+            {                s_DeleteDemoStudioV1DemosDemoIdDeleteSecurityRequirement0,
+            };
         partial void PrepareDeleteDemoStudioV1DemosDemoIdDeleteArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string demoId);
@@ -38,9 +57,15 @@ namespace AI21
                 httpClient: HttpClient,
                 demoId: ref demoId);
 
+
+            var __authorizations = global::AI21.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_DeleteDemoStudioV1DemosDemoIdDeleteSecurityRequirements,
+                operationName: "DeleteDemoStudioV1DemosDemoIdDeleteAsync");
+
             var __pathBuilder = new global::AI21.PathBuilder(
                 path: $"/studio/v1/demos/{demoId}",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Delete,
@@ -50,7 +75,7 @@ namespace AI21
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
