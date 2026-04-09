@@ -5,6 +5,25 @@ namespace AI21
 {
     public partial class Ai21Client
     {
+
+
+        private static readonly global::AI21.EndPointSecurityRequirement s_JambaExecuteStudioV1DemosDocumentModifierJambaExecutePostSecurityRequirement0 =
+            new global::AI21.EndPointSecurityRequirement
+            {
+                Authorizations = new global::AI21.EndPointAuthorizationRequirement[]
+                {                    new global::AI21.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::AI21.EndPointSecurityRequirement[] s_JambaExecuteStudioV1DemosDocumentModifierJambaExecutePostSecurityRequirements =
+            new global::AI21.EndPointSecurityRequirement[]
+            {                s_JambaExecuteStudioV1DemosDocumentModifierJambaExecutePostSecurityRequirement0,
+            };
         partial void PrepareJambaExecuteStudioV1DemosDocumentModifierJambaExecutePostArguments(
             global::System.Net.Http.HttpClient httpClient,
             global::AI21.JambaExecuteRequest request);
@@ -41,9 +60,15 @@ namespace AI21
                 httpClient: HttpClient,
                 request: request);
 
+
+            var __authorizations = global::AI21.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_JambaExecuteStudioV1DemosDocumentModifierJambaExecutePostSecurityRequirements,
+                operationName: "JambaExecuteStudioV1DemosDocumentModifierJambaExecutePostAsync");
+
             var __pathBuilder = new global::AI21.PathBuilder(
                 path: "/studio/v1/demos/document-modifier/jamba-execute",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -53,7 +78,7 @@ namespace AI21
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

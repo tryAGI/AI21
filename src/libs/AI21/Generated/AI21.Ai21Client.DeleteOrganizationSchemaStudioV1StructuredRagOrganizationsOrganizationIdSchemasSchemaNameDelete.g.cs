@@ -5,6 +5,25 @@ namespace AI21
 {
     public partial class Ai21Client
     {
+
+
+        private static readonly global::AI21.EndPointSecurityRequirement s_DeleteOrganizationSchemaStudioV1StructuredRagOrganizationsOrganizationIdSchemasSchemaNameDeleteSecurityRequirement0 =
+            new global::AI21.EndPointSecurityRequirement
+            {
+                Authorizations = new global::AI21.EndPointAuthorizationRequirement[]
+                {                    new global::AI21.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::AI21.EndPointSecurityRequirement[] s_DeleteOrganizationSchemaStudioV1StructuredRagOrganizationsOrganizationIdSchemasSchemaNameDeleteSecurityRequirements =
+            new global::AI21.EndPointSecurityRequirement[]
+            {                s_DeleteOrganizationSchemaStudioV1StructuredRagOrganizationsOrganizationIdSchemasSchemaNameDeleteSecurityRequirement0,
+            };
         partial void PrepareDeleteOrganizationSchemaStudioV1StructuredRagOrganizationsOrganizationIdSchemasSchemaNameDeleteArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string organizationId,
@@ -42,9 +61,15 @@ namespace AI21
                 organizationId: ref organizationId,
                 schemaName: ref schemaName);
 
+
+            var __authorizations = global::AI21.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_DeleteOrganizationSchemaStudioV1StructuredRagOrganizationsOrganizationIdSchemasSchemaNameDeleteSecurityRequirements,
+                operationName: "DeleteOrganizationSchemaStudioV1StructuredRagOrganizationsOrganizationIdSchemasSchemaNameDeleteAsync");
+
             var __pathBuilder = new global::AI21.PathBuilder(
                 path: $"/studio/v1/structured-rag/organizations/{organizationId}/schemas/{schemaName}",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Delete,
@@ -54,7 +79,7 @@ namespace AI21
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

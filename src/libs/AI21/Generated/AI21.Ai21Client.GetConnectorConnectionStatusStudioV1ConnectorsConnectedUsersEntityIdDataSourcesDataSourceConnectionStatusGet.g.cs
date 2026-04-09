@@ -5,6 +5,25 @@ namespace AI21
 {
     public partial class Ai21Client
     {
+
+
+        private static readonly global::AI21.EndPointSecurityRequirement s_GetConnectorConnectionStatusStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceConnectionStatusGetSecurityRequirement0 =
+            new global::AI21.EndPointSecurityRequirement
+            {
+                Authorizations = new global::AI21.EndPointAuthorizationRequirement[]
+                {                    new global::AI21.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::AI21.EndPointSecurityRequirement[] s_GetConnectorConnectionStatusStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceConnectionStatusGetSecurityRequirements =
+            new global::AI21.EndPointSecurityRequirement[]
+            {                s_GetConnectorConnectionStatusStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceConnectionStatusGetSecurityRequirement0,
+            };
         partial void PrepareGetConnectorConnectionStatusStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceConnectionStatusGetArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string entityId,
@@ -47,12 +66,18 @@ namespace AI21
                 dataSource: ref dataSource,
                 paragonToken: ref paragonToken);
 
+
+            var __authorizations = global::AI21.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_GetConnectorConnectionStatusStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceConnectionStatusGetSecurityRequirements,
+                operationName: "GetConnectorConnectionStatusStudioV1ConnectorsConnectedUsersEntityIdDataSourcesDataSourceConnectionStatusGetAsync");
+
             var __pathBuilder = new global::AI21.PathBuilder(
                 path: $"/studio/v1/connectors/connected-users/{entityId}/data-sources/{dataSource}/connection-status",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
                 .AddRequiredParameter("paragon_token", paragonToken) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -62,7 +87,7 @@ namespace AI21
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

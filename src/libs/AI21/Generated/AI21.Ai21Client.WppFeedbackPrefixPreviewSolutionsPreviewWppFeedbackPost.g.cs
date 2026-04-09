@@ -5,6 +5,25 @@ namespace AI21
 {
     public partial class Ai21Client
     {
+
+
+        private static readonly global::AI21.EndPointSecurityRequirement s_WppFeedbackPrefixPreviewSolutionsPreviewWppFeedbackPostSecurityRequirement0 =
+            new global::AI21.EndPointSecurityRequirement
+            {
+                Authorizations = new global::AI21.EndPointAuthorizationRequirement[]
+                {                    new global::AI21.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::AI21.EndPointSecurityRequirement[] s_WppFeedbackPrefixPreviewSolutionsPreviewWppFeedbackPostSecurityRequirements =
+            new global::AI21.EndPointSecurityRequirement[]
+            {                s_WppFeedbackPrefixPreviewSolutionsPreviewWppFeedbackPostSecurityRequirement0,
+            };
         partial void PrepareWppFeedbackPrefixPreviewSolutionsPreviewWppFeedbackPostArguments(
             global::System.Net.Http.HttpClient httpClient);
         partial void PrepareWppFeedbackPrefixPreviewSolutionsPreviewWppFeedbackPostRequest(
@@ -32,9 +51,15 @@ namespace AI21
             PrepareWppFeedbackPrefixPreviewSolutionsPreviewWppFeedbackPostArguments(
                 httpClient: HttpClient);
 
+
+            var __authorizations = global::AI21.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_WppFeedbackPrefixPreviewSolutionsPreviewWppFeedbackPostSecurityRequirements,
+                operationName: "WppFeedbackPrefixPreviewSolutionsPreviewWppFeedbackPostAsync");
+
             var __pathBuilder = new global::AI21.PathBuilder(
                 path: "/solutions-preview/wpp/feedback",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -44,7 +69,7 @@ namespace AI21
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
