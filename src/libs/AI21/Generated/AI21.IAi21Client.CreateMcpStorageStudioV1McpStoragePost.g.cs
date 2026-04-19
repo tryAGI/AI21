@@ -8,11 +8,13 @@ namespace AI21
         /// Create Mcp Storage
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.MCPStorageResponse> CreateMcpStorageStudioV1McpStoragePostAsync(
 
             global::AI21.CreateMCPStorageRequest request,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Mcp Storage
@@ -26,6 +28,7 @@ namespace AI21
         /// <param name="authHeaderName"></param>
         /// <param name="authValue"></param>
         /// <param name="allowedTools"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.MCPStorageResponse> CreateMcpStorageStudioV1McpStoragePostAsync(
@@ -36,6 +39,7 @@ namespace AI21
             string? authHeaderName = default,
             string? authValue = default,
             global::System.Collections.Generic.IList<string>? allowedTools = default,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

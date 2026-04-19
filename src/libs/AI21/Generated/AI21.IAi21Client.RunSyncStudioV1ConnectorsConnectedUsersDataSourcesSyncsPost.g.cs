@@ -8,11 +8,13 @@ namespace AI21
         /// Run Sync
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         global::System.Threading.Tasks.Task<string> RunSyncStudioV1ConnectorsConnectedUsersDataSourcesSyncsPostAsync(
 
             global::AI21.ConnectorsSyncParams request,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Run Sync
@@ -23,6 +25,7 @@ namespace AI21
         /// <param name="pipeline"></param>
         /// <param name="configuration"></param>
         /// <param name="configurationName"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> RunSyncStudioV1ConnectorsConnectedUsersDataSourcesSyncsPostAsync(
@@ -32,6 +35,7 @@ namespace AI21
             string pipeline,
             object? configuration = default,
             string? configurationName = default,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

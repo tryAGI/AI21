@@ -8,11 +8,13 @@ namespace AI21
         /// Search
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         global::System.Threading.Tasks.Task<string> V1LibrarySearchAsync(
 
             global::AI21.LibrarySearchRequest request,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Search
@@ -34,6 +36,7 @@ namespace AI21
         /// </param>
         /// <param name="retrievalSimilarityThreshold"></param>
         /// <param name="hybridSearchAlpha"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> V1LibrarySearchAsync(
@@ -48,6 +51,7 @@ namespace AI21
             int? maxNeighbors = default,
             double? retrievalSimilarityThreshold = default,
             double? hybridSearchAlpha = default,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

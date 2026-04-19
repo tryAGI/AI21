@@ -8,11 +8,13 @@ namespace AI21
         /// Mcp Tool Discovery
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.MCPDiscoveryResponse> McpToolDiscoveryStudioV1McpDiscoverPostAsync(
 
             global::AI21.MCPDefinition request,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Mcp Tool Discovery
@@ -20,12 +22,14 @@ namespace AI21
         /// <param name="serverUrl"></param>
         /// <param name="serverLabel"></param>
         /// <param name="headers"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.MCPDiscoveryResponse> McpToolDiscoveryStudioV1McpDiscoverPostAsync(
             string serverUrl,
             string? serverLabel = default,
             object? headers = default,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
