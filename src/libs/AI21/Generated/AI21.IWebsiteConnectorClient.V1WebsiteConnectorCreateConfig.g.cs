@@ -8,11 +8,13 @@ namespace AI21
         /// Create Client Config
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         global::System.Threading.Tasks.Task<string> V1WebsiteConnectorCreateConfigAsync(
 
             global::AI21.WebsiteConnectorCreateConfigPayload request,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Client Config
@@ -27,6 +29,7 @@ namespace AI21
         /// <param name="skipUrlPatterns"></param>
         /// <param name="targetFileExtensions"></param>
         /// <param name="localization"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<string> V1WebsiteConnectorCreateConfigAsync(
@@ -36,6 +39,7 @@ namespace AI21
             bool? extractLinkedFiles = default,
             bool? waitForDynamicContent = default,
             string? localization = default,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

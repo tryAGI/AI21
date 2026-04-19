@@ -11,10 +11,12 @@ namespace AI21
         /// Files in `PROCESSING` status cannot be deleted. Attempts to delete such files will result in a &lt;span style="color:red"&gt;422&lt;/span&gt; error.
         /// </summary>
         /// <param name="fileId"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         global::System.Threading.Tasks.Task<string> V1LibraryDeleteAsync(
             global::System.Guid fileId,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

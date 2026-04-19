@@ -9,12 +9,14 @@ namespace AI21
         /// </summary>
         /// <param name="name"></param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.WorkspaceModelResponse> UpdateWorkspaceModelEndpointStudioV1SettingsModelsNamePatchAsync(
             string name,
 
             global::AI21.WorkspaceModelUpdate request,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Workspace Model Endpoint
@@ -23,6 +25,7 @@ namespace AI21
         /// <param name="requestName"></param>
         /// <param name="modelType"></param>
         /// <param name="secretId"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.WorkspaceModelResponse> UpdateWorkspaceModelEndpointStudioV1SettingsModelsNamePatchAsync(
@@ -30,6 +33,7 @@ namespace AI21
             string? requestName = default,
             string? modelType = default,
             string? secretId = default,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

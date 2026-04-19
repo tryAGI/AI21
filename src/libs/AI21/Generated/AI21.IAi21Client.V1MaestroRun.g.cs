@@ -8,11 +8,13 @@ namespace AI21
         /// Create Maestro Run
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.MaestroRunResult> V1MaestroRunAsync(
 
             global::AI21.CreateMaestroRunsPayload request,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Maestro Run
@@ -51,6 +53,7 @@ namespace AI21
         /// be 1. A streaming response is different than the non-streaming response.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.MaestroRunResult> V1MaestroRunAsync(
@@ -71,6 +74,7 @@ namespace AI21
             global::AI21.CreateMaestroRunsPayloadResponseLanguage? responseLanguage = default,
             string? systemPrompt = default,
             bool? stream = default,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

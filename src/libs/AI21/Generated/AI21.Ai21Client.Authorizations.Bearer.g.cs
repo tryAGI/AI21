@@ -25,6 +25,7 @@ namespace AI21
             Authorizations.Add(new global::AI21.EndPointAuthorization
             {
                 Type = "Http",
+                SchemeId = "HttpBearer",
                 Location = "Header",
                 Name = "Bearer",
                 Value = apiKey,
