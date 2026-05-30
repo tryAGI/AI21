@@ -52,5 +52,6 @@ namespace AI21
         public MockResponseConfig()
         {
         }
+
     }
 }

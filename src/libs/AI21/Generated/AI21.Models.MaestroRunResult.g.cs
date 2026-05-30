@@ -46,6 +46,12 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
+        public global::System.DateTime? CreatedAt { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         public global::AI21.MaestroRunError? Error { get; set; }
 
@@ -67,6 +73,7 @@ namespace AI21
         /// <param name="result"></param>
         /// <param name="dataSources"></param>
         /// <param name="requirementsResult"></param>
+        /// <param name="createdAt"></param>
         /// <param name="error"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -77,6 +84,7 @@ namespace AI21
             object? result,
             object? dataSources,
             object? requirementsResult,
+            global::System.DateTime? createdAt,
             global::AI21.MaestroRunError? error)
         {
             this.Id = id;
@@ -84,6 +92,7 @@ namespace AI21
             this.Result = result;
             this.DataSources = dataSources;
             this.RequirementsResult = requirementsResult;
+            this.CreatedAt = createdAt;
             this.Error = error;
         }
 
@@ -93,5 +102,6 @@ namespace AI21
         public MaestroRunResult()
         {
         }
+
     }
 }

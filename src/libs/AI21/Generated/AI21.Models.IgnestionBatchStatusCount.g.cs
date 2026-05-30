@@ -50,5 +50,6 @@ namespace AI21
         public IgnestionBatchStatusCount()
         {
         }
+
     }
 }

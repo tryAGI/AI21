@@ -97,5 +97,6 @@ namespace AI21
         public WorkspaceModelResponse()
         {
         }
+
     }
 }

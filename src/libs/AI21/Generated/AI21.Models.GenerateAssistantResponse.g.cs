@@ -292,5 +292,6 @@ namespace AI21
         public GenerateAssistantResponse()
         {
         }
+
     }
 }

@@ -85,5 +85,6 @@ namespace AI21
         public ChatCompletionResponseChoice()
         {
         }
+
     }
 }

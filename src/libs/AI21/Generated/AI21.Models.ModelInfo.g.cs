@@ -109,5 +109,6 @@ namespace AI21
         public ModelInfo()
         {
         }
+
     }
 }

@@ -34,6 +34,26 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickUser(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::AI21.UserMessage? value)
+        {
+            value = User;
+            return IsUser;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::AI21.UserMessage PickUser() => IsUser
+            ? User!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'User' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::AI21.AssistantMessage? Assistant { get; init; }
 #else
@@ -47,6 +67,26 @@ namespace AI21
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Assistant))]
 #endif
         public bool IsAssistant => Assistant != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickAssistant(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::AI21.AssistantMessage? value)
+        {
+            value = Assistant;
+            return IsAssistant;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::AI21.AssistantMessage PickAssistant() => IsAssistant
+            ? Assistant!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Assistant' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -68,6 +108,26 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickTool(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::AI21.ToolMessage? value)
+        {
+            value = Tool;
+            return IsTool;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::AI21.ToolMessage PickTool() => IsTool
+            ? Tool!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Tool' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::AI21.SystemMessage? System { get; init; }
 #else
@@ -81,6 +141,26 @@ namespace AI21
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(System))]
 #endif
         public bool IsSystem => System != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickSystem(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::AI21.SystemMessage? value)
+        {
+            value = System;
+            return IsSystem;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::AI21.SystemMessage PickSystem() => IsSystem
+            ? System!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'System' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -98,6 +178,11 @@ namespace AI21
         {
             User = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static MessagesItem FromUser(global::AI21.UserMessage? value) => new MessagesItem(value);
 
         /// <summary>
         /// 
@@ -120,6 +205,11 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
+        public static MessagesItem FromAssistant(global::AI21.AssistantMessage? value) => new MessagesItem(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator MessagesItem(global::AI21.ToolMessage value) => new MessagesItem((global::AI21.ToolMessage?)value);
 
         /// <summary>
@@ -138,6 +228,11 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
+        public static MessagesItem FromTool(global::AI21.ToolMessage? value) => new MessagesItem(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator MessagesItem(global::AI21.SystemMessage value) => new MessagesItem((global::AI21.SystemMessage?)value);
 
         /// <summary>
@@ -152,6 +247,11 @@ namespace AI21
         {
             System = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static MessagesItem FromSystem(global::AI21.SystemMessage? value) => new MessagesItem(value);
 
         /// <summary>
         /// 
@@ -204,10 +304,10 @@ namespace AI21
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::AI21.UserMessage?, TResult>? user = null,
-            global::System.Func<global::AI21.AssistantMessage?, TResult>? assistant = null,
-            global::System.Func<global::AI21.ToolMessage?, TResult>? tool = null,
-            global::System.Func<global::AI21.SystemMessage?, TResult>? system = null,
+            global::System.Func<global::AI21.UserMessage, TResult>? user = null,
+            global::System.Func<global::AI21.AssistantMessage, TResult>? assistant = null,
+            global::System.Func<global::AI21.ToolMessage, TResult>? tool = null,
+            global::System.Func<global::AI21.SystemMessage, TResult>? system = null,
             bool validate = true)
         {
             if (validate)
@@ -239,10 +339,46 @@ namespace AI21
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::AI21.UserMessage?>? user = null,
-            global::System.Action<global::AI21.AssistantMessage?>? assistant = null,
-            global::System.Action<global::AI21.ToolMessage?>? tool = null,
-            global::System.Action<global::AI21.SystemMessage?>? system = null,
+            global::System.Action<global::AI21.UserMessage>? user = null,
+
+            global::System.Action<global::AI21.AssistantMessage>? assistant = null,
+
+            global::System.Action<global::AI21.ToolMessage>? tool = null,
+
+            global::System.Action<global::AI21.SystemMessage>? system = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsUser)
+            {
+                user?.Invoke(User!);
+            }
+            else if (IsAssistant)
+            {
+                assistant?.Invoke(Assistant!);
+            }
+            else if (IsTool)
+            {
+                tool?.Invoke(Tool!);
+            }
+            else if (IsSystem)
+            {
+                system?.Invoke(System!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::AI21.UserMessage>? user = null,
+            global::System.Action<global::AI21.AssistantMessage>? assistant = null,
+            global::System.Action<global::AI21.ToolMessage>? tool = null,
+            global::System.Action<global::AI21.SystemMessage>? system = null,
             bool validate = true)
         {
             if (validate)

@@ -48,5 +48,6 @@ namespace AI21
         public UpdateSecretPayload()
         {
         }
+
     }
 }

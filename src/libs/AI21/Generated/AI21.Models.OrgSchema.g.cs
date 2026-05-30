@@ -70,5 +70,6 @@ namespace AI21
         public OrgSchema()
         {
         }
+
     }
 }
