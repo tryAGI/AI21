@@ -61,5 +61,6 @@ namespace AI21
         public ChatStreamingFirstDelta()
         {
         }
+
     }
 }

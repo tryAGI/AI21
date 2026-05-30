@@ -13,11 +13,30 @@ namespace AI21
         /// token is generated, rather than waiting for the entire response.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>> V1ChatCompleteAsync(
 
             global::AI21.ChatRequest request,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Studio Chat Complete<br/>
+        /// This is the endpoint for the [Jamba Instruct model](https://docs.ai21.com/docs/jamba-models).<br/>
+        /// This is a foundation model that supports both single-turn (question answering,<br/>
+        /// text completion) and multi-turn (chat style) interactions.<br/>
+        /// You can optionally stream results if you want to get the response as each<br/>
+        /// token is generated, rather than waiting for the entire response.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::AI21.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::AI21.AutoSDKHttpResponse<global::AI21.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>>> V1ChatCompleteAsResponseAsync(
+
+            global::AI21.ChatRequest request,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Studio Chat Complete<br/>
@@ -86,6 +105,7 @@ namespace AI21
         /// <param name="responseFormat">
         /// Default Value: {"type":"text"}
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.AnyOf<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>> V1ChatCompleteAsync(
@@ -101,6 +121,7 @@ namespace AI21
             global::AI21.MockResponseConfig? mockResponse = default,
             global::System.Collections.Generic.IList<global::AI21.DocumentSchema>? documents = default,
             global::AI21.ResponseFormat? responseFormat = default,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

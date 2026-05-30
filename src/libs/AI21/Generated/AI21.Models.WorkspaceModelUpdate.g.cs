@@ -57,5 +57,6 @@ namespace AI21
         public WorkspaceModelUpdate()
         {
         }
+
     }
 }

@@ -16,10 +16,31 @@ namespace AI21
         /// "financial" AND status UPLOADED will be returned.
         /// </summary>
         /// <param name="fileId"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.FileResponse> V1LibraryManagement2Async(
             global::System.Guid fileId,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get File By Id<br/>
+        /// Retrieve a list of documents in the user's library. Optionally specify a<br/>
+        /// filter to find only files with matching labels or paths. This method<br/>
+        /// returns only metadata about files; to download a file, call<br/>
+        /// `GET .../files/{file_id}/download`<br/>
+        /// When specifying qualifiers with your request, only files that match<br/>
+        /// _all_ qualifiers will be returns. So, for example, if you specify<br/>
+        /// `label='financial'` and `status='UPLOADED'`, only files with the label<br/>
+        /// "financial" AND status UPLOADED will be returned.
+        /// </summary>
+        /// <param name="fileId"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::AI21.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::AI21.AutoSDKHttpResponse<global::AI21.FileResponse>> V1LibraryManagement2AsResponseAsync(
+            global::System.Guid fileId,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

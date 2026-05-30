@@ -34,6 +34,26 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickHttp(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::AI21.HTTPToolResource? value)
+        {
+            value = Http;
+            return IsHttp;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::AI21.HTTPToolResource PickHttp() => IsHttp
+            ? Http!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Http' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::AI21.MCPToolResource? Mcp { get; init; }
 #else
@@ -47,6 +67,26 @@ namespace AI21
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Mcp))]
 #endif
         public bool IsMcp => Mcp != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickMcp(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::AI21.MCPToolResource? value)
+        {
+            value = Mcp;
+            return IsMcp;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::AI21.MCPToolResource PickMcp() => IsMcp
+            ? Mcp!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Mcp' but the value was {ToString()}.");
 
         /// <summary>
         /// 
@@ -68,6 +108,26 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickFileSearch(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::AI21.FileSearchToolResource? value)
+        {
+            value = FileSearch;
+            return IsFileSearch;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::AI21.FileSearchToolResource PickFileSearch() => IsFileSearch
+            ? FileSearch!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'FileSearch' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::AI21.WebSearchToolResource? WebSearch { get; init; }
 #else
@@ -81,6 +141,26 @@ namespace AI21
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(WebSearch))]
 #endif
         public bool IsWebSearch => WebSearch != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickWebSearch(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::AI21.WebSearchToolResource? value)
+        {
+            value = WebSearch;
+            return IsWebSearch;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::AI21.WebSearchToolResource PickWebSearch() => IsWebSearch
+            ? WebSearch!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'WebSearch' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -98,6 +178,11 @@ namespace AI21
         {
             Http = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static LanguageStudioApiServerDataTypesExecutionEngineToolDefinition FromHttp(global::AI21.HTTPToolResource? value) => new LanguageStudioApiServerDataTypesExecutionEngineToolDefinition(value);
 
         /// <summary>
         /// 
@@ -120,6 +205,11 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
+        public static LanguageStudioApiServerDataTypesExecutionEngineToolDefinition FromMcp(global::AI21.MCPToolResource? value) => new LanguageStudioApiServerDataTypesExecutionEngineToolDefinition(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator LanguageStudioApiServerDataTypesExecutionEngineToolDefinition(global::AI21.FileSearchToolResource value) => new LanguageStudioApiServerDataTypesExecutionEngineToolDefinition((global::AI21.FileSearchToolResource?)value);
 
         /// <summary>
@@ -138,6 +228,11 @@ namespace AI21
         /// <summary>
         /// 
         /// </summary>
+        public static LanguageStudioApiServerDataTypesExecutionEngineToolDefinition FromFileSearch(global::AI21.FileSearchToolResource? value) => new LanguageStudioApiServerDataTypesExecutionEngineToolDefinition(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator LanguageStudioApiServerDataTypesExecutionEngineToolDefinition(global::AI21.WebSearchToolResource value) => new LanguageStudioApiServerDataTypesExecutionEngineToolDefinition((global::AI21.WebSearchToolResource?)value);
 
         /// <summary>
@@ -152,6 +247,11 @@ namespace AI21
         {
             WebSearch = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static LanguageStudioApiServerDataTypesExecutionEngineToolDefinition FromWebSearch(global::AI21.WebSearchToolResource? value) => new LanguageStudioApiServerDataTypesExecutionEngineToolDefinition(value);
 
         /// <summary>
         /// 
@@ -204,10 +304,10 @@ namespace AI21
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::AI21.HTTPToolResource?, TResult>? http = null,
-            global::System.Func<global::AI21.MCPToolResource?, TResult>? mcp = null,
-            global::System.Func<global::AI21.FileSearchToolResource?, TResult>? fileSearch = null,
-            global::System.Func<global::AI21.WebSearchToolResource?, TResult>? webSearch = null,
+            global::System.Func<global::AI21.HTTPToolResource, TResult>? http = null,
+            global::System.Func<global::AI21.MCPToolResource, TResult>? mcp = null,
+            global::System.Func<global::AI21.FileSearchToolResource, TResult>? fileSearch = null,
+            global::System.Func<global::AI21.WebSearchToolResource, TResult>? webSearch = null,
             bool validate = true)
         {
             if (validate)
@@ -239,10 +339,46 @@ namespace AI21
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::AI21.HTTPToolResource?>? http = null,
-            global::System.Action<global::AI21.MCPToolResource?>? mcp = null,
-            global::System.Action<global::AI21.FileSearchToolResource?>? fileSearch = null,
-            global::System.Action<global::AI21.WebSearchToolResource?>? webSearch = null,
+            global::System.Action<global::AI21.HTTPToolResource>? http = null,
+
+            global::System.Action<global::AI21.MCPToolResource>? mcp = null,
+
+            global::System.Action<global::AI21.FileSearchToolResource>? fileSearch = null,
+
+            global::System.Action<global::AI21.WebSearchToolResource>? webSearch = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsHttp)
+            {
+                http?.Invoke(Http!);
+            }
+            else if (IsMcp)
+            {
+                mcp?.Invoke(Mcp!);
+            }
+            else if (IsFileSearch)
+            {
+                fileSearch?.Invoke(FileSearch!);
+            }
+            else if (IsWebSearch)
+            {
+                webSearch?.Invoke(WebSearch!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::AI21.HTTPToolResource>? http = null,
+            global::System.Action<global::AI21.MCPToolResource>? mcp = null,
+            global::System.Action<global::AI21.FileSearchToolResource>? fileSearch = null,
+            global::System.Action<global::AI21.WebSearchToolResource>? webSearch = null,
             bool validate = true)
         {
             if (validate)

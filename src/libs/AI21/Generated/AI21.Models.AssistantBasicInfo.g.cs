@@ -56,5 +56,6 @@ namespace AI21
         public AssistantBasicInfo()
         {
         }
+
     }
 }

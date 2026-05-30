@@ -168,5 +168,6 @@ namespace AI21
         public ModifyAssistantRequest()
         {
         }
+
     }
 }

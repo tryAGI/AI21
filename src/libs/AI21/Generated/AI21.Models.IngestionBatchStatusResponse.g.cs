@@ -66,5 +66,6 @@ namespace AI21
         public IngestionBatchStatusResponse()
         {
         }
+
     }
 }

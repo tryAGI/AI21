@@ -58,5 +58,6 @@ namespace AI21
         public ValidationResult()
         {
         }
+
     }
 }

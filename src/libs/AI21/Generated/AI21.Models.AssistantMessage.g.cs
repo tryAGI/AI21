@@ -89,5 +89,6 @@ namespace AI21
         public AssistantMessage()
         {
         }
+
     }
 }
