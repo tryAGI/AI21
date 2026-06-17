@@ -32,6 +32,13 @@ await api.Chat.V1J2UltraChatAsync(
     cancellationToken: CancellationToken.None);
 ```
 
+### CLI
+
+```bash
+dotnet tool install --global AI21.CLI --prerelease
+ai21 api --help
+```
+
 ### Microsoft.Extensions.AI
 
 The SDK implements [`IChatClient`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai.ichatclient):

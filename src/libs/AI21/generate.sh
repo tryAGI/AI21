@@ -27,3 +27,22 @@ autosdk generate openapi.json \
   --base-url https://api.ai21.com/ \
   --security-scheme Http:Header:Bearer \
   --openapi-override '#/components/schemas/HTTPToolFunctionParameters/properties/additionalProperties=remove'
+
+rm -rf ../../cli/AI21.CLI
+
+autosdk cli-project openapi.json \
+  --output ../../cli/AI21.CLI \
+  --sdk-project ../../libs/AI21/AI21.csproj \
+  --targetFramework net10.0 \
+  --namespace AI21 \
+  --clientClassName Ai21Client \
+  --package-id AI21.CLI \
+  --tool-command-name ai21 \
+  --user-secrets-id AI21.CLI \
+  --api-key-env-var AI21_API_KEY \
+  --base-url-env-var AI21_BASE_URL \
+  --cli-credential-file \
+  --cli-keep-api-group \
+  --exclude-deprecated-operations \
+  --base-url https://api.ai21.com/ \
+  --security-scheme Http:Header:Bearer
