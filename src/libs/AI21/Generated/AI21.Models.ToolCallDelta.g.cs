@@ -4,19 +4,19 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ToolCallDelta
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("index")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int Index { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("function")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -50,5 +50,6 @@ namespace AI21
         public ToolCallDelta()
         {
         }
+
     }
 }

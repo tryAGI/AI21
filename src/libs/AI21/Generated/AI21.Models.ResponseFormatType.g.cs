@@ -4,16 +4,16 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ResponseFormatType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JsonObject,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Text,
     }

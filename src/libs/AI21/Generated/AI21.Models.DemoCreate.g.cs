@@ -4,7 +4,7 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class DemoCreate
     {
@@ -91,5 +91,6 @@ namespace AI21
         public DemoCreate()
         {
         }
+
     }
 }

@@ -25,7 +25,7 @@ namespace AI21
         public required global::AI21.AssistantMessage Message { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("logprobs")]
         public global::AI21.Logprobs? Logprobs { get; set; }
@@ -85,5 +85,6 @@ namespace AI21
         public ChatCompletionResponseChoice()
         {
         }
+
     }
 }

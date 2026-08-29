@@ -9,11 +9,11 @@ namespace AI21
     public enum FileSearchToolResourceLabelsFilterMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         And,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Or,
     }

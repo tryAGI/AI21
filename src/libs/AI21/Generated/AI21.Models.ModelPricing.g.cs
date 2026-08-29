@@ -4,19 +4,19 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ModelPricing
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Prompt { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("completion")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -50,5 +50,6 @@ namespace AI21
         public ModelPricing()
         {
         }
+
     }
 }

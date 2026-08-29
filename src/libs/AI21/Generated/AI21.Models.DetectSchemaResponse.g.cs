@@ -4,19 +4,19 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class DetectSchemaResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("schema_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string SchemaName { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("schema_definition")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -50,5 +50,6 @@ namespace AI21
         public DetectSchemaResponse()
         {
         }
+
     }
 }

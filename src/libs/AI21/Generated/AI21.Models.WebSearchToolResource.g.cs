@@ -4,7 +4,7 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class WebSearchToolResource
     {
@@ -16,25 +16,25 @@ namespace AI21
         public global::AI21.WebSearchToolResourceType? Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("urls")]
         public global::System.Collections.Generic.IList<string>? Urls { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fallback_to_web")]
         public bool? FallbackToWeb { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("query_suffix")]
         public string? QuerySuffix { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rephrase_query")]
         public bool? RephraseQuery { get; set; }
@@ -89,5 +89,6 @@ namespace AI21
         public WebSearchToolResource()
         {
         }
+
     }
 }

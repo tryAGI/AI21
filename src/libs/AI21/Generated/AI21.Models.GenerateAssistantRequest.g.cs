@@ -4,19 +4,19 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class GenerateAssistantRequest
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Prompt { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("avatar")]
         public string? Avatar { get; set; }
@@ -49,5 +49,6 @@ namespace AI21
         public GenerateAssistantRequest()
         {
         }
+
     }
 }

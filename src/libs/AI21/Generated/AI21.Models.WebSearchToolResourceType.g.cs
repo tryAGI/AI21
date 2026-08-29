@@ -9,7 +9,7 @@ namespace AI21
     public enum WebSearchToolResourceType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WebSearch,
     }

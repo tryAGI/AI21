@@ -4,12 +4,12 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class Logprobs
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -40,5 +40,6 @@ namespace AI21
         public Logprobs()
         {
         }
+
     }
 }

@@ -4,24 +4,24 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ChatRequestMessageDiscriminatorRole
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Assistant,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         System,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tool,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         User,
     }

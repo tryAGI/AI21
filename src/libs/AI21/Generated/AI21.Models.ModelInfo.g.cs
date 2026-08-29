@@ -4,7 +4,7 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ModelInfo
     {
@@ -18,21 +18,21 @@ namespace AI21
         public required string Id { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("updated")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Updated { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("context_length")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -47,14 +47,14 @@ namespace AI21
         public required global::AI21.ModelQuantization Quantization { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_completion_tokens")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int MaxCompletionTokens { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pricing")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -109,5 +109,6 @@ namespace AI21
         public ModelInfo()
         {
         }
+
     }
 }

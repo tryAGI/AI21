@@ -9,11 +9,11 @@ namespace AI21
     public enum CreateMaestroRunsPayloadVariant
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ingestion,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Main,
     }

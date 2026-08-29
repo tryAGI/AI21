@@ -4,7 +4,7 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ChatCompletionResponseDeltaChoice
     {
@@ -25,7 +25,7 @@ namespace AI21
         public required global::AI21.AnyOf<global::AI21.ChatStreamingFirstDelta, global::AI21.ChatStreamingContentDelta, global::AI21.ChatStreamingToolCallsFirstDelta, global::AI21.ChatStreamingToolCallsDelta> Delta { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("logprobs")]
         public global::AI21.Logprobs? Logprobs { get; set; }
@@ -87,5 +87,6 @@ namespace AI21
         public ChatCompletionResponseDeltaChoice()
         {
         }
+
     }
 }

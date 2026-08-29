@@ -10,7 +10,7 @@ namespace AI21
     public enum ToolParametersType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Object,
     }

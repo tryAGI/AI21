@@ -4,12 +4,12 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum LanguageStudioApiServerDataTypesChatToolDefinitionType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Function,
     }

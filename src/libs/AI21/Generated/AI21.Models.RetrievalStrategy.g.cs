@@ -9,19 +9,19 @@ namespace AI21
     public enum RetrievalStrategy
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AddNeighbors,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Default,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FullDoc,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Segments,
     }

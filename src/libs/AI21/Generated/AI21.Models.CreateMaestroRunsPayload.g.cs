@@ -4,12 +4,12 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CreateMaestroRunsPayload
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<global::AI21.Message>, string>))]
@@ -17,37 +17,37 @@ namespace AI21
         public required global::AI21.AnyOf<global::System.Collections.Generic.IList<global::AI21.Message>, string> Input { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_type")]
         public object? OutputType { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("models")]
         public global::System.Collections.Generic.IList<string>? Models { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
         public global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesExecutionEngineToolDefinition>? Tools { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("context")]
         public object? Context { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("requirements")]
         public global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesExecutionEngineRequirement>? Requirements { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("budget")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.CreateMaestroRunsPayloadBudgetJsonConverter))]
@@ -60,7 +60,7 @@ namespace AI21
         public bool? Verbose { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("include")]
         public global::System.Collections.Generic.IList<string>? Include { get; set; }
@@ -78,7 +78,7 @@ namespace AI21
         public bool? DynamicPlanningEnabled { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("assistant_id")]
         public string? AssistantId { get; set; }
@@ -91,7 +91,7 @@ namespace AI21
         public global::AI21.CreateMaestroRunsPayloadVariant? Variant { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_retrieval_configs")]
         public global::System.Collections.Generic.IList<object>? CustomRetrievalConfigs { get; set; }
@@ -104,7 +104,7 @@ namespace AI21
         public global::AI21.CreateMaestroRunsPayloadResponseLanguage? ResponseLanguage { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("system_prompt")]
         public string? SystemPrompt { get; set; }
@@ -210,5 +210,6 @@ namespace AI21
         public CreateMaestroRunsPayload()
         {
         }
+
     }
 }

@@ -4,7 +4,7 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class HTTPToolResource
     {
@@ -16,14 +16,14 @@ namespace AI21
         public global::AI21.HTTPToolResourceType? Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("function")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::AI21.HTTPToolFunction Function { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("endpoint")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -62,5 +62,6 @@ namespace AI21
         public HTTPToolResource()
         {
         }
+
     }
 }

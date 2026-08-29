@@ -9,11 +9,11 @@ namespace AI21
     public enum ModelQuantization
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Fp8,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ExpertsInt8,
     }

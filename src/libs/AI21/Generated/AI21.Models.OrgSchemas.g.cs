@@ -4,12 +4,12 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class OrgSchemas
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("schemas")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -40,5 +40,6 @@ namespace AI21
         public OrgSchemas()
         {
         }
+
     }
 }

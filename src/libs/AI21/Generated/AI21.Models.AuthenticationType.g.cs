@@ -9,15 +9,15 @@ namespace AI21
     public enum AuthenticationType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CustomHeader,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         None,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TokenApi,
     }

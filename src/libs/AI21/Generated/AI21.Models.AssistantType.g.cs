@@ -9,15 +9,15 @@ namespace AI21
     public enum AssistantType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Chat,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Default,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Maestro,
     }

@@ -4,12 +4,12 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class HTTPValidationError
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("detail")]
         public global::System.Collections.Generic.IList<global::AI21.ValidationError>? Detail { get; set; }
@@ -39,5 +39,6 @@ namespace AI21
         public HTTPValidationError()
         {
         }
+
     }
 }

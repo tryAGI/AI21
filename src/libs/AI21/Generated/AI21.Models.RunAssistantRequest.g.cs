@@ -4,12 +4,12 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class RunAssistantRequest
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -22,7 +22,7 @@ namespace AI21
         public bool? Verbose { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_type")]
         public object? OutputType { get; set; }
@@ -53,7 +53,7 @@ namespace AI21
         public global::AI21.RunAssistantRequestResponseLanguage? ResponseLanguage { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("system_prompt")]
         public string? SystemPrompt { get; set; }
@@ -114,5 +114,6 @@ namespace AI21
         public RunAssistantRequest()
         {
         }
+
     }
 }

@@ -4,19 +4,19 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class UpdateRoutePayload
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Description { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("examples")]
         public global::System.Collections.Generic.IList<string>? Examples { get; set; }
@@ -49,5 +49,6 @@ namespace AI21
         public UpdateRoutePayload()
         {
         }
+
     }
 }

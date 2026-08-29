@@ -4,25 +4,25 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ValidationResult
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_valid")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool IsValid { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
         public string? Message { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("details")]
         public string? Details { get; set; }
@@ -58,5 +58,6 @@ namespace AI21
         public ValidationResult()
         {
         }
+
     }
 }

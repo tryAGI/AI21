@@ -12,7 +12,6 @@ internal static class RAGEngineApiGroupCommand
                          command.Subcommands.Add(RagEngineV1LibraryManagementCommandApiCommand.Create());
                          command.Subcommands.Add(RagEngineV1LibraryManagement2CommandApiCommand.Create());
                          command.Subcommands.Add(RagEngineV1LibraryManagement3CommandApiCommand.Create());
-                         command.Subcommands.Add(RagEngineV1LibrarySearchCommandApiCommand.Create());
         return command;
     }
 }

@@ -26,7 +26,7 @@ namespace AI21
         /// </summary>
         System,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tool,
         /// <summary>

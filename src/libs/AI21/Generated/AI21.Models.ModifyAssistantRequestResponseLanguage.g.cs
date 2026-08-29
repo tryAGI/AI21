@@ -4,48 +4,48 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ModifyAssistantRequestResponseLanguage
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Arabic,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dutch,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         English,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         French,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         German,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Hebrew,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Italian,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Portuguese,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Spanish,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Unset,
     }

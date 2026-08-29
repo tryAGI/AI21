@@ -7,12 +7,7 @@ namespace AI21.CLI.Commands;
 
 internal static partial class GenerateResponsePdfStudioV1DemosRfiGenerateResponsePdfPostCommandApiCommand
 {
-    private static Option<string> Text { get; } = new(
-        name: @"--text")
-    {
-        Description = @"All section answers concatenated",
-        Required = true,
-    };
+    private static readonly MarkdownRequestOptionSet MarkdownRequestOptionSetOptions = MarkdownRequestOptionSet.Create();
 
                     private static string FormatResponse(ParseResult parseResult, string value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
                     {
@@ -37,13 +32,13 @@ internal static partial class GenerateResponsePdfStudioV1DemosRfiGenerateRespons
     public static Command Create()
     {
         var command = new Command(@"generate-response-pdf-studio-v1-demos-rfi-generate-response-pdf-post", @"Combine section answers ➜ styled PDF for download");
-                        command.Options.Add(Text);
+                        command.Options.Add(MarkdownRequestOptionSetOptions.Text);
 
 
         command.SetAction(async (ParseResult parseResult, CancellationToken cancellationToken) =>
             await CliRuntime.RunAsync(async () =>
             {
-                        var text = parseResult.GetRequiredValue(Text);
+                        var text = parseResult.GetRequiredValue(MarkdownRequestOptionSetOptions.Text);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 

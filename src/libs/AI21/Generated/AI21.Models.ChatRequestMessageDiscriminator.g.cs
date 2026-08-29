@@ -4,12 +4,12 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ChatRequestMessageDiscriminator
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.ChatRequestMessageDiscriminatorRoleJsonConverter))]
@@ -40,5 +40,6 @@ namespace AI21
         public ChatRequestMessageDiscriminator()
         {
         }
+
     }
 }

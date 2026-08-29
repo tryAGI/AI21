@@ -11,7 +11,7 @@ namespace AI21
     public sealed partial class Ai21Client : global::AI21.IAi21Client, global::System.IDisposable
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public const string DefaultBaseUrl = "https://api.ai21.com/";
 
@@ -31,55 +31,65 @@ namespace AI21
 #if DEBUG
             = true;
 #endif
+
+        /// <inheritdoc/>
+        public global::AI21.AutoSDKClientOptions Options { get; }
+
+        internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::AI21.SourceGenerationContext.Default);
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
-        public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; } = global::AI21.SourceGenerationContext.Default;
+        public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
+        {
+            get => JsonSerializerContextProvider.Value;
+            set => JsonSerializerContextProvider = new(() => value);
+        }
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
-        public JambaCompleteClient JambaComplete => new JambaCompleteClient(HttpClient, authorizations: Authorizations)
+        public JambaCompleteClient JambaComplete => new JambaCompleteClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
-        public LibraryManagementClient LibraryManagement => new LibraryManagementClient(HttpClient, authorizations: Authorizations)
+        public LibraryManagementClient LibraryManagement => new LibraryManagementClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
-        public RagEngineClient RagEngine => new RagEngineClient(HttpClient, authorizations: Authorizations)
+        public RagEngineClient RagEngine => new RagEngineClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
-        public SecretsClient Secrets => new SecretsClient(HttpClient, authorizations: Authorizations)
+        public SecretsClient Secrets => new SecretsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
-        public WebsiteConnectorClient WebsiteConnector => new WebsiteConnectorClient(HttpClient, authorizations: Authorizations)
+        public WebsiteConnectorClient WebsiteConnector => new WebsiteConnectorClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
         };
 
         /// <summary>
@@ -95,11 +105,58 @@ namespace AI21
             global::System.Net.Http.HttpClient? httpClient = null,
             global::System.Uri? baseUri = null,
             global::System.Collections.Generic.List<global::AI21.EndPointAuthorization>? authorizations = null,
+            bool disposeHttpClient = true) : this(
+                httpClient,
+                baseUri,
+                authorizations,
+                options: null,
+                disposeHttpClient: disposeHttpClient)
+        {
+        }
+
+        /// <summary>
+        /// Creates a new instance of the Ai21Client with explicit options but no base URL override.
+        /// Skips passing <c>baseUri</c> so the default base URL from the OpenAPI spec applies.
+        /// </summary>
+        /// <param name="httpClient">The HttpClient instance. If not provided, a new one will be created.</param>
+        /// <param name="authorizations">The authorizations to use for the requests.</param>
+        /// <param name="options">Client-wide request defaults such as headers, query parameters, retries, and timeout.</param>
+        /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
+        public Ai21Client(
+            global::System.Net.Http.HttpClient? httpClient,
+            global::System.Collections.Generic.List<global::AI21.EndPointAuthorization>? authorizations,
+            global::AI21.AutoSDKClientOptions? options,
+            bool disposeHttpClient = true) : this(
+                httpClient,
+                baseUri: null,
+                authorizations,
+                options,
+                disposeHttpClient: disposeHttpClient)
+        {
+        }
+
+        /// <summary>
+        /// Creates a new instance of the Ai21Client.
+        /// If no httpClient is provided, a new one will be created.
+        /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
+        /// </summary>
+        /// <param name="httpClient">The HttpClient instance. If not provided, a new one will be created.</param>
+        /// <param name="baseUri">The base URL for the API. If not provided, the default baseUri from OpenAPI spec will be used.</param>
+        /// <param name="authorizations">The authorizations to use for the requests.</param>
+        /// <param name="options">Client-wide request defaults such as headers, query parameters, retries, and timeout.</param>
+        /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
+        public Ai21Client(
+            global::System.Net.Http.HttpClient? httpClient,
+            global::System.Uri? baseUri,
+            global::System.Collections.Generic.List<global::AI21.EndPointAuthorization>? authorizations,
+            global::AI21.AutoSDKClientOptions? options,
             bool disposeHttpClient = true)
         {
+
             HttpClient = httpClient ?? new global::System.Net.Http.HttpClient();
             HttpClient.BaseAddress ??= baseUri ?? new global::System.Uri(DefaultBaseUrl);
             Authorizations = authorizations ?? new global::System.Collections.Generic.List<global::AI21.EndPointAuthorization>();
+            Options = options ?? new global::AI21.AutoSDKClientOptions();
             _disposeHttpClient = disposeHttpClient;
 
             Initialized(HttpClient);

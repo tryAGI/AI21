@@ -8,11 +8,25 @@ namespace AI21
         /// Process Rfi Document
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::AI21.RFIResponseSection>> ProcessRfiDocumentStudioV1DemosRfiProcessRfiPostAsync(
 
             global::AI21.BodyProcessRfiDocumentStudioV1DemosRfiProcessRfiPost request,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Process Rfi Document
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::AI21.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::AI21.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::AI21.RFIResponseSection>>> ProcessRfiDocumentStudioV1DemosRfiProcessRfiPostAsResponseAsync(
+
+            global::AI21.BodyProcessRfiDocumentStudioV1DemosRfiProcessRfiPost request,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Process Rfi Document
@@ -30,6 +44,7 @@ namespace AI21
         /// <param name="vectorStoreId">
         /// Vector store ID to use for RFI processing
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::AI21.RFIResponseSection>> ProcessRfiDocumentStudioV1DemosRfiProcessRfiPostAsync(
@@ -37,6 +52,60 @@ namespace AI21
             string filename,
             string? budget = default,
             string? vectorStoreId = default,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Process Rfi Document
+        /// </summary>
+        /// <param name="file">
+        /// RFI document file (PDF supported)
+        /// </param>
+        /// <param name="filename">
+        /// RFI document file (PDF supported)
+        /// </param>
+        /// <param name="budget">
+        /// Budget level: LOW, MEDIUM, or HIGH<br/>
+        /// Default Value: MEDIUM
+        /// </param>
+        /// <param name="vectorStoreId">
+        /// Vector store ID to use for RFI processing
+        /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::AI21.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::AI21.RFIResponseSection>> ProcessRfiDocumentStudioV1DemosRfiProcessRfiPostAsync(
+            global::System.IO.Stream file,
+            string filename,
+            string? budget = default,
+            string? vectorStoreId = default,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Process Rfi Document
+        /// </summary>
+        /// <param name="file">
+        /// RFI document file (PDF supported)
+        /// </param>
+        /// <param name="filename">
+        /// RFI document file (PDF supported)
+        /// </param>
+        /// <param name="budget">
+        /// Budget level: LOW, MEDIUM, or HIGH<br/>
+        /// Default Value: MEDIUM
+        /// </param>
+        /// <param name="vectorStoreId">
+        /// Vector store ID to use for RFI processing
+        /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::AI21.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::AI21.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::AI21.RFIResponseSection>>> ProcessRfiDocumentStudioV1DemosRfiProcessRfiPostAsResponseAsync(
+            global::System.IO.Stream file,
+            string filename,
+            string? budget = default,
+            string? vectorStoreId = default,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
