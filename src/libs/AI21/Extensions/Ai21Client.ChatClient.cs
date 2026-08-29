@@ -30,7 +30,7 @@ public partial class Ai21Client : IChatClient
         var request = CreateChatRequest(messages, options);
         request.Stream = false;
 
-        var response = await JambaComplete.V1ChatCompleteAsync(request, cancellationToken).ConfigureAwait(false);
+        var response = await JambaComplete.V1ChatCompleteAsync(request, cancellationToken: cancellationToken).ConfigureAwait(false);
 
         var completion = response.Value1 ?? throw new InvalidOperationException(
             "Expected a ChatCompletion response but received a streaming response.");
@@ -48,7 +48,7 @@ public partial class Ai21Client : IChatClient
         var request = CreateChatRequest(messages, options);
         request.Stream = true;
 
-        var response = await JambaComplete.V1ChatCompleteAsync(request, cancellationToken).ConfigureAwait(false);
+        var response = await JambaComplete.V1ChatCompleteAsync(request, cancellationToken: cancellationToken).ConfigureAwait(false);
 
         var streamMessages = response.Value2;
         if (streamMessages is null or { Count: 0 })
