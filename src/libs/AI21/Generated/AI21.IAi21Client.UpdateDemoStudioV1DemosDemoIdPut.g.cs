@@ -10,12 +10,29 @@ namespace AI21
         /// </summary>
         /// <param name="demoId"></param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.Demo> UpdateDemoStudioV1DemosDemoIdPutAsync(
             string demoId,
 
             global::AI21.DemoUpdate request,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update Demo<br/>
+        /// Update an existing demo.
+        /// </summary>
+        /// <param name="demoId"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::AI21.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::AI21.AutoSDKHttpResponse<global::AI21.Demo>> UpdateDemoStudioV1DemosDemoIdPutAsResponseAsync(
+            string demoId,
+
+            global::AI21.DemoUpdate request,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Demo<br/>
@@ -37,6 +54,7 @@ namespace AI21
         /// <param name="uiComponentName">
         /// Name of the UI component
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::AI21.Demo> UpdateDemoStudioV1DemosDemoIdPutAsync(
@@ -46,6 +64,7 @@ namespace AI21
             global::AI21.DemoStatus? status = default,
             object? config = default,
             string? uiComponentName = default,
+            global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

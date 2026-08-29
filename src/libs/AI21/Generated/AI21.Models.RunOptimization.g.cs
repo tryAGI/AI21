@@ -9,11 +9,11 @@ namespace AI21
     public enum RunOptimization
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Cost,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Latency,
     }

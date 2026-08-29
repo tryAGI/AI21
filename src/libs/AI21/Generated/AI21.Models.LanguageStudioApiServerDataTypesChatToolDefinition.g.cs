@@ -4,19 +4,19 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class LanguageStudioApiServerDataTypesChatToolDefinition
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.LanguageStudioApiServerDataTypesChatToolDefinitionTypeJsonConverter))]
         public global::AI21.LanguageStudioApiServerDataTypesChatToolDefinitionType Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("function")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -50,5 +50,6 @@ namespace AI21
         public LanguageStudioApiServerDataTypesChatToolDefinition()
         {
         }
+
     }
 }

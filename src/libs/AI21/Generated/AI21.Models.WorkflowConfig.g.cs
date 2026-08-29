@@ -4,25 +4,25 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class WorkflowConfig
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("endpoint_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string EndpointUrl { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("headers")]
         public object? Headers { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("additional_params")]
         public object? AdditionalParams { get; set; }
@@ -58,5 +58,6 @@ namespace AI21
         public WorkflowConfig()
         {
         }
+
     }
 }

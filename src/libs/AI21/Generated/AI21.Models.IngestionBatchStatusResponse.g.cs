@@ -4,7 +4,7 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class IngestionBatchStatusResponse
     {
@@ -66,5 +66,6 @@ namespace AI21
         public IngestionBatchStatusResponse()
         {
         }
+
     }
 }

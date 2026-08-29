@@ -4,24 +4,24 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum LanguageStudioApiServerDataTypesExecutionEngineToolDefinitionDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FileSearch,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Http,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mcp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WebSearch,
     }

@@ -5,12 +5,12 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct QueryFilter : global::System.IEquatable<QueryFilter>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::AI21.ComparisonOperator? ComparisonOperator { get; init; }
@@ -19,7 +19,7 @@ namespace AI21
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ComparisonOperator))]
@@ -27,7 +27,27 @@ namespace AI21
         public bool IsComparisonOperator => ComparisonOperator != null;
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        public bool TryPickComparisonOperator(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::AI21.ComparisonOperator? value)
+        {
+            value = ComparisonOperator;
+            return IsComparisonOperator;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::AI21.ComparisonOperator PickComparisonOperator() => IsComparisonOperator
+            ? ComparisonOperator!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ComparisonOperator' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<object>>? LogicalOperator { get; init; }
@@ -36,7 +56,7 @@ namespace AI21
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(LogicalOperator))]
@@ -44,7 +64,27 @@ namespace AI21
         public bool IsLogicalOperator => LogicalOperator != null;
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        public bool TryPickLogicalOperator(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<object>>? value)
+        {
+            value = LogicalOperator;
+            return IsLogicalOperator;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<object>> PickLogicalOperator() => IsLogicalOperator
+            ? LogicalOperator!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'LogicalOperator' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>? QueryFilterVariant3 { get; init; }
@@ -53,24 +93,44 @@ namespace AI21
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(QueryFilterVariant3))]
 #endif
         public bool IsQueryFilterVariant3 => QueryFilterVariant3 != null;
+
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        public bool TryPickQueryFilterVariant3(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>? value)
+        {
+            value = QueryFilterVariant3;
+            return IsQueryFilterVariant3;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator> PickQueryFilterVariant3() => IsQueryFilterVariant3
+            ? QueryFilterVariant3!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'QueryFilterVariant3' but the value was {ToString()}.");
+        /// <summary>
+        ///
         /// </summary>
         public static implicit operator QueryFilter(global::AI21.ComparisonOperator value) => new QueryFilter((global::AI21.ComparisonOperator?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::AI21.ComparisonOperator?(QueryFilter @this) => @this.ComparisonOperator;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public QueryFilter(global::AI21.ComparisonOperator? value)
         {
@@ -78,17 +138,22 @@ namespace AI21
         }
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        public static QueryFilter FromComparisonOperator(global::AI21.ComparisonOperator? value) => new QueryFilter(value);
+
+        /// <summary>
+        ///
         /// </summary>
         public static implicit operator QueryFilter(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<object>> value) => new QueryFilter((global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<object>>?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<object>>?(QueryFilter @this) => @this.LogicalOperator;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public QueryFilter(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<object>>? value)
         {
@@ -96,17 +161,22 @@ namespace AI21
         }
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        public static QueryFilter FromLogicalOperator(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<object>>? value) => new QueryFilter(value);
+
+        /// <summary>
+        ///
         /// </summary>
         public static implicit operator QueryFilter(global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator> value) => new QueryFilter((global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>?(QueryFilter @this) => @this.QueryFilterVariant3;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public QueryFilter(global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>? value)
         {
@@ -114,7 +184,12 @@ namespace AI21
         }
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        public static QueryFilter FromQueryFilterVariant3(global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>? value) => new QueryFilter(value);
+
+        /// <summary>
+        ///
         /// </summary>
         public QueryFilter(
             global::AI21.ComparisonOperator? comparisonOperator,
@@ -128,25 +203,25 @@ namespace AI21
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             QueryFilterVariant3 as object ??
             LogicalOperator as object ??
-            ComparisonOperator as object 
+            ComparisonOperator as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             ComparisonOperator?.ToString() ??
             LogicalOperator?.ToString() ??
-            QueryFilterVariant3?.ToString() 
+            QueryFilterVariant3?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -154,12 +229,12 @@ namespace AI21
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::AI21.ComparisonOperator?, TResult>? comparisonOperator = null,
-            global::System.Func<global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<object>>?, TResult>? logicalOperator = null,
-            global::System.Func<global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>?, TResult>? queryFilterVariant3 = null,
+            global::System.Func<global::AI21.ComparisonOperator, TResult>? comparisonOperator = null,
+            global::System.Func<global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<object>>, TResult>? logicalOperator = null,
+            global::System.Func<global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>, TResult>? queryFilterVariant3 = null,
             bool validate = true)
         {
             if (validate)
@@ -184,12 +259,14 @@ namespace AI21
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
-            global::System.Action<global::AI21.ComparisonOperator?>? comparisonOperator = null,
-            global::System.Action<global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<object>>?>? logicalOperator = null,
-            global::System.Action<global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>?>? queryFilterVariant3 = null,
+            global::System.Action<global::AI21.ComparisonOperator>? comparisonOperator = null,
+
+            global::System.Action<global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<object>>>? logicalOperator = null,
+
+            global::System.Action<global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>>? queryFilterVariant3 = null,
             bool validate = true)
         {
             if (validate)
@@ -212,7 +289,35 @@ namespace AI21
         }
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::AI21.ComparisonOperator>? comparisonOperator = null,
+            global::System.Action<global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<object>>>? logicalOperator = null,
+            global::System.Action<global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>>? queryFilterVariant3 = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsComparisonOperator)
+            {
+                comparisonOperator?.Invoke(ComparisonOperator!);
+            }
+            else if (IsLogicalOperator)
+            {
+                logicalOperator?.Invoke(LogicalOperator!);
+            }
+            else if (IsQueryFilterVariant3)
+            {
+                queryFilterVariant3?.Invoke(QueryFilterVariant3!);
+            }
+        }
+
+        /// <summary>
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -235,19 +340,19 @@ namespace AI21
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(QueryFilter other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::AI21.ComparisonOperator?>.Default.Equals(ComparisonOperator, other.ComparisonOperator) &&
                 global::System.Collections.Generic.EqualityComparer<global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<object>>?>.Default.Equals(LogicalOperator, other.LogicalOperator) &&
-                global::System.Collections.Generic.EqualityComparer<global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>?>.Default.Equals(QueryFilterVariant3, other.QueryFilterVariant3) 
+                global::System.Collections.Generic.EqualityComparer<global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>?>.Default.Equals(QueryFilterVariant3, other.QueryFilterVariant3)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(QueryFilter obj1, QueryFilter obj2)
         {
@@ -255,7 +360,7 @@ namespace AI21
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(QueryFilter obj1, QueryFilter obj2)
         {
@@ -263,7 +368,7 @@ namespace AI21
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

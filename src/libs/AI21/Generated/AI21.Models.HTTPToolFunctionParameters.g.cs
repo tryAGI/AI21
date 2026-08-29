@@ -4,7 +4,7 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class HTTPToolFunctionParameters
     {
@@ -16,14 +16,14 @@ namespace AI21
         public global::AI21.HTTPToolFunctionParametersType? Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("properties")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.Dictionary<string, global::AI21.HTTPToolFunctionParamProperties> Properties { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("required")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -62,5 +62,6 @@ namespace AI21
         public HTTPToolFunctionParameters()
         {
         }
+
     }
 }

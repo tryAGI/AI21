@@ -9,23 +9,23 @@ namespace AI21
     public enum FileStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DbRecordCreated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Processed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ProcessingFailed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Uploaded,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UploadFailed,
     }

@@ -7,7 +7,7 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
         DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
@@ -40,10 +40,6 @@ namespace AI21
             typeof(global::AI21.JsonConverters.ChatStreamingFirstDeltaRoleJsonConverter),
 
             typeof(global::AI21.JsonConverters.ChatStreamingFirstDeltaRoleNullableJsonConverter),
-
-            typeof(global::AI21.JsonConverters.ConnectorsWorkflowStatusJsonConverter),
-
-            typeof(global::AI21.JsonConverters.ConnectorsWorkflowStatusNullableJsonConverter),
 
             typeof(global::AI21.JsonConverters.CreateMaestroRunsPayloadBudgetJsonConverter),
 
@@ -93,10 +89,6 @@ namespace AI21
 
             typeof(global::AI21.JsonConverters.HTTPToolResourceTypeNullableJsonConverter),
 
-            typeof(global::AI21.JsonConverters.LibrarySearchRequestLabelsFilterModeJsonConverter),
-
-            typeof(global::AI21.JsonConverters.LibrarySearchRequestLabelsFilterModeNullableJsonConverter),
-
             typeof(global::AI21.JsonConverters.MCPToolResourceTypeJsonConverter),
 
             typeof(global::AI21.JsonConverters.MCPToolResourceTypeNullableJsonConverter),
@@ -120,10 +112,6 @@ namespace AI21
             typeof(global::AI21.JsonConverters.ModifyAssistantRequestResponseLanguageJsonConverter),
 
             typeof(global::AI21.JsonConverters.ModifyAssistantRequestResponseLanguageNullableJsonConverter),
-
-            typeof(global::AI21.JsonConverters.ParagonSyncStatusJsonConverter),
-
-            typeof(global::AI21.JsonConverters.ParagonSyncStatusNullableJsonConverter),
 
             typeof(global::AI21.JsonConverters.ResponseFormatTypeJsonConverter),
 
@@ -177,10 +165,6 @@ namespace AI21
 
             typeof(global::AI21.JsonConverters.WebSearchToolResourceTypeNullableJsonConverter),
 
-            typeof(global::AI21.JsonConverters.WebsiteConnectorPayloadTypeJsonConverter),
-
-            typeof(global::AI21.JsonConverters.WebsiteConnectorPayloadTypeNullableJsonConverter),
-
             typeof(global::AI21.JsonConverters.LanguageStudioApiServerDataTypesChatToolDefinitionTypeJsonConverter),
 
             typeof(global::AI21.JsonConverters.LanguageStudioApiServerDataTypesChatToolDefinitionTypeNullableJsonConverter),
@@ -207,21 +191,24 @@ namespace AI21
 
             typeof(global::AI21.JsonConverters.AnyOfJsonConverter<string, int?>),
 
-            typeof(global::AI21.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>),
-
             typeof(global::AI21.JsonConverters.AnyOfJsonConverter<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>),
 
             typeof(global::AI21.JsonConverters.UnixTimestampJsonConverter),
         })]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.JsonSerializerContextTypes))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.Assistant))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.AgentCreate))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.AgentOptimization))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.AgentOut))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Guid))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.AgentUpdate))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.Assistant))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.AnyOf<global::System.Collections.Generic.IList<global::System.Guid>, global::System.Collections.Generic.IList<string>>), TypeInfoPropertyName = "AnyOfIListGuidIListString2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::System.Guid>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Guid))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesExecutionEngineToolDefinition>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.LanguageStudioApiServerDataTypesExecutionEngineToolDefinition), TypeInfoPropertyName = "LanguageStudioApiServerDataTypesExecutionEngineToolDefinition2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::AI21.LanguageStudioApiServerDataTypesAssistantRequirement>))]
@@ -289,15 +276,11 @@ namespace AI21
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ToolCallDeltaStart))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.CompareTextRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ComparisonOperator))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ConnectorConnectionStatus))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ParagonSyncStatus), TypeInfoPropertyName = "ParagonSyncStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ConnectorsDataSources))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::AI21.DataSourceMetadata>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.DataSourceMetadata))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ConnectorsStatus))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ConnectorsWorkflowStatus), TypeInfoPropertyName = "ConnectorsWorkflowStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ConnectorsSyncParams))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ConnectorsToken))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ConfigProfileCreate))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ConfigProfileOut))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ConfigProfileUpdate))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ConfigSchemaOut))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<object>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.CreateAssistantRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.CreateMCPStorageRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.CreateMaestroRunsPayload))]
@@ -308,7 +291,6 @@ namespace AI21
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.LanguageStudioApiServerDataTypesExecutionEngineRequirement))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.CreateMaestroRunsPayloadBudget), TypeInfoPropertyName = "CreateMaestroRunsPayloadBudget2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.CreateMaestroRunsPayloadVariant), TypeInfoPropertyName = "CreateMaestroRunsPayloadVariant2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<object>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.CreateMaestroRunsPayloadResponseLanguage), TypeInfoPropertyName = "CreateMaestroRunsPayloadResponseLanguage2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.CreateOrganizationSchemaRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.CreatePlanPayload))]
@@ -356,9 +338,9 @@ namespace AI21
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.IgnestionBatchStatusCount))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.IngestionBatchStatusResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::AI21.IgnestionBatchStatusCount>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.InsightFeedbackIn))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.InsightOut))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.JambaExecuteRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.LibrarySearchRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.LibrarySearchRequestLabelsFilterMode), TypeInfoPropertyName = "LibrarySearchRequestLabelsFilterMode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ListAssistantsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::AI21.Assistant>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ListMCPsStorageResponse))]
@@ -374,10 +356,6 @@ namespace AI21
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.LogprobsData))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::AI21.TopLogprobsData>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.TopLogprobsData))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.MCPDefinition))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.MCPDiscoveryResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::AI21.MCPTool>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.MCPTool))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.MCPToolResource))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.MCPToolResourceType), TypeInfoPropertyName = "MCPToolResourceType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.MaestroRunError))]
@@ -407,8 +385,6 @@ namespace AI21
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.RunAssistantRequestResponseLanguage), TypeInfoPropertyName = "RunAssistantRequestResponseLanguage2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.SecretResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.SystemMessageRole), TypeInfoPropertyName = "SystemMessageRole2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ThreadNameGenerationRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ThreadNameGenerationResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ToolCallType), TypeInfoPropertyName = "ToolCallType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ToolFunction))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ToolFunctionDelta))]
@@ -428,8 +404,6 @@ namespace AI21
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.WebsiteConnectorCreateConfigPayload))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.WebsiteConnectorIngestUrlPayload))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.WebsiteConnectorIngestWebsitePayload))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.WebsiteConnectorPayload))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.WebsiteConnectorPayloadType), TypeInfoPropertyName = "WebsiteConnectorPayloadType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.WebsiteConnectorRetryIngestWebsitePayload))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.WorkspaceModelResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.WorkspaceModelUpdate))]
@@ -443,9 +417,13 @@ namespace AI21
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::AI21.FileResponse>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::AI21.Demo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::AI21.RFIResponseSection>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::AI21.AgentOut>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::AI21.AgentOptimization>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::AI21.ConfigProfileOut>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::AI21.InsightOut>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.AnyOf<global::System.Collections.Generic.List<global::System.Guid>, global::System.Collections.Generic.List<string>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::System.Guid>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.LanguageStudioApiServerDataTypesExecutionEngineToolDefinition>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.LanguageStudioApiServerDataTypesAssistantRequirement>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.StarterQuestion>))]
@@ -460,11 +438,9 @@ namespace AI21
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.DocumentSchema>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.ToolCallDelta>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.ToolCallDeltaStart>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.DataSourceMetadata>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.AnyOf<global::System.Collections.Generic.List<global::AI21.Message>, string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.Message>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.LanguageStudioApiServerDataTypesExecutionEngineRequirement>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.DocumentReference>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.ValidationError>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.IgnestionBatchStatusCount>))]
@@ -475,7 +451,6 @@ namespace AI21
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<object>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.LogprobsData>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.TopLogprobsData>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.MCPTool>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.ModelInfo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.OrgSchema>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.RequirementItem>))]
@@ -486,6 +461,10 @@ namespace AI21
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.FileResponse>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.Demo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.RFIResponseSection>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.AgentOut>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.AgentOptimization>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.ConfigProfileOut>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.InsightOut>))]
     public sealed partial class SourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }

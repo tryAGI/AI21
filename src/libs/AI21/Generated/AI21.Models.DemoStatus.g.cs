@@ -9,11 +9,11 @@ namespace AI21
     public enum DemoStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Active,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Inactive,
     }

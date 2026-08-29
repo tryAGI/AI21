@@ -4,7 +4,7 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ToolCall
     {
@@ -25,7 +25,7 @@ namespace AI21
         public global::AI21.ToolCallType? Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("function")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -68,5 +68,6 @@ namespace AI21
         public ToolCall()
         {
         }
+
     }
 }

@@ -4,18 +4,18 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class UpdateSecretPayload
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("secret_name")]
         public string? SecretName { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("secret_value")]
         public string? SecretValue { get; set; }
@@ -48,5 +48,6 @@ namespace AI21
         public UpdateSecretPayload()
         {
         }
+
     }
 }

@@ -4,7 +4,7 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class FilesUpdateRequest
     {
@@ -58,5 +58,6 @@ namespace AI21
         public FilesUpdateRequest()
         {
         }
+
     }
 }

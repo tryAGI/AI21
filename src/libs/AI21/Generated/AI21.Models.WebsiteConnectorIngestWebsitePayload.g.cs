@@ -4,25 +4,25 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class WebsiteConnectorIngestWebsitePayload
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sitemap_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string SitemapUrl { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("client_config")]
         public string? ClientConfig { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("labels")]
         public global::System.Collections.Generic.IList<string>? Labels { get; set; }
@@ -58,5 +58,6 @@ namespace AI21
         public WebsiteConnectorIngestWebsitePayload()
         {
         }
+
     }
 }

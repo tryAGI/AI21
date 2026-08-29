@@ -33,35 +33,40 @@ namespace AI21
         /// ensuring <see cref="ApiException.ResponseBody"/> is populated.
         /// </summary>
         public bool ReadResponseAsString { get; set; }
+        /// <summary>
+        /// Client-wide request defaults such as headers, query parameters, retries, and timeout.
+        /// </summary>
+        public global::AI21.AutoSDKClientOptions Options { get; }
+
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; }
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public JambaCompleteClient JambaComplete { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public LibraryManagementClient LibraryManagement { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public RagEngineClient RagEngine { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public SecretsClient Secrets { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public WebsiteConnectorClient WebsiteConnector { get; }
 

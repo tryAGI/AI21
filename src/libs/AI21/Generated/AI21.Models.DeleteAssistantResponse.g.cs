@@ -4,7 +4,7 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class DeleteAssistantResponse
     {
@@ -68,5 +68,6 @@ namespace AI21
         public DeleteAssistantResponse()
         {
         }
+
     }
 }

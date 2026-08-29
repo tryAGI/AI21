@@ -20,7 +20,7 @@ namespace AI21.JsonConverters
                     {
                         return global::AI21.VisibilityExtensions.ToEnum(stringValue);
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

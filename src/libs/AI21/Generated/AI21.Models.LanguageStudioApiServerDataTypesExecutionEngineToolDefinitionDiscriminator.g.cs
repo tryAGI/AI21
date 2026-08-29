@@ -4,12 +4,12 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class LanguageStudioApiServerDataTypesExecutionEngineToolDefinitionDiscriminator
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.LanguageStudioApiServerDataTypesExecutionEngineToolDefinitionDiscriminatorTypeJsonConverter))]
@@ -40,5 +40,6 @@ namespace AI21
         public LanguageStudioApiServerDataTypesExecutionEngineToolDefinitionDiscriminator()
         {
         }
+
     }
 }

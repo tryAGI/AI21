@@ -4,7 +4,7 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class MarkdownRequest
     {
@@ -42,5 +42,6 @@ namespace AI21
         public MarkdownRequest()
         {
         }
+
     }
 }

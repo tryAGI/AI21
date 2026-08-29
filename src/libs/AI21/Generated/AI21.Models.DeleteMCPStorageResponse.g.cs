@@ -4,7 +4,7 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class DeleteMCPStorageResponse
     {
@@ -46,5 +46,6 @@ namespace AI21
         public DeleteMCPStorageResponse()
         {
         }
+
     }
 }

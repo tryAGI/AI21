@@ -4,7 +4,7 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class SystemMessage
     {
@@ -26,7 +26,7 @@ namespace AI21
         public global::AI21.SystemMessageRole? Role { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -72,5 +72,6 @@ namespace AI21
         public SystemMessage()
         {
         }
+
     }
 }

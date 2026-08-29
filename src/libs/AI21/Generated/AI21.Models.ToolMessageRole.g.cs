@@ -19,7 +19,7 @@ namespace AI21
     public enum ToolMessageRole
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tool,
     }

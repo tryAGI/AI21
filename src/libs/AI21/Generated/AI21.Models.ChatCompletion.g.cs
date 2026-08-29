@@ -33,7 +33,7 @@ namespace AI21
         public required global::AI21.UsageInfo Usage { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("meta")]
         public object? Meta { get; set; }
@@ -81,5 +81,6 @@ namespace AI21
         public ChatCompletion()
         {
         }
+
     }
 }

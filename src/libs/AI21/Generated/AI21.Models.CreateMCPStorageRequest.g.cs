@@ -4,26 +4,26 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CreateMCPStorageRequest
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("server_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ServerUrl { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("server_label")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ServerLabel { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("workspace_id")]
         public global::System.Guid? WorkspaceId { get; set; }
@@ -36,19 +36,19 @@ namespace AI21
         public global::AI21.AuthenticationType? AuthenticationType { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auth_header_name")]
         public string? AuthHeaderName { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auth_value")]
         public string? AuthValue { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("allowed_tools")]
         public global::System.Collections.Generic.IList<string>? AllowedTools { get; set; }
@@ -98,5 +98,6 @@ namespace AI21
         public CreateMCPStorageRequest()
         {
         }
+
     }
 }

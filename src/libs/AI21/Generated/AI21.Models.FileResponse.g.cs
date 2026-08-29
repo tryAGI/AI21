@@ -4,7 +4,7 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class FileResponse
     {
@@ -100,7 +100,7 @@ namespace AI21
         public required string Status { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dataSource")]
         public string? DataSource { get; set; }
@@ -202,5 +202,6 @@ namespace AI21
         public FileResponse()
         {
         }
+
     }
 }

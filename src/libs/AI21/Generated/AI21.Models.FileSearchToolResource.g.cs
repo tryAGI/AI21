@@ -4,7 +4,7 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class FileSearchToolResource
     {
@@ -16,13 +16,13 @@ namespace AI21
         public global::AI21.FileSearchToolResourceType? Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("retrieval_similarity_threshold")]
         public double? RetrievalSimilarityThreshold { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("labels")]
         public global::System.Collections.Generic.IList<string>? Labels { get; set; }
@@ -35,14 +35,14 @@ namespace AI21
         public global::AI21.FileSearchToolResourceLabelsFilterMode? LabelsFilterMode { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("labels_filter")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.QueryFilterJsonConverter))]
         public global::AI21.QueryFilter? LabelsFilter { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_ids")]
         public global::System.Collections.Generic.IList<string>? FileIds { get; set; }
@@ -55,13 +55,13 @@ namespace AI21
         public global::AI21.RetrievalStrategy? RetrievalStrategy { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_neighbors")]
         public int? MaxNeighbors { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("path")]
         public string? Path { get; set; }
@@ -155,5 +155,6 @@ namespace AI21
         public FileSearchToolResource()
         {
         }
+
     }
 }

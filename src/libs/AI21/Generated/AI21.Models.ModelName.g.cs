@@ -9,27 +9,27 @@ namespace AI21
     public enum ModelName
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JambaLarge,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JambaLarge17,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JambaLarge17202507,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JambaMini,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JambaMini2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JambaMini2202601,
     }

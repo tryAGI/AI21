@@ -9,11 +9,11 @@ namespace AI21
     public enum UploadMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Batch,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Immediate,
     }

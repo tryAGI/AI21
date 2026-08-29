@@ -4,7 +4,7 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class BodyProcessRfiDocumentStudioV1DemosRfiProcessRfiPost
     {
@@ -78,5 +78,6 @@ namespace AI21
         public BodyProcessRfiDocumentStudioV1DemosRfiProcessRfiPost()
         {
         }
+
     }
 }

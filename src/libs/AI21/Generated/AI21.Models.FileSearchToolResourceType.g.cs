@@ -9,7 +9,7 @@ namespace AI21
     public enum FileSearchToolResourceType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FileSearch,
     }

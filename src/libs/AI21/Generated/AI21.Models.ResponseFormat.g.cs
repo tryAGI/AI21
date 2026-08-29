@@ -4,12 +4,12 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ResponseFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::AI21.JsonConverters.ResponseFormatTypeJsonConverter))]
@@ -41,5 +41,6 @@ namespace AI21
         public ResponseFormat()
         {
         }
+
     }
 }

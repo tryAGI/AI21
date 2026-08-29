@@ -4,7 +4,7 @@
 namespace AI21
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ChatStreamingFirstDelta
     {
@@ -61,5 +61,6 @@ namespace AI21
         public ChatStreamingFirstDelta()
         {
         }
+
     }
 }
