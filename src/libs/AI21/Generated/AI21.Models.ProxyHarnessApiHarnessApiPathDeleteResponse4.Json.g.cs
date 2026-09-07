@@ -2,7 +2,7 @@
 
 namespace AI21
 {
-    public sealed partial class ProxyHarnessApiHarnessApiPathPutResponse5
+    public sealed partial class ProxyHarnessApiHarnessApiPathDeleteResponse4
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -47,20 +47,20 @@ namespace AI21
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::AI21.ProxyHarnessApiHarnessApiPathPutResponse5? FromJson(
+        public static global::AI21.ProxyHarnessApiHarnessApiPathDeleteResponse4? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::AI21.ProxyHarnessApiHarnessApiPathPutResponse5),
-                jsonSerializerContext) as global::AI21.ProxyHarnessApiHarnessApiPathPutResponse5;
+                typeof(global::AI21.ProxyHarnessApiHarnessApiPathDeleteResponse4),
+                jsonSerializerContext) as global::AI21.ProxyHarnessApiHarnessApiPathDeleteResponse4;
         }
 
         /// <summary>
         /// Deserializes a JSON string using the generated default JsonSerializerContext.
         /// </summary>
-        public static global::AI21.ProxyHarnessApiHarnessApiPathPutResponse5? FromJson(
+        public static global::AI21.ProxyHarnessApiHarnessApiPathDeleteResponse4? FromJson(
             string json)
         {
             return FromJson(
@@ -75,7 +75,7 @@ namespace AI21
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::AI21.ProxyHarnessApiHarnessApiPathPutResponse5? FromJson(
+        public static global::AI21.ProxyHarnessApiHarnessApiPathDeleteResponse4? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
@@ -86,7 +86,7 @@ namespace AI21
                     global::AI21.SourceGenerationContext.Default);
             }
 
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::AI21.ProxyHarnessApiHarnessApiPathPutResponse5>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::AI21.ProxyHarnessApiHarnessApiPathDeleteResponse4>(
                 json,
                 jsonSerializerOptions);
         }
@@ -94,20 +94,20 @@ namespace AI21
         /// <summary>
         /// Deserializes a JSON stream using the provided JsonSerializerContext.
         /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::AI21.ProxyHarnessApiHarnessApiPathPutResponse5?> FromJsonStreamAsync(
+        public static async global::System.Threading.Tasks.ValueTask<global::AI21.ProxyHarnessApiHarnessApiPathDeleteResponse4?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::AI21.ProxyHarnessApiHarnessApiPathPutResponse5),
-                jsonSerializerContext).ConfigureAwait(false)) as global::AI21.ProxyHarnessApiHarnessApiPathPutResponse5;
+                typeof(global::AI21.ProxyHarnessApiHarnessApiPathDeleteResponse4),
+                jsonSerializerContext).ConfigureAwait(false)) as global::AI21.ProxyHarnessApiHarnessApiPathDeleteResponse4;
         }
 
         /// <summary>
         /// Deserializes a JSON stream using the generated default JsonSerializerContext.
         /// </summary>
-        public static global::System.Threading.Tasks.ValueTask<global::AI21.ProxyHarnessApiHarnessApiPathPutResponse5?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::AI21.ProxyHarnessApiHarnessApiPathDeleteResponse4?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream)
         {
             return FromJsonStreamAsync(
@@ -122,7 +122,7 @@ namespace AI21
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::System.Threading.Tasks.ValueTask<global::AI21.ProxyHarnessApiHarnessApiPathPutResponse5?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::AI21.ProxyHarnessApiHarnessApiPathDeleteResponse4?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
@@ -133,7 +133,7 @@ namespace AI21
                     global::AI21.SourceGenerationContext.Default);
             }
 
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::AI21.ProxyHarnessApiHarnessApiPathPutResponse5?>(
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::AI21.ProxyHarnessApiHarnessApiPathDeleteResponse4?>(
                 jsonStream,
                 jsonSerializerOptions);
         }
