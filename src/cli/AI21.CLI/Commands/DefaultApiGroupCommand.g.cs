@@ -98,11 +98,11 @@ internal static class DefaultApiGroupCommand
                          command.Subcommands.Add(ParsePdfStudioV1DemosDocumentModifierParsePdfPostCommandApiCommand.Create());
                          command.Subcommands.Add(ProcessRfiDocumentStudioV1DemosRfiProcessRfiPostCommandApiCommand.Create());
                          command.Subcommands.Add(ProxyCliConfigHarnessApiAuthCliConfigGetCommandApiCommand.Create());
-                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathPutCommandApiCommand.Create());
-                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathPut2CommandApiCommand.Create());
-                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathPut3CommandApiCommand.Create());
-                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathPut4CommandApiCommand.Create());
-                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathPut5CommandApiCommand.Create());
+                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathDeleteCommandApiCommand.Create());
+                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathDelete2CommandApiCommand.Create());
+                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathDelete3CommandApiCommand.Create());
+                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathDelete4CommandApiCommand.Create());
+                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathDelete5CommandApiCommand.Create());
                          command.Subcommands.Add(ProxyOffV1GatewayOffV1PathOptionsCommandApiCommand.Create());
                          command.Subcommands.Add(ProxyOffV1GatewayOffV1PathOptions2CommandApiCommand.Create());
                          command.Subcommands.Add(ProxyOffV1GatewayOffV1PathOptions3CommandApiCommand.Create());
