@@ -193,6 +193,10 @@ namespace AI21
 
             typeof(global::AI21.JsonConverters.AnyOfJsonConverter<global::AI21.ChatCompletion, global::System.Collections.Generic.IList<global::AI21.ChatCompletionVllmStreamingMessage>>),
 
+            typeof(global::AI21.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<global::AI21.ProviderKeyOut>, global::AI21.ProviderKeyOut>),
+
+            typeof(global::AI21.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<global::AI21.ProviderKeyOut>, global::AI21.ProviderKeyOut>),
+
             typeof(global::AI21.JsonConverters.UnixTimestampJsonConverter),
         })]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.JsonSerializerContextTypes))]
@@ -374,6 +378,9 @@ namespace AI21
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.OrgSchema))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.OrgSchemas))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::AI21.OrgSchema>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ProviderKeyCreate))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ProviderKeyOut))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ProviderKeyUpdate))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.RFIResponseSection))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.RequirementItem))]
@@ -420,6 +427,8 @@ namespace AI21
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::AI21.AgentOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::AI21.AgentOptimization>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::AI21.ConfigProfileOut>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.AnyOf<global::System.Collections.Generic.IList<global::AI21.ProviderKeyOut>, global::AI21.ProviderKeyOut>), TypeInfoPropertyName = "AnyOfIListProviderKeyOutProviderKeyOut2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::AI21.ProviderKeyOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::AI21.InsightOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.AnyOf<global::System.Collections.Generic.List<global::System.Guid>, global::System.Collections.Generic.List<string>>))]
@@ -464,6 +473,8 @@ namespace AI21
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.AgentOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.AgentOptimization>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.ConfigProfileOut>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.AnyOf<global::System.Collections.Generic.List<global::AI21.ProviderKeyOut>, global::AI21.ProviderKeyOut>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.ProviderKeyOut>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.InsightOut>))]
     public sealed partial class SourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
     {
