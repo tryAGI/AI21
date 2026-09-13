@@ -34,7 +34,7 @@ namespace AI21
         /// <inheritdoc/>
         public global::AI21.AutoSDKClientOptions Options { get; }
 
-        internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::AI21.SourceGenerationContext.Default);
+        internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::AI21.RagEngineSourceGenerationContext.Default);
 
         /// <summary>
         ///
