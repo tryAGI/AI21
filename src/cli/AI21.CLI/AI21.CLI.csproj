@@ -8,6 +8,7 @@
     <PackAsTool>true</PackAsTool>
     <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release' ">true</GeneratePackageOnBuild>
     <PackageId>AI21.CLI</PackageId>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <ToolCommandName>ai21</ToolCommandName>
     <UserSecretsId>AI21.CLI</UserSecretsId>
