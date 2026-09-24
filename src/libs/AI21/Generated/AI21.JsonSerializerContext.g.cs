@@ -105,10 +105,6 @@ namespace AI21
 
             typeof(global::AI21.JsonConverters.ModelNameNullableJsonConverter),
 
-            typeof(global::AI21.JsonConverters.ModelQuantizationJsonConverter),
-
-            typeof(global::AI21.JsonConverters.ModelQuantizationNullableJsonConverter),
-
             typeof(global::AI21.JsonConverters.ModifyAssistantRequestResponseLanguageJsonConverter),
 
             typeof(global::AI21.JsonConverters.ModifyAssistantRequestResponseLanguageNullableJsonConverter),
@@ -367,11 +363,6 @@ namespace AI21
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.MaestroRunResultStatus), TypeInfoPropertyName = "MaestroRunResultStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.MarkdownRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.MessageRole), TypeInfoPropertyName = "MessageRole2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ModelInfo))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ModelQuantization), TypeInfoPropertyName = "ModelQuantization2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ModelPricing))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ModelsInfoResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::AI21.ModelInfo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ModifyAssistantRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.RunOptimization), TypeInfoPropertyName = "RunOptimization2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::AI21.ModifyAssistantRequestResponseLanguage), TypeInfoPropertyName = "ModifyAssistantRequestResponseLanguage2")]
@@ -460,7 +451,6 @@ namespace AI21
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<object>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.LogprobsData>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.TopLogprobsData>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.ModelInfo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.OrgSchema>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.RequirementItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::AI21.AnyOf<string, int?>>))]
