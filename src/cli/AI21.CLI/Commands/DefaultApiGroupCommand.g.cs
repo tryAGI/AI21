@@ -186,7 +186,6 @@ internal static class DefaultApiGroupCommand
                          command.Subcommands.Add(V1GetPlanCommandApiCommand.Create());
                          command.Subcommands.Add(V1GetRouteCommandApiCommand.Create());
                          command.Subcommands.Add(V1ListAssistantsCommandApiCommand.Create());
-                         command.Subcommands.Add(V1ListModelsInfoCommandApiCommand.Create());
                          command.Subcommands.Add(V1ListPlansCommandApiCommand.Create());
                          command.Subcommands.Add(V1ListRoutesCommandApiCommand.Create());
                          command.Subcommands.Add(V1MaestroRunCommandApiCommand.Create());
