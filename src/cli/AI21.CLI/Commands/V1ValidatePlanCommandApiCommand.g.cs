@@ -56,6 +56,8 @@ internal static partial class V1ValidatePlanCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"v1-validate-plan", @"Validate Plan");
@@ -105,6 +107,7 @@ internal static partial class V1ValidatePlanCommandApiCommand
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

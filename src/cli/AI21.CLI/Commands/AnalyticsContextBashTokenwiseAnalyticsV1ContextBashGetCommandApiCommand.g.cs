@@ -29,6 +29,8 @@ internal static partial class AnalyticsContextBashTokenwiseAnalyticsV1ContextBas
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"analytics-context-bash-tokenwise-analytics-v1-context-bash-get", @"Analytics Context Bash");
@@ -54,6 +56,7 @@ internal static partial class AnalyticsContextBashTokenwiseAnalyticsV1ContextBas
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

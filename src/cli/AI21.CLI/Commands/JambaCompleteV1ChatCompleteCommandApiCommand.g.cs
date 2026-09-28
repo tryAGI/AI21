@@ -146,6 +146,8 @@ be 1. A streaming response is different than the non-streaming response.
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"v1-chat-complete", @"Studio Chat Complete
@@ -230,6 +232,7 @@ token is generated, rather than waiting for the entire response.");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

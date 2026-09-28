@@ -33,6 +33,8 @@ internal static partial class DeleteMcpStorageStudioV1McpStorageMcpIdDeleteComma
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"delete-mcp-storage-studio-v1-mcp-storage-mcp-id-delete", @"Delete Mcp Storage");
@@ -58,6 +60,7 @@ internal static partial class DeleteMcpStorageStudioV1McpStorageMcpIdDeleteComma
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

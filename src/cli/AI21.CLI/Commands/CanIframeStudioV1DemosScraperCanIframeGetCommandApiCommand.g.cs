@@ -34,6 +34,8 @@ internal static partial class CanIframeStudioV1DemosScraperCanIframeGetCommandAp
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"can-iframe-studio-v1-demos-scraper-can-iframe-get", @"Can Iframe");
@@ -59,6 +61,7 @@ internal static partial class CanIframeStudioV1DemosScraperCanIframeGetCommandAp
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

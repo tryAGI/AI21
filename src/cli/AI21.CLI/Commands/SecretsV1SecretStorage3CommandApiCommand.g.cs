@@ -34,6 +34,8 @@ internal static partial class SecretsV1SecretStorage3CommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"v1-secret-storage3", @"Delete Secret");
@@ -59,6 +61,7 @@ internal static partial class SecretsV1SecretStorage3CommandApiCommand
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

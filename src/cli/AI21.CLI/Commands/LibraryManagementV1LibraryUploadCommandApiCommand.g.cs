@@ -105,6 +105,8 @@ internal static partial class LibraryManagementV1LibraryUploadCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"v1-library-upload", @"Upload Workspace File
@@ -184,6 +186,7 @@ There is no bulk upload method; files must be loaded one at a time.
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

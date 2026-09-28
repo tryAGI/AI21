@@ -29,6 +29,8 @@ internal static partial class AnalyticsAgentsTokenwiseAnalyticsV1AgentsGetComman
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"analytics-agents-tokenwise-analytics-v1-agents-get", @"Analytics Agents");
@@ -54,6 +56,7 @@ internal static partial class AnalyticsAgentsTokenwiseAnalyticsV1AgentsGetComman
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -41,6 +41,8 @@ internal static partial class CompareTextStudioV1DemosDocumentModifierCompareTex
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"compare-text-studio-v1-demos-document-modifier-compare-text-post", @"Compare Text
@@ -70,6 +72,7 @@ Compare text in a document file against a reference text.");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

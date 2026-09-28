@@ -66,6 +66,8 @@ provided, will overwrite all existing labels.
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"v1-library-management3", @"Update File
@@ -126,6 +128,7 @@ This operation currently supports updating the publicUrl and labels parameters.
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

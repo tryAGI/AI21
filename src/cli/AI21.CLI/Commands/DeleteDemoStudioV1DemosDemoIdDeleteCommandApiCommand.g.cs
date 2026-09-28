@@ -33,6 +33,8 @@ internal static partial class DeleteDemoStudioV1DemosDemoIdDeleteCommandApiComma
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"delete-demo-studio-v1-demos-demo-id-delete", @"Delete Demo
@@ -59,6 +61,7 @@ Delete a demo.");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

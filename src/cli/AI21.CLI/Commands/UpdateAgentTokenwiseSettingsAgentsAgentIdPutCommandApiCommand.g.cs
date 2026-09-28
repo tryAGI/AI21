@@ -50,6 +50,8 @@ internal static partial class UpdateAgentTokenwiseSettingsAgentsAgentIdPutComman
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"update-agent-tokenwise-settings-agents-agent-id-put", @"Update Agent");
@@ -108,6 +110,7 @@ internal static partial class UpdateAgentTokenwiseSettingsAgentsAgentIdPutComman
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

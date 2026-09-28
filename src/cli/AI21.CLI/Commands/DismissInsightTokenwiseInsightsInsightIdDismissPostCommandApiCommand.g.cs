@@ -33,6 +33,8 @@ internal static partial class DismissInsightTokenwiseInsightsInsightIdDismissPos
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"dismiss-insight-tokenwise-insights-insight-id-dismiss-post", @"Dismiss Insight
@@ -59,6 +61,7 @@ Dismiss an insight (``published`` -&gt; ``dismissed``).");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

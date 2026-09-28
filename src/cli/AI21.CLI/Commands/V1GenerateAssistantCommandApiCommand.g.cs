@@ -56,6 +56,8 @@ internal static partial class V1GenerateAssistantCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"v1-generate-assistant", @"Generate Assistant");
@@ -104,6 +106,7 @@ internal static partial class V1GenerateAssistantCommandApiCommand
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

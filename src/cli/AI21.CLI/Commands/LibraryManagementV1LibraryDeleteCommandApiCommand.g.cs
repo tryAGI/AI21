@@ -33,6 +33,8 @@ internal static partial class LibraryManagementV1LibraryDeleteCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"v1-library-delete", @"Delete File
@@ -62,6 +64,7 @@ Files in `PROCESSING` status cannot be deleted. Attempts to delete such files wi
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

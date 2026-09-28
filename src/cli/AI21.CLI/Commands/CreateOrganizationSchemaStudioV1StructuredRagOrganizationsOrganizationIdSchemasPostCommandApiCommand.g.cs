@@ -67,6 +67,8 @@ internal static partial class CreateOrganizationSchemaStudioV1StructuredRagOrgan
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"create-organization-schema-studio-v1-structured-rag-organizations-organization-id-schemas-post", @"Create Organization Schema");
@@ -121,6 +123,7 @@ internal static partial class CreateOrganizationSchemaStudioV1StructuredRagOrgan
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

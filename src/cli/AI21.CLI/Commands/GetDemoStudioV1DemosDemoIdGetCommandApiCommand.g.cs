@@ -33,6 +33,8 @@ internal static partial class GetDemoStudioV1DemosDemoIdGetCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-demo-studio-v1-demos-demo-id-get", @"Get Demo
@@ -59,6 +61,7 @@ Get a specific demo by ID.");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

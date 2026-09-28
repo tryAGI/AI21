@@ -34,6 +34,8 @@ internal static partial class GetParsedFileStudioV1DemosDocumentModifierGetParse
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-parsed-file-studio-v1-demos-document-modifier-get-parsed-file-get", @"Get Parsed File
@@ -60,6 +62,7 @@ Get the parsed file from the document modifier.");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

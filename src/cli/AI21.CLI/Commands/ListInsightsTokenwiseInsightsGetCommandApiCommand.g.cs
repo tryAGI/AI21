@@ -34,6 +34,8 @@ internal static partial class ListInsightsTokenwiseInsightsGetCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"list-insights-tokenwise-insights-get", @"List Insights
@@ -72,6 +74,7 @@ query string (see ``tokenwise_service._build_gateway_request``).");
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

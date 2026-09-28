@@ -87,6 +87,8 @@ internal static partial class CreateMcpStorageStudioV1McpStoragePostCommandApiCo
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"create-mcp-storage-studio-v1-mcp-storage-post", @"Create Mcp Storage");
@@ -158,6 +160,7 @@ internal static partial class CreateMcpStorageStudioV1McpStoragePostCommandApiCo
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

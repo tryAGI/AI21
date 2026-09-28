@@ -29,6 +29,8 @@ internal static partial class ListAllInsightsTokenwiseInsightsAllGetCommandApiCo
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"list-all-insights-tokenwise-insights-all-get", @"List All Insights
@@ -71,6 +73,7 @@ rows reach the client, which filters to the states it wants to show.");
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

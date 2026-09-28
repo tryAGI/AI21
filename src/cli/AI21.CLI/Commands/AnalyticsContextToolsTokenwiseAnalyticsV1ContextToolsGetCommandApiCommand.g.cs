@@ -29,6 +29,8 @@ internal static partial class AnalyticsContextToolsTokenwiseAnalyticsV1ContextTo
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"analytics-context-tools-tokenwise-analytics-v1-context-tools-get", @"Analytics Context Tools");
@@ -54,6 +56,7 @@ internal static partial class AnalyticsContextToolsTokenwiseAnalyticsV1ContextTo
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

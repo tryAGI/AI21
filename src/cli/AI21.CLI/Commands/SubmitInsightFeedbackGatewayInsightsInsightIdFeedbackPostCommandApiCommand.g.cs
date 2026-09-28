@@ -50,6 +50,8 @@ internal static partial class SubmitInsightFeedbackGatewayInsightsInsightIdFeedb
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"submit-insight-feedback-gateway-insights-insight-id-feedback-post", @"Submit Insight Feedback
@@ -103,6 +105,7 @@ last write wins. The gateway owns the closed verdict set.");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

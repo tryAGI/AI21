@@ -33,6 +33,8 @@ internal static partial class GetWorkspaceModelSecretEndpointStudioV1SettingsMod
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-workspace-model-secret-endpoint-studio-v1-settings-models-name-secrets-get", @"Get Workspace Model Secret Endpoint");
@@ -58,6 +60,7 @@ internal static partial class GetWorkspaceModelSecretEndpointStudioV1SettingsMod
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -4,8 +4,10 @@ using System.CommandLine;
 
 namespace AI21.CLI.Commands;
 
-internal static class ApiCommand
+internal static partial class ApiCommand
 {
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command("api", "Generated endpoint commands.");
@@ -16,6 +18,7 @@ internal static class ApiCommand
                          command.Subcommands.Add(RAGEngineApiGroupCommand.Create());
                          command.Subcommands.Add(SecretsApiGroupCommand.Create());
                          command.Subcommands.Add(WebsiteConnectorApiGroupCommand.Create());
+        CustomizeCommand(ref command);
         return command;
     }
 }

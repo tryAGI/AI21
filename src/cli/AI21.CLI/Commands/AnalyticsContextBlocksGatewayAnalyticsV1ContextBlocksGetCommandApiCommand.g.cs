@@ -29,6 +29,8 @@ internal static partial class AnalyticsContextBlocksGatewayAnalyticsV1ContextBlo
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"analytics-context-blocks-gateway-analytics-v1-context-blocks-get", @"Analytics Context Blocks");
@@ -54,6 +56,7 @@ internal static partial class AnalyticsContextBlocksGatewayAnalyticsV1ContextBlo
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

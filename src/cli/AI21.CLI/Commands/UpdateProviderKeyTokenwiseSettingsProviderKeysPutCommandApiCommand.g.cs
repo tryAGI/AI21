@@ -45,6 +45,8 @@ internal static partial class UpdateProviderKeyTokenwiseSettingsProviderKeysPutC
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"update-provider-key-tokenwise-settings-provider-keys-put", @"Update Provider Key
@@ -96,6 +98,7 @@ is no ``exclude_unset``, because ``api_key`` is the whole point of the call.");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

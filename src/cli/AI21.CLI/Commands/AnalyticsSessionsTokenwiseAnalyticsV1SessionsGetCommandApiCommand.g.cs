@@ -29,6 +29,8 @@ internal static partial class AnalyticsSessionsTokenwiseAnalyticsV1SessionsGetCo
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"analytics-sessions-tokenwise-analytics-v1-sessions-get", @"Analytics Sessions");
@@ -54,6 +56,7 @@ internal static partial class AnalyticsSessionsTokenwiseAnalyticsV1SessionsGetCo
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

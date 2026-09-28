@@ -13,6 +13,8 @@ internal static partial class DeleteAgentGatewaySettingsAgentsAgentIdDeleteComma
         Description = @"",
     };
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"delete-agent-gateway-settings-agents-agent-id-delete", @"Delete Agent");
@@ -32,6 +34,7 @@ internal static partial class DeleteAgentGatewaySettingsAgentsAgentIdDeleteComma
 
                                 await CliRuntime.WriteSuccessAsync(parseResult, cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

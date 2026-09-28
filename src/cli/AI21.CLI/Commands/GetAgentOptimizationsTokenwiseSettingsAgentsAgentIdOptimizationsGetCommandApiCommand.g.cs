@@ -33,6 +33,8 @@ internal static partial class GetAgentOptimizationsTokenwiseSettingsAgentsAgentI
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-agent-optimizations-tokenwise-settings-agents-agent-id-optimizations-get", @"Get Agent Optimizations");
@@ -66,6 +68,7 @@ internal static partial class GetAgentOptimizationsTokenwiseSettingsAgentsAgentI
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

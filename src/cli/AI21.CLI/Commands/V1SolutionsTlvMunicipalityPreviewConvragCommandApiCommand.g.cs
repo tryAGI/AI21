@@ -29,6 +29,8 @@ internal static partial class V1SolutionsTlvMunicipalityPreviewConvragCommandApi
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"v1-solutions-tlv-municipality-preview-convrag", @"Tlv Convrag Prefix Preview");
@@ -54,6 +56,7 @@ internal static partial class V1SolutionsTlvMunicipalityPreviewConvragCommandApi
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

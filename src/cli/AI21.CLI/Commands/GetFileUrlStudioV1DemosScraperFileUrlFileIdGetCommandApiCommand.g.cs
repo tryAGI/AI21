@@ -39,6 +39,8 @@ internal static partial class GetFileUrlStudioV1DemosScraperFileUrlFileIdGetComm
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-file-url-studio-v1-demos-scraper-file-url-file-id-get", @"Get File Url");
@@ -67,6 +69,7 @@ internal static partial class GetFileUrlStudioV1DemosScraperFileUrlFileIdGetComm
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }
