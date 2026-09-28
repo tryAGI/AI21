@@ -47,8 +47,8 @@ namespace AI21
         /// <summary>
         ///
         /// </summary>
-        public global::AI21.HTTPToolResource PickHttp() => IsHttp
-            ? Http!
+        public global::AI21.HTTPToolResource PickHttp() => Http is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Http' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace AI21
         /// <summary>
         ///
         /// </summary>
-        public global::AI21.MCPToolResource PickMcp() => IsMcp
-            ? Mcp!
+        public global::AI21.MCPToolResource PickMcp() => Mcp is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Mcp' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace AI21
         /// <summary>
         ///
         /// </summary>
-        public global::AI21.FileSearchToolResource PickFileSearch() => IsFileSearch
-            ? FileSearch!
+        public global::AI21.FileSearchToolResource PickFileSearch() => FileSearch is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'FileSearch' but the value was {ToString()}.");
 
         /// <summary>
@@ -158,8 +158,8 @@ namespace AI21
         /// <summary>
         ///
         /// </summary>
-        public global::AI21.WebSearchToolResource PickWebSearch() => IsWebSearch
-            ? WebSearch!
+        public global::AI21.WebSearchToolResource PickWebSearch() => WebSearch is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'WebSearch' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -315,21 +315,21 @@ namespace AI21
                 Validate();
             }
 
-            if (IsHttp && http != null)
+            if (Http is { } __value0 && http != null)
             {
-                return http(Http!);
+                return http(__value0);
             }
-            else if (IsMcp && mcp != null)
+            else if (Mcp is { } __value1 && mcp != null)
             {
-                return mcp(Mcp!);
+                return mcp(__value1);
             }
-            else if (IsFileSearch && fileSearch != null)
+            else if (FileSearch is { } __value2 && fileSearch != null)
             {
-                return fileSearch(FileSearch!);
+                return fileSearch(__value2);
             }
-            else if (IsWebSearch && webSearch != null)
+            else if (WebSearch is { } __value3 && webSearch != null)
             {
-                return webSearch(WebSearch!);
+                return webSearch(__value3);
             }
 
             return default(TResult);
@@ -353,21 +353,21 @@ namespace AI21
                 Validate();
             }
 
-            if (IsHttp)
+            if (Http is { } __value0)
             {
-                http?.Invoke(Http!);
+                http?.Invoke(__value0);
             }
-            else if (IsMcp)
+            else if (Mcp is { } __value1)
             {
-                mcp?.Invoke(Mcp!);
+                mcp?.Invoke(__value1);
             }
-            else if (IsFileSearch)
+            else if (FileSearch is { } __value2)
             {
-                fileSearch?.Invoke(FileSearch!);
+                fileSearch?.Invoke(__value2);
             }
-            else if (IsWebSearch)
+            else if (WebSearch is { } __value3)
             {
-                webSearch?.Invoke(WebSearch!);
+                webSearch?.Invoke(__value3);
             }
         }
 
@@ -386,21 +386,21 @@ namespace AI21
                 Validate();
             }
 
-            if (IsHttp)
+            if (Http is { } __value0)
             {
-                http?.Invoke(Http!);
+                http?.Invoke(__value0);
             }
-            else if (IsMcp)
+            else if (Mcp is { } __value1)
             {
-                mcp?.Invoke(Mcp!);
+                mcp?.Invoke(__value1);
             }
-            else if (IsFileSearch)
+            else if (FileSearch is { } __value2)
             {
-                fileSearch?.Invoke(FileSearch!);
+                fileSearch?.Invoke(__value2);
             }
-            else if (IsWebSearch)
+            else if (WebSearch is { } __value3)
             {
-                webSearch?.Invoke(WebSearch!);
+                webSearch?.Invoke(__value3);
             }
         }
 

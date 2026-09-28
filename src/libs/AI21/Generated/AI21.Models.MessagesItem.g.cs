@@ -47,8 +47,8 @@ namespace AI21
         /// <summary>
         ///
         /// </summary>
-        public global::AI21.UserMessage PickUser() => IsUser
-            ? User!
+        public global::AI21.UserMessage PickUser() => User is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'User' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace AI21
         /// <summary>
         ///
         /// </summary>
-        public global::AI21.AssistantMessage PickAssistant() => IsAssistant
-            ? Assistant!
+        public global::AI21.AssistantMessage PickAssistant() => Assistant is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Assistant' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace AI21
         /// <summary>
         ///
         /// </summary>
-        public global::AI21.ToolMessage PickTool() => IsTool
-            ? Tool!
+        public global::AI21.ToolMessage PickTool() => Tool is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Tool' but the value was {ToString()}.");
 
         /// <summary>
@@ -158,8 +158,8 @@ namespace AI21
         /// <summary>
         ///
         /// </summary>
-        public global::AI21.SystemMessage PickSystem() => IsSystem
-            ? System!
+        public global::AI21.SystemMessage PickSystem() => System is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'System' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -315,21 +315,21 @@ namespace AI21
                 Validate();
             }
 
-            if (IsUser && user != null)
+            if (User is { } __value0 && user != null)
             {
-                return user(User!);
+                return user(__value0);
             }
-            else if (IsAssistant && assistant != null)
+            else if (Assistant is { } __value1 && assistant != null)
             {
-                return assistant(Assistant!);
+                return assistant(__value1);
             }
-            else if (IsTool && tool != null)
+            else if (Tool is { } __value2 && tool != null)
             {
-                return tool(Tool!);
+                return tool(__value2);
             }
-            else if (IsSystem && system != null)
+            else if (System is { } __value3 && system != null)
             {
-                return system(System!);
+                return system(__value3);
             }
 
             return default(TResult);
@@ -353,21 +353,21 @@ namespace AI21
                 Validate();
             }
 
-            if (IsUser)
+            if (User is { } __value0)
             {
-                user?.Invoke(User!);
+                user?.Invoke(__value0);
             }
-            else if (IsAssistant)
+            else if (Assistant is { } __value1)
             {
-                assistant?.Invoke(Assistant!);
+                assistant?.Invoke(__value1);
             }
-            else if (IsTool)
+            else if (Tool is { } __value2)
             {
-                tool?.Invoke(Tool!);
+                tool?.Invoke(__value2);
             }
-            else if (IsSystem)
+            else if (System is { } __value3)
             {
-                system?.Invoke(System!);
+                system?.Invoke(__value3);
             }
         }
 
@@ -386,21 +386,21 @@ namespace AI21
                 Validate();
             }
 
-            if (IsUser)
+            if (User is { } __value0)
             {
-                user?.Invoke(User!);
+                user?.Invoke(__value0);
             }
-            else if (IsAssistant)
+            else if (Assistant is { } __value1)
             {
-                assistant?.Invoke(Assistant!);
+                assistant?.Invoke(__value1);
             }
-            else if (IsTool)
+            else if (Tool is { } __value2)
             {
-                tool?.Invoke(Tool!);
+                tool?.Invoke(__value2);
             }
-            else if (IsSystem)
+            else if (System is { } __value3)
             {
-                system?.Invoke(System!);
+                system?.Invoke(__value3);
             }
         }
 

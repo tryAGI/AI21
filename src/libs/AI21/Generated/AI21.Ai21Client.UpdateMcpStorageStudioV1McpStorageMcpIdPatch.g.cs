@@ -164,7 +164,7 @@ namespace AI21
                 PrepareUpdateMcpStorageStudioV1McpStorageMcpIdPatchRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    mcpId: mcpId!,
+                    mcpId: mcpId,
                     request: request);
 
                 return __httpRequest;
@@ -187,7 +187,7 @@ namespace AI21
                                 pathTemplate: "$\"/studio/v1/mcp/storage/{mcpId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -221,7 +221,7 @@ namespace AI21
                                 pathTemplate: "$\"/studio/v1/mcp/storage/{mcpId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -262,7 +262,7 @@ namespace AI21
                                 pathTemplate: "$\"/studio/v1/mcp/storage/{mcpId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -310,7 +310,7 @@ namespace AI21
                                 pathTemplate: "$\"/studio/v1/mcp/storage/{mcpId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -332,7 +332,7 @@ namespace AI21
                                 pathTemplate: "$\"/studio/v1/mcp/storage/{mcpId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,

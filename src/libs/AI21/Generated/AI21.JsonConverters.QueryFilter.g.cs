@@ -198,19 +198,19 @@ namespace AI21.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::AI21.ComparisonOperator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::AI21.ComparisonOperator?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::AI21.ComparisonOperator).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ComparisonOperator!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickComparisonOperator(), typeInfo);
             }
             else if (value.IsLogicalOperator)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<object>>), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<object>>?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<object>>).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.LogicalOperator!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickLogicalOperator(), typeInfo);
             }
             else if (value.IsQueryFilterVariant3)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator>).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.QueryFilterVariant3!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickQueryFilterVariant3(), typeInfo);
             }
         }
     }
