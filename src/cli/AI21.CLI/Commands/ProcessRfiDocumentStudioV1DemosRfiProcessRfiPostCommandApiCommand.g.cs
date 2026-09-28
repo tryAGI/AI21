@@ -69,6 +69,8 @@ internal static partial class ProcessRfiDocumentStudioV1DemosRfiProcessRfiPostCo
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"process-rfi-document-studio-v1-demos-rfi-process-rfi-post", @"Process Rfi Document");
@@ -131,6 +133,7 @@ internal static partial class ProcessRfiDocumentStudioV1DemosRfiProcessRfiPostCo
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

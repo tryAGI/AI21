@@ -29,6 +29,8 @@ internal static partial class AnalyticsErrorsGatewayAnalyticsV1ErrorsGetCommandA
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"analytics-errors-gateway-analytics-v1-errors-get", @"Analytics Errors");
@@ -54,6 +56,7 @@ internal static partial class AnalyticsErrorsGatewayAnalyticsV1ErrorsGetCommandA
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

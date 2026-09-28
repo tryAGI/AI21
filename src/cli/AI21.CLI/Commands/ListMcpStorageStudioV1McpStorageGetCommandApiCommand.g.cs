@@ -33,6 +33,8 @@ internal static partial class ListMcpStorageStudioV1McpStorageGetCommandApiComma
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"list-mcp-storage-studio-v1-mcp-storage-get", @"List Mcp Storage");
@@ -66,6 +68,7 @@ internal static partial class ListMcpStorageStudioV1McpStorageGetCommandApiComma
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

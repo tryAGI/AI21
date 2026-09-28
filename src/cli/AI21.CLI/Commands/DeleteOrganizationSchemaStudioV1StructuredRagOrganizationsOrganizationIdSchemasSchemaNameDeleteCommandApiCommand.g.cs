@@ -39,6 +39,8 @@ internal static partial class DeleteOrganizationSchemaStudioV1StructuredRagOrgan
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"delete-organization-schema-studio-v1-structured-rag-organizations-organization-id-schemas-schema-name-delete", @"Delete Organization Schema");
@@ -67,6 +69,7 @@ internal static partial class DeleteOrganizationSchemaStudioV1StructuredRagOrgan
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

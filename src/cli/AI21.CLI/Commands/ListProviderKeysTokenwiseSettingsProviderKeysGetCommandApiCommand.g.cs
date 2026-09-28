@@ -33,6 +33,8 @@ internal static partial class ListProviderKeysTokenwiseSettingsProviderKeysGetCo
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"list-provider-keys-tokenwise-settings-provider-keys-get", @"List Provider Keys
@@ -69,6 +71,7 @@ string — see ``tokenwise_service._build_gateway_request``.");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

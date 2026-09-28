@@ -33,6 +33,8 @@ internal static partial class GetVectorStoreStudioV1DemosRegulationsVectorStoreV
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-vector-store-studio-v1-demos-regulations-vector-store-vector-store-id-get", @"Get Vector Store
@@ -59,6 +61,7 @@ Get a vector store by ID.");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

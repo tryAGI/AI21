@@ -33,6 +33,8 @@ internal static partial class GetOrganizationSchemasStudioV1StructuredRagOrganiz
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-organization-schemas-studio-v1-structured-rag-organizations-organization-id-schemas-get", @"Get Organization Schemas");
@@ -66,6 +68,7 @@ internal static partial class GetOrganizationSchemasStudioV1StructuredRagOrganiz
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

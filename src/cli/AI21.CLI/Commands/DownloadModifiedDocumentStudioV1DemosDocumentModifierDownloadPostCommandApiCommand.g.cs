@@ -41,6 +41,8 @@ internal static partial class DownloadModifiedDocumentStudioV1DemosDocumentModif
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"download-modified-document-studio-v1-demos-document-modifier-download-post", @"Download Modified Document
@@ -70,6 +72,7 @@ Download a modified document.");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

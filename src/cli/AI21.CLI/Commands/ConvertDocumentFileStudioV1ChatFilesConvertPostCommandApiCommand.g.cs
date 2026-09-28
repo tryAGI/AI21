@@ -34,6 +34,8 @@ internal static partial class ConvertDocumentFileStudioV1ChatFilesConvertPostCom
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"convert-document-file-studio-v1-chat-files-convert-post", @"Convert Document File");
@@ -59,6 +61,7 @@ internal static partial class ConvertDocumentFileStudioV1ChatFilesConvertPostCom
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

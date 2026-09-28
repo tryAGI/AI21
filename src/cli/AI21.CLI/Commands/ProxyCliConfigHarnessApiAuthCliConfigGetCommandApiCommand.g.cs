@@ -29,6 +29,8 @@ internal static partial class ProxyCliConfigHarnessApiAuthCliConfigGetCommandApi
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"proxy-cli-config-harness-api-auth-cli-config-get", @"Proxy Cli Config");
@@ -54,6 +56,7 @@ internal static partial class ProxyCliConfigHarnessApiAuthCliConfigGetCommandApi
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

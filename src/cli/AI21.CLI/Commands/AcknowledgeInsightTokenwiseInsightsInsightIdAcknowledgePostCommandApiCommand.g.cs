@@ -33,6 +33,8 @@ internal static partial class AcknowledgeInsightTokenwiseInsightsInsightIdAcknow
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"acknowledge-insight-tokenwise-insights-insight-id-acknowledge-post", @"Acknowledge Insight
@@ -63,6 +65,7 @@ here — those go through ``apply``.");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

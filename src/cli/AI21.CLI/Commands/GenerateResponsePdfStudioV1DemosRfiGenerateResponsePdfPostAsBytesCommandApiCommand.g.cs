@@ -9,6 +9,8 @@ internal static partial class GenerateResponsePdfStudioV1DemosRfiGenerateRespons
 {
     private static readonly MarkdownRequestOptionSet MarkdownRequestOptionSetOptions = MarkdownRequestOptionSet.Create();
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"generate-response-pdf-studio-v1-demos-rfi-generate-response-pdf-post-as-bytes", @"Combine section answers ➜ styled PDF for download");
@@ -28,6 +30,7 @@ internal static partial class GenerateResponsePdfStudioV1DemosRfiGenerateRespons
 
                                 await CliRuntime.WriteBinaryAsync(parseResult, response, cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

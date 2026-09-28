@@ -4,8 +4,10 @@ using System.CommandLine;
 
 namespace AI21.CLI.Commands;
 
-internal static class LibraryManagementApiGroupCommand
+internal static partial class LibraryManagementApiGroupCommand
 {
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"library-management", @"Library management endpoint commands.");
@@ -14,6 +16,7 @@ internal static class LibraryManagementApiGroupCommand
                          command.Subcommands.Add(LibraryManagementV1LibraryManagement2CommandApiCommand.Create());
                          command.Subcommands.Add(LibraryManagementV1LibraryManagement3CommandApiCommand.Create());
                          command.Subcommands.Add(LibraryManagementV1LibraryUploadCommandApiCommand.Create());
+        CustomizeCommand(ref command);
         return command;
     }
 }

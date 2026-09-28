@@ -29,6 +29,8 @@ internal static partial class GetConfigSchemaGatewaySettingsConfigsSchemaGetComm
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-config-schema-gateway-settings-configs-schema-get", @"Get Config Schema");
@@ -62,6 +64,7 @@ internal static partial class GetConfigSchemaGatewaySettingsConfigsSchemaGetComm
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

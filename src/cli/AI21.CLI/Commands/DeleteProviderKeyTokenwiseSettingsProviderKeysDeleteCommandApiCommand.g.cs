@@ -14,6 +14,8 @@ internal static partial class DeleteProviderKeyTokenwiseSettingsProviderKeysDele
         Required = true,
     };
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"delete-provider-key-tokenwise-settings-provider-keys-delete", @"Delete Provider Key
@@ -34,6 +36,7 @@ Delete the workspace's key for a provider. 404 if none is configured.");
 
                                 await CliRuntime.WriteSuccessAsync(parseResult, cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

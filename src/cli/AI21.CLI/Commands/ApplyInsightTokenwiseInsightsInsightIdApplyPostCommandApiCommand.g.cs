@@ -33,6 +33,8 @@ internal static partial class ApplyInsightTokenwiseInsightsInsightIdApplyPostCom
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"apply-insight-tokenwise-insights-insight-id-apply-post", @"Apply Insight
@@ -59,6 +61,7 @@ Apply an insight's config suggestion to its agent (``published`` -&gt; ``applied
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

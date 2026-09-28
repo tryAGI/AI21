@@ -41,6 +41,8 @@ internal static partial class ParsePdfStudioV1DemosDocumentModifierParsePdfPostC
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"parse-pdf-studio-v1-demos-document-modifier-parse-pdf-post", @"Parse Pdf
@@ -70,6 +72,7 @@ Parse a PDF file and return its contents.");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -4,8 +4,10 @@ using System.CommandLine;
 
 namespace AI21.CLI.Commands;
 
-internal static class WebsiteConnectorApiGroupCommand
+internal static partial class WebsiteConnectorApiGroupCommand
 {
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"website-connector", @"Website Connector endpoint commands.");
@@ -16,6 +18,7 @@ internal static class WebsiteConnectorApiGroupCommand
                          command.Subcommands.Add(WebsiteConnectorV1WebsiteConnectorIngestUrlCommandApiCommand.Create());
                          command.Subcommands.Add(WebsiteConnectorV1WebsiteConnectorIngestWebsiteCommandApiCommand.Create());
                          command.Subcommands.Add(WebsiteConnectorV1WebsiteConnectorRetryIngestWebsiteCommandApiCommand.Create());
+        CustomizeCommand(ref command);
         return command;
     }
 }

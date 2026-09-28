@@ -33,6 +33,8 @@ internal static partial class GetConfigTokenwiseSettingsConfigsConfigIdGetComman
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-config-tokenwise-settings-configs-config-id-get", @"Get Config");
@@ -58,6 +60,7 @@ internal static partial class GetConfigTokenwiseSettingsConfigsConfigIdGetComman
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

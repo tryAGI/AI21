@@ -33,6 +33,8 @@ internal static partial class RagEngineV1LibraryManagementCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"v1-library-management", @"Get Batch Ingestion Status");
@@ -66,6 +68,7 @@ internal static partial class RagEngineV1LibraryManagementCommandApiCommand
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

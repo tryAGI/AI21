@@ -70,6 +70,8 @@ internal static partial class JambaExecuteStudioV1DemosDocumentModifierJambaExec
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"jamba-execute-studio-v1-demos-document-modifier-jamba-execute-post", @"Jamba Execute
@@ -125,6 +127,7 @@ Execute a Jamba request.");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

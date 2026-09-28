@@ -29,6 +29,8 @@ internal static partial class GetAvailableModelsEndpointStudioV1SettingsModelsAv
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-available-models-endpoint-studio-v1-settings-models-available-get", @"Get Available Models Endpoint");
@@ -54,6 +56,7 @@ internal static partial class GetAvailableModelsEndpointStudioV1SettingsModelsAv
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

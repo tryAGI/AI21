@@ -34,6 +34,8 @@ internal static partial class V1StudioApiGenerationRequirementsCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"v1-studio-api-generation-requirements", @"Generate Requirements");
@@ -67,6 +69,7 @@ internal static partial class V1StudioApiGenerationRequirementsCommandApiCommand
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

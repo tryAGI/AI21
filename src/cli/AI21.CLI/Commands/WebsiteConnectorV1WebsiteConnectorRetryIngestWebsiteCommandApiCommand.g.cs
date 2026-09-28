@@ -34,6 +34,8 @@ internal static partial class WebsiteConnectorV1WebsiteConnectorRetryIngestWebsi
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"v1-website-connector-retry-ingest-website", @"Retry Ingest Website");
@@ -59,6 +61,7 @@ internal static partial class WebsiteConnectorV1WebsiteConnectorRetryIngestWebsi
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

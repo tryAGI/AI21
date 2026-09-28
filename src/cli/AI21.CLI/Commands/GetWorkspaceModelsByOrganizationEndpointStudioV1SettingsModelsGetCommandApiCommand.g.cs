@@ -29,6 +29,8 @@ internal static partial class GetWorkspaceModelsByOrganizationEndpointStudioV1Se
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-workspace-models-by-organization-endpoint-studio-v1-settings-models-get", @"Get Workspace Models By Organization Endpoint");
@@ -62,6 +64,7 @@ internal static partial class GetWorkspaceModelsByOrganizationEndpointStudioV1Se
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

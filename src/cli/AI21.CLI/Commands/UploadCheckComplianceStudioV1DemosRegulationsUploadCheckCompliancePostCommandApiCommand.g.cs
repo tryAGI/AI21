@@ -69,6 +69,8 @@ internal static partial class UploadCheckComplianceStudioV1DemosRegulationsUploa
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"upload-check-compliance-studio-v1-demos-regulations-upload-check-compliance-post", @"Upload Check Compliance
@@ -124,6 +126,7 @@ Check compliance of a document file against regulatory requirements.");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }
