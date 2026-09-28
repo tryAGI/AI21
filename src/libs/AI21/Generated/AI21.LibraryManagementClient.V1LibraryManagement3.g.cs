@@ -180,7 +180,7 @@ namespace AI21
                 PrepareV1LibraryManagement3Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    fileId: fileId!,
+                    fileId: fileId,
                     request: request);
 
                 return __httpRequest;
@@ -203,7 +203,7 @@ namespace AI21
                                 pathTemplate: "$\"/studio/v1/library/files/{fileId}\"",
                                 httpMethod: "PUT",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -237,7 +237,7 @@ namespace AI21
                                 pathTemplate: "$\"/studio/v1/library/files/{fileId}\"",
                                 httpMethod: "PUT",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -278,7 +278,7 @@ namespace AI21
                                 pathTemplate: "$\"/studio/v1/library/files/{fileId}\"",
                                 httpMethod: "PUT",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -326,7 +326,7 @@ namespace AI21
                                 pathTemplate: "$\"/studio/v1/library/files/{fileId}\"",
                                 httpMethod: "PUT",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -348,7 +348,7 @@ namespace AI21
                                 pathTemplate: "$\"/studio/v1/library/files/{fileId}\"",
                                 httpMethod: "PUT",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,

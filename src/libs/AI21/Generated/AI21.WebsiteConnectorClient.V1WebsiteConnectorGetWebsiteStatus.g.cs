@@ -106,7 +106,7 @@ namespace AI21
                                 path: "/studio/v1/website-connector/website-status",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddRequiredParameter("website_id", websiteId.ToString()!)
+                                .AddRequiredParameter("website_id", websiteId.ToString() ?? throw new global::System.InvalidOperationException("A required query parameter returned null from ToString()."))
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::AI21.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -148,7 +148,7 @@ namespace AI21
                 PrepareV1WebsiteConnectorGetWebsiteStatusRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    websiteId: websiteId!);
+                    websiteId: websiteId);
 
                 return __httpRequest;
             }
@@ -170,7 +170,7 @@ namespace AI21
                                 pathTemplate: "\"/studio/v1/website-connector/website-status\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -204,7 +204,7 @@ namespace AI21
                                 pathTemplate: "\"/studio/v1/website-connector/website-status\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -245,7 +245,7 @@ namespace AI21
                                 pathTemplate: "\"/studio/v1/website-connector/website-status\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -293,7 +293,7 @@ namespace AI21
                                 pathTemplate: "\"/studio/v1/website-connector/website-status\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -315,7 +315,7 @@ namespace AI21
                                 pathTemplate: "\"/studio/v1/website-connector/website-status\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,

@@ -153,8 +153,8 @@ namespace AI21
                 PrepareDeleteOrganizationSchemaStudioV1StructuredRagOrganizationsOrganizationIdSchemasSchemaNameDeleteRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    organizationId: organizationId!,
-                    schemaName: schemaName!);
+                    organizationId: organizationId,
+                    schemaName: schemaName);
 
                 return __httpRequest;
             }
@@ -176,7 +176,7 @@ namespace AI21
                                 pathTemplate: "$\"/studio/v1/structured-rag/organizations/{organizationId}/schemas/{schemaName}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -210,7 +210,7 @@ namespace AI21
                                 pathTemplate: "$\"/studio/v1/structured-rag/organizations/{organizationId}/schemas/{schemaName}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -251,7 +251,7 @@ namespace AI21
                                 pathTemplate: "$\"/studio/v1/structured-rag/organizations/{organizationId}/schemas/{schemaName}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -299,7 +299,7 @@ namespace AI21
                                 pathTemplate: "$\"/studio/v1/structured-rag/organizations/{organizationId}/schemas/{schemaName}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -321,7 +321,7 @@ namespace AI21
                                 pathTemplate: "$\"/studio/v1/structured-rag/organizations/{organizationId}/schemas/{schemaName}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,

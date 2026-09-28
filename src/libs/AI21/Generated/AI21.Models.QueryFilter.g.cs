@@ -42,8 +42,8 @@ namespace AI21
         /// <summary>
         ///
         /// </summary>
-        public global::AI21.ComparisonOperator PickComparisonOperator() => IsComparisonOperator
-            ? ComparisonOperator!
+        public global::AI21.ComparisonOperator PickComparisonOperator() => ComparisonOperator is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ComparisonOperator' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace AI21
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<object>> PickLogicalOperator() => IsLogicalOperator
-            ? LogicalOperator!
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<object>> PickLogicalOperator() => LogicalOperator is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'LogicalOperator' but the value was {ToString()}.");
 
         /// <summary>
@@ -116,8 +116,8 @@ namespace AI21
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator> PickQueryFilterVariant3() => IsQueryFilterVariant3
-            ? QueryFilterVariant3!
+        public global::System.Collections.Generic.Dictionary<string, global::AI21.ComparisonOperator> PickQueryFilterVariant3() => QueryFilterVariant3 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'QueryFilterVariant3' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -242,17 +242,17 @@ namespace AI21
                 Validate();
             }
 
-            if (IsComparisonOperator && comparisonOperator != null)
+            if (ComparisonOperator is { } __value0 && comparisonOperator != null)
             {
-                return comparisonOperator(ComparisonOperator!);
+                return comparisonOperator(__value0);
             }
-            else if (IsLogicalOperator && logicalOperator != null)
+            else if (LogicalOperator is { } __value1 && logicalOperator != null)
             {
-                return logicalOperator(LogicalOperator!);
+                return logicalOperator(__value1);
             }
-            else if (IsQueryFilterVariant3 && queryFilterVariant3 != null)
+            else if (QueryFilterVariant3 is { } __value2 && queryFilterVariant3 != null)
             {
-                return queryFilterVariant3(QueryFilterVariant3!);
+                return queryFilterVariant3(__value2);
             }
 
             return default(TResult);
@@ -274,17 +274,17 @@ namespace AI21
                 Validate();
             }
 
-            if (IsComparisonOperator)
+            if (ComparisonOperator is { } __value0)
             {
-                comparisonOperator?.Invoke(ComparisonOperator!);
+                comparisonOperator?.Invoke(__value0);
             }
-            else if (IsLogicalOperator)
+            else if (LogicalOperator is { } __value1)
             {
-                logicalOperator?.Invoke(LogicalOperator!);
+                logicalOperator?.Invoke(__value1);
             }
-            else if (IsQueryFilterVariant3)
+            else if (QueryFilterVariant3 is { } __value2)
             {
-                queryFilterVariant3?.Invoke(QueryFilterVariant3!);
+                queryFilterVariant3?.Invoke(__value2);
             }
         }
 
@@ -302,17 +302,17 @@ namespace AI21
                 Validate();
             }
 
-            if (IsComparisonOperator)
+            if (ComparisonOperator is { } __value0)
             {
-                comparisonOperator?.Invoke(ComparisonOperator!);
+                comparisonOperator?.Invoke(__value0);
             }
-            else if (IsLogicalOperator)
+            else if (LogicalOperator is { } __value1)
             {
-                logicalOperator?.Invoke(LogicalOperator!);
+                logicalOperator?.Invoke(__value1);
             }
-            else if (IsQueryFilterVariant3)
+            else if (QueryFilterVariant3 is { } __value2)
             {
-                queryFilterVariant3?.Invoke(QueryFilterVariant3!);
+                queryFilterVariant3?.Invoke(__value2);
             }
         }
 
