@@ -35,9 +35,9 @@ internal static partial class DeleteMcpStorageStudioV1McpStorageMcpIdDeleteComma
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"delete-mcp-storage-studio-v1-mcp-storage-mcp-id-delete", @"Delete Mcp Storage");
+        var command = new Command(commandName ?? @"delete-mcp-storage-studio-v1-mcp-storage-mcp-id-delete", @"Delete Mcp Storage");
                         command.Arguments.Add(McpId);
 
 

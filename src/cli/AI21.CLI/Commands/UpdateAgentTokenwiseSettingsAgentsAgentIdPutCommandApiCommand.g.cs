@@ -52,9 +52,9 @@ internal static partial class UpdateAgentTokenwiseSettingsAgentsAgentIdPutComman
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"update-agent-tokenwise-settings-agents-agent-id-put", @"Update Agent");
+        var command = new Command(commandName ?? @"update-agent-tokenwise-settings-agents-agent-id-put", @"Update Agent");
                         command.Arguments.Add(AgentId);                        command.Options.Add(AgentUpdateOptionSetOptions.NameOption);
                         command.Options.Add(AgentUpdateOptionSetOptions.Kind);
                         command.Options.Add(AgentUpdateOptionSetOptions.DescriptionOption);

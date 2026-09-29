@@ -31,9 +31,9 @@ internal static partial class AnalyticsTransformersGatewayAnalyticsV1Transformer
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"analytics-transformers-gateway-analytics-v1-transformers-get", @"Analytics Transformers");
+        var command = new Command(commandName ?? @"analytics-transformers-gateway-analytics-v1-transformers-get", @"Analytics Transformers");
 
 
 

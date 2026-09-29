@@ -31,9 +31,9 @@ internal static partial class AnalyticsFiltersGatewayAnalyticsV1FiltersGetComman
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"analytics-filters-gateway-analytics-v1-filters-get", @"Analytics Filters");
+        var command = new Command(commandName ?? @"analytics-filters-gateway-analytics-v1-filters-get", @"Analytics Filters");
 
 
 

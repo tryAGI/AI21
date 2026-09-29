@@ -36,9 +36,9 @@ internal static partial class CanIframeStudioV1DemosScraperCanIframeGetCommandAp
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"can-iframe-studio-v1-demos-scraper-can-iframe-get", @"Can Iframe");
+        var command = new Command(commandName ?? @"can-iframe-studio-v1-demos-scraper-can-iframe-get", @"Can Iframe");
                         command.Options.Add(Url);
 
 

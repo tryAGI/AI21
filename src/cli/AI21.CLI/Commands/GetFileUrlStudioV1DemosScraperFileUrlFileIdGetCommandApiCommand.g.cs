@@ -41,9 +41,9 @@ internal static partial class GetFileUrlStudioV1DemosScraperFileUrlFileIdGetComm
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-file-url-studio-v1-demos-scraper-file-url-file-id-get", @"Get File Url");
+        var command = new Command(commandName ?? @"get-file-url-studio-v1-demos-scraper-file-url-file-id-get", @"Get File Url");
                         command.Arguments.Add(FileId);
                         command.Options.Add(ApiKey);
 

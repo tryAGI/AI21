@@ -35,9 +35,9 @@ internal static partial class GetMcpStorageStudioV1McpStorageMcpIdGetCommandApiC
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-mcp-storage-studio-v1-mcp-storage-mcp-id-get", @"Get Mcp Storage");
+        var command = new Command(commandName ?? @"get-mcp-storage-studio-v1-mcp-storage-mcp-id-get", @"Get Mcp Storage");
                         command.Arguments.Add(McpId);
 
 

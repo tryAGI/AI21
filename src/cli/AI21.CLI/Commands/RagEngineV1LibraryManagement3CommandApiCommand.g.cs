@@ -35,9 +35,9 @@ internal static partial class RagEngineV1LibraryManagement3CommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"v1-library-management3", @"Download Parsed Document
+        var command = new Command(commandName ?? @"v1-library-management3", @"Download Parsed Document
 Download parsed document with Content-Disposition header for immediate download.");
                         command.Arguments.Add(FileId);
 

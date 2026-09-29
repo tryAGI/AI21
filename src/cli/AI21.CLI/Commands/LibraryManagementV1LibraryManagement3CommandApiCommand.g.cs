@@ -68,9 +68,9 @@ provided, will overwrite all existing labels.
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"v1-library-management3", @"Update File
+        var command = new Command(commandName ?? @"v1-library-management3", @"Update File
 Update the specified parameters of a specific document in the user's library.
 This operation currently supports updating the publicUrl and labels parameters.
 

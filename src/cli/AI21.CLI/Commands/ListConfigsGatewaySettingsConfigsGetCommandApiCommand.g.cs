@@ -31,9 +31,9 @@ internal static partial class ListConfigsGatewaySettingsConfigsGetCommandApiComm
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"list-configs-gateway-settings-configs-get", @"List Configs");
+        var command = new Command(commandName ?? @"list-configs-gateway-settings-configs-get", @"List Configs");
 
 
 

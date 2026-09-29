@@ -71,9 +71,9 @@ internal static partial class UploadCheckComplianceStudioV1DemosRegulationsUploa
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"upload-check-compliance-studio-v1-demos-regulations-upload-check-compliance-post", @"Upload Check Compliance
+        var command = new Command(commandName ?? @"upload-check-compliance-studio-v1-demos-regulations-upload-check-compliance-post", @"Upload Check Compliance
 Check compliance of a document file against regulatory requirements.");
                         command.Options.Add(File);
                         command.Options.Add(Filename);

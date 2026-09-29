@@ -16,9 +16,9 @@ internal static partial class DeleteProviderKeyTokenwiseSettingsProviderKeysDele
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"delete-provider-key-tokenwise-settings-provider-keys-delete", @"Delete Provider Key
+        var command = new Command(commandName ?? @"delete-provider-key-tokenwise-settings-provider-keys-delete", @"Delete Provider Key
 Delete the workspace's key for a provider. 404 if none is configured.");
                         command.Options.Add(Provider);
 

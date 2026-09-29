@@ -31,9 +31,9 @@ internal static partial class AnalyticsContextBlocksTokenwiseAnalyticsV1ContextB
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"analytics-context-blocks-tokenwise-analytics-v1-context-blocks-get", @"Analytics Context Blocks");
+        var command = new Command(commandName ?? @"analytics-context-blocks-tokenwise-analytics-v1-context-blocks-get", @"Analytics Context Blocks");
 
 
 

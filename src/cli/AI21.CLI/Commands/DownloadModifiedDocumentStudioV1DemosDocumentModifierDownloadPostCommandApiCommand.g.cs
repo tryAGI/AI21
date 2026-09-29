@@ -43,9 +43,9 @@ internal static partial class DownloadModifiedDocumentStudioV1DemosDocumentModif
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"download-modified-document-studio-v1-demos-document-modifier-download-post", @"Download Modified Document
+        var command = new Command(commandName ?? @"download-modified-document-studio-v1-demos-document-modifier-download-post", @"Download Modified Document
 Download a modified document.");
                         command.Options.Add(Content);
                         command.Options.Add(Filename);

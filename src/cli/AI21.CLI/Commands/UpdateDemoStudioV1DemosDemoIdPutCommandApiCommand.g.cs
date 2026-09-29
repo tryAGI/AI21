@@ -81,9 +81,9 @@ internal static partial class UpdateDemoStudioV1DemosDemoIdPutCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"update-demo-studio-v1-demos-demo-id-put", @"Update Demo
+        var command = new Command(commandName ?? @"update-demo-studio-v1-demos-demo-id-put", @"Update Demo
 Update an existing demo.");
                         command.Arguments.Add(DemoId);
                         command.Options.Add(NameOption);

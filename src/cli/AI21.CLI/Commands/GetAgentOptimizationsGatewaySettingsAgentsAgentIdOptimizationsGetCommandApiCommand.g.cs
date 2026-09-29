@@ -35,9 +35,9 @@ internal static partial class GetAgentOptimizationsGatewaySettingsAgentsAgentIdO
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-agent-optimizations-gateway-settings-agents-agent-id-optimizations-get", @"Get Agent Optimizations");
+        var command = new Command(commandName ?? @"get-agent-optimizations-gateway-settings-agents-agent-id-optimizations-get", @"Get Agent Optimizations");
                         command.Arguments.Add(AgentId);
 
 

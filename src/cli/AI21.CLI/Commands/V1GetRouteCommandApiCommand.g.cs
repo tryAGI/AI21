@@ -41,9 +41,9 @@ internal static partial class V1GetRouteCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"v1-get-route", @"Get Route");
+        var command = new Command(commandName ?? @"v1-get-route", @"Get Route");
                         command.Arguments.Add(RouteId);
                         command.Arguments.Add(AssistantId);
 

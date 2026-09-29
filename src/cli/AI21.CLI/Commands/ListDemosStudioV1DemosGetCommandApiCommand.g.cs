@@ -31,9 +31,9 @@ internal static partial class ListDemosStudioV1DemosGetCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"list-demos-studio-v1-demos-get", @"List Demos
+        var command = new Command(commandName ?? @"list-demos-studio-v1-demos-get", @"List Demos
 List all available demos.");
 
 

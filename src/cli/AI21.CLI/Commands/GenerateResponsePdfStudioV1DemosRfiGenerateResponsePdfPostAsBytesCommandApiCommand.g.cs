@@ -11,9 +11,9 @@ internal static partial class GenerateResponsePdfStudioV1DemosRfiGenerateRespons
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"generate-response-pdf-studio-v1-demos-rfi-generate-response-pdf-post-as-bytes", @"Combine section answers ➜ styled PDF for download");
+        var command = new Command(commandName ?? @"generate-response-pdf-studio-v1-demos-rfi-generate-response-pdf-post-as-bytes", @"Combine section answers ➜ styled PDF for download");
                         command.Options.Add(MarkdownRequestOptionSetOptions.Text);
 
 

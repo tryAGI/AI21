@@ -36,9 +36,9 @@ internal static partial class GetParsedFileStudioV1DemosDocumentModifierGetParse
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-parsed-file-studio-v1-demos-document-modifier-get-parsed-file-get", @"Get Parsed File
+        var command = new Command(commandName ?? @"get-parsed-file-studio-v1-demos-document-modifier-get-parsed-file-get", @"Get Parsed File
 Get the parsed file from the document modifier.");
                         command.Options.Add(FileName);
 

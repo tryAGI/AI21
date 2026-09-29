@@ -31,9 +31,9 @@ internal static partial class ListAgentsGatewaySettingsAgentsGetCommandApiComman
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"list-agents-gateway-settings-agents-get", @"List Agents");
+        var command = new Command(commandName ?? @"list-agents-gateway-settings-agents-get", @"List Agents");
 
 
 

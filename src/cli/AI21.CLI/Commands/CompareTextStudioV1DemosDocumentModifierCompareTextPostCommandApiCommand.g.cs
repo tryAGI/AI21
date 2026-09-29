@@ -43,9 +43,9 @@ internal static partial class CompareTextStudioV1DemosDocumentModifierCompareTex
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"compare-text-studio-v1-demos-document-modifier-compare-text-post", @"Compare Text
+        var command = new Command(commandName ?? @"compare-text-studio-v1-demos-document-modifier-compare-text-post", @"Compare Text
 Compare text in a document file against a reference text.");
                         command.Options.Add(OriginalText);
                         command.Options.Add(ModifiedText);

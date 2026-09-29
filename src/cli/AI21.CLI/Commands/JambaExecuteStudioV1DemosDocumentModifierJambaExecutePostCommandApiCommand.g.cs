@@ -72,9 +72,9 @@ internal static partial class JambaExecuteStudioV1DemosDocumentModifierJambaExec
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"jamba-execute-studio-v1-demos-document-modifier-jamba-execute-post", @"Jamba Execute
+        var command = new Command(commandName ?? @"jamba-execute-studio-v1-demos-document-modifier-jamba-execute-post", @"Jamba Execute
 Execute a Jamba request.");
                         command.Options.Add(Content);
                         command.Options.Add(Task);

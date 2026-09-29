@@ -31,9 +31,9 @@ internal static partial class GetWorkspaceModelsByOrganizationEndpointStudioV1Se
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-workspace-models-by-organization-endpoint-studio-v1-settings-models-get", @"Get Workspace Models By Organization Endpoint");
+        var command = new Command(commandName ?? @"get-workspace-models-by-organization-endpoint-studio-v1-settings-models-get", @"Get Workspace Models By Organization Endpoint");
 
 
 

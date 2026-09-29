@@ -71,9 +71,9 @@ internal static partial class ProcessRfiDocumentStudioV1DemosRfiProcessRfiPostCo
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"process-rfi-document-studio-v1-demos-rfi-process-rfi-post", @"Process Rfi Document");
+        var command = new Command(commandName ?? @"process-rfi-document-studio-v1-demos-rfi-process-rfi-post", @"Process Rfi Document");
                         command.Options.Add(File);
                         command.Options.Add(Filename);
                         command.Options.Add(Budget);

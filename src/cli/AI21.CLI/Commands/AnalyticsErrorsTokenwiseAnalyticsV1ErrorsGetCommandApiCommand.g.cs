@@ -31,9 +31,9 @@ internal static partial class AnalyticsErrorsTokenwiseAnalyticsV1ErrorsGetComman
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"analytics-errors-tokenwise-analytics-v1-errors-get", @"Analytics Errors");
+        var command = new Command(commandName ?? @"analytics-errors-tokenwise-analytics-v1-errors-get", @"Analytics Errors");
 
 
 

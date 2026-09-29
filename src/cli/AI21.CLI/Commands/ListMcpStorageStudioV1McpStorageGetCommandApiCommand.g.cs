@@ -35,9 +35,9 @@ internal static partial class ListMcpStorageStudioV1McpStorageGetCommandApiComma
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"list-mcp-storage-studio-v1-mcp-storage-get", @"List Mcp Storage");
+        var command = new Command(commandName ?? @"list-mcp-storage-studio-v1-mcp-storage-get", @"List Mcp Storage");
                         command.Options.Add(WorkspaceId);
 
 

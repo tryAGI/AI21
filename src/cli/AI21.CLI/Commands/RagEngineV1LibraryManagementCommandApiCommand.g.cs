@@ -35,9 +35,9 @@ internal static partial class RagEngineV1LibraryManagementCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"v1-library-management", @"Get Batch Ingestion Status");
+        var command = new Command(commandName ?? @"v1-library-management", @"Get Batch Ingestion Status");
                         command.Arguments.Add(BatchId);
 
 

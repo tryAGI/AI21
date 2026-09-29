@@ -36,9 +36,9 @@ internal static partial class ConvertDocumentFileStudioV1ChatFilesConvertPostCom
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"convert-document-file-studio-v1-chat-files-convert-post", @"Convert Document File");
+        var command = new Command(commandName ?? @"convert-document-file-studio-v1-chat-files-convert-post", @"Convert Document File");
                         command.Options.Add(Files);
 
 

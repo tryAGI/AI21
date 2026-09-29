@@ -35,9 +35,9 @@ internal static partial class GetAgentTokenwiseSettingsAgentsAgentIdGetCommandAp
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-agent-tokenwise-settings-agents-agent-id-get", @"Get Agent");
+        var command = new Command(commandName ?? @"get-agent-tokenwise-settings-agents-agent-id-get", @"Get Agent");
                         command.Arguments.Add(AgentId);
 
 

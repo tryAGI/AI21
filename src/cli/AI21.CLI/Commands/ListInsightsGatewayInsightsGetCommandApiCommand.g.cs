@@ -36,9 +36,9 @@ internal static partial class ListInsightsGatewayInsightsGetCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"list-insights-gateway-insights-get", @"List Insights
+        var command = new Command(commandName ?? @"list-insights-gateway-insights-get", @"List Insights
 Published insights for ``agent_id``, newest first.
 
 ``agent_id`` is typed here so a missing/empty value fails with 422 before

@@ -64,9 +64,9 @@ internal static partial class DetectSchemaStudioV1StructuredRagOrganizationsOrga
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"detect-schema-studio-v1-structured-rag-organizations-organization-id-schema-detection-post", @"Detect Schema");
+        var command = new Command(commandName ?? @"detect-schema-studio-v1-structured-rag-organizations-organization-id-schema-detection-post", @"Detect Schema");
                         command.Arguments.Add(OrganizationId);
                         command.Options.Add(Documents);
                         command.Options.Add(Queries);

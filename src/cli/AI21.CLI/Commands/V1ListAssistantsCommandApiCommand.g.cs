@@ -35,9 +35,9 @@ internal static partial class V1ListAssistantsCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"v1-list-assistants", @"Get Assistants");
+        var command = new Command(commandName ?? @"v1-list-assistants", @"Get Assistants");
                         command.Options.Add(WorkspaceIds);
 
 

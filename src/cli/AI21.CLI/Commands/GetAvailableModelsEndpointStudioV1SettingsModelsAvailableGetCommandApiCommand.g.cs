@@ -31,9 +31,9 @@ internal static partial class GetAvailableModelsEndpointStudioV1SettingsModelsAv
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-available-models-endpoint-studio-v1-settings-models-available-get", @"Get Available Models Endpoint");
+        var command = new Command(commandName ?? @"get-available-models-endpoint-studio-v1-settings-models-available-get", @"Get Available Models Endpoint");
 
 
 

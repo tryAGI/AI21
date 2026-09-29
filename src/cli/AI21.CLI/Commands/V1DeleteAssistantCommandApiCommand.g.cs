@@ -35,9 +35,9 @@ internal static partial class V1DeleteAssistantCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"v1-delete-assistant", @"Delete Assistant");
+        var command = new Command(commandName ?? @"v1-delete-assistant", @"Delete Assistant");
                         command.Arguments.Add(AssistantId);
 
 

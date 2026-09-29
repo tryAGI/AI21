@@ -35,9 +35,9 @@ internal static partial class ApplyInsightTokenwiseInsightsInsightIdApplyPostCom
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"apply-insight-tokenwise-insights-insight-id-apply-post", @"Apply Insight
+        var command = new Command(commandName ?? @"apply-insight-tokenwise-insights-insight-id-apply-post", @"Apply Insight
 Apply an insight's config suggestion to its agent (``published`` -&gt; ``applied``).");
                         command.Arguments.Add(InsightId);
 

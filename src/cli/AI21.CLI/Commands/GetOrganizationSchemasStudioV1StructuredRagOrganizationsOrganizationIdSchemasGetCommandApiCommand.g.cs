@@ -35,9 +35,9 @@ internal static partial class GetOrganizationSchemasStudioV1StructuredRagOrganiz
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-organization-schemas-studio-v1-structured-rag-organizations-organization-id-schemas-get", @"Get Organization Schemas");
+        var command = new Command(commandName ?? @"get-organization-schemas-studio-v1-structured-rag-organizations-organization-id-schemas-get", @"Get Organization Schemas");
                         command.Arguments.Add(OrganizationId);
 
 

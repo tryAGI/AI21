@@ -35,9 +35,9 @@ internal static partial class WebsiteConnectorV1WebsiteConnectorIngestUrlCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"v1-website-connector-ingest-url", @"Connect Website");
+        var command = new Command(commandName ?? @"v1-website-connector-ingest-url", @"Connect Website");
                         command.Arguments.Add(Url);
 
 

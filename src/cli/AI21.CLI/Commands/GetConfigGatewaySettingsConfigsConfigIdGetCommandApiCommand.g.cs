@@ -35,9 +35,9 @@ internal static partial class GetConfigGatewaySettingsConfigsConfigIdGetCommandA
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-config-gateway-settings-configs-config-id-get", @"Get Config");
+        var command = new Command(commandName ?? @"get-config-gateway-settings-configs-config-id-get", @"Get Config");
                         command.Arguments.Add(ConfigId);
 
 

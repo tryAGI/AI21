@@ -69,9 +69,9 @@ internal static partial class CreateOrganizationSchemaStudioV1StructuredRagOrgan
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"create-organization-schema-studio-v1-structured-rag-organizations-organization-id-schemas-post", @"Create Organization Schema");
+        var command = new Command(commandName ?? @"create-organization-schema-studio-v1-structured-rag-organizations-organization-id-schemas-post", @"Create Organization Schema");
                         command.Arguments.Add(OrganizationId);
                         command.Options.Add(SchemaName);
                         command.Options.Add(SchemaObject);

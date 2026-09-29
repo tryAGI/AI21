@@ -35,9 +35,9 @@ internal static partial class DeleteDemoStudioV1DemosDemoIdDeleteCommandApiComma
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"delete-demo-studio-v1-demos-demo-id-delete", @"Delete Demo
+        var command = new Command(commandName ?? @"delete-demo-studio-v1-demos-demo-id-delete", @"Delete Demo
 Delete a demo.");
                         command.Arguments.Add(DemoId);
 

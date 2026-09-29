@@ -94,9 +94,9 @@ internal static partial class CreateDemoStudioV1DemosPostCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"create-demo-studio-v1-demos-post", @"Create Demo
+        var command = new Command(commandName ?? @"create-demo-studio-v1-demos-post", @"Create Demo
 Create a new demo.");
                         command.Arguments.Add(NameOption);
                         command.Options.Add(Visibility);

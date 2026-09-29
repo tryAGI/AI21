@@ -35,9 +35,9 @@ internal static partial class GetWorkspaceModelSecretEndpointStudioV1SettingsMod
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-workspace-model-secret-endpoint-studio-v1-settings-models-name-secrets-get", @"Get Workspace Model Secret Endpoint");
+        var command = new Command(commandName ?? @"get-workspace-model-secret-endpoint-studio-v1-settings-models-name-secrets-get", @"Get Workspace Model Secret Endpoint");
                         command.Arguments.Add(NameOption);
 
 

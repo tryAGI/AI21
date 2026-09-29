@@ -35,9 +35,9 @@ internal static partial class GetDemoStudioV1DemosDemoIdGetCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-demo-studio-v1-demos-demo-id-get", @"Get Demo
+        var command = new Command(commandName ?? @"get-demo-studio-v1-demos-demo-id-get", @"Get Demo
 Get a specific demo by ID.");
                         command.Arguments.Add(DemoId);
 

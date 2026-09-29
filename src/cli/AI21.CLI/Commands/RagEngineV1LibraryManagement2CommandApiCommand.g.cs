@@ -35,9 +35,9 @@ internal static partial class RagEngineV1LibraryManagement2CommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"v1-library-management2", @"Generate Documents Signed Url");
+        var command = new Command(commandName ?? @"v1-library-management2", @"Generate Documents Signed Url");
                         command.Arguments.Add(FileId);
 
 

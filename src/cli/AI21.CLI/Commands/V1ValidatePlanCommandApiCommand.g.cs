@@ -58,9 +58,9 @@ internal static partial class V1ValidatePlanCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"v1-validate-plan", @"Validate Plan");
+        var command = new Command(commandName ?? @"v1-validate-plan", @"Validate Plan");
                         command.Arguments.Add(AssistantId);
                         command.Options.Add(Schemas);                        command.Options.Add(CreatePlanPayloadOptionSetOptions.Code);
           command.Options.Add(Input);
