@@ -35,9 +35,9 @@ internal static partial class DismissInsightGatewayInsightsInsightIdDismissPostC
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"dismiss-insight-gateway-insights-insight-id-dismiss-post", @"Dismiss Insight
+        var command = new Command(commandName ?? @"dismiss-insight-gateway-insights-insight-id-dismiss-post", @"Dismiss Insight
 Dismiss an insight (``published`` -&gt; ``dismissed``).");
                         command.Arguments.Add(InsightId);
 

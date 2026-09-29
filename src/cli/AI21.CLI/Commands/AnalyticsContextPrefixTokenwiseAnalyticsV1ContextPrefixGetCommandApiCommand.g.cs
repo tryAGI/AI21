@@ -31,9 +31,9 @@ internal static partial class AnalyticsContextPrefixTokenwiseAnalyticsV1ContextP
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"analytics-context-prefix-tokenwise-analytics-v1-context-prefix-get", @"Analytics Context Prefix");
+        var command = new Command(commandName ?? @"analytics-context-prefix-tokenwise-analytics-v1-context-prefix-get", @"Analytics Context Prefix");
 
 
 

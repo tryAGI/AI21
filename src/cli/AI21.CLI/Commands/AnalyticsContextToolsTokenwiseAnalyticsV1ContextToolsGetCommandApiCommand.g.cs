@@ -31,9 +31,9 @@ internal static partial class AnalyticsContextToolsTokenwiseAnalyticsV1ContextTo
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"analytics-context-tools-tokenwise-analytics-v1-context-tools-get", @"Analytics Context Tools");
+        var command = new Command(commandName ?? @"analytics-context-tools-tokenwise-analytics-v1-context-tools-get", @"Analytics Context Tools");
 
 
 

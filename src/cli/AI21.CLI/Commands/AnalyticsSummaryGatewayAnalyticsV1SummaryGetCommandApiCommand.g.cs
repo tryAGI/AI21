@@ -31,9 +31,9 @@ internal static partial class AnalyticsSummaryGatewayAnalyticsV1SummaryGetComman
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"analytics-summary-gateway-analytics-v1-summary-get", @"Analytics Summary");
+        var command = new Command(commandName ?? @"analytics-summary-gateway-analytics-v1-summary-get", @"Analytics Summary");
 
 
 

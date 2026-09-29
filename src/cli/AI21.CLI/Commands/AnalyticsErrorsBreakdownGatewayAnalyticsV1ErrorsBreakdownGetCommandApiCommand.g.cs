@@ -31,9 +31,9 @@ internal static partial class AnalyticsErrorsBreakdownGatewayAnalyticsV1ErrorsBr
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"analytics-errors-breakdown-gateway-analytics-v1-errors-breakdown-get", @"Analytics Errors Breakdown");
+        var command = new Command(commandName ?? @"analytics-errors-breakdown-gateway-analytics-v1-errors-breakdown-get", @"Analytics Errors Breakdown");
 
 
 

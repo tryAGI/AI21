@@ -35,9 +35,9 @@ internal static partial class ListProviderKeysGatewaySettingsProviderKeysGetComm
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"list-provider-keys-gateway-settings-provider-keys-get", @"List Provider Keys
+        var command = new Command(commandName ?? @"list-provider-keys-gateway-settings-provider-keys-get", @"List Provider Keys
 The workspace's provider keys, masked.
 
 One endpoint, two shapes, mirroring the BFF: without ``provider`` it lists

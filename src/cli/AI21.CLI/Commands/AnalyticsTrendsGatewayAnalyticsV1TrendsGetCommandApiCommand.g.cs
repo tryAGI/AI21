@@ -31,9 +31,9 @@ internal static partial class AnalyticsTrendsGatewayAnalyticsV1TrendsGetCommandA
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"analytics-trends-gateway-analytics-v1-trends-get", @"Analytics Trends");
+        var command = new Command(commandName ?? @"analytics-trends-gateway-analytics-v1-trends-get", @"Analytics Trends");
 
 
 

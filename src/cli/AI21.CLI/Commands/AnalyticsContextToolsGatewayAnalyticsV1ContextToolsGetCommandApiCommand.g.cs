@@ -31,9 +31,9 @@ internal static partial class AnalyticsContextToolsGatewayAnalyticsV1ContextTool
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"analytics-context-tools-gateway-analytics-v1-context-tools-get", @"Analytics Context Tools");
+        var command = new Command(commandName ?? @"analytics-context-tools-gateway-analytics-v1-context-tools-get", @"Analytics Context Tools");
 
 
 

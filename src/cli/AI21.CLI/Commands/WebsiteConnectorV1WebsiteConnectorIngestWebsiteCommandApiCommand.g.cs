@@ -64,9 +64,9 @@ internal static partial class WebsiteConnectorV1WebsiteConnectorIngestWebsiteCom
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"v1-website-connector-ingest-website", @"Ingest Website");
+        var command = new Command(commandName ?? @"v1-website-connector-ingest-website", @"Ingest Website");
                         command.Options.Add(SitemapUrl);
                         command.Options.Add(ClientConfig);
                         command.Options.Add(Labels);

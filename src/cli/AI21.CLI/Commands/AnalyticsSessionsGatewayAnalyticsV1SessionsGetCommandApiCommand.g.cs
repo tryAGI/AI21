@@ -31,9 +31,9 @@ internal static partial class AnalyticsSessionsGatewayAnalyticsV1SessionsGetComm
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"analytics-sessions-gateway-analytics-v1-sessions-get", @"Analytics Sessions");
+        var command = new Command(commandName ?? @"analytics-sessions-gateway-analytics-v1-sessions-get", @"Analytics Sessions");
 
 
 

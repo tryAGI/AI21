@@ -41,9 +41,9 @@ internal static partial class V1GetPlanCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"v1-get-plan", @"Get Plan");
+        var command = new Command(commandName ?? @"v1-get-plan", @"Get Plan");
                         command.Arguments.Add(PlanId);
                         command.Arguments.Add(AssistantId);
 

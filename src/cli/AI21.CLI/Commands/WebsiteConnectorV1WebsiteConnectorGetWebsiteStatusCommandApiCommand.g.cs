@@ -36,9 +36,9 @@ internal static partial class WebsiteConnectorV1WebsiteConnectorGetWebsiteStatus
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"v1-website-connector-get-website-status", @"Get Website Status");
+        var command = new Command(commandName ?? @"v1-website-connector-get-website-status", @"Get Website Status");
                         command.Options.Add(WebsiteId);
 
 

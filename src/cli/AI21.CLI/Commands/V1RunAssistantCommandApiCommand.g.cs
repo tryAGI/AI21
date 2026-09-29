@@ -94,9 +94,9 @@ internal static partial class V1RunAssistantCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"v1-run-assistant", @"Run Assistant");
+        var command = new Command(commandName ?? @"v1-run-assistant", @"Run Assistant");
                         command.Arguments.Add(AssistantId);
                         command.Options.Add(InputOption);
                         command.Options.Add(Verbose);

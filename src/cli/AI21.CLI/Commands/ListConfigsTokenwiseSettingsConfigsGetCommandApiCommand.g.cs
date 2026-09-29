@@ -31,9 +31,9 @@ internal static partial class ListConfigsTokenwiseSettingsConfigsGetCommandApiCo
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"list-configs-tokenwise-settings-configs-get", @"List Configs");
+        var command = new Command(commandName ?? @"list-configs-tokenwise-settings-configs-get", @"List Configs");
 
 
 

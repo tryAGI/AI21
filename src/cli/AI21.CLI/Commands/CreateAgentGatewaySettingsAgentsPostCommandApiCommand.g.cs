@@ -47,9 +47,9 @@ internal static partial class CreateAgentGatewaySettingsAgentsPostCommandApiComm
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"create-agent-gateway-settings-agents-post", @"Create Agent");
+        var command = new Command(commandName ?? @"create-agent-gateway-settings-agents-post", @"Create Agent");
                         command.Options.Add(AgentCreateOptionSetOptions.AgentId);
                         command.Options.Add(AgentCreateOptionSetOptions.Kind);
                         command.Options.Add(AgentCreateOptionSetOptions.NameOption);

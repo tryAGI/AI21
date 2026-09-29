@@ -63,9 +63,9 @@ internal static partial class V1CreateRouteCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"v1-create-route", @"Create Route");
+        var command = new Command(commandName ?? @"v1-create-route", @"Create Route");
                         command.Arguments.Add(AssistantId);
                         command.Options.Add(PlanId);
                         command.Options.Add(NameOption);

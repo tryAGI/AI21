@@ -161,9 +161,9 @@ be 1. A streaming response is different than the non-streaming response.
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"v1-maestro-run", @"Create Maestro Run");
+        var command = new Command(commandName ?? @"v1-maestro-run", @"Create Maestro Run");
                         command.Options.Add(InputOption);
                         command.Options.Add(OutputType);
                         command.Options.Add(Models);

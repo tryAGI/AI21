@@ -36,9 +36,9 @@ internal static partial class WebsiteConnectorV1WebsiteConnectorRetryIngestWebsi
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"v1-website-connector-retry-ingest-website", @"Retry Ingest Website");
+        var command = new Command(commandName ?? @"v1-website-connector-retry-ingest-website", @"Retry Ingest Website");
                         command.Options.Add(WebsiteId);
 
 

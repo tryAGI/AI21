@@ -35,9 +35,9 @@ internal static partial class LibraryManagementV1LibraryDeleteCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"v1-library-delete", @"Delete File
+        var command = new Command(commandName ?? @"v1-library-delete", @"Delete File
 Delete the specified file from the library.
 
 **Restrictions**:

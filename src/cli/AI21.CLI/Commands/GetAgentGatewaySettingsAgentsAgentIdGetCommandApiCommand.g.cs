@@ -35,9 +35,9 @@ internal static partial class GetAgentGatewaySettingsAgentsAgentIdGetCommandApiC
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-agent-gateway-settings-agents-agent-id-get", @"Get Agent");
+        var command = new Command(commandName ?? @"get-agent-gateway-settings-agents-agent-id-get", @"Get Agent");
                         command.Arguments.Add(AgentId);
 
 

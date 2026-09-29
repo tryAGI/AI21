@@ -52,9 +52,9 @@ internal static partial class CreateConfigGatewaySettingsConfigsPostCommandApiCo
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"create-config-gateway-settings-configs-post", @"Create Config");
+        var command = new Command(commandName ?? @"create-config-gateway-settings-configs-post", @"Create Config");
                         command.Options.Add(Overrides);                        command.Options.Add(ConfigProfileCreateOptionSetOptions.ConfigId);
                         command.Options.Add(ConfigProfileCreateOptionSetOptions.NameOption);
                         command.Options.Add(ConfigProfileCreateOptionSetOptions.DescriptionOption);

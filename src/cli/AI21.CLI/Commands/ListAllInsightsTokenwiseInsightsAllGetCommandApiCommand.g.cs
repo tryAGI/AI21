@@ -31,9 +31,9 @@ internal static partial class ListAllInsightsTokenwiseInsightsAllGetCommandApiCo
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"list-all-insights-tokenwise-insights-all-get", @"List All Insights
+        var command = new Command(commandName ?? @"list-all-insights-tokenwise-insights-all-get", @"List All Insights
 Every insight for the workspace in one read, newest first, with an optional
 ``agent_id`` filter that rides through on the query string.
 

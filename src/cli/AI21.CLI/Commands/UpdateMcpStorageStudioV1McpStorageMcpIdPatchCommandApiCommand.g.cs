@@ -42,9 +42,9 @@ internal static partial class UpdateMcpStorageStudioV1McpStorageMcpIdPatchComman
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"update-mcp-storage-studio-v1-mcp-storage-mcp-id-patch", @"Update Mcp Storage");
+        var command = new Command(commandName ?? @"update-mcp-storage-studio-v1-mcp-storage-mcp-id-patch", @"Update Mcp Storage");
                         command.Arguments.Add(McpId);
                         command.Options.Add(ServerLabel);
 

@@ -31,9 +31,9 @@ internal static partial class GetConfigSchemaTokenwiseSettingsConfigsSchemaGetCo
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-config-schema-tokenwise-settings-configs-schema-get", @"Get Config Schema");
+        var command = new Command(commandName ?? @"get-config-schema-tokenwise-settings-configs-schema-get", @"Get Config Schema");
 
 
 

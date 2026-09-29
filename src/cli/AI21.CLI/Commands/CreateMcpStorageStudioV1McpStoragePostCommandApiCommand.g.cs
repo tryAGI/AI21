@@ -89,9 +89,9 @@ internal static partial class CreateMcpStorageStudioV1McpStoragePostCommandApiCo
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"create-mcp-storage-studio-v1-mcp-storage-post", @"Create Mcp Storage");
+        var command = new Command(commandName ?? @"create-mcp-storage-studio-v1-mcp-storage-post", @"Create Mcp Storage");
                         command.Options.Add(ServerUrl);
                         command.Options.Add(ServerLabel);
                         command.Options.Add(WorkspaceId);

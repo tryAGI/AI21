@@ -15,9 +15,9 @@ internal static partial class DeleteConfigGatewaySettingsConfigsConfigIdDeleteCo
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"delete-config-gateway-settings-configs-config-id-delete", @"Delete Config");
+        var command = new Command(commandName ?? @"delete-config-gateway-settings-configs-config-id-delete", @"Delete Config");
                         command.Arguments.Add(ConfigId);
 
 

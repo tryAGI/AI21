@@ -31,9 +31,9 @@ internal static partial class AnalyticsAgentsTokenwiseAnalyticsV1AgentsGetComman
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"analytics-agents-tokenwise-analytics-v1-agents-get", @"Analytics Agents");
+        var command = new Command(commandName ?? @"analytics-agents-tokenwise-analytics-v1-agents-get", @"Analytics Agents");
 
 
 

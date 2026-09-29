@@ -35,9 +35,9 @@ internal static partial class LibraryManagementV1LibraryManagement2CommandApiCom
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"v1-library-management2", @"Get File By Id
+        var command = new Command(commandName ?? @"v1-library-management2", @"Get File By Id
 Retrieve a list of documents in the user's library. Optionally specify a
 filter to find only files with matching labels or paths. This method
 returns only metadata about files; to download a file, call

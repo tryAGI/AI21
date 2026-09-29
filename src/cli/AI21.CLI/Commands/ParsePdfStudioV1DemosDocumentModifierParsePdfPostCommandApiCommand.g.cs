@@ -43,9 +43,9 @@ internal static partial class ParsePdfStudioV1DemosDocumentModifierParsePdfPostC
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"parse-pdf-studio-v1-demos-document-modifier-parse-pdf-post", @"Parse Pdf
+        var command = new Command(commandName ?? @"parse-pdf-studio-v1-demos-document-modifier-parse-pdf-post", @"Parse Pdf
 Parse a PDF file and return its contents.");
                         command.Options.Add(File);
                         command.Options.Add(Filename);

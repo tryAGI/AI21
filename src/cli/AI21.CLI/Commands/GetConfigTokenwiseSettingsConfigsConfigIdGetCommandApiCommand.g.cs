@@ -35,9 +35,9 @@ internal static partial class GetConfigTokenwiseSettingsConfigsConfigIdGetComman
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-config-tokenwise-settings-configs-config-id-get", @"Get Config");
+        var command = new Command(commandName ?? @"get-config-tokenwise-settings-configs-config-id-get", @"Get Config");
                         command.Arguments.Add(ConfigId);
 
 

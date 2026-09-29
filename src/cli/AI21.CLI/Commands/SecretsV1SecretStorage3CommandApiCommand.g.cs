@@ -36,9 +36,9 @@ internal static partial class SecretsV1SecretStorage3CommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"v1-secret-storage3", @"Delete Secret");
+        var command = new Command(commandName ?? @"v1-secret-storage3", @"Delete Secret");
                         command.Options.Add(SecretId);
 
 

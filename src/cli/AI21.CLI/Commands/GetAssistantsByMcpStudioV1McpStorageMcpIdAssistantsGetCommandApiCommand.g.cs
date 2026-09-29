@@ -35,9 +35,9 @@ internal static partial class GetAssistantsByMcpStudioV1McpStorageMcpIdAssistant
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-assistants-by-mcp-studio-v1-mcp-storage-mcp-id-assistants-get", @"Get Assistants By Mcp");
+        var command = new Command(commandName ?? @"get-assistants-by-mcp-studio-v1-mcp-storage-mcp-id-assistants-get", @"Get Assistants By Mcp");
                         command.Arguments.Add(McpId);
 
 

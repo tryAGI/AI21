@@ -69,9 +69,9 @@ internal static partial class UpdateWorkspaceModelEndpointStudioV1SettingsModels
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"update-workspace-model-endpoint-studio-v1-settings-models-name-patch", @"Update Workspace Model Endpoint");
+        var command = new Command(commandName ?? @"update-workspace-model-endpoint-studio-v1-settings-models-name-patch", @"Update Workspace Model Endpoint");
                         command.Arguments.Add(NameOption);
                         command.Options.Add(RequestName);
                         command.Options.Add(ModelType);

@@ -128,9 +128,9 @@ internal static partial class V1ModifyAssistantCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"v1-modify-assistant", @"Modify Assistant");
+        var command = new Command(commandName ?? @"v1-modify-assistant", @"Modify Assistant");
                         command.Arguments.Add(AssistantId);
                         command.Options.Add(NameOption);
                         command.Options.Add(DescriptionOption);

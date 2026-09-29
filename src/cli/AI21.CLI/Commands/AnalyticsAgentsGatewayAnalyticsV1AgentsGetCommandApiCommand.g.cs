@@ -31,9 +31,9 @@ internal static partial class AnalyticsAgentsGatewayAnalyticsV1AgentsGetCommandA
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"analytics-agents-gateway-analytics-v1-agents-get", @"Analytics Agents");
+        var command = new Command(commandName ?? @"analytics-agents-gateway-analytics-v1-agents-get", @"Analytics Agents");
 
 
 

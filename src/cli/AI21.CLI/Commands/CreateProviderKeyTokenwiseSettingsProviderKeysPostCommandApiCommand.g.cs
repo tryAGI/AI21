@@ -47,9 +47,9 @@ internal static partial class CreateProviderKeyTokenwiseSettingsProviderKeysPost
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"create-provider-key-tokenwise-settings-provider-keys-post", @"Create Provider Key
+        var command = new Command(commandName ?? @"create-provider-key-tokenwise-settings-provider-keys-post", @"Create Provider Key
 Store a provider key for the workspace. 409 if one already exists.");
                         command.Options.Add(ProviderKeyCreateOptionSetOptions.Provider);
                         command.Options.Add(ProviderKeyCreateOptionSetOptions.ApiKey);

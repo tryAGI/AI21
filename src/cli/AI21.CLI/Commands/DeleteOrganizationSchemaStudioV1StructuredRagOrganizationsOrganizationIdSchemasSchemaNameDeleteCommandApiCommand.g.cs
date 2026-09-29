@@ -41,9 +41,9 @@ internal static partial class DeleteOrganizationSchemaStudioV1StructuredRagOrgan
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"delete-organization-schema-studio-v1-structured-rag-organizations-organization-id-schemas-schema-name-delete", @"Delete Organization Schema");
+        var command = new Command(commandName ?? @"delete-organization-schema-studio-v1-structured-rag-organizations-organization-id-schemas-schema-name-delete", @"Delete Organization Schema");
                         command.Arguments.Add(OrganizationId);
                         command.Arguments.Add(SchemaName);
 

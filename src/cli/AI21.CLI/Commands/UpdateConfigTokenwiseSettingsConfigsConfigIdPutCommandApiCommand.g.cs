@@ -58,9 +58,9 @@ internal static partial class UpdateConfigTokenwiseSettingsConfigsConfigIdPutCom
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"update-config-tokenwise-settings-configs-config-id-put", @"Update Config");
+        var command = new Command(commandName ?? @"update-config-tokenwise-settings-configs-config-id-put", @"Update Config");
                         command.Arguments.Add(ConfigId);
                         command.Options.Add(Overrides);                        command.Options.Add(ConfigProfileUpdateOptionSetOptions.NameOption);
                         command.Options.Add(ConfigProfileUpdateOptionSetOptions.DescriptionOption);

@@ -70,9 +70,9 @@ internal static partial class V1ModifyRouteCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"v1-modify-route", @"Modify Route");
+        var command = new Command(commandName ?? @"v1-modify-route", @"Modify Route");
                         command.Arguments.Add(RouteId);
                         command.Arguments.Add(AssistantId);
                         command.Options.Add(DescriptionOption);

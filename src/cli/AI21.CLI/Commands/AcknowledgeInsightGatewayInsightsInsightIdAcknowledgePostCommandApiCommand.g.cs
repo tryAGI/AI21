@@ -35,9 +35,9 @@ internal static partial class AcknowledgeInsightGatewayInsightsInsightIdAcknowle
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"acknowledge-insight-gateway-insights-insight-id-acknowledge-post", @"Acknowledge Insight
+        var command = new Command(commandName ?? @"acknowledge-insight-gateway-insights-insight-id-acknowledge-post", @"Acknowledge Insight
 Mark an advisory insight as acted on (``published`` -&gt; ``acknowledged``).
 
 The positive terminal action for a ``kind=""advisory""`` insight, which carries

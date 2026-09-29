@@ -31,9 +31,9 @@ internal static partial class AnalyticsContextBlocksGatewayAnalyticsV1ContextBlo
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"analytics-context-blocks-gateway-analytics-v1-context-blocks-get", @"Analytics Context Blocks");
+        var command = new Command(commandName ?? @"analytics-context-blocks-gateway-analytics-v1-context-blocks-get", @"Analytics Context Blocks");
 
 
 

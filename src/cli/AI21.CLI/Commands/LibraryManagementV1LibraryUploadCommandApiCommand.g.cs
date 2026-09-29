@@ -107,9 +107,9 @@ internal static partial class LibraryManagementV1LibraryUploadCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"v1-library-upload", @"Upload Workspace File
+        var command = new Command(commandName ?? @"v1-library-upload", @"Upload Workspace File
 Upload files to use for [RAG Engine document searches](https://docs.ai21.com/docs/rag-engine-overview).
 You can assign metadata to your files to limit searches to specific files by file metadata.
 There is no bulk upload method; files must be loaded one at a time.

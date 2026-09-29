@@ -148,9 +148,9 @@ be 1. A streaming response is different than the non-streaming response.
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"v1-chat-complete", @"Studio Chat Complete
+        var command = new Command(commandName ?? @"v1-chat-complete", @"Studio Chat Complete
 This is the endpoint for the [Jamba Instruct model](https://docs.ai21.com/docs/jamba-models).
 This is a foundation model that supports both single-turn (question answering,
 text completion) and multi-turn (chat style) interactions.

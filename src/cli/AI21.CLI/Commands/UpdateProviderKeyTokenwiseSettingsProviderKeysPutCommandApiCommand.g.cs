@@ -47,9 +47,9 @@ internal static partial class UpdateProviderKeyTokenwiseSettingsProviderKeysPutC
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"update-provider-key-tokenwise-settings-provider-keys-put", @"Update Provider Key
+        var command = new Command(commandName ?? @"update-provider-key-tokenwise-settings-provider-keys-put", @"Update Provider Key
 Rotate the workspace's key for a provider. 404 if none is configured.
 
 Full replacement, not a partial update — unlike the agent/config mirrors there

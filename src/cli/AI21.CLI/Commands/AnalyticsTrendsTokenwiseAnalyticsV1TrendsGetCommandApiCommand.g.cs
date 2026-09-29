@@ -31,9 +31,9 @@ internal static partial class AnalyticsTrendsTokenwiseAnalyticsV1TrendsGetComman
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"analytics-trends-tokenwise-analytics-v1-trends-get", @"Analytics Trends");
+        var command = new Command(commandName ?? @"analytics-trends-tokenwise-analytics-v1-trends-get", @"Analytics Trends");
 
 
 

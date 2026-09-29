@@ -31,9 +31,9 @@ internal static partial class ProxyCliConfigHarnessApiAuthCliConfigGetCommandApi
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"proxy-cli-config-harness-api-auth-cli-config-get", @"Proxy Cli Config");
+        var command = new Command(commandName ?? @"proxy-cli-config-harness-api-auth-cli-config-get", @"Proxy Cli Config");
 
 
 

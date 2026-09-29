@@ -52,9 +52,9 @@ internal static partial class SubmitInsightFeedbackGatewayInsightsInsightIdFeedb
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"submit-insight-feedback-gateway-insights-insight-id-feedback-post", @"Submit Insight Feedback
+        var command = new Command(commandName ?? @"submit-insight-feedback-gateway-insights-insight-id-feedback-post", @"Submit Insight Feedback
 Record the user's verdict (+ optional comment) on an insight.
 
 Orthogonal to the lifecycle — allowed in every customer-visible state, and

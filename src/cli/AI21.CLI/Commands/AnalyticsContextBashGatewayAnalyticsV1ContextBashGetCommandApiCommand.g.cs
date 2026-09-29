@@ -31,9 +31,9 @@ internal static partial class AnalyticsContextBashGatewayAnalyticsV1ContextBashG
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"analytics-context-bash-gateway-analytics-v1-context-bash-get", @"Analytics Context Bash");
+        var command = new Command(commandName ?? @"analytics-context-bash-gateway-analytics-v1-context-bash-get", @"Analytics Context Bash");
 
 
 

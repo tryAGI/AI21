@@ -35,9 +35,9 @@ internal static partial class V1GetMaestroRunCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"v1-get-maestro-run", @"Get Maestro Run");
+        var command = new Command(commandName ?? @"v1-get-maestro-run", @"Get Maestro Run");
                         command.Arguments.Add(ExecutionId);
 
 
