@@ -7,7 +7,7 @@ namespace AI21
     {
 
 
-        private static readonly global::AI21.EndPointSecurityRequirement s_ProxyHarnessApiHarnessApiPathGet2SecurityRequirement0 =
+        private static readonly global::AI21.EndPointSecurityRequirement s_ProxyHarnessApiHarnessApiPathPutSecurityRequirement0 =
             new global::AI21.EndPointSecurityRequirement
             {
                 Authorizations = new global::AI21.EndPointAuthorizationRequirement[]
@@ -21,22 +21,22 @@ namespace AI21
                     },
                 },
             };
-        private static readonly global::AI21.EndPointSecurityRequirement[] s_ProxyHarnessApiHarnessApiPathGet2SecurityRequirements =
+        private static readonly global::AI21.EndPointSecurityRequirement[] s_ProxyHarnessApiHarnessApiPathPutSecurityRequirements =
             new global::AI21.EndPointSecurityRequirement[]
-            {                s_ProxyHarnessApiHarnessApiPathGet2SecurityRequirement0,
+            {                s_ProxyHarnessApiHarnessApiPathPutSecurityRequirement0,
             };
-        partial void PrepareProxyHarnessApiHarnessApiPathGet2Arguments(
+        partial void PrepareProxyHarnessApiHarnessApiPathPutArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string path);
-        partial void PrepareProxyHarnessApiHarnessApiPathGet2Request(
+        partial void PrepareProxyHarnessApiHarnessApiPathPutRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string path);
-        partial void ProcessProxyHarnessApiHarnessApiPathGet2Response(
+        partial void ProcessProxyHarnessApiHarnessApiPathPutResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessProxyHarnessApiHarnessApiPathGet2ResponseContent(
+        partial void ProcessProxyHarnessApiHarnessApiPathPutResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
@@ -48,12 +48,12 @@ namespace AI21
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> ProxyHarnessApiHarnessApiPathGet2Async(
+        public async global::System.Threading.Tasks.Task<string> ProxyHarnessApiHarnessApiPathPutAsync(
             string path,
             global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await ProxyHarnessApiHarnessApiPathGet2AsResponseAsync(
+            var __response = await ProxyHarnessApiHarnessApiPathPutAsResponseAsync(
                 path: path,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -68,22 +68,22 @@ namespace AI21
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.AutoSDKHttpResponse<string>> ProxyHarnessApiHarnessApiPathGet2AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::AI21.AutoSDKHttpResponse<string>> ProxyHarnessApiHarnessApiPathPutAsResponseAsync(
             string path,
             global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareProxyHarnessApiHarnessApiPathGet2Arguments(
+            PrepareProxyHarnessApiHarnessApiPathPutArguments(
                 httpClient: HttpClient,
                 path: ref path);
 
 
             var __authorizations = global::AI21.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_ProxyHarnessApiHarnessApiPathGet2SecurityRequirements,
-                operationName: "ProxyHarnessApiHarnessApiPathGet2Async");
+                securityRequirements: s_ProxyHarnessApiHarnessApiPathPutSecurityRequirements,
+                operationName: "ProxyHarnessApiHarnessApiPathPutAsync");
 
             using var __timeoutCancellationTokenSource = global::AI21.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -111,7 +111,7 @@ namespace AI21
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Put,
+                    method: global::System.Net.Http.HttpMethod.Get,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -142,7 +142,7 @@ namespace AI21
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareProxyHarnessApiHarnessApiPathGet2Request(
+                PrepareProxyHarnessApiHarnessApiPathPutRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     path: path);
@@ -162,10 +162,10 @@ namespace AI21
                     await global::AI21.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::AI21.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ProxyHarnessApiHarnessApiPathGet2",
-                                methodName: "ProxyHarnessApiHarnessApiPathGet2Async",
+                                operationId: "ProxyHarnessApiHarnessApiPathPut",
+                                methodName: "ProxyHarnessApiHarnessApiPathPutAsync",
                                 pathTemplate: "$\"/harness/api/{path}\"",
-                                httpMethod: "PUT",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -196,10 +196,10 @@ namespace AI21
                         await global::AI21.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::AI21.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ProxyHarnessApiHarnessApiPathGet2",
-                                methodName: "ProxyHarnessApiHarnessApiPathGet2Async",
+                                operationId: "ProxyHarnessApiHarnessApiPathPut",
+                                methodName: "ProxyHarnessApiHarnessApiPathPutAsync",
                                 pathTemplate: "$\"/harness/api/{path}\"",
-                                httpMethod: "PUT",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -237,10 +237,10 @@ namespace AI21
                         await global::AI21.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::AI21.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ProxyHarnessApiHarnessApiPathGet2",
-                                methodName: "ProxyHarnessApiHarnessApiPathGet2Async",
+                                operationId: "ProxyHarnessApiHarnessApiPathPut",
+                                methodName: "ProxyHarnessApiHarnessApiPathPutAsync",
                                 pathTemplate: "$\"/harness/api/{path}\"",
-                                httpMethod: "PUT",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -277,7 +277,7 @@ namespace AI21
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessProxyHarnessApiHarnessApiPathGet2Response(
+                ProcessProxyHarnessApiHarnessApiPathPutResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -285,10 +285,10 @@ namespace AI21
                     await global::AI21.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::AI21.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ProxyHarnessApiHarnessApiPathGet2",
-                                methodName: "ProxyHarnessApiHarnessApiPathGet2Async",
+                                operationId: "ProxyHarnessApiHarnessApiPathPut",
+                                methodName: "ProxyHarnessApiHarnessApiPathPutAsync",
                                 pathTemplate: "$\"/harness/api/{path}\"",
-                                httpMethod: "PUT",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -307,10 +307,10 @@ namespace AI21
                     await global::AI21.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::AI21.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ProxyHarnessApiHarnessApiPathGet2",
-                                methodName: "ProxyHarnessApiHarnessApiPathGet2Async",
+                                operationId: "ProxyHarnessApiHarnessApiPathPut",
+                                methodName: "ProxyHarnessApiHarnessApiPathPutAsync",
                                 pathTemplate: "$\"/harness/api/{path}\"",
-                                httpMethod: "PUT",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -374,7 +374,7 @@ namespace AI21
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessProxyHarnessApiHarnessApiPathGet2ResponseContent(
+                                ProcessProxyHarnessApiHarnessApiPathPutResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);

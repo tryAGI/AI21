@@ -5,7 +5,7 @@ using System.CommandLine;
 
 namespace AI21.CLI.Commands;
 
-internal static partial class ProxyHarnessApiHarnessApiPathGetCommandApiCommand
+internal static partial class ProxyHarnessApiHarnessApiPathPut2CommandApiCommand
 {
     private static Argument<string> Path { get; } = new(
         name: @"path")
@@ -37,7 +37,7 @@ internal static partial class ProxyHarnessApiHarnessApiPathGetCommandApiCommand
 
     public static Command Create(string? commandName = null)
     {
-        var command = new Command(commandName ?? @"proxy-harness-api-harness-api-path-get", @"Proxy Harness Api");
+        var command = new Command(commandName ?? @"proxy-harness-api-harness-api-path-put2", @"Proxy Harness Api");
                         command.Arguments.Add(Path);
 
 
@@ -48,7 +48,7 @@ internal static partial class ProxyHarnessApiHarnessApiPathGetCommandApiCommand
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
-                                var response = await client.ProxyHarnessApiHarnessApiPathGetAsync(
+                                var response = await client.ProxyHarnessApiHarnessApiPathPut2Async(
                                     path: path,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
