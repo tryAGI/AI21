@@ -6,7 +6,7 @@ namespace AI21
     /// <summary>
     ///
     /// </summary>
-    public sealed partial class ProxyHarnessApiHarnessApiPathGetResponse
+    public sealed partial class ProxyHarnessApiHarnessApiPathPostResponse
     {
 
         /// <summary>
