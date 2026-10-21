@@ -110,11 +110,11 @@ internal static partial class DefaultApiGroupCommand
                          command.Subcommands.Add(ProxyBedrockInvokeStreamTokenwiseModelModelIdInvokeWithResponseStreamPostCommandApiCommand.Create());
                          command.Subcommands.Add(ProxyBedrockInvokeTokenwiseModelModelIdInvokePostCommandApiCommand.Create());
                          command.Subcommands.Add(ProxyCliConfigHarnessApiAuthCliConfigGetCommandApiCommand.Create());
-                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathGetCommandApiCommand.Create());
-                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathGet2CommandApiCommand.Create());
-                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathGet3CommandApiCommand.Create());
-                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathGet4CommandApiCommand.Create());
-                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathGet5CommandApiCommand.Create());
+                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathPostCommandApiCommand.Create());
+                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathPost2CommandApiCommand.Create());
+                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathPost3CommandApiCommand.Create());
+                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathPost4CommandApiCommand.Create());
+                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathPost5CommandApiCommand.Create());
                          command.Subcommands.Add(ProxyOffV1GatewayOffV1PathOptionsCommandApiCommand.Create());
                          command.Subcommands.Add(ProxyOffV1GatewayOffV1PathOptions2CommandApiCommand.Create());
                          command.Subcommands.Add(ProxyOffV1GatewayOffV1PathOptions3CommandApiCommand.Create());
