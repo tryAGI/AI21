@@ -18,7 +18,7 @@ namespace AI21.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::AI21.RunOptimizationExtensions.ToEnum(stringValue) ?? default;
+                        return global::AI21.RunOptimizationExtensions.ToEnum(stringValue) ?? throw new global::System.Text.Json.JsonException($"Unknown value '{stringValue}' for global::AI21.RunOptimization.");
                     }
 
                     break;
