@@ -7,7 +7,7 @@ namespace AI21
     {
 
 
-        private static readonly global::AI21.EndPointSecurityRequirement s_ProxyHarnessApiHarnessApiPathGet4SecurityRequirement0 =
+        private static readonly global::AI21.EndPointSecurityRequirement s_ProxyHarnessApiHarnessApiPathPost4SecurityRequirement0 =
             new global::AI21.EndPointSecurityRequirement
             {
                 Authorizations = new global::AI21.EndPointAuthorizationRequirement[]
@@ -21,22 +21,22 @@ namespace AI21
                     },
                 },
             };
-        private static readonly global::AI21.EndPointSecurityRequirement[] s_ProxyHarnessApiHarnessApiPathGet4SecurityRequirements =
+        private static readonly global::AI21.EndPointSecurityRequirement[] s_ProxyHarnessApiHarnessApiPathPost4SecurityRequirements =
             new global::AI21.EndPointSecurityRequirement[]
-            {                s_ProxyHarnessApiHarnessApiPathGet4SecurityRequirement0,
+            {                s_ProxyHarnessApiHarnessApiPathPost4SecurityRequirement0,
             };
-        partial void PrepareProxyHarnessApiHarnessApiPathGet4Arguments(
+        partial void PrepareProxyHarnessApiHarnessApiPathPost4Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string path);
-        partial void PrepareProxyHarnessApiHarnessApiPathGet4Request(
+        partial void PrepareProxyHarnessApiHarnessApiPathPost4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string path);
-        partial void ProcessProxyHarnessApiHarnessApiPathGet4Response(
+        partial void ProcessProxyHarnessApiHarnessApiPathPost4Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessProxyHarnessApiHarnessApiPathGet4ResponseContent(
+        partial void ProcessProxyHarnessApiHarnessApiPathPost4ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
@@ -48,12 +48,12 @@ namespace AI21
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> ProxyHarnessApiHarnessApiPathGet4Async(
+        public async global::System.Threading.Tasks.Task<string> ProxyHarnessApiHarnessApiPathPost4Async(
             string path,
             global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await ProxyHarnessApiHarnessApiPathGet4AsResponseAsync(
+            var __response = await ProxyHarnessApiHarnessApiPathPost4AsResponseAsync(
                 path: path,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -68,22 +68,22 @@ namespace AI21
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::AI21.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::AI21.AutoSDKHttpResponse<string>> ProxyHarnessApiHarnessApiPathGet4AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::AI21.AutoSDKHttpResponse<string>> ProxyHarnessApiHarnessApiPathPost4AsResponseAsync(
             string path,
             global::AI21.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareProxyHarnessApiHarnessApiPathGet4Arguments(
+            PrepareProxyHarnessApiHarnessApiPathPost4Arguments(
                 httpClient: HttpClient,
                 path: ref path);
 
 
             var __authorizations = global::AI21.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_ProxyHarnessApiHarnessApiPathGet4SecurityRequirements,
-                operationName: "ProxyHarnessApiHarnessApiPathGet4Async");
+                securityRequirements: s_ProxyHarnessApiHarnessApiPathPost4SecurityRequirements,
+                operationName: "ProxyHarnessApiHarnessApiPathPost4Async");
 
             using var __timeoutCancellationTokenSource = global::AI21.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -142,7 +142,7 @@ namespace AI21
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareProxyHarnessApiHarnessApiPathGet4Request(
+                PrepareProxyHarnessApiHarnessApiPathPost4Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     path: path);
@@ -162,8 +162,8 @@ namespace AI21
                     await global::AI21.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::AI21.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ProxyHarnessApiHarnessApiPathGet4",
-                                methodName: "ProxyHarnessApiHarnessApiPathGet4Async",
+                                operationId: "ProxyHarnessApiHarnessApiPathPost4",
+                                methodName: "ProxyHarnessApiHarnessApiPathPost4Async",
                                 pathTemplate: "$\"/harness/api/{path}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
@@ -196,8 +196,8 @@ namespace AI21
                         await global::AI21.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::AI21.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ProxyHarnessApiHarnessApiPathGet4",
-                                methodName: "ProxyHarnessApiHarnessApiPathGet4Async",
+                                operationId: "ProxyHarnessApiHarnessApiPathPost4",
+                                methodName: "ProxyHarnessApiHarnessApiPathPost4Async",
                                 pathTemplate: "$\"/harness/api/{path}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
@@ -237,8 +237,8 @@ namespace AI21
                         await global::AI21.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::AI21.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ProxyHarnessApiHarnessApiPathGet4",
-                                methodName: "ProxyHarnessApiHarnessApiPathGet4Async",
+                                operationId: "ProxyHarnessApiHarnessApiPathPost4",
+                                methodName: "ProxyHarnessApiHarnessApiPathPost4Async",
                                 pathTemplate: "$\"/harness/api/{path}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
@@ -277,7 +277,7 @@ namespace AI21
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessProxyHarnessApiHarnessApiPathGet4Response(
+                ProcessProxyHarnessApiHarnessApiPathPost4Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -285,8 +285,8 @@ namespace AI21
                     await global::AI21.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::AI21.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ProxyHarnessApiHarnessApiPathGet4",
-                                methodName: "ProxyHarnessApiHarnessApiPathGet4Async",
+                                operationId: "ProxyHarnessApiHarnessApiPathPost4",
+                                methodName: "ProxyHarnessApiHarnessApiPathPost4Async",
                                 pathTemplate: "$\"/harness/api/{path}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
@@ -307,8 +307,8 @@ namespace AI21
                     await global::AI21.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::AI21.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ProxyHarnessApiHarnessApiPathGet4",
-                                methodName: "ProxyHarnessApiHarnessApiPathGet4Async",
+                                operationId: "ProxyHarnessApiHarnessApiPathPost4",
+                                methodName: "ProxyHarnessApiHarnessApiPathPost4Async",
                                 pathTemplate: "$\"/harness/api/{path}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
@@ -374,7 +374,7 @@ namespace AI21
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessProxyHarnessApiHarnessApiPathGet4ResponseContent(
+                                ProcessProxyHarnessApiHarnessApiPathPost4ResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
