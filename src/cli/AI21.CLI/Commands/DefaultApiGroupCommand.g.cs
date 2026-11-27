@@ -122,11 +122,11 @@ internal static partial class DefaultApiGroupCommand
                          command.Subcommands.Add(ProxyFoundryV1TokenwiseFoundryResourceV1PathPatch4CommandApiCommand.Create());
                          command.Subcommands.Add(ProxyFoundryV1TokenwiseFoundryResourceV1PathPatch5CommandApiCommand.Create());
                          command.Subcommands.Add(ProxyFoundryV1TokenwiseFoundryResourceV1PathPatch6CommandApiCommand.Create());
-                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathDeleteCommandApiCommand.Create());
-                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathDelete2CommandApiCommand.Create());
-                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathDelete3CommandApiCommand.Create());
-                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathDelete4CommandApiCommand.Create());
-                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathDelete5CommandApiCommand.Create());
+                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathPatchCommandApiCommand.Create());
+                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathPatch2CommandApiCommand.Create());
+                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathPatch3CommandApiCommand.Create());
+                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathPatch4CommandApiCommand.Create());
+                         command.Subcommands.Add(ProxyHarnessApiHarnessApiPathPatch5CommandApiCommand.Create());
                          command.Subcommands.Add(ProxyOffV1GatewayOffV1PathPatchCommandApiCommand.Create());
                          command.Subcommands.Add(ProxyOffV1GatewayOffV1PathPatch2CommandApiCommand.Create());
                          command.Subcommands.Add(ProxyOffV1GatewayOffV1PathPatch3CommandApiCommand.Create());
